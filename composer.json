@@ -1,0 +1,20 @@
+{
+    "name": "mhzawadi/dashboard",
+    "description": "My dashboard",
+    "license": "MIT",
+    "keywords": ["horwood","dashbaord", "docker"],
+    "authors": [
+        {
+            "name": "Matthew Horwood",
+            "email": "matt@horwood.biz"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "4.0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "MHorwood\\Site\\": "src"
+        }
+    }
+}
