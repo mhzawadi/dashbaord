@@ -1,0 +1,9 @@
+CREATE TABLE `categories`
+  (`id` INTEGER PRIMARY KEY AUTO_INCREMENT,
+	 `name` VARCHAR(255) NOT NULL,
+	 `isPinned` TINYINT DEFAULT 0,
+	 `createdAt` DATETIME NOT NULL,
+	 `updatedAt` DATETIME NOT NULL,
+	 `orderId` INTEGER DEFAULT NULL,
+	 `isPublic` INTEGER DEFAULT 1
+  )

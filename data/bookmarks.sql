@@ -1,0 +1,11 @@
+CREATE TABLE `bookmarks`
+  (`id` INTEGER PRIMARY KEY AUTO_INCREMENT,
+   `name` VARCHAR(255) NOT NULL,
+   `url` VARCHAR(255) NOT NULL,
+   `categoryId` INTEGER NOT NULL,
+   `icon` VARCHAR(255) DEFAULT '',
+   `createdAt` DATETIME NOT NULL,
+   `updatedAt` DATETIME NOT NULL,
+   `isPublic` INTEGER DEFAULT 1,
+   `orderId` INTEGER DEFAULT NULL
+  )

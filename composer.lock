@@ -4,8 +4,69 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "92af5804398dbfd7bc5378464930599a",
-    "packages": [],
+    "content-hash": "2ad8582d69177a80a8ef79f0b7947cc0",
+    "packages": [
+        {
+            "name": "riverside/php-orm",
+            "version": "1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/riverside/php-orm.git",
+                "reference": "fb33c54faef3712f59107bda4513123e412fc0ca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/riverside/php-orm/zipball/fb33c54faef3712f59107bda4513123e412fc0ca",
+                "reference": "fb33c54faef3712f59107bda4513123e412fc0ca",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pdo": "*",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpOrm\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dimitar Ivanov",
+                    "email": "info@zinoui.com",
+                    "homepage": "https://zinoui.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP ORM micro-library and query builder",
+            "homepage": "https://github.com/riverside/php-orm",
+            "keywords": [
+                "database",
+                "mysql",
+                "orm",
+                "pdo",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/riverside/php-orm/issues",
+                "source": "https://github.com/riverside/php-orm/tree/v1.0.6"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.me/Dimitar81",
+                    "type": "custom"
+                }
+            ],
+            "time": "2020-11-28T18:27:30+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "doctrine/instantiator",

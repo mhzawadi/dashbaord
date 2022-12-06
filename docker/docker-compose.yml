@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+  Dashboard:
+    image: mhzawadi/dashboard
+    ports:
+      - "8080:8080"
+    container_name: dashboard
+    volumes:
+      - /Users/matt/git/dashbaord:/var/www/html
+  mysql:
+    image: mysql:5.7
+    environment:
+     - MYSQL_ROOT_PASSWORD=my-secret-pw
+     - MYSQL_DATABASE=dashboard
+     - MYSQL_USER=dashboard
+     - MYSQL_PASSWORD=dashboard
+    volumes:
+     - /Users/matt/git/dashbaord/vendor/mysql:/var/lib/mysql
+     - /Users/matt/git/dashbaord/docker/config.inc.php:/etc/phpmyadmin/config.user.inc.php
+  phpmyadmin:
+      image: mhzawadi/phpmyadmin:dev
+      ports:
+        - "8081:80"
+      environment:
+        - HOST_URL=mysql.horwood.biz
+      volumes:
+        - /Users/matt/git/dashbaord/docker/config.inc.php:/etc/phpmyadmin/config.user.inc.php

@@ -9,12 +9,15 @@
             "email": "matt@horwood.biz"
         }
     ],
+    "require" : {
+        "riverside/php-orm" : "*"
+    },
     "require-dev": {
         "phpunit/phpunit": "9.5.*"
     },
     "autoload": {
         "psr-4": {
-            "MHorwood\\Site\\": "src"
+            "MHorwood\\Dashboard\\": "src"
         }
     }
 }

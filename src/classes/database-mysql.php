@@ -1,6 +1,6 @@
 <?php
 
-namespace MHorwood\Site\classes;
+namespace MHorwood\Dashboard\classes;
 
 use mysqli;
 
