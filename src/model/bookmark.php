@@ -1,5 +1,8 @@
 <?php
+namespace MHorwood\Dashboard\Model;
 use PhpOrm\DB;
+
+DB::config('../config/database.php');
 
 class bookmark extends DB
 {

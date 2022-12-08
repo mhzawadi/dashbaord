@@ -13,4 +13,3 @@ $settings['inactivityTimeout'] = 3600;
  *****************************
  * please see the database.php file
  */
-DB::config('config/database.php');
