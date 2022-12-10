@@ -22,7 +22,7 @@ require_once('header.php');
                 <div class="ActionButton_ActionButtonName__32SDW">Edit</div>
               </div>
             </div>
-            <div class="AppGrid_AppGrid__33iLW"><?php echo $applications;?></div>
+            <div><?php echo $applications;?></div>
             <a class="Home_SettingsButton__Qvn8C" href="/settings">
               svg icon here
             </a>

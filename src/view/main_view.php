@@ -25,9 +25,7 @@ require_once('header.php');
             <a href="/bookmarks">
               <h2 class="SectionHeadline_SectionHeadline__2gmr_">Bookmarks</h2>
             </a>
-            <div class="BookmarkGrid_BookmarkGrid__26LlR">
-              <?php echo $bookmarks;?>
-            </div>
+            <?php echo $bookmarks;?>
             <a class="Home_SettingsButton__Qvn8C" href="/settings">
               svg icon here
             </a>

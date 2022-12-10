@@ -659,6 +659,18 @@ a {
     font-weight: 400;
     text-transform: uppercase
 }
+.BookmarkCard_BookmarkCard__1GmHc h3 a {
+    color: var(--color-accent);
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase
+}
+
+.BookmarkCard_BookmarkCard__1GmHc h3 a:hover {
+    text-decoration: underline;
+    padding-left: 0px
+}
 
 .BookmarkCard_BookmarkHeader__112bh:hover {
     cursor: pointer
@@ -999,4 +1011,36 @@ a {
     font-style: normal;
     font-weight: 700;
     src: local(""),url(fonts/BasisGrotesquePro-Bold.ttf) format("truetype")
+}
+
+.ActionButton {
+  /* background-color: var(--color-accent); */
+  border: 1.5px solid var(--color-accent);
+  border-radius: 4px;
+  color: var(--color-primary);
+  padding: 5px 15px;
+  transition: all 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 250px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.ActionButton:hover {
+  background-color: var(--color-accent);
+  color: var(--color-background);
+  cursor: pointer;
+}
+
+.ActionButtonIcon {
+  --size: 20px;
+  width: var(--size);
+  height: var(--size);
+  /* display: flex; */
+}
+
+.ActionButtonName {
+  display: flex;
 }

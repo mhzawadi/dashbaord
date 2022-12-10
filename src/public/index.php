@@ -17,6 +17,7 @@ if($REQUEST_URI[0] === ''){
 }else{
   $args = \array_merge($_GET, $_POST);
 }
+print_pre($args);
 $html = '';
 $DashboardController = new DashboardController($settings, $_SERVER['HTTP_USER_AGENT']);
 
