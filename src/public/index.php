@@ -14,6 +14,9 @@ if($REQUEST_URI[0] === ''){
   array_shift($REQUEST_URI);
   $args = \array_merge($REQUEST_URI, $_GET, $_POST);
   $args['action'] = $REQUEST_URI[0];
+  if(isset($REQUEST_URI[1])){
+    $args['id'] = $REQUEST_URI[1];
+  }
 }else{
   $args = \array_merge($_GET, $_POST);
 }

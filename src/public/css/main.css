@@ -1044,3 +1044,8 @@ a {
 .ActionButtonName {
   display: flex;
 }
+
+pre{
+  color: var(--color-primary);
+  font-weight: 700;
+}

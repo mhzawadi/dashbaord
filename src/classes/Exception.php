@@ -1,5 +1,5 @@
 <?php
-namespace MHorwood\Site\classes;
+namespace MHorwood\Dashboard\classes;
 
 class Exception extends \Exception {}
 
