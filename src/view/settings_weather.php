@@ -1,0 +1,55 @@
+<?php
+require_once('header.php');
+?>
+<div class="Settings_Settings__2WEZf">
+  <nav class="Settings_SettingsNav__14rA1">
+    <a class="Settings_SettingsNavLink__1Eo-j" href="/settings">Theme</a>
+    <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/general">General</a>
+    <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/interface">Interface</a>
+    <a class="Settings_SettingsNavLink__1Eo-j Settings_SettingsNavLinkActive__BWxtM" href="/settings/weather">Weather</a>
+    <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/docker">Docker</a>
+    <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/css">CSS</a>
+    <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/app" aria-current="page">App</a>
+  </nav>
+  <section>
+    <form>
+      <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">API</h2>
+      <div class="InputGroup_InputGroup__1Nm_2">
+        <label for="WEATHER_API_KEY">API key</label>
+        <input type="text" id="WEATHER_API_KEY" name="WEATHER_API_KEY" placeholder="secret" value="f9367730e57048d7974151339222001">
+        <span>Using<a href="https://www.weatherapi.com/pricing.aspx" target="blank"> Weather API</a>. Key is required for weather module to work.</span>
+      </div>
+      <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">Location</h2>
+      <div class="InputGroup_InputGroup__1Nm_2">
+        <label for="lat">Latitude</label>
+        <input type="number" id="lat" name="lat" placeholder="52.22" step="any" lang="en-150" value="51.36747">
+        <span>
+          <a href="#">Click to get current location</a>
+        </span>
+      </div>
+      <div class="InputGroup_InputGroup__1Nm_2">
+        <label for="long">Longitude</label>
+        <input type="number" id="long" name="long" placeholder="21.01" step="any" lang="en-150" value="-2.133558">
+      </div>
+      <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">Other</h2>
+      <div class="InputGroup_InputGroup__1Nm_2">
+        <label for="isCelsius">Temperature unit</label>
+        <select id="isCelsius" name="isCelsius">
+          <option value="1">Celsius</option>
+          <option value="0">Fahrenheit</option>
+        </select>
+      </div>
+      <div class="InputGroup_InputGroup__1Nm_2">
+        <label for="weatherData">Additional weather data</label>
+        <select id="weatherData" name="weatherData">
+          <option value="cloud">Cloud coverage</option>
+          <option value="humidity">Humidity</option>
+        </select>
+      </div>
+      <button class="Button_Button__1hnZa">Save changes</button>
+    </form>
+  </section>
+  </div>
+  <?php
+  require_once('footer.php');
+  ?>

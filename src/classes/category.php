@@ -6,7 +6,7 @@ use MHorwood\Dashboard\Model\bookmark;
 use MHorwood\Dashboard\Model\category as model_category;
 
 class category {
-  public function build_category_option($category_id){
+  public function build_category_option(){
     $categorys = model_category::factory()->select('id, name')->get();
     $category_options = '';
     foreach($categorys as $key => $category){
@@ -25,7 +25,7 @@ class category {
       }else{
         $category_list .= '  <h3 class="">'.$category['name'].'</h3>'."\n";
       }
-      $category_list .= $this->bookmark->build_bookmark_list(bookmark::factory()->where('id', '=', $category['id']));
+      $category_list .= $this->bookmark->build_bookmark_list(bookmark::factory()->where('categoryId', '=', $category['id']));
       $category_list .= '</div>'."\n";
     }
     $category_list .= '</div>'."\n";
@@ -49,16 +49,16 @@ class category {
       $category_list .= '    <td style="width: 200px;">'.$category['isPublic'].'</td>'."\n";
       $category_list .= '    <td class="TableActions_TableActions__2_v2I">'."\n";
       $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0">'."\n";
-      $category_list .= '        D'."\n";
+      $category_list .= '        <span class="iconify" data-icon="mdi:delete" data-width="18"></span>'."\n";
       $category_list .= '      </div>'."\n";
-      $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="category_edit(\''.$category['name'].'\', '.$category['isPublic'].')">'."\n";
-      $category_list .= '        E'."\n";
-      $category_list .= '      </div>'."\n";
-      $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0">'."\n";
-      $category_list .= '        P'."\n";
+      $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="category_edit(\''.$category['id'].'\',\''.$category['name'].'\', '.$category['isPublic'].')">'."\n";
+      $category_list .= '        <span class="iconify" data-icon="mdi:pencil" data-width="18"></span>'."\n";
       $category_list .= '      </div>'."\n";
       $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0">'."\n";
-      $category_list .= '        L'."\n";
+      $category_list .= '        <span class="iconify" data-icon="mdi:pin-off" data-width="18"></span>'."\n";
+      $category_list .= '      </div>'."\n";
+      $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0">'."\n";
+      $category_list .= '        <span class="iconify" data-icon="mdi:eye-off" data-width="18"></span>'."\n";
       $category_list .= '      </div>'."\n";
       $category_list .= '    </td>'."\n";
       $category_list .= '  </tr>'."\n";

@@ -32,24 +32,27 @@ class application {
     $app_list .= '</thead>'."\n";
     $app_list .= '<tbody>'."\n";
     foreach($applications as $key => $app){
+      if($app['url'] == $app['description']){
+        $app['description'] = '';
+      }
       $app_list .= '<tr data-rbd-draggable-context-id="1" data-rbd-draggable-id="46" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-22" data-rbd-drag-handle-draggable-id="46" data-rbd-drag-handle-context-id="1" draggable="false" style="border: none; border-radius: 4px;">'."\n";
       $app_list .= '  <td style="width: 200px;">'.$app['name'].'</td>'."\n";
       $app_list .= '  <td style="width: 200px;">http://'.$app['name'].'</td>'."\n";
       $app_list .= '  <td style="width: 200px;">'.$app['icon'].'</td>'."\n";
       $app_list .= '  <td style="width: 200px;">'.$app['isPublic'].'</td>'."\n";
       $app_list .= '  <td class="TableActions_TableActions__2_v2I">'."\n";
-      $app_list .= '    <div class="TableActions_TableAction__tc3XZ" tabindex="0">'."\n";
-      $app_list .= '      D'."\n";
-      $app_list .= '    </div>'."\n";
-      $app_list .= '    <div class="TableActions_TableAction__tc3XZ" tabindex="0">'."\n";
-      $app_list .= '      E'."\n";
-      $app_list .= '    </div>'."\n";
-      $app_list .= '    <div class="TableActions_TableAction__tc3XZ" tabindex="0">'."\n";
-      $app_list .= '      P'."\n";
-      $app_list .= '    </div>'."\n";
-      $app_list .= '    <div class="TableActions_TableAction__tc3XZ" tabindex="0">'."\n";
-      $app_list .= '      L'."\n";
-      $app_list .= '    </div>'."\n";
+      $app_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0">'."\n";
+      $app_list .= '        <span class="iconify" data-icon="mdi:delete" data-width="18"></span>'."\n";
+      $app_list .= '      </div>'."\n";
+      $app_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="edit_app(\''.$app['id'].'\',\''.$app['name'].'\',\''.$app['url'].'\',\''.$app['isPublic'].'\',\''.$app['icon'].'\',\''.$app['description'].'\')">'."\n";
+      $app_list .= '        <span class="iconify" data-icon="mdi:pencil" data-width="18"></span>'."\n";
+      $app_list .= '      </div>'."\n";
+      $app_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0">'."\n";
+      $app_list .= '        <span class="iconify" data-icon="mdi:pin-off" data-width="18"></span>'."\n";
+      $app_list .= '      </div>'."\n";
+      $app_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0">'."\n";
+      $app_list .= '        <span class="iconify" data-icon="mdi:eye-off" data-width="18"></span>'."\n";
+      $app_list .= '      </div>'."\n";
       $app_list .= '  </td>'."\n";
       $app_list .= '</tr>'."\n";
     }

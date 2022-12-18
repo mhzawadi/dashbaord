@@ -27,7 +27,7 @@ require_once('header.php');
             </a>
             <?php echo $bookmarks;?>
             <a class="Home_SettingsButton__Qvn8C" href="/settings">
-              svg icon here
+              <span class="iconify" data-icon="mdi:cog-box" data-width="30"></span>
             </a>
 <?php
 require_once('footer.php');

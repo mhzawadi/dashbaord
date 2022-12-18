@@ -7,33 +7,6 @@ font-size: large;
     padding: 0px 0px;
   }
 }
-@font-face {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 400;
-    src: local(""),url(/static/media/roboto-v29-latin-regular.4673b453.woff2) format("woff2"),url(/static/media/roboto-v29-latin-regular.9b78ea3b.woff) format("woff")
-}
-
-@font-face {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 500;
-    src: local(""),url(/static/media/roboto-v29-latin-500.86988841.woff2) format("woff2"),url(/static/media/roboto-v29-latin-500.ddd11dab.woff) format("woff")
-}
-
-@font-face {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 900;
-    src: local(""),url(/static/media/roboto-v29-latin-900.153ba331.woff2) format("woff2"),url(/static/media/roboto-v29-latin-900.b555d228.woff) format("woff")
-}
-
-@font-face {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 700;
-    src: local(""),url(/static/media/roboto-v29-latin-700.0682ca7f.woff2) format("woff2"),url(/static/media/roboto-v29-latin-700.0344cc3c.woff) format("woff")
-}
 
 * {
     margin: 0;
@@ -48,8 +21,8 @@ body {
     --spacing-ui: 10px;
     background-color: var(--color-background);
     transition: background-color .3s;
+    font-size: 14px;
     font-family: Roboto,sans-serif;
-    font-size: 14px
 }
 
 a {
@@ -518,7 +491,7 @@ a {
 .Home_SettingsButton__Qvn8C {
     width: 35px;
     height: 35px;
-    background-color: var(--color-accent);
+    /* background-color: var(--color-accent); */
     border-radius: 50%;
     position: fixed;
     bottom: var(--spacing-ui);
@@ -989,28 +962,6 @@ a {
     max-width: 300px;
     z-index: 500;
     color: #fff
-}
-
-/*# sourceMappingURL=main.5fe8e149.chunk.css.map */
-@font-face {
-    font-family: Basis Grotesque Pro;
-    font-style: normal;
-    font-weight: 300;
-    src: local(""),url(fonts/BasisGrotesquePro-Light.ttf) format("truetype")
-}
-
-@font-face {
-    font-family: Basis Grotesque Pro;
-    font-style: normal;
-    font-weight: 400;
-    src: local(""),url(fonts/BasisGrotesquePro-Regular.ttf) format("truetype")
-}
-
-@font-face {
-    font-family: Basis Grotesque Pro;
-    font-style: normal;
-    font-weight: 700;
-    src: local(""),url(fonts/BasisGrotesquePro-Bold.ttf) format("truetype")
 }
 
 .ActionButton {
