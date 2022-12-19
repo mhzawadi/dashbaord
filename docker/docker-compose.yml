@@ -6,8 +6,11 @@ services:
     ports:
       - "8080:8080"
     container_name: dashboard
+    environment:
+      - TZ=Europe/London
     volumes:
       - /Users/matt/git/dashbaord:/var/www/html
+      - /var/run/docker.sock:/var/run/docker.sock:ro
   mysql:
     image: mysql:5.7
     environment:

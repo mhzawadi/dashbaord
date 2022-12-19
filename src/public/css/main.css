@@ -1,11 +1,29 @@
-.BookmarkCard_Bookmarks__YhsfD {
-font-size: large;
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    src: local(""),url(/static/media/roboto-v29-latin-regular.4673b453.woff2) format("woff2"),url(/static/media/roboto-v29-latin-regular.9b78ea3b.woff) format("woff")
 }
 
-@media (min-width: 1201px) {
-  .Layout_Container__2Hv3J {
-    padding: 0px 0px;
-  }
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    src: local(""),url(/static/media/roboto-v29-latin-500.86988841.woff2) format("woff2"),url(/static/media/roboto-v29-latin-500.ddd11dab.woff) format("woff")
+}
+
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 900;
+    src: local(""),url(/static/media/roboto-v29-latin-900.153ba331.woff2) format("woff2"),url(/static/media/roboto-v29-latin-900.b555d228.woff) format("woff")
+}
+
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 700;
+    src: local(""),url(/static/media/roboto-v29-latin-700.0682ca7f.woff2) format("woff2"),url(/static/media/roboto-v29-latin-700.0344cc3c.woff) format("woff")
 }
 
 * {
@@ -15,14 +33,14 @@ font-size: large;
 }
 
 body {
-    --color-primary: #dfd9d6;
-    --color-accent: #98c379;
-    --color-background: #004c2c;
+    --color-background: #242b33;
+    --color-primary: #effbff;
+    --color-accent: #6ee2ff;
     --spacing-ui: 10px;
     background-color: var(--color-background);
     transition: background-color .3s;
-    font-size: 14px;
     font-family: Roboto,sans-serif;
+    font-size: 14px
 }
 
 a {
@@ -280,8 +298,8 @@ a {
     }
 }
 
-.Icon_Icon__1Fl5u {
-    color: var(--color-primary);
+.Home_SettingsButton__Qvn8C .iconify {
+    color: var(--color-background);
     width: 90%
 }
 
@@ -491,7 +509,7 @@ a {
 .Home_SettingsButton__Qvn8C {
     width: 35px;
     height: 35px;
-    /* background-color: var(--color-accent); */
+    background-color: var(--color-accent);
     border-radius: 50%;
     position: fixed;
     bottom: var(--spacing-ui);
@@ -631,18 +649,6 @@ a {
     font-size: 16px;
     font-weight: 400;
     text-transform: uppercase
-}
-.BookmarkCard_BookmarkCard__1GmHc h3 a {
-    color: var(--color-accent);
-    margin-bottom: 10px;
-    font-size: 16px;
-    font-weight: 400;
-    text-transform: uppercase
-}
-
-.BookmarkCard_BookmarkCard__1GmHc h3 a:hover {
-    text-decoration: underline;
-    padding-left: 0px
 }
 
 .BookmarkCard_BookmarkHeader__112bh:hover {
@@ -963,40 +969,34 @@ a {
     z-index: 500;
     color: #fff
 }
-
-.ActionButton {
-  /* background-color: var(--color-accent); */
-  border: 1.5px solid var(--color-accent);
-  border-radius: 4px;
-  color: var(--color-primary);
-  padding: 5px 15px;
-  transition: all 0.3s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 250px;
-  margin-right: 10px;
-  margin-bottom: 20px;
+.Container {
+  width: 100%;
+  padding: 20px;
+  margin: 0 auto;
 }
 
-.ActionButton:hover {
-  background-color: var(--color-accent);
-  color: var(--color-background);
-  cursor: pointer;
+/* .Container {
+  width: 60%;
+  margin: 0 auto;
+  padding: 20px;
+  padding-top: 20px;
+} */
+
+/* 320px — 480px: Mobile devices.
+481px — 768px: iPads, Tablets.
+769px — 1024px: Small screens, laptops.
+1025px — 1200px: Desktops, large screens.
+1201px and more — Extra large screens, TV. */
+
+@media (min-width: 769px) {
+  .Container {
+    /* padding: 25px 40px; */
+    width: 90%;
+  }
 }
 
-.ActionButtonIcon {
-  --size: 20px;
-  width: var(--size);
-  height: var(--size);
-  /* display: flex; */
-}
-
-.ActionButtonName {
-  display: flex;
-}
-
-pre{
-  color: var(--color-primary);
-  font-weight: 700;
+@media (min-width: 1201px) {
+  .Container {
+    padding: 50px 250px;
+  }
 }

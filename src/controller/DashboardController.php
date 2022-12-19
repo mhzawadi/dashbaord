@@ -3,19 +3,26 @@ namespace MHorwood\Dashboard\Controller;
 use MHorwood\Dashboard\Model\application;
 use MHorwood\Dashboard\Model\bookmark;
 use MHorwood\Dashboard\Model\category;
+use MHorwood\Dashboard\Model\settings;
 use MHorwood\Dashboard\classes\application as Class_App;
 use MHorwood\Dashboard\classes\bookmark as Class_Bookmark;
 use MHorwood\Dashboard\classes\category as Class_Category;
+use MHorwood\Dashboard\classes\docker;
+use MHorwood\Dashboard\classes\settings as Class_Settings;
 
 class DashboardController{
 
   protected $html;
   protected $App;
+  protected $setting_obj;
 
   public function __construct(){
     $this->app = new Class_App;
     $this->bookmark = new Class_Bookmark;
     $this->category = new Class_Category;
+    $this->settings = new Class_Settings;
+    $this->setting_obj = $this->settings->load_settings();
+    $this->greeting = $this->settings->greeting();
   }
   /**
   * Routing from index page
@@ -27,9 +34,11 @@ class DashboardController{
           if(isset($args['id']) && $args['id'] !== ''){
             switch($args['id']){
               case 'general':
+                $this->setting_obj = $this->settings->save_settings($args['id'], $args['type'], $this->setting_obj, $args);
                 include (__DIR__ . '/../view/settings_general.php');
                 break;
               case 'interface':
+                $this->setting_obj = $this->settings->save_settings($args['id'], $args['type'], $this->setting_obj, $args);
                 include (__DIR__ . '/../view/settings_interface.php');
                 break;
               case 'weather':
@@ -39,6 +48,7 @@ class DashboardController{
                 include (__DIR__ . '/../view/settings_docker.php');
                 break;
               case 'css':
+                $this->setting_obj = $this->settings->save_settings($args['id'], $args['type'], $this->setting_obj, $args);
                 include (__DIR__ . '/../view/settings_css.php');
                 break;
               case 'app':
@@ -138,7 +148,7 @@ class DashboardController{
       }
     }else{
       $this->html = '';
-      $applications = $this->app->build_app_grid(application::factory()->select('name, url')->get());
+      $applications = $this->app->build_app_grid(application::factory()->select('name, url, icon')->get());
       $bookmarks = $this->category->build_category_list(category::factory()->select('name, id')->get());
       include (__DIR__ . '/../view/main_view.php');
     }

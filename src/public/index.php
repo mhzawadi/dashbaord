@@ -17,10 +17,15 @@ if($REQUEST_URI[0] === ''){
   if(isset($REQUEST_URI[1])){
     $args['id'] = $REQUEST_URI[1];
   }
+  if(isset($REQUEST_URI[2])){
+    $args['type'] = $REQUEST_URI[2];
+  }else{
+    $args['type'] = 0;
+  }
 }else{
   $args = \array_merge($_GET, $_POST);
 }
-print_pre($args);
+// print_pre($args);
 $html = '';
 $DashboardController = new DashboardController($settings, $_SERVER['HTTP_USER_AGENT']);
 

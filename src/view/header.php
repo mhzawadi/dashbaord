@@ -15,9 +15,10 @@
         <meta name="viewport" content="width=device-width,initial-scale=1"/>
         <meta name="description" content="Dashboard - self-hosted startpage for your server"/>
         <link rel="stylesheet" href="/css/main.css"/>
+        <link rel="stylesheet" href="/css/custom.css"/>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <title>Dashboard</title>
     </head>
-    <body>
+    <body style="--color-primary:#dfd9d6; --color-accent:#98c379; --color-background:#004c2c;">
         <div id="root" onclick="">
           <div class="Layout_Container__2Hv3J">

@@ -1,6 +1,11 @@
 <?php
 require_once('header.php');
 ?>
+<h1 class="Headline_HeadlineTitle__3WjW5">Settings</h1>
+<p class="Headline_HeadlineSubtitle__Aon5D">
+  <a href="/">Go back</a>
+</p>
+
 <div class="Settings_Settings__2WEZf">
   <nav class="Settings_SettingsNav__14rA1">
     <a class="Settings_SettingsNavLink__1Eo-j" href="/settings">Theme</a>
@@ -12,69 +17,88 @@ require_once('header.php');
     <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/app" aria-current="page">App</a>
   </nav>
   <section>
-    <form style="margin-bottom: 30px;">
+    <form style="margin-bottom: 30px;" method="post" action="<?php echo $_SERVER['REQUEST_URI'];?>/edit">
       <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">General</h2>
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="useOrdering">Sorting type</label>
         <select id="useOrdering" name="useOrdering">
-          <option value="createdAt">By creation date</option>
-          <option value="name">Alphabetical order</option>
-          <option value="orderId">Custom order</option>
+          <option value="createdAt"<?php if($this->setting_obj['useOrdering'] == 'createdAt'){?> selected=""<?php }?>>By creation date</option>
+          <option value="name"<?php if($this->setting_obj['useOrdering'] == 'name'){?> selected=""<?php }?>>Alphabetical order</option>
+          <option value="orderId"<?php if($this->setting_obj['useOrdering'] == 'orderId'){?> selected=""<?php }?>>Custom order</option>
         </select>
       </div>
       <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">Apps</h2>
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="pinAppsByDefault">Pin new applications by default</label>
         <select id="pinAppsByDefault" name="pinAppsByDefault">
-          <option value="1">True</option>
-          <option value="0">False</option>
+          <option value="1"<?php if($this->setting_obj['pinAppsByDefault'] == 1){?> selected=""<?php }?>>True</option>
+          <option value="0"<?php if($this->setting_obj['pinAppsByDefault'] == 0){?> selected=""<?php }?>>False</option>
         </select>
       </div>
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="appsSameTab">Open applications in the same tab</label>
         <select id="appsSameTab" name="appsSameTab">
-          <option value="1">True</option>
-          <option value="0">False</option>
+          <option value="1"<?php if($this->setting_obj['appsSameTab'] == 1){?> selected=""<?php }?>>True</option>
+          <option value="0"<?php if($this->setting_obj['appsSameTab'] == 0){?> selected=""<?php }?>>False</option>
         </select>
       </div>
       <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">Bookmarks</h2>
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="pinCategoriesByDefault">Pin new categories by default</label>
         <select id="pinCategoriesByDefault" name="pinCategoriesByDefault">
-          <option value="1">True</option>
-          <option value="0">False</option>
+          <option value="1"<?php if($this->setting_obj['pinCategoriesByDefault'] == 1){?> selected=""<?php }?>>True</option>
+          <option value="0"<?php if($this->setting_obj['pinCategoriesByDefault'] == 0){?> selected=""<?php }?>>False</option>
         </select>
       </div>
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="bookmarksSameTab">Open bookmarks in the same tab</label>
         <select id="bookmarksSameTab" name="bookmarksSameTab">
-          <option value="1">True</option>
-          <option value="0">False</option>
+          <option value="1"<?php if($this->setting_obj['bookmarksSameTab'] == 1){?> selected=""<?php }?>>True</option>
+          <option value="0"<?php if($this->setting_obj['bookmarksSameTab'] == 0){?> selected=""<?php }?>>False</option>
         </select>
       </div>
       <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">Search</h2>
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="defaultSearchProvider">Primary search provider</label>
         <select id="defaultSearchProvider" name="defaultSearchProvider">
-          <option value="dz"> Deezer</option>
-          <option value="ds"> Disroot</option>
-          <option value="d"> DuckDuckGo</option>
-          <option value="g"> Google</option>
-          <option value="im"> IMDb</option>
-          <option value="l"> Local search</option>
-          <option value="r"> Reddit</option>
-          <option value="sp"> Spotify</option>
-          <option value="mv"> The Movie Database</option>
-          <option value="td"> Tidal</option>
-          <option value="w"> Wikipedia</option>
-          <option value="yt"> YouTube</option>
+          <option value="dz"<?php if($this->setting_obj['defaultSearchProvider'] == 'dz'){?> selected=""<?php }?>> Deezer</option>
+          <option value="ds"<?php if($this->setting_obj['defaultSearchProvider'] == 'ds'){?> selected=""<?php }?>> Disroot</option>
+          <option value="d"<?php if($this->setting_obj['defaultSearchProvider'] == 'd'){?> selected=""<?php }?>> DuckDuckGo</option>
+          <option value="g"<?php if($this->setting_obj['defaultSearchProvider'] == 'g'){?> selected=""<?php }?>> Google</option>
+          <option value="im"<?php if($this->setting_obj['defaultSearchProvider'] == 'im'){?> selected=""<?php }?>> IMDb</option>
+          <option value="l"<?php if($this->setting_obj['defaultSearchProvider'] == 'l'){?> selected=""<?php }?>> Local search</option>
+          <option value="r"<?php if($this->setting_obj['defaultSearchProvider'] == 'r'){?> selected=""<?php }?>> Reddit</option>
+          <option value="sp"<?php if($this->setting_obj['defaultSearchProvider'] == 'sp'){?> selected=""<?php }?>> Spotify</option>
+          <option value="mv"<?php if($this->setting_obj['defaultSearchProvider'] == 'mv'){?> selected=""<?php }?>> The Movie Database</option>
+          <option value="td"<?php if($this->setting_obj['defaultSearchProvider'] == 'td'){?> selected=""<?php }?>> Tidal</option>
+          <option value="w"<?php if($this->setting_obj['defaultSearchProvider'] == 'w'){?> selected=""<?php }?>> Wikipedia</option>
+          <option value="yt"<?php if($this->setting_obj['defaultSearchProvider'] == 'yt'){?> selected=""<?php }?>> YouTube</option>
         </select>
       </div>
+      <?php if($this->setting_obj['defaultSearchProvider'] == 'l'){?>
+      <div class="InputGroup_InputGroup__1Nm_2">
+        <label for="secondarySearchProvider">Secondary search provider</label>
+        <select id="secondarySearchProvider" name="secondarySearchProvider">
+          <option value="dz"<?php if($this->setting_obj['secondarySearchProvider'] == 'dz'){?> selected=""<?php }?>> Deezer</option>
+          <option value="ds"<?php if($this->setting_obj['secondarySearchProvider'] == 'ds'){?> selected=""<?php }?>> Disroot</option>
+          <option value="d"<?php if($this->setting_obj['secondarySearchProvider'] == 'd'){?> selected=""<?php }?>> DuckDuckGo</option>
+          <option value="g"<?php if($this->setting_obj['secondarySearchProvider'] == 'g'){?> selected=""<?php }?>> Google</option>
+          <option value="im"<?php if($this->setting_obj['secondarySearchProvider'] == 'im'){?> selected=""<?php }?>> IMDb</option>
+          <option value="r"<?php if($this->setting_obj['secondarySearchProvider'] == 'r'){?> selected=""<?php }?>> Reddit</option>
+          <option value="sp"<?php if($this->setting_obj['secondarySearchProvider'] == 'sp'){?> selected=""<?php }?>> Spotify</option>
+          <option value="mv"<?php if($this->setting_obj['secondarySearchProvider'] == 'mv'){?> selected=""<?php }?>> The Movie Database</option>
+          <option value="td"<?php if($this->setting_obj['secondarySearchProvider'] == 'td'){?> selected=""<?php }?>> Tidal</option>
+          <option value="w"<?php if($this->setting_obj['secondarySearchProvider'] == 'w'){?> selected=""<?php }?>> Wikipedia</option>
+          <option value="yt"<?php if($this->setting_obj['secondarySearchProvider'] == 'yt'){?> selected=""<?php }?>> YouTube</option>
+        </select>
+        <span>Will be used when "Local search" is primary search provider and there are not any local results</span>
+      </div>
+    <?php }?>
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="searchSameTab">Open search results in the same tab</label>
         <select id="searchSameTab" name="searchSameTab">
-          <option value="1">True</option>
-          <option value="0">False</option>
+          <option value="1"<?php if($this->setting_obj['searchSameTab'] == 1){?> selected=""<?php }?>>True</option>
+          <option value="0"<?php if($this->setting_obj['searchSameTab'] == 0){?> selected=""<?php }?>>False</option>
         </select>
       </div>
       <button class="Button_Button__1hnZa">Save changes</button>
@@ -109,7 +133,7 @@ require_once('header.php');
       <button class="Button_Button__1hnZa">Add new search provider</button>
     </section>
   </section>
-  
+
   </div>
   <?php
   require_once('footer.php');

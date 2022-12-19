@@ -5,7 +5,7 @@ require_once('header.php');
               <p><?php echo date("l, j F Y");?></p>
               <a class="Header_SettingsLink__3ublJ" href="/settings">Go to Settings</a>
               <span class="Header_HeaderMain__ZUhf5">
-                <h1>Good evening!</h1>
+                <h1><?php echo $this->greeting;?></h1>
                 <div class="WeatherWidget_WeatherWidget__1Wn8c">
                   <div>
                     <canvas id="weather-icon" width="50" height="50"></canvas>
@@ -27,7 +27,7 @@ require_once('header.php');
             </a>
             <?php echo $bookmarks;?>
             <a class="Home_SettingsButton__Qvn8C" href="/settings">
-              <span class="iconify" data-icon="mdi:cog-box" data-width="30"></span>
+              <span class="iconify" data-icon="mdi:cog" data-width="35"></span>
             </a>
 <?php
 require_once('footer.php');
