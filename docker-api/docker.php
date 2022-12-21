@@ -19,6 +19,7 @@ class docker {
     curl_setopt($ch, CURLOPT_UNIX_SOCKET_PATH, $this->SOCKET);
     curl_setopt($ch, CURLOPT_BUFFERSIZE, 256);
     curl_setopt($ch, CURLOPT_TIMEOUT, 1000000);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER , true);
     curl_setopt($ch, CURLOPT_URL, "http://$this->HOST/containers/json?{\"status\":[\"running\"]}");
     $data = curl_exec($ch);
     curl_close($ch);
