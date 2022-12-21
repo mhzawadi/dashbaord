@@ -51,7 +51,8 @@ class docker {
     $d = 0;
     for($c = 0; $c < $count; $c++){
       if( (array_key_exists('dashboard.ignore', $containers[$c]['Labels']) === false) ||
-          ($containers[$c]['Labels']['traefik.enable'] === false)
+          ( array_key_exists('traefik.enable', $containers[$c]['Labels']) &&
+            $containers[$c]['Labels']['traefik.enable'] === false)
         ){
         $container_list[$d]['name'] = str_replace('/', '', $containers[$c]['Names'][0]);
         foreach($containers[$c]['Labels'] as $key => $label){
@@ -83,7 +84,10 @@ class docker {
     $container_list = array();
     $d = 0;
     for($c = 0; $c < $count; $c++){
-      if(array_key_exists('dashboard.ignore', $containers[$c]['Spec']['Labels']) === false){
+      if( (array_key_exists('dashboard.ignore', $containers[$c]['Spec']['Labels']) === false) ||
+          ( array_key_exists('traefik.enable', $containers[$c]['Spec']['Labels']) &&
+            $containers[$c]['Spec']['Labels']['traefik.enable'] === false)
+        ){
         $container_list[$d]['name'] = $containers[$c]['Spec']['Name'];
         foreach($containers[$c]['Spec']['Labels'] as $key => $label){
           if( (strpos($key, 'traefik.http.routers') !== false) && (strpos($key, 'rule') !== false) ){
