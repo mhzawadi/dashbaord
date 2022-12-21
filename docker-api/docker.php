@@ -37,7 +37,6 @@ class docker {
     curl_setopt($ch, CURLOPT_RETURNTRANSFER , true);
     curl_setopt($ch, CURLOPT_URL, "http://$this->HOST/$this->swarm");
     $containers = json_decode(curl_exec($ch), true);
-    print_r($containers);
     curl_close($ch);
     if($this->swarm === 'services'){
       return $this->docker_swarm($containers);
@@ -51,7 +50,9 @@ class docker {
     $container_list = array();
     $d = 0;
     for($c = 0; $c < $count; $c++){
-      if(array_key_exists('dashboard.ignore', $containers[$c]['Labels']) === false){
+      if( (array_key_exists('dashboard.ignore', $containers[$c]['Labels']) === false) ||
+          ($containers[$c]['Labels']['traefik.enable'] === false)
+        ){
         $container_list[$d]['name'] = str_replace('/', '', $containers[$c]['Names'][0]);
         foreach($containers[$c]['Labels'] as $key => $label){
           if( (strpos($key, 'traefik.http.routers') !== false) && (strpos($key, 'rule') !== false) ){
@@ -83,7 +84,7 @@ class docker {
     $d = 0;
     for($c = 0; $c < $count; $c++){
       if(array_key_exists('dashboard.ignore', $containers[$c]['Spec']['Labels']) === false){
-        $container_list[$d]['name'] = str_replace('/', '', $containers[$c]['Spec']['Names'][0]);
+        $container_list[$d]['name'] = $containers[$c]['Spec']['Name'];
         foreach($containers[$c]['Spec']['Labels'] as $key => $label){
           if( (strpos($key, 'traefik.http.routers') !== false) && (strpos($key, 'rule') !== false) ){
             $container_list[$d]['url'] = str_replace(array('Host(`','`)'), '', $label);
