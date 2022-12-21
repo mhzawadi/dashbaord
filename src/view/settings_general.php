@@ -17,7 +17,7 @@ require_once('header.php');
     <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/app" aria-current="page">App</a>
   </nav>
   <section>
-    <form style="margin-bottom: 30px;" method="post" action="<?php echo $_SERVER['REQUEST_URI'];?>/edit">
+    <form style="margin-bottom: 30px;" method="post" action="/settings/general/edit">
       <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">General</h2>
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="useOrdering">Sorting type</label>

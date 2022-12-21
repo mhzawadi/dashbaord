@@ -2,8 +2,7 @@
 font-size: large;
 }
 
-@media (min-width: 1201px) {
-  .Layout_Container__2Hv3J {
-    padding: 0px 0px;
-  }
+pre{
+color: var(--color-primary);
+font-weight: 700;
 }

@@ -15,7 +15,7 @@ require_once('header.php');
     <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/app" aria-current="page">App</a>
   </nav>
   <section>
-    <form method="post" action="<?php echo $_SERVER['REQUEST_URI'];?>/edit">
+    <form method="post" action="/settings/css/edit">
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="customStyles">Custom CSS</label>
         <textarea id="customStyles" name="customStyles" spellcheck="false">

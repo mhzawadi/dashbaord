@@ -31,5 +31,3 @@ $DashboardController = new DashboardController($settings, $_SERVER['HTTP_USER_AG
 
 $DashboardController->process_action($args);
 // $html = $DashboardController->getHTML();
-
-echo $html;

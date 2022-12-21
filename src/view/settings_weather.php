@@ -15,7 +15,7 @@ require_once('header.php');
     <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/app" aria-current="page">App</a>
   </nav>
   <section>
-    <form method="post" action="<?php echo $_SERVER['REQUEST_URI'];?>/edit">
+    <form method="post" action="/settings/weather/edit">
       <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">API</h2>
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="WEATHER_API_KEY">API key</label>

@@ -10,7 +10,7 @@ services:
       - TZ=Europe/London
     volumes:
       - /Users/matt/git/dashbaord:/var/www/html
-      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /var/run/docker.sock:/var/run/docker.sock:rw
   mysql:
     image: mysql:5.7
     environment:

@@ -15,11 +15,11 @@ require_once('header.php');
     <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/app" aria-current="page">App</a>
   </nav>
   <section>
-    <form method="post" action="<?php echo $_SERVER['REQUEST_URI'];?>/edit">
+    <form method="post" action="/settings/docker/edit">
       <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">Docker</h2>
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="dockerHost">Docker host</label>
-        <input type="text" id="dockerHost" name="dockerHost" placeholder="dockerHost:port" value="<?php echo $this->setting_obj['long'];?>">
+        <input type="text" id="dockerHost" name="dockerHost" placeholder="dockerHost:port" value="<?php echo $this->setting_obj['dockerHost'];?>">
       </div>
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="dockerApps">Use Docker API</label>

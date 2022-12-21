@@ -3,17 +3,16 @@
 namespace MHorwood\Dashboard\classes;
 
 class docker {
-  private $SOCKET = '/var/run/docker.sock';
-  private $HOST = 'localhost';
 
   public function __construct(){
+    set_time_limit(0);
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_UNIX_SOCKET_PATH, $this->SOCKET);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_HEADER, false);
-    curl_setopt($ch, CURLOPT_URL, 'http://'.$this->HOST.'/containers/json');
+    curl_setopt_array ( $ch , [
+      CURLOPT_URL => "http://localhost:8081/get_containers",
+      CURLOPT_RETURNTRANSFER => true
+      ] );
     $data = curl_exec($ch);
-    print_r($data);
     curl_close($ch);
+    return $data;
   }
 }

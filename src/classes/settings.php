@@ -17,6 +17,11 @@ class settings {
     $setting_obj = json_decode($settings[0]['setting'], true);
     return $setting_obj;
   }
+  public function load_themes(){
+    $themes = Model_Settings::factory()->where('id', '=', 2)->get();
+    $themes_obj = json_decode($themes[0]['setting'], true);
+    return $themes_obj;
+  }
   public function save_settings($page, $type, $curr_settings, $new_settings){
     if(isset($type) && $type == 'edit'){
       switch($page){

@@ -22,7 +22,10 @@ class DashboardController{
     $this->category = new Class_Category;
     $this->settings = new Class_Settings;
     $this->setting_obj = $this->settings->load_settings();
+    $this->theme = explode(';',$this->setting_obj['defaultTheme']);
     $this->greeting = $this->settings->greeting();
+    $this->docker = new docker();
+    print_pre($this->docker);
   }
   /**
   * Routing from index page
@@ -32,13 +35,12 @@ class DashboardController{
       switch ($args['action']) {
         case 'settings':
           if(isset($args['id']) && $args['id'] !== ''){
+            $this->setting_obj = $this->settings->save_settings($args['id'], $args['type'], $this->setting_obj, $args);
             switch($args['id']){
               case 'general':
-                $this->setting_obj = $this->settings->save_settings($args['id'], $args['type'], $this->setting_obj, $args);
                 include (__DIR__ . '/../view/settings_general.php');
                 break;
               case 'interface':
-                $this->setting_obj = $this->settings->save_settings($args['id'], $args['type'], $this->setting_obj, $args);
                 include (__DIR__ . '/../view/settings_interface.php');
                 break;
               case 'weather':
@@ -48,7 +50,6 @@ class DashboardController{
                 include (__DIR__ . '/../view/settings_docker.php');
                 break;
               case 'css':
-                $this->setting_obj = $this->settings->save_settings($args['id'], $args['type'], $this->setting_obj, $args);
                 include (__DIR__ . '/../view/settings_css.php');
                 break;
               case 'app':
@@ -56,6 +57,7 @@ class DashboardController{
                 break;
             }
           }else{
+            $themes = $this->settings->load_themes();
             include (__DIR__ . '/../view/settings.php');
           }
           break;

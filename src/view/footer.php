@@ -53,6 +53,14 @@
       document.getElementById('btn_app').textContent = 'Update Bookmark';
       openModal('application_modal')
     }
+    function set_root(colour1, colour2, colour3){
+      document.body.style.setProperty('--color-primary', colour2);
+      document.body.style.setProperty('--color-accent', colour3);
+      document.body.style.setProperty('--color-background', colour1);
+    }
+    function edit_theme(modal){
+      openModal(modal)
+    }
     </script>
     <script src="//code.iconify.design/1/1.0.6/iconify.min.js"></script>
   </body>

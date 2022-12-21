@@ -19,6 +19,6 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <title>Dashboard</title>
     </head>
-    <body style="--color-primary:#dfd9d6; --color-accent:#98c379; --color-background:#004c2c;">
+    <body style="--color-primary:<?php echo $this->theme[0];?>; --color-accent:<?php echo $this->theme[1];?>; --color-background:<?php echo $this->theme[2];?>;">
         <div id="root" onclick="">
           <div class="Layout_Container__2Hv3J">
