@@ -23,9 +23,9 @@ class docker {
     curl_setopt($ch, CURLOPT_URL, "http://$this->HOST/info");
     $host_info = json_decode(curl_exec($ch), true);
     if($host_info['Swarm']['LocalNodeState'] == 'active'){
-      $this->swarm = true;
+      $this->swarm = 'services';
     }else{
-      $this->swarm = false;
+      $this->swarm = 'containers/json?{\"status\":[\"running\"]}';
     }
   }
   public function get_containers(){
@@ -35,17 +35,18 @@ class docker {
     curl_setopt($ch, CURLOPT_BUFFERSIZE, 256);
     curl_setopt($ch, CURLOPT_TIMEOUT, 1000000);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER , true);
-    if($this->swarm === true){
-      curl_setopt($ch, CURLOPT_URL, "http://$this->HOST/services");
-    }else{
-      curl_setopt($ch, CURLOPT_URL, "http://$this->HOST/containers/json?{\"status\":[\"running\"]}");
-    }
+    curl_setopt($ch, CURLOPT_URL, "http://$this->HOST/$this->swarm");
     $containers = json_decode(curl_exec($ch), true);
+    print_r($containers);
     curl_close($ch);
-    return $this->pick_data($containers);
+    if($this->swarm === 'services'){
+      return $this->docker_swarm($containers);
+    }else{
+      return $this->docker_node($containers);
+    }
   }
 
-  private function pick_data($containers){
+  private function docker_node($containers){
     $count = count($containers);
     $container_list = array();
     $d = 0;
@@ -53,6 +54,37 @@ class docker {
       if(array_key_exists('dashboard.ignore', $containers[$c]['Labels']) === false){
         $container_list[$d]['name'] = str_replace('/', '', $containers[$c]['Names'][0]);
         foreach($containers[$c]['Labels'] as $key => $label){
+          if( (strpos($key, 'traefik.http.routers') !== false) && (strpos($key, 'rule') !== false) ){
+            $container_list[$d]['url'] = str_replace(array('Host(`','`)'), '', $label);
+          }
+          if( $key === 'dashboard.url' ){
+            $container_list[$d]['url'] = $label;
+          }
+          if( $key === 'dashboard.name' ){
+            $container_list[$d]['name'] = $label;
+          }
+          if( $key === 'dashboard.description' ){
+            $container_list[$d]['description'] = $label;
+          }
+        }
+        $d++;
+      }else{
+        if($d > 0){
+          --$d;
+        }
+      }
+    }
+    return json_encode($container_list);
+  }
+
+  private function docker_swarm($containers){
+    $count = count($containers);
+    $container_list = array();
+    $d = 0;
+    for($c = 0; $c < $count; $c++){
+      if(array_key_exists('dashboard.ignore', $containers[$c]['Spec']['Labels']) === false){
+        $container_list[$d]['name'] = str_replace('/', '', $containers[$c]['Spec']['Names'][0]);
+        foreach($containers[$c]['Spec']['Labels'] as $key => $label){
           if( (strpos($key, 'traefik.http.routers') !== false) && (strpos($key, 'rule') !== false) ){
             $container_list[$d]['url'] = str_replace(array('Host(`','`)'), '', $label);
           }
