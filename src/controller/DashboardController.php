@@ -25,7 +25,7 @@ class DashboardController{
     $this->theme = explode(';',$this->setting_obj['defaultTheme']);
     $this->greeting = $this->settings->greeting();
     $this->docker = new docker();
-    print_pre($this->docker);
+    print_pre($this->docker->get_data());
   }
   /**
   * Routing from index page

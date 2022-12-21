@@ -10,7 +10,9 @@ services:
       - TZ=Europe/London
     volumes:
       - /Users/matt/git/dashbaord:/var/www/html
-      - /var/run/docker.sock:/var/run/docker.sock:rw
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    labels:
+      - "dashboard.url=127.0.0.1:8080"
   mysql:
     image: mysql:5.7
     environment:
@@ -21,6 +23,8 @@ services:
     volumes:
      - /Users/matt/git/dashbaord/vendor/mysql:/var/lib/mysql
      - /Users/matt/git/dashbaord/docker/config.inc.php:/etc/phpmyadmin/config.user.inc.php
+    labels:
+     - "dashboard.ignore=true"
   phpmyadmin:
       image: mhzawadi/phpmyadmin:dev
       ports:
@@ -29,3 +33,5 @@ services:
         - HOST_URL=mysql.horwood.biz
       volumes:
         - /Users/matt/git/dashbaord/docker/config.inc.php:/etc/phpmyadmin/config.user.inc.php
+      labels:
+        - "traefik.http.routers.pihole_primary.rule=Host(`127.0.0.1:8081`)"
