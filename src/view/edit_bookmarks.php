@@ -3,11 +3,11 @@ require_once('header.php');
 ?>
 <div id="category_modal" class="Modal_Modal__1-5dN Modal_ModalClose__3Cav6">
   <div class="ModalForm_ModalForm__KUznX">
-    <div class="ModalForm_ModalFormIcon__3Og8r" onclick="CloseModal('category_modal')">
+    <div class="ModalForm_ModalFormIcon__3Og8r" onclick="CloseModal('category_modal', 'frm_category', 'categoryID')">
       <span class="iconify" data-icon="mdi:close" data-width="30"></span>
     </div>
-    <form name="category" method="post" action="/category_edit">
-      <input type="hidden" name="category_name" id="categoryID" value="0">
+    <form id="frm_category" name="category" method="post" action="/categories/edit">
+      <input type="hidden" name="categoryID" id="categoryID" value="0">
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="name">Category Name</label>
         <input type="text" name="name" id="cat_name" placeholder="Social Media" required="" value="">
@@ -25,11 +25,11 @@ require_once('header.php');
 </div>
 <div id="bookmark_modal" class="Modal_Modal__1-5dN Modal_ModalClose__3Cav6">
   <div class="ModalForm_ModalForm__KUznX">
-    <div class="ModalForm_ModalFormIcon__3Og8r" onclick="CloseModal('bookmark_modal')">
+    <div class="ModalForm_ModalFormIcon__3Og8r" onclick="CloseModal('bookmark_modal', 'frm_bookmark', 'bookmarkID')">
       <span class="iconify" data-icon="mdi:close" data-width="30"></span>
     </div>
-    <form method="post" action="/bookmark_edit">
-      <input type="hidden" name="bookmark_name" id="bookmarkID" value="0">
+    <form id="frm_bookmark" method="post" action="/bookmarks/<?php echo $urls['id'];?>/edit">
+      <input type="hidden" name="bookmarkID" id="bookmarkID" value="0">
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="name">Bookmark Name</label>
         <input type="text" name="name" id="bk_name" placeholder="Reddit" required="" value="">
@@ -80,18 +80,14 @@ require_once('header.php');
     </div>
     <div class="ActionButton_ActionButtonName__32SDW">Edit Categories</div>
   </div>
-  <?php if((isset($args['id']) && $args['id'] !== '')){?>
-    <div class="ActionButton_ActionButton__3Ckgw" tabindex="0" onclick="new_bookmark(<?php echo $args['id'] ?>, 'bookmark_modal')">
+  <?php if($urls['id'] > 0){?>
+    <div class="ActionButton_ActionButton__3Ckgw" tabindex="0" onclick="new_bookmark(<?php echo $urls['id'] ?>, 'bookmark_modal')">
       <div class="ActionButton_ActionButtonIcon__oPDrT">
         <span class="iconify" data-icon="mdi:pencil" data-width="18"></span>
       </div>
       <div class="ActionButton_ActionButtonName__32SDW">Add Bookmark</div>
     </div>
-  <?php } if((isset($args['action']) && $args['action'] === 'bookmark') ||
-             (isset($args['action']) && $args['action'] === 'categories') ||
-             (isset($args['action']) && $args['action'] === 'category_edit') ||
-             (isset($args['action']) && $args['action'] === 'bookmark_edit')
-         ){?>
+  <?php } if($finish_edits === true){?>
     <div class="ActionButton_ActionButton__3Ckgw" tabindex="0">
       <div class="ActionButton_ActionButtonIcon__oPDrT">
         <span class="iconify" data-icon="mdi:stop-circle-outline" data-width="18"></span>

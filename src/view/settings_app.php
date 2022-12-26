@@ -7,40 +7,24 @@ require_once('header.php');
 <div class="Settings_Settings__2WEZf">
   <nav class="Settings_SettingsNav__14rA1">
     <a class="Settings_SettingsNavLink__1Eo-j" href="/settings">Theme</a>
+    <?php if($this->session->isUserAuthenticated()) {?>
     <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/general">General</a>
     <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/interface">Interface</a>
     <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/weather">Weather</a>
     <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/docker">Docker</a>
     <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/css">CSS</a>
+  <?php } ?>
     <a class="Settings_SettingsNavLink__1Eo-j Settings_SettingsNavLinkActive__BWxtM" href="/settings/app" aria-current="page">App</a>
   </nav>
-  <section style="display: none;">
-    <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">Authentication</h2>
-    <form data-bitwarden-watching="1">
-      <div class="InputGroup_InputGroup__1Nm_2">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="••••••" autocomplete="current-password" value="">
-        <span>See<a href="https://github.com/pawelmalak/flame/wiki/Authentication" target="blank"> project wiki </a>to read more about authentication</span>
-      </div>
-      <div class="InputGroup_InputGroup__1Nm_2">
-        <label for="duration">Session duration</label>
-          <select id="duration" name="duration">
-          <option value="1h">1 hour</option>
-          <option value="1d">1 day</option>
-          <option value="14d">2 weeks</option>
-          <option value="30d">1 month</option>
-          <option value="1y">1 year</option>
-        </select>
-      </div>
-    <button class="Button_Button__1hnZa">Login</button>
-    </form>
-  </section>
-  <section>
+  <?php if($this->session->isUserAuthenticated()) {?>
+    <section>
     <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">Authentication</h2>
     <div>
       <p class="AppDetails_text__1zVc7">You are logged in. Your session will expire <span>25/12/2022 21:04:50</span>
       </p>
-      <button class="Button_Button__1hnZa">Logout</button>
+      <form method="post" action="/settings/logout">
+        <button class="Button_Button__1hnZa">Logout</button>
+      </form>
     </div>
     <hr class="AppDetails_separator__3gemR">
     <div>
@@ -52,6 +36,30 @@ require_once('header.php');
         <button class="Button_Button__1hnZa">Check for updates</button>
       </div>
   </section>
+<?php }else{ ?>
+  <section>
+    <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">Authentication</h2>
+    <?php echo $txt;?>
+    <form method="post" action="/settings/login">
+      <div class="InputGroup_InputGroup__1Nm_2">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="••••••" autocomplete="current-password" value="">
+        <!-- <span>See<a href="https://github.com/pawelmalak/flame/wiki/Authentication" target="blank"> project wiki </a>to read more about authentication</span> -->
+      </div>
+      <div class="InputGroup_InputGroup__1Nm_2">
+        <label for="duration">Session duration</label>
+          <select id="duration" name="duration">
+          <option value="1h">1 hour</option>
+          <option value="1d">1 day</option>
+          <option value="14d" selected>2 weeks</option>
+          <option value="30d">1 month</option>
+          <option value="1y">1 year</option>
+        </select>
+      </div>
+    <button class="Button_Button__1hnZa">Login</button>
+    </form>
+  </section>
+<?php } ?>
 </div>
 <?php
 require_once('footer.php');

@@ -4,6 +4,7 @@
     <script src="/js/horwood.js"></script>
     <script src="/js/app.js"></script>
     <script src="/js/bookmarks.js"></script>
+    <script src="/js/themes.js"></script>
   </body>
 </html>
 <script>

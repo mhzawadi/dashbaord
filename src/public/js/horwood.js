@@ -5,24 +5,15 @@ function openModal(elementID) {
   // var item = document.getElementById("root");
   // item.addEventListener("click", function() { CloseModal(elementID); }, false);
 }
-function CloseModal(elementID) {
+function CloseModal(elementID, form_elementID, form_hidden) {
   const list = document.getElementById(elementID).classList;
   list.add("Modal_ModalClose__3Cav6");
   list.remove("Modal_ModalOpen__xRwYI");
+  document.getElementById( form_elementID ).reset();
+  document.getElementById( form_hidden ).value = "0";
 }
 
-
-function set_root(colour1, colour2, colour3){
-  document.body.style.setProperty('--color-primary', colour2);
-  document.body.style.setProperty('--color-accent', colour3);
-  document.body.style.setProperty('--color-background', colour1);
-  sendData({ defaultTheme: colour2 + ';' + colour3 + ';' + colour1});
-}
-function edit_theme(modal){
-  openModal(modal)
-}
-
-function sendData(data) {
+function sendData(data, url) {
   console.log('Sending data');
 
   const XHR = new XMLHttpRequest();
@@ -44,16 +35,16 @@ function sendData(data) {
   });
 
   // Set up our request
-  XHR.open('POST', '/settings/theme/edit');
+  XHR.open('POST', '/settings/defaultTheme/edit');
 
   // Add the required HTTP header for form data POST requests
   XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-  XHR.onload = () => {
-    if (XHR.readyState === XHR.DONE && XHR.status === 200) {
-      console.log(XHR.response, XHR.responseXML);
-    }
-  };
+  // XHR.onload = () => {
+  //   if (XHR.readyState === XHR.DONE && XHR.status === 200) {
+  //     console.log(XHR.response, XHR.responseXML);
+  //   }
+  // };
 
   // Finally, send our data.
   XHR.send(urlEncodedData);

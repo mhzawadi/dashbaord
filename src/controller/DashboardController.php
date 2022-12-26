@@ -4,6 +4,7 @@ use MHorwood\Dashboard\Model\application;
 use MHorwood\Dashboard\Model\bookmark;
 use MHorwood\Dashboard\Model\category;
 use MHorwood\Dashboard\Model\settings;
+use MHorwood\Dashboard\Model\login;
 use MHorwood\Dashboard\classes\application as Class_App;
 use MHorwood\Dashboard\classes\bookmark as Class_Bookmark;
 use MHorwood\Dashboard\classes\category as Class_Category;
@@ -14,6 +15,8 @@ class DashboardController{
   protected $html;
   protected $App;
   protected $setting_obj;
+  protected $routing;
+  protected $session;
 
   public function __construct(){
     $this->app = new Class_App;
@@ -24,51 +27,63 @@ class DashboardController{
     $this->theme = explode(';',$this->setting_obj['defaultTheme']);
     $this->greeting = $this->settings->greeting();
     $this->docker = new docker();
+    $this->session = new login();
   }
+
+  /**
+   * get URL and work out what we have
+   **/
+  private function pre_routing($urls){
+    $url = array(
+      'page' => 'none',
+      'sub_page' => 'none',
+      'type' => 'none',
+      'id' => 0
+    );
+    if($urls[0] !== ''){
+      $url['page'] = $urls[0];
+    }
+    if(isset($urls[1]) && $urls[1] !== ''){
+      switch($urls[1]){
+        case 'edit':
+          $url['type'] = 'edit';
+          break;
+        case 'new':
+          $url['type'] = 'edit';
+          break;
+        case is_numeric($urls[1]):
+          $url['id'] = $urls[1];
+          break;
+        default:
+          $url['sub_page'] = $urls[1];
+          break;
+      }
+    }
+    if(isset($urls[2]) && $urls[2] !== ''){
+      switch($urls[2]){
+        case 'edit':
+          $url['type'] = 'edit';
+          break;
+        case 'new':
+          $url['type'] = 'edit';
+          break;
+        default:
+          $url['sub_page'] = $urls[12];
+          break;
+        }
+      }
+      return $url;
+    }
+
+
   /**
   * Routing from index page
   **/
-  public function process_action($args){
-    if(isset($args['action']) && $args['action'] !== '' && !isset($args['category'])){
-      switch ($args['action']) {
-        case 'settings':
-          if(isset($args['id']) && $args['id'] !== ''){
-            $this->setting_obj = $this->settings->save_settings($args['id'], $args['type'], $args);
-            switch($args['id']){
-              case 'general':
-                include (__DIR__ . '/../view/settings_general.php');
-                break;
-              case 'interface':
-                include (__DIR__ . '/../view/settings_interface.php');
-                break;
-              case 'weather':
-                include (__DIR__ . '/../view/settings_weather.php');
-                break;
-              case 'docker':
-                include (__DIR__ . '/../view/settings_docker.php');
-                break;
-              case 'css':
-                include (__DIR__ . '/../view/settings_css.php');
-                break;
-              case 'app':
-                include (__DIR__ . '/../view/settings_app.php');
-                break;
-            }
-          }else{
-            if(isset($args['id']) && $args['id'] !== ''){
-              $this->setting_obj = $this->settings->save_settings($args['id'], $args['type'], $this->setting_obj, $args);
-            }else{
-              $themes = $this->settings->get_themes();
-              include (__DIR__ . '/../view/settings.php');
-            }
-          }
-          break;
-        case 'applications':
-          $this->html = '';
-          $applications = $this->app->build_app_table(application::factory()->get());
-          include (__DIR__ . '/../view/edit_apps.php');
-          break;
-        case 'application_edit':
+  public function routing($args){
+    $urls = $this->pre_routing($args['URL']);
+    switch ($urls['page']) {
+      case 'applications':
+        if(isset($urls['type']) && $urls['type'] !== 'none'){
           if($args['description'] == ''){
             $args['description'] = $args['url'];
           }
@@ -93,22 +108,14 @@ class DashboardController{
               'updatedAt'=>date('Y-m-d H:i:s')
             ));
           }
-          $this->html = '';
-          $applications = $this->app->build_app_table(application::factory()->get());
-          include (__DIR__ . '/../view/edit_apps.php');
-          break;
-        case 'bookmarks':
-          $this->html = '';
-          $bookmarks = $this->category->build_category_list(category::factory()->get(), true);
-          include (__DIR__ . '/../view/edit_bookmarks.php');
-          break;
-        case 'bookmark':
-          $category_options = $this->category->build_category_option($args['id']);
-          $bookmarks = $this->bookmark->build_bookmark_table(bookmark::factory()->where('categoryId', '=', $args['id']), $args['id']);
-          include (__DIR__ . '/../view/edit_bookmarks.php');
-          break;
-        case 'bookmark_edit':
-          if($args['bookmark_name'] == 0){
+        }
+        $applications = $this->app->build_app_table(application::factory()->get());
+        include (__DIR__ . '/../view/edit_apps.php');
+        break;
+      case 'bookmarks':
+        $finish_edits = false;
+        if($urls['type'] === 'edit'){
+          if($args['bookmarkID'] == 0){
             $category = bookmark::factory()->insert(array(
               'name'=>$args['name'],
               'url'=>$args['url'],
@@ -119,7 +126,7 @@ class DashboardController{
               'updatedAt'=>date('Y-m-d H:i:s')
             ));
           }else{
-            $category = bookmark::factory()->where('id', '=', $args['bookmark_name']);
+            $category = bookmark::factory()->where('id', '=', $args['bookmarkID']);
             $category->update(array(
               'name'=>$args['name'],
               'url'=>$args['url'],
@@ -129,35 +136,73 @@ class DashboardController{
               'updatedAt'=>date('Y-m-d H:i:s')
             ));
           }
-          $args['id'] = $args['categoryId'];
-          $category_options = $this->category->build_category_option();
-          $bookmarks = $this->bookmark->build_bookmark_table(bookmark::factory()->where('categoryId', '=', $args['categoryId']), $args['categoryId']);
-          include (__DIR__ . '/../view/edit_bookmarks.php');
-          break;
-        case 'category_edit':
-          if($args['cat_name'] == 0){
+        }
+        if($urls['id'] > 0){
+          $finish_edits = true;
+          $category_options = $this->category->build_category_option($urls['id']);
+          $bookmarks = $this->bookmark->build_bookmark_table(bookmark::factory()->where('categoryId', '=', $urls['id']), $urls['id']);
+        }else{
+          $bookmarks = $this->category->build_category_list(category::factory()->get(), true);
+        }
+        include (__DIR__ . '/../view/edit_bookmarks.php');
+        break;
+      case 'categories':
+        if(isset($urls['type']) && $urls['type'] === 'edit'){
+          if($args['categoryID'] == 0){
             $category = category::factory()->insert(array('name'=>$args['name'],'isPublic'=>$args['isPublic']));
           }else{
-            $category = category::factory()->where('name', '=', $args['cat_name']);
+            $category = category::factory()->where('name', '=', $args['categoryID']);
             $category->update(array('name'=>$args['name'],'isPublic'=>$args['isPublic']));
           }
-
-          $bookmarks = $this->category->build_category_table(category::factory()->get(), true);
-          include (__DIR__ . '/../view/edit_bookmarks.php');
-          break;
-        case 'categories';
-          $bookmarks = $this->category->build_category_table(category::factory()->get(), true);
-          include (__DIR__ . '/../view/edit_bookmarks.php');
-          break;
-      }
-    }else{
-      $this->html = '';
+        }
+        $finish_edits = true;
+        $bookmarks = $this->category->build_category_table(category::factory()->get(), true);
+        include (__DIR__ . '/../view/edit_bookmarks.php');
+        break;
+      case 'settings':
+        if(isset($urls['type']) && $urls['type'] !== 'none'){
+          $this->setting_obj = $this->settings->save_settings($urls['sub_page'], $urls['type'], $args);
+        }
+        switch($urls['sub_page']){
+          case 'general':
+            include (__DIR__ . '/../view/settings_general.php');
+            break;
+          case 'interface':
+            include (__DIR__ . '/../view/settings_interface.php');
+            break;
+          case 'weather':
+            include (__DIR__ . '/../view/settings_weather.php');
+            break;
+          case 'docker':
+            include (__DIR__ . '/../view/settings_docker.php');
+            break;
+          case 'css':
+            include (__DIR__ . '/../view/settings_css.php');
+            break;
+          case 'app':
+            $txt = '';
+            include (__DIR__ . '/../view/settings_app.php');
+            break;
+          case 'login':
+            $txt = $this->session->checkLogin($args['password'], $args['duration']);
+            include (__DIR__ . '/../view/settings_app.php');
+            break;
+          case 'logout':
+            session_destroy();
+            header("Location: /");
+            exit;
+            break;
+          default:
+            $themes = $this->settings->get_themes();
+            include (__DIR__ . '/../view/settings.php');
+            break;
+        }
+        break;
+      default:
       $applications = $this->app->build_app_grid(application::factory()->select('name, url, icon')->get());
       $bookmarks = $this->category->build_category_list(category::factory()->select('name, id')->get());
       include (__DIR__ . '/../view/main_view.php');
-    }
+        break;
+      }
   }
-
-
-
 }

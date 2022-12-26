@@ -3,10 +3,10 @@ require_once('header.php');
 ?>
 <div id="application_modal" class="Modal_Modal__1-5dN Modal_ModalClose__3Cav6">
   <div class="ModalForm_ModalForm__KUznX">
-    <div class="ModalForm_ModalFormIcon__3Og8r" onclick="CloseModal('application_modal')">
+    <div class="ModalForm_ModalFormIcon__3Og8r" onclick="CloseModal('application_modal', 'frm_app', 'applicationID')">
       <span class="iconify" data-icon="mdi:close" data-width="30"></span>
     </div>
-    <form method="post" action="/application_edit">
+    <form id="frm_app" method="post" action="/applications/edit">
       <input type="hidden" name="application_id" id="applicationID" value="0">
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="name">App name</label>
@@ -46,10 +46,7 @@ require_once('header.php');
 <div class="Apps_ActionsContainer__1Nn5v">
   <div class="ActionButton_ActionButton__3Ckgw" tabindex="0" onclick="openModal('application_modal')">
     <div class="ActionButton_ActionButtonIcon__oPDrT">
-      <svg viewBox="0 0 24 24" role="presentation" class="Icon_Icon__1Fl5u">
-        <path d="M17,13H13V17H11V13H7V11H11V7H13V11H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z" style="fill: var(--color-primary);">
-        </path>
-      </svg>
+      <span class="iconify" data-icon="mdi:plus-box" data-width="18"></span>
     </div>
     <div class="ActionButton_ActionButtonName__32SDW">Add</div>
   </div>

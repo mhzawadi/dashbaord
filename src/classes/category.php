@@ -21,7 +21,7 @@ class category {
     foreach($categorys as $key => $category){
       $category_list .= '<div class="BookmarkCard_BookmarkCard__1GmHc">'."\n";
       if($link === true){
-        $category_list .= '  <h3 class=""><a href="/bookmark/'.$category['id'].'">'.$category['name'].'</a></h3>'."\n";
+        $category_list .= '  <h3 class=""><a href="/bookmarks/'.$category['id'].'">'.$category['name'].'</a></h3>'."\n";
       }else{
         $category_list .= '  <h3 class="">'.$category['name'].'</h3>'."\n";
       }

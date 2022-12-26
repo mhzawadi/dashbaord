@@ -1,0 +1,22 @@
+{
+    "themes": [
+        {
+            "name": "Horowod",
+            "colors": {
+                "accent": "#98c379",
+                "primary": "#dfd9d6",
+                "background": "#004c2c"
+            },
+            "isCustom": true
+        },
+        {
+            "name": "test",
+            "colors": {
+                "accent": "#64de0d",
+                "primary": "#c74c0f",
+                "background": "#44886c"
+            },
+            "isCustom": true
+        }
+    ]
+}
