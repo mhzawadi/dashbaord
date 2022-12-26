@@ -1,6 +1,7 @@
 <?php
 require_once('header.php');
 ?>
+<img src="/icons/logo-76.png" alt="Logo small">
 <h1 class="Headline_HeadlineTitle__3WjW5">Settings</h1>
 <p class="Headline_HeadlineSubtitle__Aon5D">
   <a href="/">Go back</a>

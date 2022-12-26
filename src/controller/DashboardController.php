@@ -8,7 +8,6 @@ use MHorwood\Dashboard\classes\application as Class_App;
 use MHorwood\Dashboard\classes\bookmark as Class_Bookmark;
 use MHorwood\Dashboard\classes\category as Class_Category;
 use MHorwood\Dashboard\classes\docker;
-use MHorwood\Dashboard\classes\settings as Class_Settings;
 
 class DashboardController{
 
@@ -20,8 +19,8 @@ class DashboardController{
     $this->app = new Class_App;
     $this->bookmark = new Class_Bookmark;
     $this->category = new Class_Category;
-    $this->settings = new Class_Settings;
-    $this->setting_obj = $this->settings->load_settings();
+    $this->settings = new settings;
+    $this->setting_obj = $this->settings->get_settings();
     $this->theme = explode(';',$this->setting_obj['defaultTheme']);
     $this->greeting = $this->settings->greeting();
     $this->docker = new docker();
@@ -34,7 +33,7 @@ class DashboardController{
       switch ($args['action']) {
         case 'settings':
           if(isset($args['id']) && $args['id'] !== ''){
-            $this->setting_obj = $this->settings->save_settings($args['id'], $args['type'], $this->setting_obj, $args);
+            $this->setting_obj = $this->settings->save_settings($args['id'], $args['type'], $args);
             switch($args['id']){
               case 'general':
                 include (__DIR__ . '/../view/settings_general.php');
@@ -56,8 +55,12 @@ class DashboardController{
                 break;
             }
           }else{
-            $themes = $this->settings->load_themes();
-            include (__DIR__ . '/../view/settings.php');
+            if(isset($args['id']) && $args['id'] !== ''){
+              $this->setting_obj = $this->settings->save_settings($args['id'], $args['type'], $this->setting_obj, $args);
+            }else{
+              $themes = $this->settings->get_themes();
+              include (__DIR__ . '/../view/settings.php');
+            }
           }
           break;
         case 'applications':
