@@ -20,6 +20,6 @@ if($REQUEST_URI[0] === ''){
   $args['URL'] = $REQUEST_URI;
 }
 // print_pre($args);
-// print_pre($_SESSION);
+print_pre($_SESSION);
 $DashboardController = new DashboardController($settings, $_SERVER['HTTP_USER_AGENT']);
 $DashboardController->routing($args);

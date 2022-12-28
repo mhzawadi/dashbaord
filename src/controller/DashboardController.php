@@ -18,7 +18,7 @@ class DashboardController{
   protected $routing;
   protected $session;
 
-  public function __construct(){
+  public function __construct($settings, $user_agent){
     $this->app = new Class_App;
     $this->bookmark = new Class_Bookmark;
     $this->category = new Class_Category;
@@ -81,6 +81,7 @@ class DashboardController{
   **/
   public function routing($args){
     $urls = $this->pre_routing($args['URL']);
+      $this->session->set_path($urls);
     switch ($urls['page']) {
       case 'applications':
         if(isset($urls['type']) && $urls['type'] !== 'none'){

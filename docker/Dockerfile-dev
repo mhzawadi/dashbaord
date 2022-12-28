@@ -38,4 +38,4 @@ CMD ["nginx", "-g", "daemon off;"]
 
 ## Health Check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s \
-  CMD curl -f http://127.0.0.1/index.php || exit 1
+  CMD curl -f http://127.0.0.1/ || exit 1
