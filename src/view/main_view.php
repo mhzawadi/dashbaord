@@ -23,10 +23,12 @@ require_once('header.php');
                   <span class="iconify" data-icon="mdi:close" data-width="30"></span>
                 </div>
                 <img src="/icons/logo.png" alt="Logo">
+                <h2>This is the Horwood Dashboard, writen in PHP.</h2>
+                <p>you can find it on <a href="https://github.com/mhzawadi/dashbaord">github</a></p>
               </div>
             </div>
             <section>
-            <?php if($this->session->isUserAuthenticated()) {?>
+            <?php if($this->logged_in === true) {?>
             <a href="/applications">
               <h2 class="SectionHeadline_SectionHeadline__2gmr_"><span class="iconify" data-icon="mdi:pencil" data-width="20"></span> Applications</h2>
             </a>
@@ -35,7 +37,7 @@ require_once('header.php');
           <?php } ?>
             <div class="AppGrid_AppGrid__33iLW"><?php echo $applications;?></div>
             <div class="Home_HomeSpace__2q0OU"></div>
-            <?php if($this->session->isUserAuthenticated()) {?>
+            <?php if($this->logged_in === true) {?>
             <a href="/bookmarks">
               <h2 class="SectionHeadline_SectionHeadline__2gmr_"><span class="iconify" data-icon="mdi:pencil" data-width="20"></span> Bookmarks</h2>
             </a>

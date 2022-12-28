@@ -7,7 +7,7 @@ require_once('header.php');
 <div class="Settings_Settings__2WEZf">
   <nav class="Settings_SettingsNav__14rA1">
     <a class="Settings_SettingsNavLink__1Eo-j Settings_SettingsNavLinkActive__BWxtM" href="/settings">Theme</a>
-    <?php if($this->session->isUserAuthenticated()) {?>
+    <?php if($this->logged_in === true) {?>
     <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/general">General</a>
     <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/interface">Interface</a>
     <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/weather">Weather</a>
@@ -78,7 +78,7 @@ require_once('header.php');
             <div class="ThemePreview_ColorPreview__34jck" style="background-color: <?php echo $theme['colors']['accent'];?>;">
             </div>
           </div>
-          <?php if($this->session->isUserAuthenticated()) {?>
+          <?php if($this->logged_in === true) {?>
           <p onclick="edit_theme(<?php echo '\''.$key-$custom_key.'\',\''.$theme['name'].'\',\''.$theme['colors']['background'].'\',\''.$theme['colors']['primary'].'\',\''.$theme['colors']['accent'].'\'';?>)">
             <?php echo $theme['name'];?> <span class="iconify" data-icon="mdi:pencil" data-width="18" onclick="edit_theme('ThemeModal')">Edit</span>
           <?php }else{ ?>
@@ -88,13 +88,13 @@ require_once('header.php');
         </div>
       <?php }}?>
       </div>
-      <?php if($this->session->isUserAuthenticated()) {?>
+      <?php if($this->logged_in === true) {?>
       <div class="ThemeBuilder_Buttons__1xGHJ">
         <button class="Button_Button__1hnZa" onclick="openModal('ThemeModal')">Create new theme</button>
       </div>
     <?php } ?>
     </div>
-    <?php if($this->session->isUserAuthenticated()) {?>
+    <?php if($this->logged_in === true) {?>
     <form>
       <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">Other settings</h2>
       <div class="InputGroup_InputGroup__1Nm_2">

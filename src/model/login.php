@@ -49,23 +49,17 @@ class login {
      * print errors
      */
     if ($authSuccess === false) {
-        $uerror = 'Not logged in';
-        if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-        } else {
-            $ip = $_SERVER['REMOTE_ADDR'];
-        }
-        # add block count
-        //block_ip ($ip);
-
         return '<div style="color: red; text-align: center;font-size: 20px;">Invlaid username or password!</div>';
     } else {
         /**
          * print success
          */
+        $date = new \DateTimeImmutable;
+        $logout = $date->add(new \DateInterval("$duration"));
         $_SESSION['login_time'] = time();
-        $_SESSION['last_active'] = time();
+        $_SESSION['logout_time'] = $logout->format('U');
         $_SESSION['duration'] = $duration;
+        $this->reset_inactivity_time();
         session_write_close();
         header('Location: /');
         exit;
@@ -74,17 +68,17 @@ class login {
   }
 
     public function isUserAuthenticated() {
-      if (empty($_SESSION['lastactive'])) {
+      // - is `login_time` set
+      // - is `time` more then logout_time (logout and redirect to `settings/app`
+      if (empty($_SESSION['login_time'])) {
         return false;
       } else {
-        //echo "check timeout,";
-        if ((isset($_GET['section']) && ($_GET['section'] != "login" && $_GET['section'] != "request_ip" && $_GET['section'] != "upgrade" && $_GET['section'] != "install" && $_GET['section'] != "logout")) || !isset($_GET['section'])) {
-          global $settings;
-          /* check inactivity time */
-          if (strlen($settings['inactivityTimeout'] > 0) && ( (time() - $_SESSION['lastactive']) > $settings['inactivityTimeout'])) {
+        if ( time() > $_SESSION['logout_time'] ) {
+          if($_SERVER['REQUEST_URI'] != '/settings/app'){
             # redirect
-            // header("Location: /settings/app");
-            // exit;
+            header("Location: /settings/app");
+            exit;
+          }else{
             return false;
           }
         }
@@ -105,5 +99,9 @@ class login {
 
   public function set_path($urls){
     $this->path = join('/', $urls);
+  }
+
+  public function get_logout(){
+    return date('l jS \of F Y H:i:s A', $_SESSION['logout_time']);
   }
 }

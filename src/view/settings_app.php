@@ -7,7 +7,7 @@ require_once('header.php');
 <div class="Settings_Settings__2WEZf">
   <nav class="Settings_SettingsNav__14rA1">
     <a class="Settings_SettingsNavLink__1Eo-j" href="/settings">Theme</a>
-    <?php if($this->session->isUserAuthenticated()) {?>
+    <?php if($this->logged_in === true) {?>
     <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/general">General</a>
     <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/interface">Interface</a>
     <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/weather">Weather</a>
@@ -16,11 +16,11 @@ require_once('header.php');
   <?php } ?>
     <a class="Settings_SettingsNavLink__1Eo-j Settings_SettingsNavLinkActive__BWxtM" href="/settings/app" aria-current="page">App</a>
   </nav>
-  <?php if($this->session->isUserAuthenticated()) {?>
+  <?php if($this->logged_in === true) {?>
     <section>
     <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">Authentication</h2>
     <div>
-      <p class="AppDetails_text__1zVc7">You are logged in. Your session will expire <span>25/12/2022 21:04:50</span>
+      <p class="AppDetails_text__1zVc7">You are logged in. Your session will expire <span><?php echo $this->session->get_logout();?></span>
       </p>
       <form method="post" action="/settings/logout">
         <button class="Button_Button__1hnZa">Logout</button>
@@ -49,11 +49,11 @@ require_once('header.php');
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="duration">Session duration</label>
           <select id="duration" name="duration">
-          <option value="1h">1 hour</option>
-          <option value="1d">1 day</option>
-          <option value="14d" selected>2 weeks</option>
-          <option value="30d">1 month</option>
-          <option value="1y">1 year</option>
+          <option value="PT1H">1 hour</option>
+          <option value="P1D">1 day</option>
+          <option value="P14D" selected>2 weeks</option>
+          <option value="P30D">1 month</option>
+          <option value="P1Y">1 year</option>
         </select>
       </div>
     <button class="Button_Button__1hnZa">Login</button>

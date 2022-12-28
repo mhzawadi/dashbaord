@@ -17,6 +17,7 @@ class DashboardController{
   protected $setting_obj;
   protected $routing;
   protected $session;
+  protected $logged_in;
 
   public function __construct($settings, $user_agent){
     $this->app = new Class_App;
@@ -27,7 +28,9 @@ class DashboardController{
     $this->theme = explode(';',$this->setting_obj['defaultTheme']);
     $this->greeting = $this->settings->greeting();
     $this->docker = new docker();
+    $session = new login();
     $this->session = new login();
+    $this->logged_in = $this->session->isUserAuthenticated();
   }
 
   /**
@@ -81,7 +84,6 @@ class DashboardController{
   **/
   public function routing($args){
     $urls = $this->pre_routing($args['URL']);
-      $this->session->set_path($urls);
     switch ($urls['page']) {
       case 'applications':
         if(isset($urls['type']) && $urls['type'] !== 'none'){
@@ -189,6 +191,14 @@ class DashboardController{
             include (__DIR__ . '/../view/settings_app.php');
             break;
           case 'logout':
+            $_SESSION = array();
+            if (ini_get("session.use_cookies")) {
+              $params = session_get_cookie_params();
+              setcookie(session_name(), '', time() - 42000,
+                  $params["path"], $params["domain"],
+                  $params["secure"], $params["httponly"]
+              );
+            }
             session_destroy();
             header("Location: /");
             exit;
