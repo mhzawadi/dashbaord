@@ -63,7 +63,7 @@ class settings extends json{
           $this->settings['monthSchema'] = $new_settings['monthSchema'];
           $this->settings['hideApps'] = $new_settings['hideApps'];
           $this->settings['hideCategories'] = $new_settings['hideCategories'];
-         $this->save_to_file('../config/settings.json', $this->settings);
+          $this->save_to_file('../config/settings.json', $this->settings);
           break;
         case 'weather':
           break;

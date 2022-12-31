@@ -10,7 +10,7 @@ function CloseModal(elementID, form_elementID, form_hidden) {
   list.add("Modal_ModalClose__3Cav6");
   list.remove("Modal_ModalOpen__xRwYI");
   document.getElementById( form_elementID ).reset();
-  document.getElementById( form_hidden ).value = "0";
+  document.getElementById( form_hidden ).value = "none";
 }
 
 function sendData(data, url) {

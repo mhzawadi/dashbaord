@@ -56,7 +56,7 @@ class category_view {
       $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0">'."\n";
       $category_list .= '        <span class="iconify" data-icon="mdi:delete" data-width="18"></span>'."\n";
       $category_list .= '      </div>'."\n";
-      $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="category_edit(\''.$category['id'].'\',\''.$category['name'].'\', '.$category['isPublic'].')">'."\n";
+      $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="category_edit(\''.$key.'\',\''.$category['name'].'\', '.$category['isPublic'].')">'."\n";
       $category_list .= '        <span class="iconify" data-icon="mdi:pencil" data-width="18"></span>'."\n";
       $category_list .= '      </div>'."\n";
       $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0">'."\n";

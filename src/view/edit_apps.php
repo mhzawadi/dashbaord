@@ -7,7 +7,7 @@ require_once('header.php');
       <span class="iconify" data-icon="mdi:close" data-width="30"></span>
     </div>
     <form id="frm_app" method="post" action="/applications/edit">
-      <input type="hidden" name="application_id" id="applicationID" value="0">
+      <input type="hidden" name="application_id" id="applicationID" value="none">
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="name">App name</label>
         <input type="text" name="name" id="app_name" placeholder="Bookstack" required="" value="">

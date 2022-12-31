@@ -92,61 +92,38 @@ class DashboardController{
     $urls = $this->pre_routing($args['URL']);
     switch ($urls['page']) {
       case 'applications':
+        if($this->logged_in === false) {
+          header('Location: /');
+          exit;
+        }
         if(isset($urls['type']) && $urls['type'] !== 'none'){
           if($args['description'] == ''){
             $args['description'] = $args['url'];
           }
-          if($args['application_id'] == 0){
-            application::factory()->insert(array(
-              'name'=>$args['name'],
-              'url'=>$args['url'],
-              'icon'=>$args['icon'],
-              'description'=>$args['description'],
-              'isPublic'=>$args['isPublic'],
-              'createdAt'=>date('Y-m-d H:i:s'),
-              'updatedAt'=>date('Y-m-d H:i:s')
-            ));
+          if($args['application_id'] == 'none'){
+            $this->application->insert_application($args);
           }else{
-            $app = application::factory()->where('id', '=', $args['application_id']);
-            $app->update(array(
-              'name'=>$args['name'],
-              'url'=>$args['url'],
-              'icon'=>$args['icon'],
-              'description'=>$args['description'],
-              'isPublic'=>$args['isPublic'],
-              'updatedAt'=>date('Y-m-d H:i:s')
-            ));
+            $this->application->update_application($args['application_id'], $args);
           }
+          header('Location: /applications');
+          exit;
         }
-        $applications = $this->app->build_app_table(application::factory()->get());
+        $applications = $this->application_view->build_app_table($this->application->get_list());
         include (__DIR__ . '/../view/edit_apps.php');
         break;
       case 'bookmarks':
+        if($this->logged_in === false) {
+          header('Location: /');
+          exit;
+        }
         $finish_edits = false;
         if($urls['type'] === 'edit'){
-          if($args['bookmarkID'] == 0){
-            $category = bookmark::factory()->insert(array(
-              'name'=>$args['name'],
-              'url'=>$args['url'],
-              'icon'=>$args['icon'],
-              'categoryId'=>$args['categoryId'],
-              'isPublic'=>$args['isPublic'],
-              'createdAt'=>date('Y-m-d H:i:s'),
-              'updatedAt'=>date('Y-m-d H:i:s')
-            ));
+          if($args['bookmarkID'] == 'none'){
+            $this->bookmark->insert_bookmark($args['categoryId'], $args);
           }else{
-            $category = bookmark::factory()->where('id', '=', $args['bookmarkID']);
-            $category->update(array(
-              'name'=>$args['name'],
-              'url'=>$args['url'],
-              'icon'=>$args['icon'],
-              'categoryId'=>$args['categoryId'],
-              'isPublic'=>$args['isPublic'],
-              'updatedAt'=>date('Y-m-d H:i:s')
-            ));
+            $this->bookmark->update_bookmark($args['bookmarkID'], $args['categoryId'], $args);
           }
         }
-        print_pre($urls);
         if($urls['id'] != 'none'){
           $finish_edits = true;
           $category_options = $this->bookmark->get_category_options($urls['id']);
@@ -158,16 +135,19 @@ class DashboardController{
         include (__DIR__ . '/../view/edit_bookmarks.php');
         break;
       case 'categories':
+        if($this->logged_in === false) {
+          header('Location: /');
+          exit;
+        }
         if(isset($urls['type']) && $urls['type'] === 'edit'){
-          if($args['categoryID'] == 0){
-            $category = category::factory()->insert(array('name'=>$args['name'],'isPublic'=>$args['isPublic']));
+          if($args['categoryID'] == 'none'){
+            $this->bookmark->insert_category($args);
           }else{
-            $category = category::factory()->where('name', '=', $args['categoryID']);
-            $category->update(array('name'=>$args['name'],'isPublic'=>$args['isPublic']));
+            $this->bookmark->update_category($args['categoryID'], $args);
           }
         }
         $finish_edits = true;
-        $bookmarks = $this->category->build_category_table(category::factory()->get(), true);
+        $bookmarks = $this->category_view->build_category_table($this->bookmark->get_list());
         include (__DIR__ . '/../view/edit_bookmarks.php');
         break;
       case 'settings':
