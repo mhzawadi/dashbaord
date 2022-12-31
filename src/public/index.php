@@ -5,7 +5,6 @@ namespace MHorwood\Dashboard;
 use MHorwood\Dashboard\Controller\DashboardController;
 
 require __DIR__ . '/../../vendor/autoload.php';
-require_once('../config/config.php');
 require_once('../classes/functions.php');
 
 if (!isset($_SESSION)) {
@@ -21,5 +20,5 @@ if($REQUEST_URI[0] === ''){
 }
 // print_pre($args);
 // print_pre($_SESSION);
-$DashboardController = new DashboardController($settings, $_SERVER['HTTP_USER_AGENT']);
+$DashboardController = new DashboardController($_SERVER['HTTP_USER_AGENT']);
 $DashboardController->routing($args);

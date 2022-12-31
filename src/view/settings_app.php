@@ -30,7 +30,7 @@ require_once('header.php');
     <div>
       <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">App version</h2>
       <p class="AppDetails_text__1zVc7">
-        <a href="https://github.com/pawelmalak/flame" target="_blank" rel="noreferrer">Flame</a> version 2.3.0</p>
+        <a href="https://github.com/pawelmalak/flame" target="_blank" rel="noreferrer">Dashboard</a> version 0.0.1</p>
         <p class="AppDetails_text__1zVc7">See changelog <a href="https://github.com/pawelmalak/flame/blob/master/CHANGELOG.md" target="_blank" rel="noreferrer">here</a>
         </p>
         <button class="Button_Button__1hnZa">Check for updates</button>

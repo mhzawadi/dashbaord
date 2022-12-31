@@ -1,19 +1,16 @@
 <?php
 namespace MHorwood\Dashboard\Model;
-use PhpOrm\DB;
+use MHorwood\Dashboard\classes\json;
 
-DB::config('../config/database.php');
+class application extends json {
 
-class application extends DB
-{
-    protected $table = 'apps';
+  protected $app_list;
 
-    protected $attributes = ['id', 'name', 'url', 'icon', 'isPinned', 'createdAt', 'updatedAt', 'orderId', 'isPublic', 'description'];
+  public function __construct(){
+    $this->app_list = $this->load_from_file('../config/apps.json');
+  }
 
-    // protected $connection = 'backup';
-
-    public static function factory()
-    {
-        return new self();
-    }
+  public function get_list(){
+    return $this->app_list['apps'];
+  }
 }

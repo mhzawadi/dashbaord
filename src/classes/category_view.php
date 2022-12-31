@@ -1,13 +1,18 @@
 <?php
 
 namespace MHorwood\Dashboard\classes;
-use MHorwood\Dashboard\classes\bookmark as Class_Bookmark;
+use MHorwood\Dashboard\classes\bookmark_view;
 use MHorwood\Dashboard\Model\bookmark;
-use MHorwood\Dashboard\Model\category as model_category;
 
-class category {
+class category_view {
+  protected $bookmark;
+  public function __construct($bookmarks){
+    $this->bookmark = $bookmarks;
+  }
+
   public function build_category_option(){
-    $categorys = model_category::factory()->select('id, name')->get();
+    $categorys = $this->bookmark->get_list();
+    print_pre($categorys);
     $category_options = '';
     foreach($categorys as $key => $category){
       $category_options .= '<option value="'.$category['id'].'">'.$category['name'].'</option>';
@@ -15,7 +20,7 @@ class category {
     return $category_options;
   }
   public function build_category_list($categorys, $link = false){
-    $this->bookmark = new Class_Bookmark;
+    $this->bookmark_view = new bookmark_view;
     $category_list = '';
     $category_list .= '<div class="BookmarkGrid_BookmarkGrid__26LlR">';
     foreach($categorys as $key => $category){
@@ -25,7 +30,7 @@ class category {
       }else{
         $category_list .= '  <h3 class="">'.$category['name'].'</h3>'."\n";
       }
-      $category_list .= $this->bookmark->build_bookmark_list(bookmark::factory()->where('categoryId', '=', $category['id']));
+      $category_list .= $this->bookmark_view->build_bookmark_list(bookmark::factory()->where('categoryId', '=', $category['id']));
       $category_list .= '</div>'."\n";
     }
     $category_list .= '</div>'."\n";

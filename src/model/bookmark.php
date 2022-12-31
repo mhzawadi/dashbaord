@@ -1,19 +1,36 @@
 <?php
 namespace MHorwood\Dashboard\Model;
-use PhpOrm\DB;
+use MHorwood\Dashboard\classes\json;
 
-DB::config('../config/database.php');
+class bookmark extends json {
+  protected $bookmarks_list;
+  protected $category_options;
 
-class bookmark extends DB
-{
-    protected $table = 'bookmarks';
+  public function __construct(){
+    $this->bookmarks_list = $this->load_from_file('../config/bookmarks.json');
+  }
 
-    protected $attributes = ['id', 'name', 'url', 'categoryId', 'icon', 'createdAt', 'updatedAt', 'isPublic', 'orderId'];
+  public function get_list(){
+    return $this->bookmarks_list['categorys'];
+  }
 
-    // protected $connection = 'backup';
+  public function get_bookmark($categoryID){
+    return $this->bookmarks_list['categorys'][$categoryID]['bookmarks'];
+  }
 
-    public static function factory()
-    {
-        return new self();
+  public function get_category_options($categoryID = null){
+    $this->build_category_options($categoryID);
+    return $this->category_options;
+  }
+
+  protected function build_category_options($categoryID){
+    foreach($this->bookmarks_list['categorys'] as $key => $category){
+      if($categoryID == $key){
+        $this->category_options .= '<option value="'.$key.'" selected>'.$category['name'].'</option>';
+      }else{
+        $this->category_options .= '<option value="'.$key.'">'.$category['name'].'</option>';
+      }
+
     }
+  }
 }

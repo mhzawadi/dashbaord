@@ -1,0 +1,15 @@
+{
+  "apps": [
+    {
+      "name": "test app",
+      "url": "/",
+      "icon": "docker",
+      "isPinned": "0",
+      "createdAt": "2022-12-06 22:02:50",
+      "updatedAt": "2022-12-26 22:41:26",
+      "orderId": "0",
+      "isPublic": "1",
+      "description": "/"
+    }
+  ]
+}

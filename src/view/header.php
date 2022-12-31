@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="/css/main.css"/>
         <link rel="stylesheet" href="/css/custom.css"/>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <title>Dashboard</title>
+        <title><?php echo $this->setting_obj['customTitle'];?></title>
     </head>
     <body style="--color-primary:<?php echo $this->theme[0];?>; --color-accent:<?php echo $this->theme[1];?>; --color-background:<?php echo $this->theme[2];?>;">
         <div id="root" onclick="">

@@ -2,7 +2,7 @@
 
 namespace MHorwood\Dashboard\classes;
 
-class application {
+class application_view {
   public function build_app_grid($applications){
     $app_list = '';
     foreach($applications as $key => $app){

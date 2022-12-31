@@ -1,24 +1,16 @@
 <?php
 namespace MHorwood\Dashboard\Model;
+use MHorwood\Dashboard\classes\json;
 
-class settings {
+class settings extends json{
   protected $settings;
   protected $themes;
   protected $themes_custom;
 
   public function __construct(){
-    $filename = '../config/settings.json';
-    $handle = fopen($filename, "r");
-    $this->settings = json_decode(fread($handle, filesize($filename)), true);
-    fclose($handle);
-    $filename = '../config/themes.json';
-    $handle = fopen($filename, "r");
-    $this->themes = json_decode(fread($handle, filesize($filename)), true);
-    fclose($handle);
-    $filename = '../config/themes_custom.json';
-    $handle = fopen($filename, "r");
-    $this->themes_custom = json_decode(fread($handle, filesize($filename)), true);
-    fclose($handle);
+    $this->settings = $this->load_from_file('../config/settings.json');
+    $this->themes = $this->load_from_file('../config/themes.json');
+    $this->themes_custom = $this->load_from_file('../config/themes_custom.json');
   }
 
   public function get_settings(){
@@ -125,15 +117,4 @@ class settings {
     return $msg;
   }
 
-  protected function save_to_file($filename, $json){
-    try {
-      $fp = fopen($filename, 'w');
-      fwrite($fp, json_encode($json, JSON_PRETTY_PRINT));
-      fclose($fp);
-    } catch (\Exception $e) {
-      echo 'that didnt work';
-    }
-
-
-  }
 }

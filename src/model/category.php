@@ -1,19 +1,15 @@
 <?php
 namespace MHorwood\Dashboard\Model;
-use PhpOrm\DB;
+use MHorwood\Dashboard\classes\json;
 
-DB::config('../config/database.php');
+class category extends json{
+  protected $category_list;
 
-class category extends DB
-{
-    protected $table = 'categories';
+  public function __construct(){
+    $this->category_list = $this->load_from_file('../config/bookmarks.json');
+  }
 
-    protected $attributes = ['id', 'name', 'isPinned', 'createdAt', 'updatedAt', 'orderId', 'isPublic'];
-
-    // protected $connection = 'backup';
-
-    public static function factory()
-    {
-        return new self();
-    }
+  public function get_list(){
+    return $this->category_list['categorys'];
+  }
 }

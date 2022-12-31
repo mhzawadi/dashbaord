@@ -5,9 +5,9 @@ use MHorwood\Dashboard\Model\bookmark;
 use MHorwood\Dashboard\Model\category;
 use MHorwood\Dashboard\Model\settings;
 use MHorwood\Dashboard\Model\login;
-use MHorwood\Dashboard\classes\application as Class_App;
-use MHorwood\Dashboard\classes\bookmark as Class_Bookmark;
-use MHorwood\Dashboard\classes\category as Class_Category;
+use MHorwood\Dashboard\classes\application_view;
+use MHorwood\Dashboard\classes\bookmark_view;
+use MHorwood\Dashboard\classes\category_view;
 use MHorwood\Dashboard\classes\docker;
 
 class DashboardController{
@@ -19,10 +19,13 @@ class DashboardController{
   protected $session;
   protected $logged_in;
 
-  public function __construct($settings, $user_agent){
-    $this->app = new Class_App;
-    $this->bookmark = new Class_Bookmark;
-    $this->category = new Class_Category;
+  public function __construct($user_agent){
+    $this->application = new application();
+    $this->application_view = new application_view;
+    $this->bookmark = new bookmark();
+    $this->bookmark_view = new bookmark_view($this->bookmark);
+    $this->category = new category();
+    $this->category_view = new category_view($this->bookmark);
     $this->settings = new settings;
     $this->setting_obj = $this->settings->get_settings();
     $this->theme = explode(';',$this->setting_obj['defaultTheme']);
@@ -41,7 +44,7 @@ class DashboardController{
       'page' => 'none',
       'sub_page' => 'none',
       'type' => 'none',
-      'id' => 0
+      'id' => 'none'
     );
     if($urls[0] !== ''){
       $url['page'] = $urls[0];
@@ -55,6 +58,9 @@ class DashboardController{
           $url['type'] = 'edit';
           break;
         case is_numeric($urls[1]):
+          $url['id'] = $urls[1];
+          break;
+        case 0:
           $url['id'] = $urls[1];
           break;
         default:
@@ -71,7 +77,7 @@ class DashboardController{
           $url['type'] = 'edit';
           break;
         default:
-          $url['sub_page'] = $urls[12];
+          $url['sub_page'] = $urls[2];
           break;
         }
       }
@@ -140,12 +146,14 @@ class DashboardController{
             ));
           }
         }
-        if($urls['id'] > 0){
+        print_pre($urls);
+        if($urls['id'] != 'none'){
           $finish_edits = true;
-          $category_options = $this->category->build_category_option($urls['id']);
-          $bookmarks = $this->bookmark->build_bookmark_table(bookmark::factory()->where('categoryId', '=', $urls['id']), $urls['id']);
+          $category_options = $this->bookmark->get_category_options($urls['id']);
+          $bookmarks = $this->bookmark_view->build_bookmark_table($urls['id']);
         }else{
-          $bookmarks = $this->category->build_category_list(category::factory()->get(), true);
+          $category_options = $this->bookmark->get_category_options();
+          $bookmarks = $this->bookmark_view->build_list(true);
         }
         include (__DIR__ . '/../view/edit_bookmarks.php');
         break;
@@ -210,8 +218,8 @@ class DashboardController{
         }
         break;
       default:
-      $applications = $this->app->build_app_grid(application::factory()->select('name, url, icon')->get());
-      $bookmarks = $this->category->build_category_list(category::factory()->select('name, id')->get());
+      $applications = $this->application_view->build_app_grid($this->application->get_list());
+      $bookmarks = $this->bookmark_view->build_list($this->bookmark->get_list());
       include (__DIR__ . '/../view/main_view.php');
         break;
       }
