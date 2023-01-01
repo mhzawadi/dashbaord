@@ -6,7 +6,7 @@ RUN apk update && apk upgrade && \
     apk add nginx php81-fpm php81-pdo_mysql php81-sockets php81-gd php81-ldap \
     php81-gettext php81-pcntl php81-mysqlnd php81-session php81-gmp php81-json \
     php81-mbstring php81-iconv php81-ctype php81-curl php81-pear php81-simplexml \
-    php81-dom php81-xmlwriter php81-tokenizer php81 php81-phar curl git \
+    php81-dom php81-xmlwriter php81-tokenizer php81 php81-phar php81-sqlite3 curl git \
     && mkdir -p /var/www/html/ \
     && mkdir -p /run/nginx \
     && rm -f /var/cache/apk/*; \
@@ -16,12 +16,6 @@ RUN apk update && apk upgrade && \
     php composer-setup.php && \
     php -r "unlink('composer-setup.php');" && \
     mv composer.phar /usr/local/bin/composer;
-
-ENV MYSQL_HOST="mysql" \
-    MYSQL_USER="phpipam" \
-    MYSQL_PASSWORD="phpipamadmin" \
-    MYSQL_DB="phpipam" \
-    MYSQL_PORT="3306"
 
 COPY docker/config /config
 

@@ -13,7 +13,7 @@ class docker {
       CURLOPT_URL => "http://localhost:8081/get_containers",
       CURLOPT_RETURNTRANSFER => true
       ] );
-    $this->data = json_decode(curl_exec($ch));
+    $this->data = json_decode(curl_exec($ch), true);
     curl_close($ch);
   }
 

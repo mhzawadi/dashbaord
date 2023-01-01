@@ -12,7 +12,7 @@ class application_view {
       $app_list .= '  </div>'."\n";
       $app_list .= '  <div class="AppCard_AppCardDetails__tbAhY">'."\n";
       $app_list .= '    <h5>'.$app['name'].'</h5>'."\n";
-      $app_list .= '    <span>'.$app['url'].'</span>'."\n";
+      $app_list .= '    <span>'.substr($app['url'], 0, 40).'</span>'."\n";
       $app_list .= '  </div>'."\n";
       $app_list .= '</a>'."\n";
     }

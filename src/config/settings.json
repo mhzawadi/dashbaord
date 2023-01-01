@@ -29,5 +29,6 @@
     "unpinStoppedApps": false,
     "defaultSearchProvider": "dz",
     "pinCategoriesByDefault": "0",
-    "secondarySearchProvider": "d"
+    "secondarySearchProvider": "d",
+    "flameImportDB": "0"
 }

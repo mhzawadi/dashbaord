@@ -1,6 +1,15 @@
 {
   "themes": [
     {
+        "name": "Horowod",
+        "colors": {
+            "accent": "#98c379",
+            "primary": "#dfd9d6",
+            "background": "#004c2c"
+        },
+        "isCustom": true
+    },
+    {
       "name": "blackboard",
       "colors": {
         "accent": "#5c5c5c",

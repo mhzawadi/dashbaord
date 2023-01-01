@@ -593,7 +593,8 @@ a {
     color: var(--color-accent);
     font-weight: 400;
     font-size: .8em;
-    opacity: 1
+    opacity: 1;
+    overflow: hidden;
 }
 
 @media (min-width: 500px) {

@@ -5,6 +5,7 @@ use MHorwood\Dashboard\Model\bookmark;
 use MHorwood\Dashboard\Model\category;
 use MHorwood\Dashboard\Model\settings;
 use MHorwood\Dashboard\Model\login;
+use MHorwood\Dashboard\Model\flame;
 use MHorwood\Dashboard\classes\application_view;
 use MHorwood\Dashboard\classes\bookmark_view;
 use MHorwood\Dashboard\classes\category_view;
@@ -31,9 +32,16 @@ class DashboardController{
     $this->theme = explode(';',$this->setting_obj['defaultTheme']);
     $this->greeting = $this->settings->greeting();
     $this->docker = new docker();
+    $this->application->store_docker($this->docker->get_data());
     $session = new login();
     $this->session = new login();
     $this->logged_in = $this->session->isUserAuthenticated();
+    if(file_exists('../config/db.sqlite')){
+      $this->flame = new flame();
+      $this->flame->import_apps();
+      $this->flame->import_categories();
+      $this->flame->import_bookmarks();
+    }
   }
 
   /**

@@ -37,4 +37,41 @@ class application extends json {
     $this->save_to_file('../config/apps.json', $this->app_list);
   }
 
+  public function store_docker($docker_apps){
+    foreach ($docker_apps as $dkey => $dvalue) {
+      $store = false;
+      foreach($this->app_list['apps'] as $key => $app){
+        if( ($app['name'] == $dvalue['name']) && ($app['url'] == $dvalue['url']) ){
+          $store = true;
+        }
+      }
+      if($store === false){
+        $this->insert_application(array(
+          'name' => $dvalue['name'],
+          'url' => $dvalue['url'],
+          'icon' => 'docker',
+          'description' => $dvalue['name'],
+          'isPublic' => 1
+        ));
+      }
+    }
+  }
+
+  public function flame_import($flame_db){
+    $store = false;
+    foreach($this->app_list['apps'] as $key => $app){
+      if( ($app['name'] == $flame_db['name']) && ($app['url'] == $flame_db['url']) ){
+        $store = true;
+      }
+    }
+    if($store === false){
+      $this->insert_application(array(
+        'name' => $flame_db['name'],
+        'url' => $flame_db['url'],
+        'icon' => 'fire',
+        'description' => $flame_db['name'],
+        'isPublic' => 1
+      ));
+    }
+  }
 }
