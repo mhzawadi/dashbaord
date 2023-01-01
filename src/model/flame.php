@@ -1,7 +1,7 @@
 <?php
-namespace MHorwood\Dashboard\Model;
-use MHorwood\Dashboard\Model\application;
-use MHorwood\Dashboard\Model\bookmark;
+namespace MHorwood\Dashboard\model;
+use MHorwood\Dashboard\model\application;
+use MHorwood\Dashboard\model\bookmark;
 
 class flame {
 

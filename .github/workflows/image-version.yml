@@ -29,6 +29,6 @@ jobs:
       - name: build the image
         run: |
           docker buildx build --push \
-            -f docker/Dockerfile-dev \
+            -f docker/Dockerfile \
             --tag "mhzawadi/dashbaord:${{ steps.prepare.outputs.version }}" \
             --platform linux/amd64,linux/arm/v7,linux/arm64 .

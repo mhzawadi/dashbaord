@@ -2,7 +2,7 @@
 
 namespace MHorwood\Dashboard;
 
-use MHorwood\Dashboard\Controller\DashboardController;
+use MHorwood\Dashboard\controller\DashboardController;
 
 require __DIR__ . '/../../vendor/autoload.php';
 require_once('../classes/functions.php');

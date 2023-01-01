@@ -2,7 +2,7 @@ version: '2'
 
 services:
   Dashboard:
-    image: mhzawadi/dashboard
+    image: mhzawadi/dashbaord:dev
     ports:
       - "8080:8080"
     container_name: dashboard
@@ -13,25 +13,3 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     labels:
       - "dashboard.url=127.0.0.1:8080"
-  mysql:
-    image: mysql:5.7
-    environment:
-     - MYSQL_ROOT_PASSWORD=my-secret-pw
-     - MYSQL_DATABASE=dashboard
-     - MYSQL_USER=dashboard
-     - MYSQL_PASSWORD=dashboard
-    volumes:
-     - /Users/matt/git/dashbaord/vendor/mysql:/var/lib/mysql
-     - /Users/matt/git/dashbaord/docker/config.inc.php:/etc/phpmyadmin/config.user.inc.php
-    labels:
-     - "dashboard.ignore=true"
-  phpmyadmin:
-      image: mhzawadi/phpmyadmin:dev
-      ports:
-        - "8081:80"
-      environment:
-        - HOST_URL=mysql.horwood.biz
-      volumes:
-        - /Users/matt/git/dashbaord/docker/config.inc.php:/etc/phpmyadmin/config.user.inc.php
-      labels:
-        - "traefik.http.routers.pihole_primary.rule=Host(`127.0.0.1:8081`)"

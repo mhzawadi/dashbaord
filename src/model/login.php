@@ -1,5 +1,5 @@
 <?php
-namespace MHorwood\Dashboard\Model;
+namespace MHorwood\Dashboard\model;
 
 class login {
 

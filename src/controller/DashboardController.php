@@ -1,11 +1,11 @@
 <?php
-namespace MHorwood\Dashboard\Controller;
-use MHorwood\Dashboard\Model\application;
-use MHorwood\Dashboard\Model\bookmark;
-use MHorwood\Dashboard\Model\category;
-use MHorwood\Dashboard\Model\settings;
-use MHorwood\Dashboard\Model\login;
-use MHorwood\Dashboard\Model\flame;
+namespace MHorwood\Dashboard\controller;
+use MHorwood\Dashboard\model\application;
+use MHorwood\Dashboard\model\bookmark;
+use MHorwood\Dashboard\model\category;
+use MHorwood\Dashboard\model\settings;
+use MHorwood\Dashboard\model\login;
+use MHorwood\Dashboard\model\flame;
 use MHorwood\Dashboard\classes\application_view;
 use MHorwood\Dashboard\classes\bookmark_view;
 use MHorwood\Dashboard\classes\category_view;
