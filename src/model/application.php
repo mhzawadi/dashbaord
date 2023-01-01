@@ -40,9 +40,9 @@ class application extends json {
   public function store_docker($docker_apps){
     foreach ($docker_apps as $dkey => $dvalue) {
       $store = true;
-      if(is_set($app['enable']) && $app['enable'] === false){
+      if(isset($app['enable']) && $app['enable'] === false){
         $store = false;
-      }elseif(!is_set($app['url'])){
+      }elseif(!isset($app['url'])){
         $store = false;
       }else{
         foreach($this->app_list['apps'] as $key => $app){
