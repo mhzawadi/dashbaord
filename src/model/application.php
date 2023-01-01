@@ -39,13 +39,19 @@ class application extends json {
 
   public function store_docker($docker_apps){
     foreach ($docker_apps as $dkey => $dvalue) {
-      $store = false;
-      foreach($this->app_list['apps'] as $key => $app){
-        if( ($app['name'] == $dvalue['name']) && ($app['url'] == $dvalue['url']) ){
-          $store = true;
+      $store = true;
+      if(is_set($app['enable']) && $app['enable'] === false){
+        $store = false;
+      }elseif(!is_set($app['url'])){
+        $store = false;
+      }else{
+        foreach($this->app_list['apps'] as $key => $app){
+          if( ($app['name'] == $dvalue['name']) && ($app['url'] == $dvalue['url']) ){
+            $store = false;
+          }
         }
       }
-      if($store === false){
+      if($store === true){
         $this->insert_application(array(
           'name' => $dvalue['name'],
           'url' => $dvalue['url'],

@@ -3,7 +3,8 @@ name: build dev image
 on:
   workflow_dispatch:
   push:
-    branches-ignore: master
+    branches:
+      - dev
 
 jobs:
   build:
