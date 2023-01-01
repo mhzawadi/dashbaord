@@ -33,15 +33,15 @@ class DashboardController{
     $this->greeting = $this->settings->greeting();
     $this->docker = new docker();
     $this->application->store_docker($this->docker->get_data());
-    $session = new login();
-    $this->session = new login();
-    $this->logged_in = $this->session->isUserAuthenticated();
     if(file_exists('../config/db.sqlite')){
       $this->flame = new flame();
       $this->flame->import_apps();
       $this->flame->import_categories();
       $this->flame->import_bookmarks();
     }
+    $session = new login();
+    $this->session = new login();
+    $this->logged_in = $this->session->isUserAuthenticated();
   }
 
   /**

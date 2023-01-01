@@ -19,11 +19,13 @@ class bookmark_view {
       }else{
         $category_list .= '  <h3 class="">'.$category['name'].'</h3>'."\n";
       }
+      $category_list .= '  <div class="BookmarkCard_Bookmarks__YhsfD">'."\n";
       foreach($category['bookmarks'] as $key => $bookmark){
         $category_list .= '   <a href="'.$bookmark['url'].'" target="_blank" rel="noreferrer"><div class="BookmarkCard_BookmarkIcon__2c2C5">';
         $category_list .= '<span class="iconify" data-icon="mdi:'.$bookmark['icon'].'" data-width="20"></span></div> ';
         $category_list .= ''.$bookmark['name'].'</a>'."\n";
       }
+      $category_list .= '</div>'."\n";
       $category_list .= '</div>'."\n";
     }
     $category_list .= '</div>'."\n";

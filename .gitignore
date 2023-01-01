@@ -65,5 +65,4 @@ fabric.properties
 # Sonarlint plugin
 .idea/sonarlint
 vendor
-src/config/config.php
-src/config/database.php
+src/config/*.json
