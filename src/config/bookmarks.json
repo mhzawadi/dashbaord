@@ -1,5 +1,551 @@
 {
     "categorys": [
-        
+        {
+            "name": "Google",
+            "isPublic": 1,
+            "createdAt": "2023-01-02 21:58:31",
+            "updatedAt": "2023-01-02 21:58:31",
+            "bookmarks": [
+                {
+                    "name": "Admin",
+                    "url": "https:\/\/admin.google.com\/",
+                    "icon": "shield-crown",
+                    "categoryId": 0,
+                    "isPublic": 0,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Domains",
+                    "url": "https:\/\/domains.google.com\/registrar",
+                    "icon": "domain",
+                    "categoryId": 0,
+                    "isPublic": 0,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Quarantine",
+                    "url": "https:\/\/email-quarantine.google.com\/adminreview#",
+                    "icon": "email-search",
+                    "categoryId": 0,
+                    "isPublic": 0,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Cloud Console",
+                    "url": "https:\/\/console.cloud.google.com\/",
+                    "icon": "console-network",
+                    "categoryId": 0,
+                    "isPublic": 0,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Mail",
+                    "url": "https:\/\/mail.google.com\/",
+                    "icon": "email",
+                    "categoryId": 0,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                }
+            ]
+        },
+        {
+            "name": "Nextcloud",
+            "isPublic": 1,
+            "createdAt": "2023-01-02 21:58:31",
+            "updatedAt": "2023-01-02 21:58:31",
+            "bookmarks": [
+                {
+                    "name": "Nextcloud",
+                    "url": "https:\/\/owncloud.horwood.biz\/",
+                    "icon": "1637311835726--nextcloud.png",
+                    "categoryId": 1,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "My Site",
+                    "url": "https:\/\/owncloud.horwood.biz\/sites\/matt",
+                    "icon": "1637311797319--nextcloud.png",
+                    "categoryId": 1,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Pi Lab",
+                    "url": "https:\/\/owncloud.horwood.biz\/sites\/pilab",
+                    "icon": "microscope",
+                    "categoryId": 1,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                }
+            ]
+        },
+        {
+            "name": "General",
+            "isPublic": 1,
+            "createdAt": "2023-01-02 21:58:31",
+            "updatedAt": "2023-01-02 21:58:31",
+            "bookmarks": [
+                {
+                    "name": "Lloyds Bank",
+                    "url": "https:\/\/online.lloydsbank.co.uk\/personal\/logon\/login.jsp",
+                    "icon": "bank",
+                    "categoryId": 2,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Plusnet",
+                    "url": "https:\/\/portal.plus.net\/",
+                    "icon": "cloud-circle",
+                    "categoryId": 2,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "OVH",
+                    "url": "https:\/\/www.ovh.co.uk",
+                    "icon": "google-cloud",
+                    "categoryId": 2,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "BOASW (Church)",
+                    "url": "http:\/\/www.boasw.org\/",
+                    "icon": "church",
+                    "categoryId": 2,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "MGS (Gardeners)",
+                    "url": "http:\/\/www.melkshamgardenerssociety.co.uk\/",
+                    "icon": "shovel",
+                    "categoryId": 2,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Wiltshire Aqualetes",
+                    "url": "https:\/\/leisure.wiltshire.gov.uk\/aqualetes\/",
+                    "icon": "swim",
+                    "categoryId": 2,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                }
+            ]
+        },
+        {
+            "name": "Docs",
+            "isPublic": 1,
+            "createdAt": "2023-01-02 21:58:31",
+            "updatedAt": "2023-01-02 21:58:31",
+            "bookmarks": [
+                {
+                    "name": "Ansible Module Index",
+                    "url": "https:\/\/docs.ansible.com\/ansible\/2.9\/modules\/modules_by_category.html",
+                    "icon": "ansible",
+                    "categoryId": 3,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Dockerfile",
+                    "url": "https:\/\/docs.docker.com\/engine\/reference\/builder\/",
+                    "icon": "docker",
+                    "categoryId": 3,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Docker Compose",
+                    "url": "https:\/\/docs.docker.com\/compose\/compose-file\/",
+                    "icon": "docker",
+                    "categoryId": 3,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Molecule",
+                    "url": "https:\/\/molecule.readthedocs.io\/en\/stable\/",
+                    "icon": "ansible",
+                    "categoryId": 3,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Nginx",
+                    "url": "http:\/\/nginx.org\/en\/docs\/",
+                    "icon": "spider-web",
+                    "categoryId": 3,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "oauth2-proxy",
+                    "url": "https:\/\/oauth2-proxy.github.io\/oauth2-proxy\/docs\/",
+                    "icon": "arrow-decision",
+                    "categoryId": 3,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Cron Help",
+                    "url": "https:\/\/cron.help",
+                    "icon": "timeline-plus",
+                    "categoryId": 3,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                }
+            ]
+        },
+        {
+            "name": "Roys",
+            "isPublic": 1,
+            "createdAt": "2023-01-02 21:58:31",
+            "updatedAt": "2023-01-02 21:58:31",
+            "bookmarks": [
+                {
+                    "name": "GMail",
+                    "url": "https:\/\/mail.google.com\/",
+                    "icon": "email",
+                    "categoryId": 4,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Santander Bank",
+                    "url": "https:\/\/retail.santander.co.uk\/",
+                    "icon": "bank",
+                    "categoryId": 4,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Melksham Bluepool",
+                    "url": "https:\/\/leisure.wiltshire.gov.uk\/LhWeb\/en\/Public\/home",
+                    "icon": "pool",
+                    "categoryId": 4,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "The National Lottery",
+                    "url": "https:\/\/www.national-lottery.co.uk\/",
+                    "icon": "slot-machine",
+                    "categoryId": 4,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Collect lateral flow test",
+                    "url": "https:\/\/test-for-coronavirus.service.gov.uk\/collect-lateral-flow-kits",
+                    "icon": "virus",
+                    "categoryId": 4,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "order lateral flow kits",
+                    "url": "https:\/\/test-for-coronavirus.service.gov.uk\/order-lateral-flow-kits\/condition",
+                    "icon": "virus",
+                    "categoryId": 4,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Octopus Energy",
+                    "url": "https:\/\/octopus.energy\/dashboard\/",
+                    "icon": "transmission-tower-export",
+                    "categoryId": 4,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                }
+            ]
+        },
+        {
+            "name": "Network",
+            "isPublic": 1,
+            "createdAt": "2023-01-02 21:58:31",
+            "updatedAt": "2023-01-02 21:58:31",
+            "bookmarks": [
+                {
+                    "name": "pi-hole 01",
+                    "url": "https:\/\/dns01.horwood.biz\/admin",
+                    "icon": "dns",
+                    "categoryId": 5,
+                    "isPublic": 0,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Router",
+                    "url": "http:\/\/dsldevice.lan",
+                    "icon": "router-network",
+                    "categoryId": 5,
+                    "isPublic": 0,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "PoE01",
+                    "url": "http:\/\/poe01.infra.horwood.biz",
+                    "icon": "switch",
+                    "categoryId": 5,
+                    "isPublic": 0,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Unifi",
+                    "url": "https:\/\/unifi.horwood.biz\/",
+                    "icon": "router-wireless",
+                    "categoryId": 5,
+                    "isPublic": 0,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "UPS",
+                    "url": "http:\/\/www.home.local\/apcupsd\/multimon.cgi",
+                    "icon": "home-battery",
+                    "categoryId": 5,
+                    "isPublic": 0,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                }
+            ]
+        },
+        {
+            "name": "IOT Devices",
+            "isPublic": 1,
+            "createdAt": "2023-01-02 21:58:31",
+            "updatedAt": "2023-01-02 21:58:31",
+            "bookmarks": [
+                {
+                    "name": "Office Shelly 1L",
+                    "url": "http:\/\/192.168.49.188",
+                    "icon": "light-switch",
+                    "categoryId": 6,
+                    "isPublic": 0,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Office Shelly Button",
+                    "url": "http:\/\/192.168.49.184",
+                    "icon": "gesture-tap-button",
+                    "categoryId": 6,
+                    "isPublic": 0,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Landing Motion",
+                    "url": "http:\/\/192.168.49.190",
+                    "icon": "motion-sensor",
+                    "categoryId": 6,
+                    "isPublic": 0,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Dinning Shelly 1",
+                    "url": "http:\/\/192.168.49.191",
+                    "icon": "led-strip-variant",
+                    "categoryId": 6,
+                    "isPublic": 0,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Garage Shelly 1L",
+                    "url": "http:\/\/192.168.49.189",
+                    "icon": "coach-lamp",
+                    "categoryId": 6,
+                    "isPublic": 0,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Shelly RGBW",
+                    "url": "http:\/\/192.168.49.98",
+                    "icon": "led-strip-variant",
+                    "categoryId": 6,
+                    "isPublic": 0,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                }
+            ]
+        },
+        {
+            "name": "Lisa",
+            "isPublic": 1,
+            "createdAt": "2023-01-02 21:58:31",
+            "updatedAt": "2023-01-02 21:58:31",
+            "bookmarks": [
+                {
+                    "name": "Yahoo Mail",
+                    "url": "https:\/\/mail.yahoo.com\/",
+                    "icon": "",
+                    "categoryId": 7,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                }
+            ]
+        },
+        {
+            "name": "Amazon",
+            "isPublic": 1,
+            "createdAt": "2023-01-02 21:58:31",
+            "updatedAt": "2023-01-02 21:58:31",
+            "bookmarks": [
+                {
+                    "name": "AWS SSO login",
+                    "url": "https:\/\/horwood.awsapps.com\/start",
+                    "icon": "",
+                    "categoryId": 8,
+                    "isPublic": 0,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Shop",
+                    "url": "https:\/\/smile.amazon.co.uk",
+                    "icon": "",
+                    "categoryId": 8,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "AWS Console",
+                    "url": "https:\/\/console.aws.amazon.com",
+                    "icon": "",
+                    "categoryId": 8,
+                    "isPublic": 0,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                }
+            ]
+        },
+        {
+            "name": "Tools",
+            "isPublic": 1,
+            "createdAt": "2023-01-02 21:58:31",
+            "updatedAt": "2023-01-02 21:58:31",
+            "bookmarks": [
+                {
+                    "name": "Backblaze",
+                    "url": "https:\/\/secure.backblaze.com\/user_signin.htm",
+                    "icon": "google-cloud",
+                    "categoryId": 9,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "DNSChecker",
+                    "url": "https:\/\/dnschecker.org\/",
+                    "icon": "cloud-search",
+                    "categoryId": 9,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Github Repos",
+                    "url": "https:\/\/github.com\/mhzawadi?tab=repositories",
+                    "icon": "github",
+                    "categoryId": 9,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Material Design Icons",
+                    "url": "https:\/\/materialdesignicons.com\/",
+                    "icon": "vector-square",
+                    "categoryId": 9,
+                    "isPublic": 1,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                }
+            ]
+        },
+        {
+            "name": "Media",
+            "isPublic": 1,
+            "createdAt": "2023-01-02 21:58:31",
+            "updatedAt": "2023-01-02 21:58:31",
+            "bookmarks": [
+                {
+                    "name": "Sonarr",
+                    "url": "https:\/\/sonarr.horwood.biz",
+                    "icon": "",
+                    "categoryId": 10,
+                    "isPublic": 0,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Radarr",
+                    "url": "https:\/\/radarr.horwood.biz",
+                    "icon": "",
+                    "categoryId": 10,
+                    "isPublic": 0,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "qBitTorrent",
+                    "url": "https:\/\/qbittorrent.horwood.biz",
+                    "icon": "",
+                    "categoryId": 10,
+                    "isPublic": 0,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                },
+                {
+                    "name": "Prowlarr",
+                    "url": "https:\/\/jackett.horwood.biz",
+                    "icon": "",
+                    "categoryId": 10,
+                    "isPublic": 0,
+                    "createdAt": "2023-01-02 21:58:31",
+                    "updatedAt": "2023-01-02 21:58:31"
+                }
+            ]
+        }
     ]
 }

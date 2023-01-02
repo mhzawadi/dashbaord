@@ -35,9 +35,9 @@ class DashboardController{
     $this->application->store_docker($this->docker->get_data());
     if(file_exists('../config/db.sqlite')){
       $this->flame = new flame();
-      $this->flame->import_apps();
-      $this->flame->import_categories();
-      $this->flame->import_bookmarks();
+      $this->flame->import_apps($this->application);
+      $this->flame->import_categories($this->bookmark);
+      $this->flame->import_bookmarks($this->bookmark);
     }
     $session = new login();
     $this->session = new login();

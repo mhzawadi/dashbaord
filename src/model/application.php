@@ -51,7 +51,7 @@ class application extends json {
         $store = false;
       }else{
         foreach($this->app_list['apps'] as $key => $app){
-          if( ($app['name'] == $dvalue['name']) && ($app['url'] == $dvalue['url']) ){
+          if( ($app['name'] == $dvalue['name']) && ($this->remove_http($app['url']) == $dvalue['url']) ){
             $store = false;
           }
         }
@@ -69,13 +69,13 @@ class application extends json {
   }
 
   public function flame_import($flame_db){
-    $store = false;
+    $store = true;
     foreach($this->app_list['apps'] as $key => $app){
       if( ($app['name'] == $flame_db['name']) && ($app['url'] == $flame_db['url']) ){
-        $store = true;
+        $store = false;
       }
     }
-    if($store === false){
+    if($store === true){
       $this->insert_application(array(
         'name' => $flame_db['name'],
         'url' => $flame_db['url'],
@@ -87,9 +87,9 @@ class application extends json {
   }
 
   protected function set_http($string){
-    if(strpos($string, 'http://')){
+    if(strpos($string, 'http://') !== false){
       return "$string";
-    }elseif(strpos($string, 'https://')){
+    }elseif(strpos($string, 'https://') !== false){
       return "$string";
     }else{
       return "http://$string";
