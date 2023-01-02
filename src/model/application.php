@@ -16,7 +16,7 @@ class application extends json {
 
   public function update_application($applicationID, $args){
     $this->app_list['apps'][$applicationID]['name'] = $args['name'];
-    $this->app_list['apps'][$applicationID]['url'] = $args['url'];
+    $this->app_list['apps'][$applicationID]['url'] = $this->set_http($args['url']);
     $this->app_list['apps'][$applicationID]['icon'] = $args['icon'];
     $this->app_list['apps'][$applicationID]['description'] = $args['description'];
     $this->app_list['apps'][$applicationID]['isPublic'] = $args['isPublic'];
@@ -26,7 +26,7 @@ class application extends json {
   public function insert_application($args){
     $data = array(
       'name'=>$args['name'],
-      'url'=>$args['url'],
+      'url'=>$this->set_http($args['url']),
       'icon'=>$args['icon'],
       'description'=>$args['description'],
       'isPublic'=>$args['isPublic'],
@@ -40,9 +40,9 @@ class application extends json {
   public function store_docker($docker_apps){
     foreach ($docker_apps as $dkey => $dvalue) {
       $store = true;
-      if(isset($app['enable']) && $app['enable'] === false){
+      if(isset($dvalue['enable']) && $dvalue['enable'] === false){
         $store = false;
-      }elseif(!isset($app['url'])){
+      }elseif(isset($dvalue['url']) === false){
         $store = false;
       }else{
         foreach($this->app_list['apps'] as $key => $app){
@@ -79,5 +79,20 @@ class application extends json {
         'isPublic' => 1
       ));
     }
+  }
+
+  protected function set_http($string){
+    if(strpos($string, 'http://')){
+      return "$string";
+    }elseif(strpos($string, 'https://')){
+      return "$string";
+    }else{
+      return "http://$string";
+    }
+  }
+
+  protected function remove_http($string){
+    $replace = array('http://', 'https://');
+    return str_replace($replace, '', $string);
   }
 }

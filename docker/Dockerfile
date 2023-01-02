@@ -25,7 +25,8 @@ RUN cp /config/php.ini /etc/php81/php.ini && \
 
 WORKDIR /var/www/html
 COPY . .
-RUN composer install
+RUN composer install \
+  && chown nobody:nobody * -R
 
 EXPOSE 8080
 ENTRYPOINT ["/config/start.sh"]

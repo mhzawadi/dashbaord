@@ -3,6 +3,11 @@
 namespace MHorwood\Dashboard\classes;
 
 class application_view {
+  protected function remove_http($string){
+    $replace = array('http://', 'https://');
+    return str_replace($replace, '', $string);
+  }
+
   public function build_app_grid($applications){
     $app_list = '';
     foreach($applications as $key => $app){
@@ -12,7 +17,7 @@ class application_view {
       $app_list .= '  </div>'."\n";
       $app_list .= '  <div class="AppCard_AppCardDetails__tbAhY">'."\n";
       $app_list .= '    <h5>'.$app['name'].'</h5>'."\n";
-      $app_list .= '    <span>'.substr($app['url'], 0, 40).'</span>'."\n";
+      $app_list .= '    <span>'.substr($this->remove_http($app['url']), 0, 40).'</span>'."\n";
       $app_list .= '  </div>'."\n";
       $app_list .= '</a>'."\n";
     }
