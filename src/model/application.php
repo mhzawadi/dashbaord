@@ -7,7 +7,12 @@ class application extends json {
   protected $app_list;
 
   public function __construct(){
-    $this->app_list = $this->load_from_file('../config/apps.json');
+    if(file_exists('../config/settings.json') === false){
+      $this->app_list = $this->load_from_file('../../data/apps.json');
+      $this->save_to_file('../config/apps.json', $this->app_list);
+    }else{
+      $this->app_list = $this->load_from_file('../config/apps.json');
+    }
   }
 
   public function get_list(){

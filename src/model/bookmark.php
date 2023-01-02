@@ -7,7 +7,12 @@ class bookmark extends json {
   protected $category_options;
 
   public function __construct(){
-    $this->bookmarks_list = $this->load_from_file('../config/bookmarks.json');
+    if(file_exists('../config/settings.json') === false){
+      $this->bookmarks_list = $this->load_from_file('../../data/bookmarks.json');
+      $this->save_to_file('../config/bookmarks.json', $this->bookmarks_list);
+    }else{
+      $this->bookmarks_list = $this->load_from_file('../config/bookmarks.json');
+    }
   }
 
   public function get_list(){
