@@ -26,3 +26,7 @@ jobs:
             -f docker/Dockerfile \
             --tag mhzawadi/dashbaord:latest \
             --platform linux/amd64,linux/arm/v7,linux/arm64 .
+      - name: curl
+            uses: wei/curl@v1
+            with:
+              args: -X POST "https://portainer.horwood.biz/api/webhooks/${{ secrets.WEBHOOK }}"
