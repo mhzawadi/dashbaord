@@ -49,7 +49,7 @@ class category_view {
     $category_list .= '    </thead>'."\n";
     $category_list .= '  <tbody>'."\n";
     foreach($categories as $key => $category){
-      $category_list .= '  <tr data-rbd-draggable-context-id="1" data-rbd-draggable-id="46" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-22" data-rbd-drag-handle-draggable-id="46" data-rbd-drag-handle-context-id="1" draggable="false" style="border: none; border-radius: 4px;">'."\n";
+      $category_list .= '  <tr data-rbd-draggable-context-id="1" data-rbd-draggable-id="46" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-22" data-rbd-drag-handle-draggable-id="46" data-rbd-drag-handle-context-id="1" draggable="false">'."\n";
       $category_list .= '    <td style="width: 200px;">'.$category['name'].'</td>'."\n";
       $category_list .= '    <td style="width: 200px;">'.$category['isPublic'].'</td>'."\n";
       $category_list .= '    <td class="TableActions_TableActions__2_v2I">'."\n";

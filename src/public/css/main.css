@@ -61,6 +61,11 @@ a {
     table-layout: fixed
 }
 
+.Table_Table__pinST tr {
+  border-bottom: var(--color-primary) 1px solid;
+  border-radius: 4px;
+}
+
 .Table_Table__pinST td,.Table_Table__pinST th {
     padding: 10px;
     overflow: hidden;

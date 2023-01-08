@@ -67,7 +67,7 @@ class bookmark_view {
     $bookmark_list .= '    </thead>'."\n";
     $bookmark_list .= '  <tbody>'."\n";
     foreach($bookmarks as $key => $bookmark){
-      $bookmark_list .= '  <tr data-rbd-draggable-context-id="1" data-rbd-draggable-id="46" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-22" data-rbd-drag-handle-draggable-id="46" data-rbd-drag-handle-context-id="1" draggable="false" style="border: none; border-radius: 4px;">'."\n";
+      $bookmark_list .= '  <tr data-rbd-draggable-context-id="1" data-rbd-draggable-id="46" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-22" data-rbd-drag-handle-draggable-id="46" data-rbd-drag-handle-context-id="1" draggable="false">'."\n";
       $bookmark_list .= '    <td style="width: 200px;">'.$bookmark['name'].'</td>'."\n";
       $bookmark_list .= '    <td style="width: 400px;">'.$bookmark['url'].'</td>'."\n";
       $bookmark_list .= '    <td style="width: 200px;">'.$bookmark['icon'].'</td>'."\n";
