@@ -16,13 +16,13 @@ class settings extends json{
     }
     if(file_exists('../config/themes.json') === false){
       $this->themes = $this->load_from_file('../../data/themes.json');
-      $this->save_to_file('../config/settings.json', $this->themes);
+      $this->save_to_file('../config/themes.json', $this->themes);
     }else{
       $this->themes = $this->load_from_file('../config/themes.json');
     }
     if(file_exists('../config/themes_custom.json') === false){
       $this->themes_custom = $this->load_from_file('../../data/themes_custom.json');
-      $this->save_to_file('../config/settings.json', $this->themes_custom);
+      $this->save_to_file('../config/themes_custom.json', $this->themes_custom);
     }else{
       $this->themes_custom = $this->load_from_file('../config/themes_custom.json');
     }
