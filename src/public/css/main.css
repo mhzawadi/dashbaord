@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
     font-family: "Roboto";
     font-style: normal;
     font-weight: 400;
@@ -24,7 +24,7 @@
     font-style: normal;
     font-weight: 700;
     src: local(""),url(/static/media/roboto-v29-latin-700.0682ca7f.woff2) format("woff2"),url(/static/media/roboto-v29-latin-700.0344cc3c.woff) format("woff")
-}
+} */
 
 * {
     margin: 0;
@@ -650,6 +650,9 @@ a {
     font-size: 16px;
     font-weight: 400;
     text-transform: uppercase
+}
+.BookmarkCard_BookmarkCard__1GmHc h3 a {
+  color: var(--color-accent);
 }
 
 .BookmarkCard_BookmarkHeader__112bh:hover {

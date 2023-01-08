@@ -62,6 +62,11 @@ class bookmark extends json {
     $this->save_to_file('../config/bookmarks.json', $this->bookmarks_list);
   }
 
+  public function delete_bookmark($categoryId, $bookmarkID){
+    unset($this->bookmarks_list['categorys'][$categoryId]['bookmarks'][$bookmarkID]);
+    $this->save_to_file('../config/bookmarks.json', $this->bookmarks_list);
+  }
+
   public function update_category($categoryId, $args){
     $this->bookmarks_list['categorys'][$categoryId]['name'] = $args['name'];
     $this->bookmarks_list['categorys'][$categoryId]['isPublic'] = $args['isPublic'];
@@ -78,6 +83,11 @@ class bookmark extends json {
       "bookmarks"=>array()
     );
     $this->bookmarks_list['categorys'][] = $data;
+    $this->save_to_file('../config/bookmarks.json', $this->bookmarks_list);
+  }
+
+  public function delete_category($categoryId){
+    unset($this->bookmarks_list['categorys'][$categoryId]);
     $this->save_to_file('../config/bookmarks.json', $this->bookmarks_list);
   }
 

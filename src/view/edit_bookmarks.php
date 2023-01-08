@@ -6,6 +6,9 @@ require_once('header.php');
     <div class="ModalForm_ModalFormIcon__3Og8r" onclick="CloseModal('category_modal', 'frm_category', 'categoryID')">
       <span class="iconify" data-icon="mdi:close" data-width="30"></span>
     </div>
+    <form id="frm_category_delete" name="category" method="post" action="/categories/delete">
+      <input type="hidden" name="categoryID" id="del_categoryID" value="none">
+    </form>
     <form id="frm_category" name="category" method="post" action="/categories/edit">
       <input type="hidden" name="categoryID" id="categoryID" value="none">
       <div class="InputGroup_InputGroup__1Nm_2">
@@ -28,6 +31,10 @@ require_once('header.php');
     <div class="ModalForm_ModalFormIcon__3Og8r" onclick="CloseModal('bookmark_modal', 'frm_bookmark', 'bookmarkID')">
       <span class="iconify" data-icon="mdi:close" data-width="30"></span>
     </div>
+    <form id="frm_bookmark_delete" method="post" action="/bookmarks/<?php echo $urls['id'];?>/delete">
+      <input type="hidden" name="bookmarkID" id="del_bookmarkID" value="none">
+      <input type="hidden" name="categoryId" id="del_bk_categoryId" value="none">
+    </form>
     <form id="frm_bookmark" method="post" action="/bookmarks/<?php echo $urls['id'];?>/edit">
       <input type="hidden" name="bookmarkID" id="bookmarkID" value="none">
       <div class="InputGroup_InputGroup__1Nm_2">
@@ -65,7 +72,11 @@ require_once('header.php');
 </div>
 <h1 class="Headline_HeadlineTitle__3WjW5">All Bookmarks</h1>
 <p class="Headline_HeadlineSubtitle__Aon5D">
-  <a href="/">Go back</a>
+<?php if($finish_edits === false){?>
+  <a href="/">Go home</a>
+<?php }else{?>
+  <a href="/bookmarks">Back to bookmarks</a>
+<?php }?>
 </p>
 <div class="Bookmarks_ActionsContainer__1XPAS">
   <div class="ActionButton_ActionButton__3Ckgw" tabindex="0" onclick="openModal('category_modal')">

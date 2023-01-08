@@ -6,6 +6,9 @@ require_once('header.php');
     <div class="ModalForm_ModalFormIcon__3Og8r" onclick="CloseModal('application_modal', 'frm_app', 'applicationID')">
       <span class="iconify" data-icon="mdi:close" data-width="30"></span>
     </div>
+    <form id="frm_app_delete" method="post" action="/applications/delete">
+      <input type="hidden" name="application_id" id="del_applicationID" value="none">
+    </form>
     <form id="frm_app" method="post" action="/applications/edit">
       <input type="hidden" name="application_id" id="applicationID" value="none">
       <div class="InputGroup_InputGroup__1Nm_2">
@@ -41,7 +44,7 @@ require_once('header.php');
 </div>
 <h1 class="Headline_HeadlineTitle__3WjW5">All Applications</h1>
 <p class="Headline_HeadlineSubtitle__Aon5D">
-  <a href="/">Go back</a>
+  <a href="/">Go home</a>
 </p>
 <div class="Apps_ActionsContainer__1Nn5v">
   <div class="ActionButton_ActionButton__3Ckgw" tabindex="0" onclick="openModal('application_modal')">

@@ -42,6 +42,11 @@ class application extends json {
     $this->save_to_file('../config/apps.json', $this->app_list);
   }
 
+  public function delete_application($applicationID){
+    unset($this->app_list['apps'][$applicationID]);
+    $this->save_to_file('../config/apps.json', $this->app_list);
+  }
+
   public function store_docker($docker_apps){
     foreach ($docker_apps as $dkey => $dvalue) {
       $store = true;
@@ -81,7 +86,7 @@ class application extends json {
         'url' => $flame_db['url'],
         'icon' => 'fire',
         'description' => $flame_db['name'],
-        'isPublic' => 1
+        'isPublic' => $flame_db['isPublic']
       ));
     }
   }

@@ -8,18 +8,22 @@ class application_view {
     return str_replace($replace, '', $string);
   }
 
-  public function build_app_grid($applications){
+  public function build_app_grid($applications, $logged_in){
     $app_list = '';
     foreach($applications as $key => $app){
-      $app_list .= '<a href="'.$app['url'].'" target="_blank" rel="noreferrer" class="AppCard_AppCard__1V2_0">'."\n";
-      $app_list .= '  <div class="AppCard_AppCardIcon__8ZZTq">';
-      $app_list .= '    <span class="iconify" data-icon="mdi:'.$app['icon'].'" data-width="24"></span>'."\n";
-      $app_list .= '  </div>'."\n";
-      $app_list .= '  <div class="AppCard_AppCardDetails__tbAhY">'."\n";
-      $app_list .= '    <h5>'.$app['name'].'</h5>'."\n";
-      $app_list .= '    <span>'.substr($this->remove_http($app['url']), 0, 40).'</span>'."\n";
-      $app_list .= '  </div>'."\n";
-      $app_list .= '</a>'."\n";
+      if( ($app['isPublic'] == 1 && $logged_in === false) ||
+          ($logged_in === true)
+      ){
+        $app_list .= '<a href="'.$app['url'].'" target="_blank" rel="noreferrer" class="AppCard_AppCard__1V2_0">'."\n";
+        $app_list .= '  <div class="AppCard_AppCardIcon__8ZZTq">';
+        $app_list .= '    <span class="iconify" data-icon="mdi:'.$app['icon'].'" data-width="24"></span>'."\n";
+        $app_list .= '  </div>'."\n";
+        $app_list .= '  <div class="AppCard_AppCardDetails__tbAhY">'."\n";
+        $app_list .= '    <h5>'.$app['name'].'</h5>'."\n";
+        $app_list .= '    <span>'.substr($this->remove_http($app['url']), 0, 40).'</span>'."\n";
+        $app_list .= '  </div>'."\n";
+        $app_list .= '</a>'."\n";
+      }
     }
     return $app_list;
   }
@@ -48,7 +52,7 @@ class application_view {
       $app_list .= '  <td style="width: 200px;">'.$app['icon'].'</td>'."\n";
       $app_list .= '  <td style="width: 200px;">'.$app['isPublic'].'</td>'."\n";
       $app_list .= '  <td class="TableActions_TableActions__2_v2I">'."\n";
-      $app_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0">'."\n";
+      $app_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="delete_application('.$key.')">'."\n";
       $app_list .= '        <span class="iconify" data-icon="mdi:delete" data-width="18"></span>'."\n";
       $app_list .= '      </div>'."\n";
       $app_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="edit_app(\''.$key.'\',\''.$app['name'].'\',\''.$app['url'].'\',\''.$app['isPublic'].'\',\''.$app['icon'].'\',\''.$app['description'].'\')">'."\n";
@@ -57,8 +61,13 @@ class application_view {
       $app_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0">'."\n";
       $app_list .= '        <span class="iconify" data-icon="mdi:pin-off" data-width="18"></span>'."\n";
       $app_list .= '      </div>'."\n";
-      $app_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0">'."\n";
-      $app_list .= '        <span class="iconify" data-icon="mdi:eye-off" data-width="18"></span>'."\n";
+      if( ($app['isPublic'] == 0 ) ){
+        $app_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="edit_app(\''.$key.'\',\''.$app['name'].'\',\''.$app['url'].'\',\'1\',\''.$app['icon'].'\',\''.$app['description'].'\', true)">'."\n";
+        $app_list .= '        <span class="iconify" data-icon="mdi:eye-off" data-width="18"></span>'."\n";
+      }else{
+        $app_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="edit_app(\''.$key.'\',\''.$app['name'].'\',\''.$app['url'].'\',\'0\',\''.$app['icon'].'\',\''.$app['description'].'\', true)">'."\n";
+        $app_list .= '        <span class="iconify" data-icon="mdi:eye" data-width="18"></span>'."\n";
+      }
       $app_list .= '      </div>'."\n";
       $app_list .= '  </td>'."\n";
       $app_list .= '</tr>'."\n";

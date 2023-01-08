@@ -65,6 +65,9 @@ class DashboardController{
         case 'new':
           $url['type'] = 'edit';
           break;
+        case 'delete':
+          $url['type'] = 'delete';
+          break;
         case is_numeric($urls[1]):
           $url['id'] = $urls[1];
           break;
@@ -83,6 +86,9 @@ class DashboardController{
           break;
         case 'new':
           $url['type'] = 'edit';
+          break;
+        case 'delete':
+          $url['type'] = 'delete';
           break;
         default:
           $url['sub_page'] = $urls[2];
@@ -105,13 +111,15 @@ class DashboardController{
           exit;
         }
         if(isset($urls['type']) && $urls['type'] !== 'none'){
-          if($args['description'] == ''){
+          if($args['description'] == '' && $urls['type'] != 'delete'){
             $args['description'] = $args['url'];
           }
-          if($args['application_id'] == 'none'){
+          if(isset($args['application_id']) && $args['application_id'] == 'none'){
             $this->application->insert_application($args);
-          }else{
+          }elseif(isset($args['application_id']) && isset($urls['type']) && $urls['type'] == 'edit'){
             $this->application->update_application($args['application_id'], $args);
+          }elseif(isset($args['application_id']) && isset($urls['type']) && $urls['type'] == 'delete'){
+            $this->application->delete_application($args['application_id']);
           }
           header('Location: /applications');
           exit;
@@ -126,11 +134,13 @@ class DashboardController{
         }
         $finish_edits = false;
         if($urls['type'] === 'edit'){
-          if($args['bookmarkID'] == 'none'){
+          if(isset($args['bookmarkID']) && $args['bookmarkID'] == 'none' && isset(args['categoryId'])){
             $this->bookmark->insert_bookmark($args['categoryId'], $args);
-          }else{
+          }elseif(isset($args['categoryId']) && isset($args['bookmarkID'])){
             $this->bookmark->update_bookmark($args['bookmarkID'], $args['categoryId'], $args);
           }
+        }elseif($urls['type'] == 'delete' && isset($args['categoryId']) && isset($args['bookmarkID'])){
+          $this->bookmark->delete_bookmark($args['categoryId'], $args['bookmarkID']);
         }
         if($urls['id'] != 'none'){
           $finish_edits = true;
@@ -138,7 +148,7 @@ class DashboardController{
           $bookmarks = $this->bookmark_view->build_bookmark_table($urls['id']);
         }else{
           $category_options = $this->bookmark->get_category_options();
-          $bookmarks = $this->bookmark_view->build_list(true);
+          $bookmarks = $this->bookmark_view->build_list(true, $this->logged_in);
         }
         include (__DIR__ . '/../view/edit_bookmarks.php');
         break;
@@ -153,6 +163,12 @@ class DashboardController{
           }else{
             $this->bookmark->update_category($args['categoryID'], $args);
           }
+          header('Location: /categories');
+          exit;
+        }elseif(isset($urls['type']) && $urls['type'] === 'delete'){
+          $this->bookmark->delete_category($args['categoryID']);
+          header('Location: /categories');
+          exit;
         }
         $finish_edits = true;
         $bookmarks = $this->category_view->build_category_table($this->bookmark->get_list());
@@ -206,8 +222,8 @@ class DashboardController{
         }
         break;
       default:
-      $applications = $this->application_view->build_app_grid($this->application->get_list());
-      $bookmarks = $this->bookmark_view->build_list($this->bookmark->get_list());
+      $applications = $this->application_view->build_app_grid($this->application->get_list(), $this->logged_in);
+      $bookmarks = $this->bookmark_view->build_list($this->bookmark->get_list(), $this->logged_in);
       include (__DIR__ . '/../view/main_view.php');
         break;
       }

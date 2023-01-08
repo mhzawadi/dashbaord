@@ -26,9 +26,9 @@ class category_view {
     foreach($categorys as $key => $category){
       $category_list .= '<div class="BookmarkCard_BookmarkCard__1GmHc">'."\n";
       if($link === true){
-        $category_list .= '  <h3 class=""><a href="/bookmarks/'.$category['id'].'">'.$category['name'].'</a></h3>'."\n";
+        $category_list .= '  <h3 class="BookmarkCard_BookmarkHeader__112bh"><a href="/bookmarks/'.$category['id'].'">'.$category['name'].'</a></h3>'."\n";
       }else{
-        $category_list .= '  <h3 class="">'.$category['name'].'</h3>'."\n";
+        $category_list .= '  <h3 class="BookmarkCard_BookmarkHeader__112bh">'.$category['name'].'</h3>'."\n";
       }
       $category_list .= $this->bookmark_view->build_bookmark_list(bookmark::factory()->where('categoryId', '=', $category['id']));
       $category_list .= '</div>'."\n";
@@ -53,7 +53,7 @@ class category_view {
       $category_list .= '    <td style="width: 200px;">'.$category['name'].'</td>'."\n";
       $category_list .= '    <td style="width: 200px;">'.$category['isPublic'].'</td>'."\n";
       $category_list .= '    <td class="TableActions_TableActions__2_v2I">'."\n";
-      $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0">'."\n";
+      $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="category_delete('.$key.')">'."\n";
       $category_list .= '        <span class="iconify" data-icon="mdi:delete" data-width="18"></span>'."\n";
       $category_list .= '      </div>'."\n";
       $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="category_edit(\''.$key.'\',\''.$category['name'].'\', '.$category['isPublic'].')">'."\n";
@@ -62,8 +62,13 @@ class category_view {
       $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0">'."\n";
       $category_list .= '        <span class="iconify" data-icon="mdi:pin-off" data-width="18"></span>'."\n";
       $category_list .= '      </div>'."\n";
-      $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0">'."\n";
-      $category_list .= '        <span class="iconify" data-icon="mdi:eye-off" data-width="18"></span>'."\n";
+      if( ($category['isPublic'] == 0 ) ){
+        $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="category_edit(\''.$key.'\',\''.$category['name'].'\', 1, true)">'."\n";
+        $category_list .= '        <span class="iconify" data-icon="mdi:eye-off" data-width="18"></span>'."\n";
+      }else{
+        $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="category_edit(\''.$key.'\',\''.$category['name'].'\', 0, true)">'."\n";
+        $category_list .= '        <span class="iconify" data-icon="mdi:eye" data-width="18"></span>'."\n";
+      }
       $category_list .= '      </div>'."\n";
       $category_list .= '    </td>'."\n";
       $category_list .= '  </tr>'."\n";
