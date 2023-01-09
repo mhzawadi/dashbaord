@@ -66,3 +66,4 @@ fabric.properties
 .idea/sonarlint
 vendor
 src/config/*
+src/public/uploads/*
