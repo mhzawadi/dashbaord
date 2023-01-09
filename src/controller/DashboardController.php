@@ -19,6 +19,7 @@ class DashboardController{
   protected $routing;
   protected $session;
   protected $logged_in;
+  protected $uploadOk;
 
   public function __construct($user_agent){
     $this->application = new application();
@@ -111,8 +112,17 @@ class DashboardController{
           exit;
         }
         if(isset($urls['type']) && $urls['type'] !== 'none'){
-          if($args['description'] == '' && $urls['type'] != 'delete'){
+          if(isset($args['description']) && $urls['type'] != 'delete'){
             $args['description'] = $args['url'];
+          }
+          if(isset($_FILES['icon_file'])){
+            if($this->store_image()){
+               $args['icon'] = $this->uploadOk;
+            }else{
+              echo '<div style="color: red; text-align: center;font-size: 20px;">'.$this->uploadOk.'</div>';
+            }
+          }elseif(isset($args['icon'])){
+            $args['icon'] = 'mdi:'.$args['icon'];
           }
           if(isset($args['application_id']) && $args['application_id'] == 'none'){
             $this->application->insert_application($args);
@@ -134,6 +144,15 @@ class DashboardController{
         }
         $finish_edits = false;
         if($urls['type'] === 'edit'){
+          if(isset($_FILES['icon_file'])){
+            if($this->store_image()){
+               $args['icon'] = $this->uploadOk;
+            }else{
+              echo '<div style="color: red; text-align: center;font-size: 20px;">'.$this->uploadOk.'</div>';
+            }
+          }elseif(isset($args['icon'])){
+            $args['icon'] = 'mdi:'.$args['icon'];
+          }
           if(isset($args['bookmarkID']) && $args['bookmarkID'] == 'none' && isset(args['categoryId'])){
             $this->bookmark->insert_bookmark($args['categoryId'], $args);
           }elseif(isset($args['categoryId']) && isset($args['bookmarkID'])){
@@ -227,5 +246,57 @@ class DashboardController{
       include (__DIR__ . '/../view/main_view.php');
         break;
       }
+  }
+
+  protected function store_image(){
+    $target_dir = __DIR__ . '/../public/uploads/';
+    $target_file = $target_dir . basename($_FILES["icon_file"]["name"]);
+    $target_filename = basename($_FILES["icon_file"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    // Check if image file is a actual image or fake image
+    if(isset($_POST["submit"])) {
+      $check = getimagesize($_FILES["icon_file"]["tmp_name"]);
+      if($check !== false) {
+        $uploadOk = 1;
+      } else {
+        $uploadOk = 0;
+        $this->uploadOk = "File is not an image.";
+      }
+    }
+
+    // Check if file already exists
+    if (file_exists($target_file)) {
+      $uploadOk = 2;
+    }
+
+    // Check file size
+    if ($_FILES["icon_file"]["size"] > 500000) {
+      $uploadOk = 0;
+      $this->uploadOk = "Sorry, your file is too large.";
+    }
+
+    // Allow certain file formats
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+    && $imageFileType != "gif" ) {
+      $uploadOk = 0;
+      $this->uploadOk = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    }
+
+    // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+      return false;
+    // if everything is ok, try to upload file
+    } elseif($uploadOk == 2) {
+      $this->uploadOk = $target_filename;
+      return true;
+    } else {
+      if (move_uploaded_file($_FILES["icon_file"]["tmp_name"], $target_file)) {
+        $this->uploadOk = $target_filename;
+        return true;
+      } else {
+        return false;
+      }
+    }
   }
 }

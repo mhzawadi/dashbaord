@@ -23,8 +23,14 @@ class bookmark_view {
         $category_list .= '  <div class="BookmarkCard_Bookmarks__YhsfD">'."\n";
         foreach($category['bookmarks'] as $key => $bookmark){
           if( ($bookmark['isPublic'] == 1 ) || ($logged_in === true) ){
-            $category_list .= '   <a href="'.$bookmark['url'].'" target="_blank" rel="noreferrer"><div class="BookmarkCard_BookmarkIcon__2c2C5">';
-            $category_list .= '<span class="iconify" data-icon="mdi:'.$bookmark['icon'].'" data-width="20"></span></div> ';
+            $category_list .= '    <a href="'.$bookmark['url'].'" target="_blank" rel="noreferrer">'."\n";
+            $category_list .= '      <div class="BookmarkCard_BookmarkIcon__2c2C5">'."\n";
+            if(strpos($bookmark['icon'], 'mdi:') === false){
+              $category_list .= '        <img src="/uploads/'.$bookmark['icon'].'" alt="'.$bookmark['name'].'" class="BookmarkCard_CustomIcon__2I7Wo">'."\n";
+            }else{
+              $category_list .= '        <span class="iconify" data-icon="'.$bookmark['icon'].'" data-width="20"></span>'."\n";
+            }
+            $category_list .= '      </div>'."\n";
             $category_list .= ''.$bookmark['name'].'</a>'."\n";
           }
         }
@@ -43,8 +49,14 @@ class bookmark_view {
     $bookmark_list = '';
     $bookmark_list .= '  <div class="BookmarkCard_Bookmarks__YhsfD">'."\n";
     foreach($bookmarks as $key => $bookmark){
-      $bookmark_list .= '   <a href="'.$bookmark['url'].'" target="_blank" rel="noreferrer"><div class="BookmarkCard_BookmarkIcon__2c2C5">';
-      $bookmark_list .= '<span class="iconify" data-icon="mdi:'.$bookmark['icon'].'" data-width="20"></span></div> ';
+      $bookmark_list .= '    <a href="'.$bookmark['url'].'" target="_blank" rel="noreferrer">'."\n";
+      $bookmark_list .= '      <div class="BookmarkCard_BookmarkIcon__2c2C5">'."\n";
+      if(strpos($bookmark['icon'], 'mdi:') === false){
+        $bookmark_list .= '        <img src="/uploads/'.$bookmark['icon'].'" alt="'.$bookmark['name'].'" class="BookmarkCard_CustomIcon__2I7Wo">'."\n";
+      }else{
+        $bookmark_list .= '        <span class="iconify" data-icon="mdi:'.$bookmark['icon'].'" data-width="20"></span>'."\n";
+      }
+      $bookmark_list .= '      </div>'."\n";
       $bookmark_list .= ''.$bookmark['name'].'</a>'."\n";
     }
     $bookmark_list .= '  </div>'."\n";

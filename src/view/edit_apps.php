@@ -26,10 +26,11 @@ require_once('header.php');
       </div>
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="icon">App icon</label>
-        <input type="text" name="icon" id="app_icon" placeholder="book-open-outline" required="" value="">
+        <input type="text" name="icon" id="app_icon" placeholder="book-open-outline" value="">
+        <input type="file" name="icon_file" id="icon" value="arrow-decision" accept=".jpg,.jpeg,.png,.svg,.ico" style="display: none">
         <span>Use icon name from MDI or pass a valid URL.<a href="https://materialdesignicons.com/" target="blank"> Click here for reference</a>
         </span>
-        <span class="AppForm_Switch__2fvrb">Switch to custom icon upload</span>
+        <span class="AppForm_Switch__2fvrb" onclick="show_file_upload('frm_app', 'app_icon', 'icon')">Switch to custom icon upload</span>
       </div>
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="isPublic">App visibility</label>

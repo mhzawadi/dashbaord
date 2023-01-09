@@ -16,8 +16,8 @@ require_once('header.php');
   <?php } ?>
     <a class="Settings_SettingsNavLink__1Eo-j Settings_SettingsNavLinkActive__BWxtM" href="/settings/app" aria-current="page">App</a>
   </nav>
+  <section>
   <?php if($this->logged_in === true) {?>
-    <section>
     <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">Authentication</h2>
     <div>
       <p class="AppDetails_text__1zVc7">You are logged in. Your session will expire <span><?php echo $this->session->get_logout();?></span>
@@ -26,18 +26,7 @@ require_once('header.php');
         <button class="Button_Button__1hnZa">Logout</button>
       </form>
     </div>
-    <hr class="AppDetails_separator__3gemR">
-    <div>
-      <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">App version</h2>
-      <p class="AppDetails_text__1zVc7">
-        <a href="https://github.com/pawelmalak/flame" target="_blank" rel="noreferrer">Dashboard</a> version 0.0.1</p>
-        <p class="AppDetails_text__1zVc7">See changelog <a href="https://github.com/pawelmalak/flame/blob/master/CHANGELOG.md" target="_blank" rel="noreferrer">here</a>
-        </p>
-        <button class="Button_Button__1hnZa">Check for updates</button>
-      </div>
-  </section>
 <?php }else{ ?>
-  <section>
     <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">Authentication</h2>
     <?php echo $txt;?>
     <form method="post" action="/settings/login">
@@ -58,8 +47,16 @@ require_once('header.php');
       </div>
     <button class="Button_Button__1hnZa">Login</button>
     </form>
-  </section>
 <?php } ?>
+<hr class="AppDetails_separator__3gemR">
+<div>
+  <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">App version</h2>
+  <p class="AppDetails_text__1zVc7">
+    <a href="https://github.com/mhzawadi/dashbaord" target="_blank" rel="noreferrer">Dashboard</a> version 0.0.1</p>
+    <p class="AppDetails_text__1zVc7">See changelog <a href="https://github.com/mhzawadi/dashbaord/blob/master/CHANGELOG.md" target="_blank" rel="noreferrer">here</a>
+    </p>
+  </div>
+</section>
 </div>
 <?php
 require_once('footer.php');

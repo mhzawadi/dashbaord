@@ -16,7 +16,11 @@ class application_view {
       ){
         $app_list .= '<a href="'.$app['url'].'" target="_blank" rel="noreferrer" class="AppCard_AppCard__1V2_0">'."\n";
         $app_list .= '  <div class="AppCard_AppCardIcon__8ZZTq">';
-        $app_list .= '    <span class="iconify" data-icon="mdi:'.$app['icon'].'" data-width="24"></span>'."\n";
+        if(strpos($app['icon'], 'mdi:') === false){
+          $app_list .= '    <img src="/uploads/'.$app['icon'].'" alt="'.$app['description'].'" class="BookmarkCard_CustomIcon__2I7Wo">'."\n";
+        }else{
+          $app_list .= '    <span class="iconify" data-icon="'.$app['icon'].'" data-width="24"></span>'."\n";
+        }
         $app_list .= '  </div>'."\n";
         $app_list .= '  <div class="AppCard_AppCardDetails__tbAhY">'."\n";
         $app_list .= '    <h5>'.$app['name'].'</h5>'."\n";

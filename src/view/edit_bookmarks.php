@@ -54,10 +54,11 @@ require_once('header.php');
       </div>
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="icon">Bookmark Icon (optional)</label>
-        <input type="text" name="icon" id="icon" placeholder="book-open-outline" value="">
+        <input type="text" name="icon" id="bk_icon" placeholder="book-open-outline" value="">
+        <input type="file" name="icon_file" id="icon" value="arrow-decision" accept=".jpg,.jpeg,.png,.svg,.ico" style="display: none">
         <span>Use icon name from MDI or pass a valid URL.<a href="https://materialdesignicons.com/" target="blank"> Click here for reference</a>
         </span>
-        <span class="Form_Switch__1wYhY">Switch to custom icon upload</span>
+        <span class="Form_Switch__1wYhY" onclick="show_file_upload('frm_bookmark', 'bk_icon', 'icon')">Switch to custom icon upload</span>
       </div>
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="isPublic">Bookmark visibility</label>

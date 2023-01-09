@@ -118,6 +118,13 @@ class bookmark extends json {
       }
     }
     if($store === false){
+      if( (strpos($flame_db['icon'], '.jpg') === false) &&
+          (strpos($flame_db['icon'], '.jpeg') === false) &&
+          (strpos($flame_db['icon'], '.png') === false) &&
+          (strpos($flame_db['icon'], '.svg') === false) &&
+          (strpos($flame_db['icon'], '.ico') === false) ){
+        $flame_db['icon'] = 'mdi:'.$flame_db['icon'];
+      }
       $this->insert_bookmark($categoryID, array(
         'name'=>$flame_db['name'],
         'url'=>$flame_db['url'],

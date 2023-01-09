@@ -5,12 +5,20 @@ function openModal(elementID) {
   // var item = document.getElementById("root");
   // item.addEventListener("click", function() { CloseModal(elementID); }, false);
 }
-function CloseModal(elementID, form_elementID, form_hidden) {
+function CloseModal(elementID, form_elementID = false, form_hidden = false) {
   const list = document.getElementById(elementID).classList;
   list.add("Modal_ModalClose__3Cav6");
   list.remove("Modal_ModalOpen__xRwYI");
-  document.getElementById( form_elementID ).reset();
-  document.getElementById( form_hidden ).value = "none";
+  if(form_elementID !== false && form_hidden !== false){
+    document.getElementById( form_elementID ).reset();
+    document.getElementById( form_hidden ).value = "none";
+  }
+}
+
+function show_file_upload(form_elementID, icon_mdi, icon_file){
+  document.getElementById(icon_mdi).style = 'display: none';
+  document.getElementById(icon_file).style = '';
+  document.getElementById( form_elementID ).enctype = 'multipart/form-data';
 }
 
 function sendData(data, url) {

@@ -65,7 +65,7 @@ class application extends json {
         $this->insert_application(array(
           'name' => $dvalue['name'],
           'url' => $dvalue['url'],
-          'icon' => 'docker',
+          'icon' => 'mdi:docker',
           'description' => $dvalue['name'],
           'isPublic' => 1
         ));
@@ -84,7 +84,7 @@ class application extends json {
       $this->insert_application(array(
         'name' => $flame_db['name'],
         'url' => $flame_db['url'],
-        'icon' => 'fire',
+        'icon' => 'mdi:fire',
         'description' => $flame_db['name'],
         'isPublic' => $flame_db['isPublic']
       ));
