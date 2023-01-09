@@ -27,6 +27,11 @@ class login {
   public function __construct(){
     $this->env_password = getenv('PASSWORD');
     $this->env_password_file = getenv('PASSWORD_FILE');
+    if(file_exists($this->env_password_file) === true){
+      $handle = fopen($this->env_password_file, "r");
+      $this->env_password = fread($handle, filesize($filename));
+      fclose($handle);
+    }
     if($this->env_password == ''){
       $this->env_password = 'HorwoodDashboard';
     }
@@ -39,7 +44,7 @@ class login {
     $updatepass = false;
     $i = 0;
 
-    if($this->env_password == $password){
+    if($this->env_password == $password ){
       $authSuccess = true;
     }else{
       $authSuccess = false;
