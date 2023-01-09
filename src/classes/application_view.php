@@ -50,6 +50,7 @@ class application_view {
       if($app['url'] == $app['description']){
         $app['description'] = '';
       }
+      $app['icon'] = str_replace('mdi:', '', $app['icon']);
       $app_list .= '<tr data-rbd-draggable-context-id="1" data-rbd-draggable-id="46" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-22" data-rbd-drag-handle-draggable-id="46" data-rbd-drag-handle-context-id="1" draggable="false">'."\n";
       $app_list .= '  <td style="width: 200px;">'.$app['name'].'</td>'."\n";
       $app_list .= '  <td style="width: 200px;">'.$app['url'].'</td>'."\n";
