@@ -2,7 +2,7 @@
 require_once('header.php');
 ?>
             <header class="Header_Header__2oavH">
-              <p><?php echo date("l, j F Y");?></p>
+              <p><?php if($this->setting_obj['useAmericanDate'] == 1){ echo date("l, F j Y");}else{echo date("l, j F Y"); }?></p>
               <a class="Header_SettingsLink__3ublJ" href="/settings">Go to Settings</a>
               <span class="Header_HeaderMain__ZUhf5">
                 <img src="/icons/logo-76.png" alt="Logo small" onclick="openModal('logo_modal')" style="cursor: pointer">

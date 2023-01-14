@@ -62,8 +62,8 @@ require_once('header.php');
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="useAmericanDate">Date formatting</label>
         <select id="useAmericanDate" name="useAmericanDate">
-          <option value="1">Friday, October 22 2021</option>
-          <option value="0">Friday, 22 October 2021</option>
+          <option value="1"<?php if($this->setting_obj['useAmericanDate'] == 1){?> selected=""<?php }?>><?php echo date("l, F j Y");?></option>
+          <option value="0"<?php if($this->setting_obj['useAmericanDate'] == 0){?> selected=""<?php }?>><?php echo date("l, j F Y");?></option>
         </select>
       </div>
       <div class="InputGroup_InputGroup__1Nm_2">
