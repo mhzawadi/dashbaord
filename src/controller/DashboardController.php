@@ -2,7 +2,6 @@
 namespace MHorwood\Dashboard\controller;
 use MHorwood\Dashboard\model\application;
 use MHorwood\Dashboard\model\bookmark;
-use MHorwood\Dashboard\model\category;
 use MHorwood\Dashboard\model\settings;
 use MHorwood\Dashboard\model\login;
 use MHorwood\Dashboard\model\flame;
@@ -22,16 +21,15 @@ class DashboardController{
   protected $uploadOk;
 
   public function __construct($user_agent){
-    $this->application = new application();
-    $this->application_view = new application_view;
-    $this->bookmark = new bookmark();
-    $this->bookmark_view = new bookmark_view($this->bookmark);
-    $this->category = new category();
-    $this->category_view = new category_view($this->bookmark);
     $this->settings = new settings;
     $this->setting_obj = $this->settings->get_settings();
     $this->theme = explode(';',$this->setting_obj['defaultTheme']);
     $this->greeting = $this->settings->greeting();
+    $this->application = new application($this->setting_obj['useOrdering']);
+    $this->application_view = new application_view;
+    $this->bookmark = new bookmark($this->setting_obj['useOrdering']);
+    $this->bookmark_view = new bookmark_view($this->bookmark);
+    $this->category_view = new category_view($this->bookmark);
     $this->docker = new docker();
     $this->application->store_docker($this->docker->get_data());
     if(file_exists('../config/db.sqlite')){
@@ -69,6 +67,9 @@ class DashboardController{
         case 'delete':
           $url['type'] = 'delete';
           break;
+        case 'order':
+          $url['type'] = 'order';
+          break;
         case is_numeric($urls[1]):
           $url['id'] = $urls[1];
           break;
@@ -90,6 +91,9 @@ class DashboardController{
           break;
         case 'delete':
           $url['type'] = 'delete';
+          break;
+        case 'order':
+          $url['type'] = 'order';
           break;
         default:
           $url['sub_page'] = $urls[2];
@@ -131,8 +135,8 @@ class DashboardController{
           }elseif(isset($args['application_id']) && isset($urls['type']) && $urls['type'] == 'delete'){
             $this->application->delete_application($args['application_id']);
           }
-          header('Location: /applications');
-          exit;
+          // header('Location: /applications');
+          // exit;
         }
         $applications = $this->application_view->build_app_table($this->application->get_list());
         include (__DIR__ . '/../view/edit_apps.php');
@@ -167,7 +171,7 @@ class DashboardController{
           $bookmarks = $this->bookmark_view->build_bookmark_table($urls['id']);
         }else{
           $category_options = $this->bookmark->get_category_options();
-          $bookmarks = $this->bookmark_view->build_list(true, $this->logged_in);
+          $bookmarks = $this->bookmark_view->build_list($this->setting_obj['useOrdering'], true, $this->logged_in);
         }
         include (__DIR__ . '/../view/edit_bookmarks.php');
         break;
@@ -196,6 +200,8 @@ class DashboardController{
       case 'settings':
         if(isset($urls['type']) && $urls['type'] !== 'none'){
           $this->setting_obj = $this->settings->save_settings($urls['sub_page'], $urls['type'], $args);
+          $this->application->set_sorting($this->setting_obj['useOrdering']);
+          $this->bookmark->set_sorting($this->setting_obj['useOrdering']);
         }
         switch($urls['sub_page']){
           case 'general':
@@ -242,7 +248,7 @@ class DashboardController{
         break;
       default:
       $applications = $this->application_view->build_app_grid($this->application->get_list(), $this->logged_in);
-      $bookmarks = $this->bookmark_view->build_list($this->bookmark->get_list(), $this->logged_in);
+      $bookmarks = $this->bookmark_view->build_list($this->setting_obj['useOrdering'], false, $this->logged_in);
       include (__DIR__ . '/../view/main_view.php');
         break;
       }

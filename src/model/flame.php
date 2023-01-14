@@ -24,8 +24,18 @@ class flame {
     }
   }
   function import_bookmarks($bks){
-    $results = $this->db->query('select c.name as cname, b.name, b.icon, b.url, b.isPublic, b.categoryId from bookmarks b
-  left join categories c on b.categoryId = c.id');
+    $results = $this->db->query('select
+      c.name as cname,
+      b.name,
+      b.icon,
+      b.url,
+      b.isPublic,
+      b.categoryId,
+      b.orderId,
+      b.createdAt,
+      b.updatedAt
+    from bookmarks b
+      left join categories c on b.categoryId = c.id');
     while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
       $bks->flame_import_bookmarks($row);
     }

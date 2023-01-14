@@ -20,7 +20,7 @@ class json {
   protected function save_to_file($filename, $json){
     try {
       $fp = fopen($filename, 'w');
-      fwrite($fp, json_encode($json, JSON_PRETTY_PRINT));
+      fwrite($fp, json_encode($json, JSON_PRETTY_PRINT | JSON_FORCE_OBJECT));
       fclose($fp);
       return true;
     } catch (\Exception $e) {

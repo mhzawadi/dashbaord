@@ -43,7 +43,7 @@ function sendData(data, url) {
   });
 
   // Set up our request
-  XHR.open('POST', '/settings/defaultTheme/edit');
+  XHR.open('POST', url);
 
   // Add the required HTTP header for form data POST requests
   XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');

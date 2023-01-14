@@ -10,6 +10,17 @@ class category_view {
     $this->bookmark = $bookmarks;
   }
 
+  protected function set_js($category_id, $category, $array_id = null, $value = null){
+    $js_object[0] = $category_id;
+    $js_object[1] = $category['name'];
+    $js_object[2] = $category['isPublic'];
+    $js_object[3] = $category['orderId'];
+    if(isset($array_id) !== null){
+      $js_object[$array_id] = $value;
+    }
+    return implode("','",$js_object);
+  }
+
   public function build_category_option(){
     $categorys = $this->bookmark->get_list();
     print_pre($categorys);
@@ -44,29 +55,36 @@ class category_view {
     $category_list .= '      <tr>'."\n";
     $category_list .= '        <th>Name</th>'."\n";
     $category_list .= '        <th>Visibility</th>'."\n";
+    $category_list .= '        <th>Order</th>'."\n";
     $category_list .= '        <th>Actions</th>'."\n";
     $category_list .= '      </tr>'."\n";
     $category_list .= '    </thead>'."\n";
     $category_list .= '  <tbody>'."\n";
     foreach($categories as $key => $category){
+      $js_object = '\''.$key.'\',\''.$category['name'].'\', '.$category['isPublic'].', \''.$category['orderId'].'\'';
       $category_list .= '  <tr data-rbd-draggable-context-id="1" data-rbd-draggable-id="46" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-22" data-rbd-drag-handle-draggable-id="46" data-rbd-drag-handle-context-id="1" draggable="false">'."\n";
       $category_list .= '    <td style="width: 200px;">'.$category['name'].'</td>'."\n";
-      $category_list .= '    <td style="width: 200px;">'.$category['isPublic'].'</td>'."\n";
+      if($category['isPublic'] == 0){
+        $category_list .= '    <td style="width: 200px;">Hidden</td>'."\n";
+      }else{
+        $category_list .= '    <td style="width: 200px;">Visible</td>'."\n";
+      }
+      $category_list .= '    <td style="width: 200px;"><input type="number" data-appId="'.$key.'" name="order" value="'.$category['orderId'].'" onchange="category_order(this.value, \''.$this->set_js($key, $category).'\')"></td>'."\n";
       $category_list .= '    <td class="TableActions_TableActions__2_v2I">'."\n";
       $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="category_delete('.$key.')">'."\n";
       $category_list .= '        <span class="iconify" data-icon="mdi:delete" data-width="18"></span>'."\n";
       $category_list .= '      </div>'."\n";
-      $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="category_edit(\''.$key.'\',\''.$category['name'].'\', '.$category['isPublic'].')">'."\n";
+      $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="category_edit(\''.$this->set_js($key, $category).'\')">'."\n";
       $category_list .= '        <span class="iconify" data-icon="mdi:pencil" data-width="18"></span>'."\n";
       $category_list .= '      </div>'."\n";
       $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0">'."\n";
       $category_list .= '        <span class="iconify" data-icon="mdi:pin-off" data-width="18"></span>'."\n";
       $category_list .= '      </div>'."\n";
       if( ($category['isPublic'] == 0 ) ){
-        $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="category_edit(\''.$key.'\',\''.$category['name'].'\', 1, true)">'."\n";
+        $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="category_edit(\''.$this->set_js($key, $category, 3, 1).'\', true)">'."\n";
         $category_list .= '        <span class="iconify" data-icon="mdi:eye-off" data-width="18"></span>'."\n";
       }else{
-        $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="category_edit(\''.$key.'\',\''.$category['name'].'\', 0, true)">'."\n";
+        $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="category_edit(\''.$this->set_js($key, $category, 3, 1).'\', true)">'."\n";
         $category_list .= '        <span class="iconify" data-icon="mdi:eye" data-width="18"></span>'."\n";
       }
       $category_list .= '      </div>'."\n";

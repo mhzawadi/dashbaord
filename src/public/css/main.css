@@ -52,6 +52,13 @@ a {
     width: 100%
 }
 
+.Table_TableContainer__UrXXd input {
+  color: var(--color-primary);
+  background-color: var(--color-background);
+  border: var(--color-primary) 1px solid;
+  padding-left: 10px;
+}
+
 .Table_Table__pinST {
     border-collapse: collapse;
     width: 100%;
@@ -1008,4 +1015,9 @@ a {
   .Container {
     padding: 50px 250px;
   }
+}
+
+.draggable {
+  cursor: move;
+  user-select: none;
 }

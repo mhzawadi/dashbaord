@@ -11,6 +11,7 @@ require_once('header.php');
     </form>
     <form id="frm_category" name="category" method="post" action="/categories/edit">
       <input type="hidden" name="categoryID" id="categoryID" value="none">
+      <input type="hidden" name="orderId" id="categoryOrder" value="none">
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="name">Category Name</label>
         <input type="text" name="name" id="cat_name" placeholder="Social Media" required="" value="">
@@ -37,6 +38,7 @@ require_once('header.php');
     </form>
     <form id="frm_bookmark" method="post" action="/bookmarks/<?php echo $urls['id'];?>/edit">
       <input type="hidden" name="bookmarkID" id="bookmarkID" value="none">
+      <input type="hidden" name="orderId" id="bookmarkOrder" value="none">
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="name">Bookmark Name</label>
         <input type="text" name="name" id="bk_name" placeholder="Reddit" required="" value="">
