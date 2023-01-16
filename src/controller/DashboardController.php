@@ -157,7 +157,7 @@ class DashboardController{
           }elseif(isset($args['icon'])){
             $args['icon'] = 'mdi:'.$args['icon'];
           }
-          if(isset($args['bookmarkID']) && $args['bookmarkID'] == 'none' && isset(args['categoryId'])){
+          if(isset($args['bookmarkID']) && $args['bookmarkID'] == 'none' && isset($args['categoryId'])){
             $this->bookmark->insert_bookmark($args['categoryId'], $args);
           }elseif(isset($args['categoryId']) && isset($args['bookmarkID'])){
             $this->bookmark->update_bookmark($args['bookmarkID'], $args['categoryId'], $args);
