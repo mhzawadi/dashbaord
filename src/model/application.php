@@ -142,7 +142,11 @@ class application extends json {
   protected function store_http($string){
     $replace = array('http://', 'https://');
     $with = array('http-', 'https-');
-    return str_replace($replace, $with, $string);
+    if(strpos($string, 'http') === false){
+      return 'http-'.$string;
+    }else{
+      return str_replace($replace, $with, $string);
+    }
   }
 
   protected function remove_http($string){
