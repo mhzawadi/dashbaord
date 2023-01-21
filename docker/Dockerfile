@@ -24,11 +24,11 @@ RUN cp /config/php.ini /etc/php81/php.ini && \
     cp /config/nginx_site.conf /etc/nginx/http.d/default.conf;
 
 WORKDIR /var/www/html
+VOLUME /var/www/html/user_data
 COPY . .
 RUN composer install \
   && chown nobody:nobody * -R
 
-VOLUME /var/www/html/user_data
 EXPOSE 8080
 ENTRYPOINT ["/config/start.sh"]
 CMD ["nginx", "-g", "daemon off;"]
