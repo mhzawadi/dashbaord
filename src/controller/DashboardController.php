@@ -278,7 +278,7 @@ class DashboardController{
   }
 
   protected function store_image(){
-    $target_dir = __DIR__ . '/../public/uploads/';
+    $target_dir = __DIR__ . '/../../user_data/uploads/';
     $target_file = $target_dir . basename($_FILES["icon_file"]["name"]);
     $target_filename = basename($_FILES["icon_file"]["name"]);
     $uploadOk = 1;
