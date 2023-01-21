@@ -9,7 +9,7 @@ class bookmark extends json {
 
   public function __construct($sorting){
     $this->sorting = $sorting;
-    if(file_exists('../../user_data/settings.json') === false){
+    if(file_exists('../../user_data/bookmarks.json') === false){
       $this->bookmarks_list = $this->load_from_file('../../data/bookmarks.json');
       $this->save_to_file('../../user_data/bookmarks.json', $this->bookmarks_list);
     }else{

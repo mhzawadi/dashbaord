@@ -22,7 +22,7 @@ class DashboardController{
 
   public function __construct($user_agent){
     if(!is_dir('../../user_data/uploads')){
-      mkdir('../../user_data/uploads', 0774, true);
+      mkdir('../../user_data/uploads', 0775, true);
       copy('../../data/dashboard.png', '../../user_data/uploads/dashboard.png');
     }
     $this->settings = new settings;

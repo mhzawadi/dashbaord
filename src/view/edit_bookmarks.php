@@ -94,7 +94,7 @@ require_once('header.php');
     </div>
     <div class="ActionButton_ActionButtonName__32SDW">Edit Categories</div>
   </div>
-  <?php if($urls['id'] > 0){?>
+  <?php if($urls['id'] >= 0){?>
     <div class="ActionButton_ActionButton__3Ckgw" tabindex="0" onclick="new_bookmark(<?php echo $urls['id'] ?>, 'bookmark_modal')">
       <div class="ActionButton_ActionButtonIcon__oPDrT">
         <span class="iconify" data-icon="mdi:pencil" data-width="18"></span>
