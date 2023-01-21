@@ -28,6 +28,7 @@ COPY . .
 RUN composer install \
   && chown nobody:nobody * -R
 
+VOLUME /var/www/html/user_data
 EXPOSE 8080
 ENTRYPOINT ["/config/start.sh"]
 CMD ["nginx", "-g", "daemon off;"]

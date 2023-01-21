@@ -9,11 +9,11 @@ class application extends json {
 
   public function __construct($sorting){
     $this->sorting = $sorting;
-    if(file_exists('../config/settings.json') === false){
+    if(file_exists('../../user_data/settings.json') === false){
       $this->app_list = $this->load_from_file('../../data/apps.json');
-      $this->save_to_file('../config/apps.json', $this->app_list);
+      $this->save_to_file('../../user_data/apps.json', $this->app_list);
     }else{
-      $this->app_list = $this->load_from_file('../config/apps.json');
+      $this->app_list = $this->load_from_file('../../user_data/apps.json');
     }
     // $this->sort();
   }
@@ -29,7 +29,7 @@ class application extends json {
     }elseif($sorting == 'orderId'){
       $this->sort_by_orderID();
     }
-    $this->save_to_file('../config/apps.json', $this->app_list);
+    $this->save_to_file('../../user_data/apps.json', $this->app_list);
   }
 
   public function update_application($applicationID, $args){
@@ -50,7 +50,7 @@ class application extends json {
     if($sorting === true){
       $this->set_sorting($this->sorting);
     }else{
-      $this->save_to_file('../config/apps.json', $this->app_list);
+      $this->save_to_file('../../user_data/apps.json', $this->app_list);
     }
   }
   public function insert_application($args){
@@ -75,21 +75,21 @@ class application extends json {
       'orderId'=>$args['orderId']
     );
     $this->app_list['apps'][] = $data;
-    $this->save_to_file('../config/apps.json', $this->app_list);
+    $this->save_to_file('../../user_data/apps.json', $this->app_list);
   }
 
   public function delete_application($applicationID){
     $this->app_list['apps'][$applicationID]['name'] = '00DELETEME00';
     $this->sort_by_name();
     array_shift($this->app_list['apps']);
-    $this->save_to_file('../config/apps.json', $this->app_list);
+    $this->save_to_file('../../user_data/apps.json', $this->app_list);
   }
   public function order_application($applications_json){
     $applications = json_decode($applications_json, true);
     foreach ($applications as $key => $value) {
       $this->app_list['apps'][$value['appId']]['orderId'] = $value['orderId'];
     }
-    $this->save_to_file('../config/apps.json', $this->app_list);
+    $this->save_to_file('../../user_data/apps.json', $this->app_list);
   }
 
   public function store_docker($docker_apps){

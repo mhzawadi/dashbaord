@@ -21,6 +21,10 @@ class DashboardController{
   protected $uploadOk;
 
   public function __construct($user_agent){
+    if(!is_dir('../../user_data/uploads')){
+      mkdir('../../user_data/uploads', 0774, true);
+      copy('../../data/dashboard.png', '../../user_data/uploads/dashboard.png');
+    }
     $this->settings = new settings;
     $this->setting_obj = $this->settings->get_settings();
     $this->theme = explode(';',$this->setting_obj['defaultTheme']);
@@ -32,7 +36,7 @@ class DashboardController{
     $this->category_view = new category_view($this->bookmark);
     $this->docker = new docker();
     $this->application->store_docker($this->docker->get_data());
-    if(file_exists('../config/db.sqlite')){
+    if(file_exists('../../user_data/db.sqlite')){
       $this->flame = new flame();
       $this->flame->import_apps($this->application);
       $this->flame->import_categories($this->bookmark);

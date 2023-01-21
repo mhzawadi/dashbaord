@@ -8,7 +8,7 @@ class flame {
   protected $db;
 
   public function __construct(){
-    $this->db = new \SQLite3('../config/db.sqlite');
+    $this->db = new \SQLite3('../../user_data/db.sqlite');
   }
 
   function import_apps($apps){

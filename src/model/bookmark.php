@@ -9,11 +9,11 @@ class bookmark extends json {
 
   public function __construct($sorting){
     $this->sorting = $sorting;
-    if(file_exists('../config/settings.json') === false){
+    if(file_exists('../../user_data/settings.json') === false){
       $this->bookmarks_list = $this->load_from_file('../../data/bookmarks.json');
-      $this->save_to_file('../config/bookmarks.json', $this->bookmarks_list);
+      $this->save_to_file('../../user_data/bookmarks.json', $this->bookmarks_list);
     }else{
-      $this->bookmarks_list = $this->load_from_file('../config/bookmarks.json');
+      $this->bookmarks_list = $this->load_from_file('../../user_data/bookmarks.json');
     }
   }
 
@@ -29,7 +29,7 @@ class bookmark extends json {
     }elseif($sorting == 'orderId'){
       $this->sort_by_orderID();
     }
-    $this->save_to_file('../config/bookmarks.json', $this->bookmarks_list);
+    $this->save_to_file('../../user_data/bookmarks.json', $this->bookmarks_list);
   }
 
   public function get_bookmark($categoryID){
@@ -63,7 +63,7 @@ class bookmark extends json {
     $this->bookmarks_list['categorys'][$categoryId]['bookmarks'][$bookmarkID]['isPublic'] = $args['isPublic'];
     $this->bookmarks_list['categorys'][$categoryId]['bookmarks'][$bookmarkID]['updatedAt'] = date('Y-m-d H:i:s');
     $this->bookmarks_list['categorys'][$categoryId]['bookmarks'][$bookmarkID]['orderId'] = $args['orderId'];
-    $this->save_to_file('../config/bookmarks.json', $this->bookmarks_list);
+    $this->save_to_file('../../user_data/bookmarks.json', $this->bookmarks_list);
   }
   public function insert_bookmark($categoryId, $args){
     if(!isset($args['orderId'])){
@@ -86,12 +86,12 @@ class bookmark extends json {
       'orderId' => $args['orderId']
     );
     $this->bookmarks_list['categorys'][$categoryId]['bookmarks'][] = $data;
-    $this->save_to_file('../config/bookmarks.json', $this->bookmarks_list);
+    $this->save_to_file('../../user_data/bookmarks.json', $this->bookmarks_list);
   }
 
   public function delete_bookmark($categoryId, $bookmarkID){
     unset($this->bookmarks_list['categorys'][$categoryId]['bookmarks'][$bookmarkID]);
-    $this->save_to_file('../config/bookmarks.json', $this->bookmarks_list);
+    $this->save_to_file('../../user_data/bookmarks.json', $this->bookmarks_list);
   }
 
   public function update_category($categoryId, $args){
@@ -109,7 +109,7 @@ class bookmark extends json {
     if($sorting === true){
       $this->set_sorting($this->sorting);
     }else{
-      $this->save_to_file('../config/bookmarks.json', $this->bookmarks_list);
+      $this->save_to_file('../../user_data/bookmarks.json', $this->bookmarks_list);
     }
   }
 
@@ -132,12 +132,12 @@ class bookmark extends json {
       "bookmarks"=>array()
     );
     $this->bookmarks_list['categorys'][] = $data;
-    $this->save_to_file('../config/bookmarks.json', $this->bookmarks_list);
+    $this->save_to_file('../../user_data/bookmarks.json', $this->bookmarks_list);
   }
 
   public function delete_category($categoryId){
     unset($this->bookmarks_list['categorys'][$categoryId]);
-    $this->save_to_file('../config/bookmarks.json', $this->bookmarks_list);
+    $this->save_to_file('../../user_data/bookmarks.json', $this->bookmarks_list);
   }
 
   public function flame_import_category($flame_db){

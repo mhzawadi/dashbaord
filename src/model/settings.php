@@ -8,23 +8,23 @@ class settings extends json{
   protected $themes_custom;
 
   public function __construct(){
-    if(file_exists('../config/settings.json') === false){
+    if(file_exists('../../user_data/settings.json') === false){
       $this->settings = $this->load_from_file('../../data/settings.json');
-      $this->save_to_file('../config/settings.json', $this->settings);
+      $this->save_to_file('../../user_data/settings.json', $this->settings);
     }else{
-      $this->settings = $this->load_from_file('../config/settings.json');
+      $this->settings = $this->load_from_file('../../user_data/settings.json');
     }
-    if(file_exists('../config/themes.json') === false){
+    if(file_exists('../../user_data/themes.json') === false){
       $this->themes = $this->load_from_file('../../data/themes.json');
-      $this->save_to_file('../config/themes.json', $this->themes);
+      $this->save_to_file('../../user_data/themes.json', $this->themes);
     }else{
-      $this->themes = $this->load_from_file('../config/themes.json');
+      $this->themes = $this->load_from_file('../../user_data/themes.json');
     }
-    if(file_exists('../config/themes_custom.json') === false){
+    if(file_exists('../../user_data/themes_custom.json') === false){
       $this->themes_custom = $this->load_from_file('../../data/themes_custom.json');
-      $this->save_to_file('../config/themes_custom.json', $this->themes_custom);
+      $this->save_to_file('../../user_data/themes_custom.json', $this->themes_custom);
     }else{
-      $this->themes_custom = $this->load_from_file('../config/themes_custom.json');
+      $this->themes_custom = $this->load_from_file('../../user_data/themes_custom.json');
     }
   }
 
@@ -53,7 +53,7 @@ class settings extends json{
         break;
         case 'defaultTheme':
           $this->settings['defaultTheme'] = $new_settings['defaultTheme'];
-          $this->save_to_file('../config/settings.json', $this->settings);
+          $this->save_to_file('../../user_data/settings.json', $this->settings);
         break;
         case 'general':
           $this->settings['useOrdering']            = $new_settings['useOrdering'];
@@ -63,7 +63,7 @@ class settings extends json{
           $this->settings['bookmarksSameTab']       = $new_settings['bookmarksSameTab'];
           $this->settings['defaultSearchProvider']  = $new_settings['defaultSearchProvider'];
           $this->settings['searchSameTab']          = $new_settings['searchSameTab'];
-          $this->save_to_file('../config/settings.json', $this->settings);
+          $this->save_to_file('../../user_data/settings.json', $this->settings);
           break;
         case 'interface':
           $this->settings['customTitle'] = $new_settings['customTitle'];
@@ -78,7 +78,7 @@ class settings extends json{
           $this->settings['monthSchema'] = $new_settings['monthSchema'];
           $this->settings['hideApps'] = $new_settings['hideApps'];
           $this->settings['hideCategories'] = $new_settings['hideCategories'];
-          $this->save_to_file('../config/settings.json', $this->settings);
+          $this->save_to_file('../../user_data/settings.json', $this->settings);
           break;
         case 'weather':
           break;
@@ -87,7 +87,7 @@ class settings extends json{
           $this->settings['dockerApps']       = $new_settings['dockerApps'];
           $this->settings['unpinStoppedApps'] = $new_settings['unpinStoppedApps'];
           $this->settings['kubernetesApps']   = $new_settings['kubernetesApps'];
-          $this->save_to_file('../config/settings.json', $this->settings);
+          $this->save_to_file('../../user_data/settings.json', $this->settings);
           break;
         case 'css':
           $filename = "css/custom.css";
@@ -112,7 +112,7 @@ class settings extends json{
               ),
             'isCustom' => true
           );
-          $this->save_to_file('../config/themes_custom.json', $this->themes_custom);
+          $this->save_to_file('../../user_data/themes_custom.json', $this->themes_custom);
         break;
       }
     }else{

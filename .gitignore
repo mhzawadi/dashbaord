@@ -65,5 +65,4 @@ fabric.properties
 # Sonarlint plugin
 .idea/sonarlint
 vendor
-src/config/*
-src/public/uploads/*
+user_data/*
