@@ -227,10 +227,18 @@ class DashboardController{
             $txt = $this->session->checkLogin($args['password'], $args['duration']);
             include (__DIR__ . '/../view/settings_app.php');
             break;
+          case 'token':
+            $txt = $this->session->checkLogin('password');
+            include (__DIR__ . '/../view/settings_app.php');
+            break;
           case 'logout':
             $_SESSION = array();
             if (ini_get("session.use_cookies")) {
               $params = session_get_cookie_params();
+              setcookie('token', '', $_SESSION['logout_time'],
+                  $params["path"], $params["domain"],
+                  $params["secure"], $params["httponly"]
+              );
               setcookie(session_name(), '', time() - 42000,
                   $params["path"], $params["domain"],
                   $params["secure"], $params["httponly"]
