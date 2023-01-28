@@ -127,10 +127,10 @@ class login {
     $provider = new \League\OAuth2\Client\Provider\GenericProvider([
       'clientId'                => $settings['oauth_client_id'],    // The client ID assigned to you by the provider
       'clientSecret'            => $settings['oauth_client_secret'],    // The client password assigned to you by the provider
-      'redirectUri'             => 'https://'.$_SERVER['name'].'/oauth',
-      'urlAuthorize'            => $settings['oauth_authorization_uri'],
-      'urlAccessToken'          => $settings['oauth_access_token_uri'],
-      'urlResourceOwnerDetails' => $settings['oauth_resource_uri']
+      'redirectUri'             => $this->set_http($settings['oauth_redirect_uri']),
+      'urlAuthorize'            => $this->set_http($settings['oauth_authorization_uri']),
+      'urlAccessToken'          => $this->set_http($settings['oauth_access_token_uri']),
+      'urlResourceOwnerDetails' => $this->set_http($settings['oauth_resource_uri'])
     ]);
     if (!isset($_GET['code'])) {
 
@@ -159,5 +159,10 @@ class login {
         // Use this to interact with an API on the users behalf
         echo $token->getToken();
     }
+  }
+  protected function set_http($string){
+    $replace = array('http-', 'https-');
+    $with = array('http://', 'https://');
+    return str_replace($replace, $with, $string);
   }
 }

@@ -1,5 +1,6 @@
 <?php
 require_once('header.php');
+$oauth = $this->settings->get_oauth();
 ?>
 <img src="/icons/logo-76.png" alt="Logo small">
 <h1 class="Headline_HeadlineTitle__3WjW5">Settings</h1>
@@ -19,14 +20,14 @@ require_once('header.php');
       </div>
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="oauth_client_id" >Client ID</label>
-        <input type="text" name="oauth_client_id" placeholder="xxxxxxxxxxxxxxxxxxxx" value="<?php echo $this->setting_obj['oauth']['oauth_client_id'];?>">
+        <input type="text" name="oauth_client_id" placeholder="xxxxxxxxxxxxxxxxxxxx" value="<?php echo $oauth['oauth_client_id'];?>">
       </div>
 
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="oauth_client_secret" >
           Client secret
         </label>
-          <input type="password" name="oauth_client_secret" value="<?php echo $this->setting_obj['oauth']['oauth_client_secret'];?>">
+          <input type="password" name="oauth_client_secret" value="<?php echo $oauth['oauth_client_secret'];?>">
       </div>
       <div if="$ctrl.state.provider == 'custom' || $ctrl.state.overrideConfiguration" >
       <div class="InputGroup_InputGroup__1Nm_2">
@@ -34,7 +35,7 @@ require_once('header.php');
           Authorization URL
         </label>
         <div class="InputGroup_InputGroup__1Nm_2">
-          <input type="text" name="oauth_authorization_uri" value="<?php echo $this->setting_obj['oauth']['oauth_authorization_uri'];?>">
+          <input type="text" name="oauth_authorization_uri" value="<?php echo $oauth['oauth_authorization_uri'];?>">
         </div>
       </div>
 
@@ -43,7 +44,7 @@ require_once('header.php');
           Access token URL
         </label>
         <div class="InputGroup_InputGroup__1Nm_2">
-          <input type="text" name="oauth_access_token_uri" value="<?php echo $this->setting_obj['oauth']['oauth_access_token_uri'];?>">
+          <input type="text" name="oauth_access_token_uri" value="<?php echo $oauth['oauth_access_token_uri'];?>">
         </div>
       </div>
 
@@ -52,7 +53,7 @@ require_once('header.php');
           Resource URL
         </label>
         <div class="InputGroup_InputGroup__1Nm_2">
-          <input type="text" name="oauth_resource_uri" value="<?php echo $this->setting_obj['oauth']['oauth_resource_uri'];?>">
+          <input type="text" name="oauth_resource_uri" value="<?php echo $oauth['oauth_resource_uri'];?>">
         </div>
       </div>
 
@@ -61,7 +62,7 @@ require_once('header.php');
           Redirect URL
         </label>
         <div class="InputGroup_InputGroup__1Nm_2">
-          <input type="text" name="oauth_redirect_uri" value="<?php echo $this->setting_obj['oauth']['oauth_redirect_uri'];?>">
+          <input type="text" name="oauth_redirect_uri" value="<?php echo $oauth['oauth_redirect_uri'];?>">
         </div>
       </div>
 
@@ -70,7 +71,7 @@ require_once('header.php');
           Logout URL
         </label>
         <div class="InputGroup_InputGroup__1Nm_2">
-          <input type="text" name="oauth_logout_url" value="<?php echo $this->setting_obj['oauth']['oauth_logout_url'];?>">
+          <input type="text" name="oauth_logout_url" value="<?php echo $oauth['oauth_logout_url'];?>">
         </div>
       </div>
 
@@ -79,7 +80,7 @@ require_once('header.php');
           User identifier
         </label>
         <div class="InputGroup_InputGroup__1Nm_2">
-          <input type="text" name="oauth_user_identifier" value="<?php echo $this->setting_obj['oauth']['oauth_user_identifier'];?>">
+          <input type="text" name="oauth_user_identifier" value="<?php echo $oauth['oauth_user_identifier'];?>">
         </div>
       </div>
       <div class="InputGroup_InputGroup__1Nm_2">
@@ -87,7 +88,7 @@ require_once('header.php');
           Scopes
         </label>
         <div class="InputGroup_InputGroup__1Nm_2">
-          <input type="text" name="oauth_scopes" value="<?php echo $this->setting_obj['oauth']['oauth_scopes'];?>">
+          <input type="text" name="oauth_scopes" value="<?php echo $oauth['oauth_scopes'];?>">
         </div>
       </div>
     </div>

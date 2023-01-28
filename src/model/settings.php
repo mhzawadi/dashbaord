@@ -31,6 +31,9 @@ class settings extends json{
   public function get_settings(){
     return $this->settings;
   }
+  public function get_oauth(){
+    return $this->set_http($this->settings['oauth']);
+  }
 
   public function load_css(){
     $filename = "css/custom.css";
@@ -99,9 +102,10 @@ class settings extends json{
           $this->settings['oauth_login']                      = $new_settings['oauth_login'];
           $this->settings['oauth']['oauth_client_id']         = $new_settings['oauth_client_id'];
           $this->settings['oauth']['oauth_client_secret']     = $new_settings['oauth_client_secret'];
-          $this->settings['oauth']['oauth_authorization_uri'] = $new_settings['oauth_authorization_uri'];
-          $this->settings['oauth']['oauth_access_token_uri']  = $new_settings['oauth_access_token_uri'];
-          $this->settings['oauth']['oauth_resource_uri']      = $new_settings['oauth_resource_uri'];
+          $this->settings['oauth']['oauth_authorization_uri'] = $this->store_http($new_settings['oauth_authorization_uri']);
+          $this->settings['oauth']['oauth_access_token_uri']  = $this->store_http($new_settings['oauth_access_token_uri']);
+          $this->settings['oauth']['oauth_resource_uri']      = $this->store_http($new_settings['oauth_resource_uri']);
+          $this->settings['oauth']['oauth_redirect_uri']      = $this->store_http($new_settings['oauth_redirect_uri']);
           $this->settings['oauth']['oauth_logout_url']        = $new_settings['oauth_logout_url'];
           $this->settings['oauth']['oauth_user_identifier']   = $new_settings['oauth_user_identifier'];
           $this->settings['oauth']['oauth_scopes']            = $new_settings['oauth_scopes'];
@@ -144,4 +148,22 @@ class settings extends json{
     return $msg;
   }
 
+  protected function remove_http($string){
+    $replace = array('http://', 'https://', 'http-', 'https-');
+    return str_replace($replace, '', $string);
+  }
+  protected function store_http($string){
+    $replace = array('http://', 'https://');
+    $with = array('http-', 'https-');
+    if(strpos($string, 'http') === false){
+      return 'http-'.$string;
+    }else{
+      return str_replace($replace, $with, $string);
+    }
+  }
+  protected function set_http($string){
+    $replace = array('http-', 'https-');
+    $with = array('http://', 'https://');
+    return str_replace($replace, $with, $string);
+  }
 }

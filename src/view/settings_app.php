@@ -36,7 +36,7 @@ require_once('header.php');
         </select>
       </div>
     <button class="Button_Button__1hnZa" name="local_login">Login</button>
-    <?php if($this->setting_obj['oauth_login'] === true){?>
+    <?php if($this->setting_obj['oauth_login'] == 1){?>
     <button class="Button_Button__1hnZa" name="oauth_login">oAuth</button>
     <?php }?>
     </form>
