@@ -159,12 +159,14 @@ class login {
         }
         // Use this to interact with an API on the users behalf
         $date = new \DateTimeImmutable;
-        $logout = $date->add(new \DateInterval("$_SESSION['duration']"));
+        $logout = $date->add(new \DateInterval($_SESSION['duration']));
         $_SESSION['login_time'] = time();
         $_SESSION['logout_time'] = $logout->format('U');
         setcookie('token', $this->token.';'.$_SESSION['logout_time'].';'.$duration, $logout->format('U'), "/"); // 86400 = 1 day
         $this->reset_inactivity_time();
         session_write_close();
+        header('Location: /');
+        exit;
     }
   }
   protected function set_http($string){
