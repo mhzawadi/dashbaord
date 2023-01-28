@@ -136,10 +136,7 @@ class login {
 
       // If we don't have an authorization code then get one
       $authUrl = $provider->getAuthorizationUrl();
-      $date = new \DateTimeImmutable;
-      $logout = $date->add(new \DateInterval("$duration"));
-      $_SESSION['login_time'] = time();
-      $_SESSION['logout_time'] = $logout->format('U');
+      $_SESSION['oauth2state'] = $provider->getState();
       $_SESSION['duration'] = $duration;
       header('Location: '.$authUrl);
       exit;
@@ -162,10 +159,9 @@ class login {
         }
         // Use this to interact with an API on the users behalf
         $date = new \DateTimeImmutable;
-        $logout = $date->add(new \DateInterval("$duration"));
+        $logout = $date->add(new \DateInterval("$_SESSION['duration']"));
         $_SESSION['login_time'] = time();
         $_SESSION['logout_time'] = $logout->format('U');
-        $_SESSION['duration'] = $duration;
         setcookie('token', $this->token.';'.$_SESSION['logout_time'].';'.$duration, $logout->format('U'), "/"); // 86400 = 1 day
         $this->reset_inactivity_time();
         session_write_close();
