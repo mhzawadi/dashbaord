@@ -114,6 +114,9 @@ class DashboardController{
   public function routing($args){
     $urls = $this->pre_routing($args['URL']);
     switch ($urls['page']) {
+      case 'oauth':
+        $this->session->oauth($this->setting_obj['oauth']);
+        break;
       case 'applications':
         if($this->logged_in === false) {
           header('Location: /');
@@ -223,12 +226,19 @@ class DashboardController{
           case 'css':
             include (__DIR__ . '/../view/settings_css.php');
             break;
+          case 'oauth':
+            include (__DIR__ . '/../view/settings_oauth.php');
+            break;
           case 'app':
             $txt = '';
             include (__DIR__ . '/../view/settings_app.php');
             break;
           case 'login':
-            $txt = $this->session->checkLogin($args['password'], $args['duration']);
+            if(isset($args['oauth_login'])){
+              $this->session->oauth($this->setting_obj['oauth']);
+            }else{
+              $txt = $this->session->checkLogin($args['password'], $args['duration']);
+            }
             include (__DIR__ . '/../view/settings_app.php');
             break;
           case 'token':

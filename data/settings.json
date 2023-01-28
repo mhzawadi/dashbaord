@@ -30,5 +30,17 @@
     "defaultSearchProvider": "dz",
     "pinCategoriesByDefault": "0",
     "secondarySearchProvider": "d",
-    "flameImportDB": "0"
+    "flameImportDB": "0",
+    "oauth_login": false,
+    "oauth": {
+      "oauth_client_id": "",
+      "oauth_client_secret": "",
+      "oauth_authorization_uri": "",
+      "oauth_access_token_uri": "",
+      "oauth_resource_uri": "",
+      "oauth_redirect_uri": "",
+      "oauth_logout_url": "",
+      "oauth_user_identifier": "",
+      "oauth_scopes": ""
+    }
 }

@@ -5,17 +5,7 @@ require_once('header.php');
 <h1 class="Headline_HeadlineTitle__3WjW5">Settings</h1>
 <p class="Headline_HeadlineSubtitle__Aon5D"><a href="/">Go back</a></p>
 <div class="Settings_Settings__2WEZf">
-  <nav class="Settings_SettingsNav__14rA1">
-    <a class="Settings_SettingsNavLink__1Eo-j Settings_SettingsNavLinkActive__BWxtM" href="/settings">Theme</a>
-    <?php if($this->logged_in === true) {?>
-    <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/general">General</a>
-    <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/interface">Interface</a>
-    <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/weather">Weather</a>
-    <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/docker">Docker</a>
-    <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/css">CSS</a>
-  <?php } ?>
-    <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/app" aria-current="page">App</a>
-  </nav>
+  <?php require_once('settings_menu.php');?>
   <section>
     <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">App themes</h2>
     <div class="ThemeGrid_ThemerGrid__lljvq">

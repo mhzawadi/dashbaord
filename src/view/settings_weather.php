@@ -6,15 +6,7 @@ require_once('header.php');
 <p class="Headline_HeadlineSubtitle__Aon5D"><a href="/">Go back</a></p>
 
 <div class="Settings_Settings__2WEZf">
-  <nav class="Settings_SettingsNav__14rA1">
-    <a class="Settings_SettingsNavLink__1Eo-j" href="/settings">Theme</a>
-    <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/general">General</a>
-    <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/interface">Interface</a>
-    <a class="Settings_SettingsNavLink__1Eo-j Settings_SettingsNavLinkActive__BWxtM" href="/settings/weather">Weather</a>
-    <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/docker">Docker</a>
-    <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/css">CSS</a>
-    <a class="Settings_SettingsNavLink__1Eo-j" href="/settings/app" aria-current="page">App</a>
-  </nav>
+  <?php require_once('settings_menu.php');?>
   <section>
     <form method="post" action="/settings/weather/edit">
       <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">API</h2>

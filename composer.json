@@ -10,7 +10,8 @@
         }
     ],
     "require" : {
-        "riverside/php-orm" : "*"
+        "riverside/php-orm" : "*",
+        "stevenmaguire/oauth2-keycloak": "^3.2"
     },
     "require-dev": {
         "phpunit/phpunit": "9.5.*"

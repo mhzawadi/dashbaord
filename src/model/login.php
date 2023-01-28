@@ -14,7 +14,7 @@ class login {
     $this->env_password_file = getenv('PASSWORD_FILE');
     if(file_exists($this->env_password_file) === true){
       $handle = fopen($this->env_password_file, "r");
-      $this->env_password = fread($handle, filesize($filename));
+      $this->env_password = fread($handle, filesize($this->env_password_file));
       fclose($handle);
     }
     if($this->env_password == ''){
@@ -122,5 +122,42 @@ class login {
   protected function cookie_duration($token){
     $parts = explode(';', $token);
     return $parts[2];
+  }
+  public function oauth($settings){
+    $provider = new \League\OAuth2\Client\Provider\GenericProvider([
+      'clientId'                => $settings['oauth_client_id'],    // The client ID assigned to you by the provider
+      'clientSecret'            => $settings['oauth_client_secret'],    // The client password assigned to you by the provider
+      'redirectUri'             => 'https://'.$_SERVER['name'].'/oauth',
+      'urlAuthorize'            => $settings['oauth_authorization_uri'],
+      'urlAccessToken'          => $settings['oauth_access_token_uri'],
+      'urlResourceOwnerDetails' => $settings['oauth_resource_uri']
+    ]);
+    if (!isset($_GET['code'])) {
+
+      // If we don't have an authorization code then get one
+      $authUrl = $provider->getAuthorizationUrl();
+      $_SESSION['oauth2state'] = $provider->getState();
+      header('Location: '.$authUrl);
+      exit;
+
+    // Check given state against previously stored one to mitigate CSRF attack
+    } elseif (empty($_GET['state']) || ($_GET['state'] !== $_SESSION['oauth2state'])) {
+
+      unset($_SESSION['oauth2state']);
+      exit('Invalid state, make sure HTTP sessions are enabled.');
+
+    } else {
+
+        // Try to get an access token (using the authorization code grant)
+        try {
+            $token = $provider->getAccessToken('authorization_code', [
+                'code' => $_GET['code']
+            ]);
+        } catch (Exception $e) {
+            exit('Failed to get access token: '.$e->getMessage());
+        }
+        // Use this to interact with an API on the users behalf
+        echo $token->getToken();
+    }
   }
 }

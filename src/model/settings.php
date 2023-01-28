@@ -66,18 +66,18 @@ class settings extends json{
           $this->save_to_file('../../user_data/settings.json', $this->settings);
           break;
         case 'interface':
-          $this->settings['customTitle'] = $new_settings['customTitle'];
-          $this->settings['hideSearch'] = $new_settings['hideSearch'];
+          $this->settings['customTitle']      = $new_settings['customTitle'];
+          $this->settings['hideSearch']       = $new_settings['hideSearch'];
           $this->settings['disableAutofocus'] = $new_settings['disableAutofocus'];
-          $this->settings['hideHeader'] = $new_settings['hideHeader'];
-          $this->settings['hideDate'] = $new_settings['hideDate'];
-          $this->settings['showTime'] = $new_settings['showTime'];
-          $this->settings['useAmericanDate'] = $new_settings['useAmericanDate'];
-          $this->settings['greetingsSchema'] = $new_settings['greetingsSchema'];
-          $this->settings['daySchema'] = $new_settings['daySchema'];
-          $this->settings['monthSchema'] = $new_settings['monthSchema'];
-          $this->settings['hideApps'] = $new_settings['hideApps'];
-          $this->settings['hideCategories'] = $new_settings['hideCategories'];
+          $this->settings['hideHeader']       = $new_settings['hideHeader'];
+          $this->settings['hideDate']         = $new_settings['hideDate'];
+          $this->settings['showTime']         = $new_settings['showTime'];
+          $this->settings['useAmericanDate']  = $new_settings['useAmericanDate'];
+          $this->settings['greetingsSchema']  = $new_settings['greetingsSchema'];
+          $this->settings['daySchema']        = $new_settings['daySchema'];
+          $this->settings['monthSchema']      = $new_settings['monthSchema'];
+          $this->settings['hideApps']         = $new_settings['hideApps'];
+          $this->settings['hideCategories']   = $new_settings['hideCategories'];
           $this->save_to_file('../../user_data/settings.json', $this->settings);
           break;
         case 'weather':
@@ -94,6 +94,18 @@ class settings extends json{
           $handle = fopen($filename, "w");
           fwrite($handle, $new_settings['customStyles']);
           fclose($handle);
+          break;
+        case 'oauth':
+          $this->settings['oauth_login']                      = $new_settings['oauth_login'];
+          $this->settings['oauth']['oauth_client_id']         = $new_settings['oauth_client_id'];
+          $this->settings['oauth']['oauth_client_secret']     = $new_settings['oauth_client_secret'];
+          $this->settings['oauth']['oauth_authorization_uri'] = $new_settings['oauth_authorization_uri'];
+          $this->settings['oauth']['oauth_access_token_uri']  = $new_settings['oauth_access_token_uri'];
+          $this->settings['oauth']['oauth_resource_uri']      = $new_settings['oauth_resource_uri'];
+          $this->settings['oauth']['oauth_logout_url']        = $new_settings['oauth_logout_url'];
+          $this->settings['oauth']['oauth_user_identifier']   = $new_settings['oauth_user_identifier'];
+          $this->settings['oauth']['oauth_scopes']            = $new_settings['oauth_scopes'];
+          $this->save_to_file('../../user_data/settings.json', $this->settings);
           break;
         case 'app':
           break;
