@@ -136,8 +136,10 @@ class login {
 
       // If we don't have an authorization code then get one
       $authUrl = $provider->getAuthorizationUrl();
-      $_SESSION['oauth2state'] = $provider->getState();
+      $date = new \DateTimeImmutable;
+      $logout = $date->add(new \DateInterval("$duration"));
       $_SESSION['login_time'] = time();
+      $_SESSION['logout_time'] = $logout->format('U');
       $_SESSION['duration'] = $duration;
       header('Location: '.$authUrl);
       exit;
