@@ -123,7 +123,7 @@ class login {
     $parts = explode(';', $token);
     return $parts[2];
   }
-  public function oauth($settings){
+  public function oauth($settings, $duration = 'P14D'){
     $provider = new \League\OAuth2\Client\Provider\GenericProvider([
       'clientId'                => $settings['oauth_client_id'],    // The client ID assigned to you by the provider
       'clientSecret'            => $settings['oauth_client_secret'],    // The client password assigned to you by the provider
@@ -137,6 +137,8 @@ class login {
       // If we don't have an authorization code then get one
       $authUrl = $provider->getAuthorizationUrl();
       $_SESSION['oauth2state'] = $provider->getState();
+      $_SESSION['login_time'] = time();
+      $_SESSION['duration'] = $duration;
       header('Location: '.$authUrl);
       exit;
 
@@ -157,7 +159,14 @@ class login {
             exit('Failed to get access token: '.$e->getMessage());
         }
         // Use this to interact with an API on the users behalf
-        echo $token->getToken();
+        $date = new \DateTimeImmutable;
+        $logout = $date->add(new \DateInterval("$duration"));
+        $_SESSION['login_time'] = time();
+        $_SESSION['logout_time'] = $logout->format('U');
+        $_SESSION['duration'] = $duration;
+        setcookie('token', $this->token.';'.$_SESSION['logout_time'].';'.$duration, $logout->format('U'), "/"); // 86400 = 1 day
+        $this->reset_inactivity_time();
+        session_write_close();
     }
   }
   protected function set_http($string){

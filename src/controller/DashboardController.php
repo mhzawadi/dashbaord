@@ -235,7 +235,7 @@ class DashboardController{
             break;
           case 'login':
             if(isset($args['oauth_login'])){
-              $this->session->oauth($this->setting_obj['oauth']);
+              $this->session->oauth($this->setting_obj['oauth'], $args['duration']);
             }else{
               $txt = $this->session->checkLogin($args['password'], $args['duration']);
             }
