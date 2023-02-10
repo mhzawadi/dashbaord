@@ -23,4 +23,4 @@ jobs:
         with:
           push: true
           tags: mhzawadi/notify_push:dev
-          platforms: mhzawadi/dashbaord:dev
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
