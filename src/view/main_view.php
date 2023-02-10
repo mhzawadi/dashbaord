@@ -22,7 +22,7 @@ require_once('header.php');
                 <div class="ModalForm_ModalFormIcon__3Og8r" onclick="CloseModal('logo_modal')">
                   <span class="iconify" data-icon="mdi:close" data-width="30"></span>
                 </div>
-                <img src="/icons/logo.png" alt="Logo">
+                <img class="horwoodimg" src="/icons/logo.png" alt="Logo">
                 <h2>This is the Horwood Dashboard, writen in PHP.</h2>
                 <p>you can find it on <a href="https://github.com/mhzawadi/dashbaord">github "mhzawadi/dashbaord"</a></p>
               </div>
