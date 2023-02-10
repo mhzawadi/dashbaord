@@ -21,5 +21,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: mhzawadi/notify_push:dev
+          tags: mhzawadi/dashbaord:latest
           platforms: linux/amd64,linux/arm64,linux/arm/v7
+          file: {context}/docker/Dockerfile
