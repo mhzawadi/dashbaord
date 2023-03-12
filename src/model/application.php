@@ -34,8 +34,9 @@ class application extends json {
 
   public function update_application($applicationID, $args){
     $sorting = false;
-    if(!isset($args['orderId'])){
-      $args['orderId'] = 1;
+    $last = count($this->app_list['apps']);
+    if(!isset($args['orderId']) || $args['orderId'] == 'none'){
+      $args['orderId'] = $last++;
     }
     if($args['orderId'] != $this->app_list['apps'][$applicationID]['orderId']){
       $sorting = true;
@@ -48,6 +49,7 @@ class application extends json {
     $this->app_list['apps'][$applicationID]['updatedAt'] = date('Y-m-d H:i:s');
     $this->app_list['apps'][$applicationID]['orderId'] = $args['orderId'];
     if($sorting === true){
+      // need to walk the tree and reorder, this will drop duplicate numbers
       $this->set_sorting($this->sorting);
     }else{
       $this->save_to_file('../../user_data/apps.json', $this->app_list);
@@ -55,7 +57,7 @@ class application extends json {
   }
   public function insert_application($args){
     $last = count($this->app_list['apps']);
-    if(!isset($args['orderId'])){
+    if(!isset($args['orderId']) || $args['orderId'] == 'none'){
       $args['orderId'] = $last++;
     }
     if(!isset($args['createdAt'])){

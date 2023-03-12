@@ -45,7 +45,7 @@ require_once('header.php');
 <div>
   <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">App version</h2>
   <p class="AppDetails_text__1zVc7">
-    <a href="https://github.com/mhzawadi/dashbaord" target="_blank" rel="noreferrer">Dashboard</a> version v0.0.2</p>
+    <a href="https://github.com/mhzawadi/dashbaord" target="_blank" rel="noreferrer">Dashboard</a> version v0.0.3</p>
     <p class="AppDetails_text__1zVc7">See changelog <a href="https://github.com/mhzawadi/dashbaord/blob/master/CHANGELOG.md" target="_blank" rel="noreferrer">here</a>
     </p>
   </div>

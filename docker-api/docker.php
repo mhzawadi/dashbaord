@@ -99,7 +99,12 @@ class docker {
         $container_list[$d]['name'] = $containers[$c]['Spec']['Name'];
         foreach($containers[$c]['Spec']['Labels'] as $key => $label){
           if( (strpos($key, 'traefik.http.routers') !== false) && (strpos($key, 'rule') !== false) ){
-            $container_list[$d]['url'] = str_replace(array('Host(`','`)'), '', $label);
+            if (strpos($label, ' || ') !== false){
+              $hosts = explode(str_replace(array('Host(`','`)'), '', $label));
+              $container_list[$d]['url'] = $hosts[0];
+            }else{
+              $container_list[$d]['url'] = str_replace(array('Host(`','`)'), '', $label);
+            }
           }
           if( $key === 'dashboard.url' ){
             $container_list[$d]['url'] = $label;
