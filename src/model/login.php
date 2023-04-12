@@ -57,7 +57,14 @@ class login {
         $_SESSION['login_time'] = time();
         $_SESSION['logout_time'] = $logout->format('U');
         $_SESSION['duration'] = $duration;
-        setcookie('token', $this->token.';'.$_SESSION['logout_time'].';'.$duration, $logout->format('U'), "/"); // 86400 = 1 day
+        setcookie(
+          'token',
+          $this->token.';'.$_SESSION['logout_time'].';'.$duration,
+          $logout->format('U'),
+          "/",
+          $_SERVER['SERVER_NAME'],
+          true
+        ); // 86400 = 1 day
         $this->reset_inactivity_time();
         session_write_close();
         header('Location: /');
@@ -162,7 +169,14 @@ class login {
         $logout = $date->add(new \DateInterval($_SESSION['duration']));
         $_SESSION['login_time'] = time();
         $_SESSION['logout_time'] = $logout->format('U');
-        setcookie('token', $this->token.';'.$_SESSION['logout_time'].';'.$duration, $logout->format('U'), "/"); // 86400 = 1 day
+        setcookie(
+          'token',
+          $this->token.';'.$_SESSION['logout_time'].';'.$duration,
+          $logout->format('U'),
+          "/",
+          $_SERVER['SERVER_NAME'],
+          true
+        ); // 86400 = 1 day
         $this->reset_inactivity_time();
         session_write_close();
         header('Location: /');

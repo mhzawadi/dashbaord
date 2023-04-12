@@ -327,11 +327,11 @@ class DashboardController{
       return false;
     // if everything is ok, try to upload file
     } elseif($uploadOk == 2) {
-      $this->uploadOk = $target_filename;
+      $this->uploadOk = htmlspecialchars($target_filename, ENT_QUOTES);
       return true;
     } else {
       if (move_uploaded_file($_FILES["icon_file"]["tmp_name"], $target_file)) {
-        $this->uploadOk = $target_filename;
+        $this->uploadOk = htmlspecialchars($target_filename, ENT_QUOTES);
         return true;
       } else {
         return false;
