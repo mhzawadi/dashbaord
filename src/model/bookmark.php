@@ -66,7 +66,7 @@ class bookmark extends json {
     $this->save_to_file('../../user_data/bookmarks.json', $this->bookmarks_list);
   }
   public function insert_bookmark($categoryId, $args){
-    $last = $this->bookmarks_list['categorys'][$categoryId];
+    $last = count($this->bookmarks_list['categorys'][$categoryId]['bookmarks']);
     if(!isset($args['orderId']) || $args['orderId'] == 'none'){
       $args['orderId'] = $last++;
     }
@@ -115,8 +115,9 @@ class bookmark extends json {
   }
 
   public function insert_category($args){
+    $last = count($this->bookmarks_list['categorys']);
     if(!isset($args['orderId'])){
-      $args['orderId'] = 1;
+      $args['orderId'] = $last++;
     }
     if(!isset($args['createdAt'])){
       $args['createdAt'] = date('Y-m-d H:i:s');
