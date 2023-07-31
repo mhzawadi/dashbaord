@@ -6,6 +6,7 @@ class bookmark extends json {
   protected $bookmarks_list;
   protected $category_options;
   protected $sorting;
+  protected $last_category;
 
   public function __construct($sorting){
     $this->sorting = $sorting;
@@ -15,6 +16,12 @@ class bookmark extends json {
     }else{
       $this->bookmarks_list = $this->load_from_file('../../user_data/bookmarks.json');
     }
+    $this->last_category = count($this->bookmarks_list['categorys']);
+  }
+
+  private function last_bookmark($bookmarks_list, $categoryId){
+    $last = count($bookmarks_list['categorys'][$categoryId]['bookmarks']);
+    return $last++;
   }
 
   public function get_list(){
@@ -54,7 +61,7 @@ class bookmark extends json {
 
   public function update_bookmark($bookmarkID, $categoryId, $args){
     if(!isset($args['orderId'])){
-      $args['orderId'] = 1;
+      $args['orderId'] = $this->last_bookmark($this->bookmarks_list, $categoryId);
     }
     $this->bookmarks_list['categorys'][$categoryId]['bookmarks'][$bookmarkID]['name'] = $args['name'];
     $this->bookmarks_list['categorys'][$categoryId]['bookmarks'][$bookmarkID]['url'] = $args['url'];
@@ -66,9 +73,8 @@ class bookmark extends json {
     $this->save_to_file('../../user_data/bookmarks.json', $this->bookmarks_list);
   }
   public function insert_bookmark($categoryId, $args){
-    $last = $this->bookmarks_list['categorys'][$categoryId];
     if(!isset($args['orderId']) || $args['orderId'] == 'none'){
-      $args['orderId'] = $last++;
+      $args['orderId'] = $this->last_bookmark($this->bookmarks_list, $categoryId);
     }
     if(!isset($args['createdAt'])){
       $args['createdAt'] = date('Y-m-d H:i:s');
@@ -98,7 +104,7 @@ class bookmark extends json {
   public function update_category($categoryId, $args){
     $sorting = false;
     if(!isset($args['orderId'])){
-      $args['orderId'] = 1;
+      $args['orderId'] = $this->last_category++;
     }
     if($args['orderId'] != $this->bookmarks_list['categorys'][$categoryId]['orderId']){
       $sorting = true;
@@ -116,7 +122,7 @@ class bookmark extends json {
 
   public function insert_category($args){
     if(!isset($args['orderId'])){
-      $args['orderId'] = 1;
+      $args['orderId'] = $this->last_category++;
     }
     if(!isset($args['createdAt'])){
       $args['createdAt'] = date('Y-m-d H:i:s');
