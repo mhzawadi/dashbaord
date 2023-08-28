@@ -133,7 +133,7 @@ class DashboardController{
               echo '<div style="color: red; text-align: center;font-size: 20px;">'.$this->uploadOk.'</div>';
             }
           }elseif(isset($args['icon'])){
-            $args['icon'] = $this->is_mdi($args['icon']);
+            $args['icon'] = $this->is_mdi_si($args['icon']);
           }
           if(isset($args['application_id']) && $args['application_id'] == 'none'){
             $this->application->insert_application($args);
@@ -162,7 +162,7 @@ class DashboardController{
               echo '<div style="color: red; text-align: center;font-size: 20px;">'.$this->uploadOk.'</div>';
             }
           }elseif(isset($args['icon'])){
-            $args['icon'] = $this->is_mdi($args['icon']);
+            $args['icon'] = $this->is_mdi_si($args['icon']);
           }
           if(isset($args['bookmarkID']) && $args['bookmarkID'] == 'none' && isset($args['categoryId'])){
             $this->bookmark->insert_bookmark($args['categoryId'], $args);
@@ -276,15 +276,17 @@ class DashboardController{
       }
   }
 
-  protected function is_mdi($icon){
+  protected function is_mdi_si($icon){
     if( (strpos($icon, '.jpg') === false) &&
         (strpos($icon, '.jpeg') === false) &&
         (strpos($icon, '.png') === false) &&
         (strpos($icon, '.svg') === false) &&
+        (strpos($icon, 'si:') === false) &&
         (strpos($icon, '.ico') === false) ){
-      $icon = 'mdi:'.$icon;
+      return 'mdi:'.$icon;
+    }elseif( (strpos($icon, 'si:') !== false) ){
+      return $icon;
     }
-    return $icon;
   }
 
   protected function store_image(){

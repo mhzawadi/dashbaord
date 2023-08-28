@@ -39,8 +39,11 @@ class bookmark_view {
           if( ($bookmark['isPublic'] == 1 ) || ($logged_in === true) ){
             $category_list .= '    <a href="'.$bookmark['url'].'" target="_blank" rel="noreferrer">'."\n";
             $category_list .= '      <div class="BookmarkCard_BookmarkIcon__2c2C5">'."\n";
-            if(strpos($bookmark['icon'], 'mdi:') === false){
+            if(strpos($bookmark['icon'], 'mdi:') === false && strpos($bookmark['icon'], 'si:') === false){
               $category_list .= '        <img src="/uploads/'.$bookmark['icon'].'" alt="'.$bookmark['name'].'" class="BookmarkCard_CustomIcon__2I7Wo">'."\n";
+            }elseif(strpos($bookmark['icon'], 'si:') !== false){
+              $parts= explode(':', $bookmark['icon']);
+              $category_list .= file_get_contents('../../vendor/simple-icons/simple-icons/icons/'.str_replace('si:', '', $parts[1]).'.svg')."\n";
             }else{
               $category_list .= '        <span class="iconify" data-icon="'.$bookmark['icon'].'" data-width="20"></span>'."\n";
             }
@@ -65,8 +68,10 @@ class bookmark_view {
     foreach($bookmarks as $key => $bookmark){
       $bookmark_list .= '    <a href="'.$bookmark['url'].'" target="_blank" rel="noreferrer">'."\n";
       $bookmark_list .= '      <div class="BookmarkCard_BookmarkIcon__2c2C5">'."\n";
-      if(strpos($bookmark['icon'], 'mdi:') === false){
+      if(strpos($bookmark['icon'], 'mdi:') === false && strpos($bookmark['icon'], 'si:') === false){
         $bookmark_list .= '        <img src="/uploads/'.$bookmark['icon'].'" alt="'.$bookmark['name'].'" class="BookmarkCard_CustomIcon__2I7Wo">'."\n";
+      }elseif(strpos($bookmark['icon'], 'si:') !== false){
+        $bookmark_list .= file_get_contents('../../vendor/simple-icons/simple-icons/icons/'.$bookmark['icon'].'.svg')."\n";
       }else{
         $bookmark_list .= '        <span class="iconify" data-icon="mdi:'.$bookmark['icon'].'" data-width="20"></span>'."\n";
       }

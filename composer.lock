@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eeb43ac9935217e70d490a342334394a",
+    "content-hash": "67745df2dc443904b4147750b0bd1f59",
     "packages": [
         {
             "name": "firebase/php-jwt",
@@ -783,6 +783,44 @@
                 }
             ],
             "time": "2020-11-28T18:27:30+00:00"
+        },
+        {
+            "name": "simple-icons/simple-icons",
+            "version": "9.12.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/simple-icons/simple-icons.git",
+                "reference": "a8c8921777fa94a37760950bfb79fa0aa1a34423"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/simple-icons/simple-icons/zipball/a8c8921777fa94a37760950bfb79fa0aa1a34423",
+                "reference": "a8c8921777fa94a37760950bfb79fa0aa1a34423",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "CC0-1.0"
+            ],
+            "description": "SVG icons for popular brands",
+            "homepage": "https://simpleicons.org/",
+            "keywords": [
+                "icons",
+                "svg"
+            ],
+            "support": {
+                "docs": "https://github.com/simple-icons/simple-icons#php-usage-",
+                "issues": "https://github.com/simple-icons/simple-icons/issues",
+                "source": "https://github.com/simple-icons/simple-icons"
+            },
+            "funding": [
+                {
+                    "url": "https://opencollective.com/simple-icons",
+                    "type": "opencollective"
+                }
+            ],
+            "time": "2023-08-27T00:34:06+00:00"
         },
         {
             "name": "stevenmaguire/oauth2-keycloak",
