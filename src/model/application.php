@@ -109,11 +109,16 @@ class application extends json {
         }
       }
       if($store === true){
+        if(isset($dvalue['icon'])){
+          $icon = $dvalue['icon']
+        }else{
+          $icon = 'mdi:docker';
+        }
         $this->insert_application(array(
           'name' => $dvalue['name'],
           'url' => $dvalue['url'],
-          'icon' => 'mdi:docker',
-          'description' => $dvalue['name'],
+          'icon' => $icon,
+          'description' => $dvalue['description'],
           'isPublic' => 1,
         ));
       }
@@ -128,10 +133,15 @@ class application extends json {
       }
     }
     if($store === true){
+      if(isset($flame_db['icon'])){
+        $icon = $flame_db['icon']
+      }else{
+        $icon = 'mdi:fire';
+      }
       $this->insert_application(array(
         'name' => $flame_db['name'],
         'url' => $flame_db['url'],
-        'icon' => 'mdi:fire',
+        'icon' => $icon,
         'description' => $flame_db['name'],
         'isPublic' => $flame_db['isPublic'],
         'orderId' => $flame_db['orderId'],

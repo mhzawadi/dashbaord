@@ -37,8 +37,11 @@ class application_view {
       ){
         $app_list .= '<a href="'.$this->set_http($app['url']).'" target="_blank" rel="noreferrer" class="AppCard_AppCard__1V2_0">'."\n";
         $app_list .= '  <div class="AppCard_AppCardIcon__8ZZTq">';
-        if(strpos($app['icon'], 'mdi:') === false){
+        if(strpos($app['icon'], 'mdi:') === false && strpos($app['icon'], 'si:') === false){
           $app_list .= '    <img src="/uploads/'.$app['icon'].'" alt="'.$app['description'].'" class="BookmarkCard_CustomIcon__2I7Wo">'."\n";
+        }elseif(strpos($app['icon'], 'si:') !== false){ // is not false
+          $parts= explode(':', $app['icon']);
+          $category_list .= file_get_contents('../../vendor/simple-icons/simple-icons/icons/'.str_replace('si:', '', $parts[1]).'.svg')."\n";
         }else{
           $app_list .= '    <span class="iconify" data-icon="'.$app['icon'].'" data-width="24"></span>'."\n";
         }

@@ -73,6 +73,9 @@ class docker {
           if( $key === 'dashboard.description' ){
             $container_list[$d]['description'] = $label;
           }
+          if( $key === 'dashboard.icon' ){
+            $container_list[$d]['icon'] = $label;
+          }
           if( $key === 'traefik.enable' ){
             $container_list[$d]['enable'] = $label;
           }
@@ -114,6 +117,9 @@ class docker {
           }
           if( $key === 'dashboard.description' ){
             $container_list[$d]['description'] = $label;
+          }
+          if( $key === 'dashboard.icon' ){
+            $container_list[$d]['icon'] = $label;
           }
           if( $key === 'traefik.enable' ){
             $container_list[$d]['enable'] = $label;
