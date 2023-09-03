@@ -40,8 +40,8 @@ class application_view {
         if(strpos($app['icon'], 'mdi:') === false && strpos($app['icon'], 'si:') === false){
           $app_list .= '    <img src="/uploads/'.$app['icon'].'" alt="'.$app['description'].'" class="BookmarkCard_CustomIcon__2I7Wo">'."\n";
         }elseif(strpos($app['icon'], 'si:') !== false){ // is not false
-          $parts= explode(':', $app['icon']);
-          $category_list .= file_get_contents('../../vendor/simple-icons/simple-icons/icons/'.str_replace('si:', '', $parts[1]).'.svg')."\n";
+          $parts = explode(':', $app['icon']);
+          $app_list .= file_get_contents('../../vendor/simple-icons/simple-icons/icons/'.str_replace('si:', '', $parts[1]).'.svg')."\n";
         }else{
           $app_list .= '    <span class="iconify" data-icon="'.$app['icon'].'" data-width="24"></span>'."\n";
         }

@@ -110,7 +110,7 @@ class application extends json {
       }
       if($store === true){
         if(isset($dvalue['icon'])){
-          $icon = $dvalue['icon']
+          $icon = $dvalue['icon'];
         }else{
           $icon = 'mdi:docker';
         }
@@ -134,7 +134,7 @@ class application extends json {
     }
     if($store === true){
       if(isset($flame_db['icon'])){
-        $icon = $flame_db['icon']
+        $icon = $flame_db['icon'];
       }else{
         $icon = 'mdi:fire';
       }

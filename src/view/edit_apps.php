@@ -30,6 +30,7 @@ require_once('header.php');
         <input type="text" name="icon" id="app_icon" placeholder="book-open-outline" value="">
         <input type="file" name="icon_file" id="icon" value="arrow-decision" accept=".jpg,.jpeg,.png,.svg,.ico" style="display: none">
         <span>Use icon name from MDI or pass a valid URL.<a href="https://materialdesignicons.com/" target="blank"> Click here for reference</a>
+        <span>Pre-pend `si:` to use simple icons.<a href="https://simpleicons.org/" target="blank"> Click here for reference</a>
         </span>
         <span class="AppForm_Switch__2fvrb" onclick="show_file_upload('frm_app', 'app_icon', 'icon')">Switch to custom icon upload</span>
       </div>
