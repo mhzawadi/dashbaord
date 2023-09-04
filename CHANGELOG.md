@@ -2,8 +2,20 @@ Changelog
 =========
 
 
+(unreleased)
+------------
+
+Changes
+~~~~~~~
+-  fix autorun alias. [Matthew Horwood]
+-  change log builder. [Matthew Horwood]
+
+
 v0.0.6 (2023-09-03)
 -------------------
+- Merge pull request #7 from mhzawadi/dev. [Matthew Horwood]
+
+  Dev
 - Fix up issues. [Matthew Horwood]
 - Add simple icons to apps. [Matthew Horwood]
 
