@@ -20,7 +20,7 @@ jobs:
             github.rest.git.createRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              ref: "refs/tags/post-${{ github.head_ref }}",
+              ref: "refs/tags/v${{ github.head_ref }}",
               sha: context.sha
             })
 
