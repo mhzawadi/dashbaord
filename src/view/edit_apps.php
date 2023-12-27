@@ -50,7 +50,7 @@ require_once('header.php');
   <a href="/">Go home</a>
 </p>
 <div class="Apps_ActionsContainer__1Nn5v">
-  <div class="ActionButton_ActionButton__3Ckgw" tabindex="0" onclick="openModal('application_modal')">
+  <div class="ActionButton_ActionButton__3Ckgw" tabindex="0" onclick="openModal('application_modal', 'frm_app', 'applicationID')">
     <div class="ActionButton_ActionButtonIcon__oPDrT">
       <span class="iconify" data-icon="mdi:plus-box" data-width="18"></span>
     </div>
