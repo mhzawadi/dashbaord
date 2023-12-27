@@ -13,11 +13,11 @@ require_once('header.php');
       <input type="hidden" name="categoryID" id="categoryID" value="none">
       <input type="hidden" name="orderId" id="categoryOrder" value="none">
       <div class="InputGroup_InputGroup__1Nm_2">
-        <label for="name">Category Name</label>
+        <label for="cat_name">Category Name</label>
         <input type="text" name="name" id="cat_name" placeholder="Social Media" required="" value="">
       </div>
       <div class="InputGroup_InputGroup__1Nm_2">
-        <label for="isPublic">Category visibility</label>
+        <label for="cat_isPublic">Category visibility</label>
         <select id="cat_isPublic" name="isPublic">
           <option value="1">Visible (anyone can access it)</option>
           <option value="0">Hidden (authentication required)</option>
@@ -40,22 +40,22 @@ require_once('header.php');
       <input type="hidden" name="bookmarkID" id="bookmarkID" value="none">
       <input type="hidden" name="orderId" id="bookmarkOrder" value="none">
       <div class="InputGroup_InputGroup__1Nm_2">
-        <label for="name">Bookmark Name</label>
+        <label for="bk_name">Bookmark Name</label>
         <input type="text" name="name" id="bk_name" placeholder="Reddit" required="" value="">
       </div>
       <div class="InputGroup_InputGroup__1Nm_2">
-        <label for="url">Bookmark URL</label>
+        <label for="bk_url">Bookmark URL</label>
         <input type="text" name="url" id="bk_url" placeholder="reddit.com" required="" value="">
       </div>
       <div class="InputGroup_InputGroup__1Nm_2">
-        <label for="categoryId">Bookmark Category</label>
+        <label for="bk_categoryId">Bookmark Category</label>
         <select name="categoryId" id="bk_categoryId" required="">
           <option value="-1">Select category</option>
           <?php echo $category_options;?>
         </select>
       </div>
       <div class="InputGroup_InputGroup__1Nm_2">
-        <label for="icon">Bookmark Icon (optional)</label>
+        <label for="bk_icon">Bookmark Icon (optional)</label>
         <input type="text" name="icon" id="bk_icon" placeholder="book-open-outline" value="">
         <input type="file" name="icon_file" id="icon" value="arrow-decision" accept=".jpg,.jpeg,.png,.svg,.ico" style="display: none">
         <span>Use icon name from MDI or pass a valid URL.<a href="https://materialdesignicons.com/" target="blank"> Click here for reference</a>
@@ -64,7 +64,7 @@ require_once('header.php');
         <span class="Form_Switch__1wYhY" onclick="show_file_upload('frm_bookmark', 'bk_icon', 'icon')">Switch to custom icon upload</span>
       </div>
       <div class="InputGroup_InputGroup__1Nm_2">
-        <label for="isPublic">Bookmark visibility</label>
+        <label for="bk_isPublic">Bookmark visibility</label>
         <select id="bk_isPublic" name="isPublic">
           <option value="1">Visible (anyone can access it)</option>
           <option value="0">Hidden (authentication required)</option>

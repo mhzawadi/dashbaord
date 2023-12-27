@@ -13,20 +13,20 @@ require_once('header.php');
       <input type="hidden" name="application_id" id="applicationID" value="none">
       <input type="hidden" name="orderId" id="applicationOrder" value="none">
       <div class="InputGroup_InputGroup__1Nm_2">
-        <label for="name">App name</label>
+        <label for="app_name">App name</label>
         <input type="text" name="name" id="app_name" placeholder="Bookstack" required="" value="">
       </div>
       <div class="InputGroup_InputGroup__1Nm_2">
-        <label for="url">App URL</label>
+        <label for="app_url">App URL</label>
         <input type="text" name="url" id="app_url" placeholder="bookstack.example.com" required="" value="">
       </div>
       <div class="InputGroup_InputGroup__1Nm_2">
-        <label for="description">App description</label>
+        <label for="app_description">App description</label>
         <input type="text" name="description" id="app_description" placeholder="My self-hosted app" value="">
         <span>Optional - If description is not set, app URL will be displayed</span>
       </div>
       <div class="InputGroup_InputGroup__1Nm_2">
-        <label for="icon">App icon</label>
+        <label for="app_icon">App icon</label>
         <input type="text" name="icon" id="app_icon" placeholder="book-open-outline" value="">
         <input type="file" name="icon_file" id="icon" value="arrow-decision" accept=".jpg,.jpeg,.png,.svg,.ico" style="display: none">
         <span>Use icon name from MDI or pass a valid URL.<a href="https://materialdesignicons.com/" target="blank"> Click here for reference</a>
