@@ -1,12 +1,12 @@
-FROM alpine:3.18
+FROM alpine:3.19
 MAINTAINER Matthew Horwood <matt@horwood.biz>
 
 # Install required deb packages
 RUN apk update && apk upgrade && \
-    apk add nginx php81-fpm php81-pdo_mysql php81-sockets php81-gd php81-ldap \
-    php81-gettext php81-pcntl php81-mysqlnd php81-session php81-gmp php81-json \
-    php81-mbstring php81-iconv php81-ctype php81-curl php81-pear php81-simplexml \
-    php81-dom php81-xmlwriter php81-tokenizer php81 php81-phar php81-sqlite3 curl git \
+    apk add nginx php82-fpm php82-pdo_mysql php82-sockets php82-gd php82-ldap \
+    php82-gettext php82-pcntl php82-mysqlnd php82-session php82-gmp php82-json \
+    php82-mbstring php82-iconv php82-ctype php82-curl php82-pear php82-simplexml \
+    php82-dom php82-xmlwriter php82-tokenizer php82 php82-phar php82-sqlite3 curl git \
     && mkdir -p /var/www/html/ \
     && mkdir -p /run/nginx \
     && rm -f /var/cache/apk/*; \
@@ -17,8 +17,8 @@ RUN apk update && apk upgrade && \
 
 COPY docker/config /config
 
-RUN cp /config/php.ini /etc/php81/php.ini && \
-    cp /config/php_fpm_site.conf /etc/php81/php-fpm.d/www.conf && \
+RUN cp /config/php.ini /etc/php82/php.ini && \
+    cp /config/php_fpm_site.conf /etc/php82/php-fpm.d/www.conf && \
     cp /config/nginx_site.conf /etc/nginx/http.d/default.conf;
 
 WORKDIR /var/www/html
