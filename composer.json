@@ -11,8 +11,8 @@
     ],
     "require" : {
         "riverside/php-orm" : "*",
-        "stevenmaguire/oauth2-keycloak": "^4",
-        "simple-icons/simple-icons": "^9.12"
+        "stevenmaguire/oauth2-keycloak": ">=4",
+        "simple-icons/simple-icons": ">=9.12"
     },
     "require-dev": {
         "phpunit/phpunit": "9.5.*"
