@@ -1,3 +1,5 @@
+window.onblur= function() {window.onfocus= function () {location.reload(true)}};
+
 function openModal(elementID, form_elementID = false, form_hidden = false) {
   const list = document.getElementById(elementID).classList;
   list.add("Modal_ModalOpen__xRwYI");
