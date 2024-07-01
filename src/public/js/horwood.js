@@ -1,9 +1,14 @@
-function openModal(elementID) {
+window.onblur= function() {window.onfocus= function () {location.reload(true)}};
+
+function openModal(elementID, form_elementID = false, form_hidden = false) {
   const list = document.getElementById(elementID).classList;
   list.add("Modal_ModalOpen__xRwYI");
   list.remove("Modal_ModalClose__3Cav6");
-  // var item = document.getElementById("root");
-  // item.addEventListener("click", function() { CloseModal(elementID); }, false);
+  document.addEventListener("keyup", (e) => {
+    if (e.key === "Escape") {
+      CloseModal(elementID, form_elementID, form_hidden);
+    }
+  });
 }
 function CloseModal(elementID, form_elementID = false, form_hidden = false) {
   const list = document.getElementById(elementID).classList;

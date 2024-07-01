@@ -1,4 +1,4 @@
-FROM alpine:3.19
+FROM alpine:3.20
 MAINTAINER Matthew Horwood <matt@horwood.biz>
 
 # Install required deb packages
@@ -10,6 +10,8 @@ RUN apk update && apk upgrade && \
     && mkdir -p /var/www/html/ \
     && mkdir -p /run/nginx \
     && rm -f /var/cache/apk/*; \
+    [ -f /usr/bin/php ] && rm -f /usr/bin/php; \
+    ln -s /usr/bin/php82 /usr/bin/php; \
     php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
     php composer-setup.php && \
     php -r "unlink('composer-setup.php');" && \
