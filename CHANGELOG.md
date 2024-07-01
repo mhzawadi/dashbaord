@@ -4,6 +4,13 @@ Changelog
 
 (unreleased)
 ------------
+
+Documentation
+~~~~~~~~~~~~~
+-  change log for tag v0.0.10. [Matthew Horwood]
+
+Other
+~~~~~
 - Merge pull request #20 from
   mhzawadi/dependabot/github_actions/actions/checkout-4. [Matthew
   Horwood]
