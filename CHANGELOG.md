@@ -4,6 +4,167 @@ Changelog
 
 (unreleased)
 ------------
+- Merge pull request #20 from
+  mhzawadi/dependabot/github_actions/actions/checkout-4. [Matthew
+  Horwood]
+
+  build(deps): bump actions/checkout from 3 to 4
+- Build(deps): bump actions/checkout from 3 to 4. [dependabot[bot]]
+
+  Bumps [actions/checkout](https://github.com/actions/checkout) from 3 to 4.
+  - [Release notes](https://github.com/actions/checkout/releases)
+  - [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+  - [Commits](https://github.com/actions/checkout/compare/v3...v4)
+
+  ---
+  updated-dependencies:
+  - dependency-name: actions/checkout
+    dependency-type: direct:production
+    update-type: version-update:semver-major
+  ...
+- Merge pull request #19 from
+  mhzawadi/dependabot/github_actions/actions/github-script-7. [Matthew
+  Horwood]
+
+  build(deps): bump actions/github-script from 5 to 7
+- Build(deps): bump actions/github-script from 5 to 7. [dependabot[bot]]
+
+  Bumps [actions/github-script](https://github.com/actions/github-script) from 5 to 7.
+  - [Release notes](https://github.com/actions/github-script/releases)
+  - [Commits](https://github.com/actions/github-script/compare/v5...v7)
+
+  ---
+  updated-dependencies:
+  - dependency-name: actions/github-script
+    dependency-type: direct:production
+    update-type: version-update:semver-major
+  ...
+- Merge pull request #18 from
+  mhzawadi/dependabot/github_actions/docker/build-push-action-6.
+  [Matthew Horwood]
+
+  build(deps): bump docker/build-push-action from 3 to 6
+- Build(deps): bump docker/build-push-action from 3 to 6.
+  [dependabot[bot]]
+
+  Bumps [docker/build-push-action](https://github.com/docker/build-push-action) from 3 to 6.
+  - [Release notes](https://github.com/docker/build-push-action/releases)
+  - [Commits](https://github.com/docker/build-push-action/compare/v3...v6)
+
+  ---
+  updated-dependencies:
+  - dependency-name: docker/build-push-action
+    dependency-type: direct:production
+    update-type: version-update:semver-major
+  ...
+- Merge pull request #17 from
+  mhzawadi/dependabot/github_actions/docker/setup-qemu-action-3.
+  [Matthew Horwood]
+
+  build(deps): bump docker/setup-qemu-action from 2 to 3
+- Build(deps): bump docker/setup-qemu-action from 2 to 3.
+  [dependabot[bot]]
+
+  Bumps [docker/setup-qemu-action](https://github.com/docker/setup-qemu-action) from 2 to 3.
+  - [Release notes](https://github.com/docker/setup-qemu-action/releases)
+  - [Commits](https://github.com/docker/setup-qemu-action/compare/v2...v3)
+
+  ---
+  updated-dependencies:
+  - dependency-name: docker/setup-qemu-action
+    dependency-type: direct:production
+    update-type: version-update:semver-major
+  ...
+- Merge pull request #16 from
+  mhzawadi/dependabot/github_actions/docker/setup-buildx-action-3.
+  [Matthew Horwood]
+
+  build(deps): bump docker/setup-buildx-action from 2 to 3
+- Build(deps): bump docker/setup-buildx-action from 2 to 3.
+  [dependabot[bot]]
+
+  Bumps [docker/setup-buildx-action](https://github.com/docker/setup-buildx-action) from 2 to 3.
+  - [Release notes](https://github.com/docker/setup-buildx-action/releases)
+  - [Commits](https://github.com/docker/setup-buildx-action/compare/v2...v3)
+
+  ---
+  updated-dependencies:
+  - dependency-name: docker/setup-buildx-action
+    dependency-type: direct:production
+    update-type: version-update:semver-major
+  ...
+
+
+v0.0.10 (2024-07-01)
+--------------------
+
+New
+~~~
+-  reload page on page focus chor: alpine 3.20. [Matthew Horwood]
+-  dependabot config chor: fix test version build. [Matthew Horwood]
+
+Fix
+~~~
+-  fix PHP version. [Matthew Horwood]
+-  minor UI fix. [Matthew Horwood]
+-  UI fixes. [Matthew Horwood]
+
+Changes
+~~~~~~~
+-  dependacy dumps bug: install and use php82. [Matthew Horwood]
+
+Other
+~~~~~
+- Merge pull request #13 from mhzawadi/0.0.10. [Matthew Horwood]
+
+  0.0.10
+- Merge branch 'main' into 0.0.10. [Matthew Horwood]
+- Update to alpine 3.20. [Matthew Horwood]
+- Fix the build. [Matthew Horwood]
+- Split test and dev. [Matthew Horwood]
+- Build dev images. [Matthew Horwood]
+- V0.0.10 feat: Escape modals chor: import testing script. [Matthew
+  Horwood]
+
+
+v0.0.9 (2023-12-11)
+-------------------
+- Merge pull request #11 from mhzawadi/dev. [Matthew Horwood]
+
+  Alpine 3.19 & PHP 8.2
+- Merge branch 'main' into dev. [Matthew Horwood]
+- Alpine 3.19 & PHP 8.2. [Matthew Horwood]
+
+  feat: update OS to 3.19
+  feat: update PHP to 8.2
+
+
+v0.0.8 (2023-12-10)
+-------------------
+- Merge pull request #10 from mhzawadi/0.0.8. [Matthew Horwood]
+
+  0.0.8
+- 0.0.8. [Matthew Horwood]
+
+  update workflow tagging
+- Merge pull request #9 from mhzawadi/merge-workflow. [Matthew Horwood]
+
+  Merge Workflow
+- Merge Workflow. [Matthew Horwood]
+
+  bug: use the head_ref fort he branch name
+- Merge pull request #8 from mhzawadi/dev. [Matthew Horwood]
+
+  workflow to tag on merge
+- Workflow to tag on merge. [Matthew Horwood]
+
+
+v0.0.7 (2023-09-04)
+-------------------
+
+Documentation
+~~~~~~~~~~~~~
+-  change log for tag v0.0.7. [Matthew Horwood]
 
 Changes
 ~~~~~~~
@@ -27,13 +188,6 @@ v0.0.5 (2023-09-02)
 
 v0.0.4 (2023-09-02)
 -------------------
-
-Fix
-~~~
--  fix composer. [Matthew Horwood]
-
-Other
-~~~~~
 - Merge pull request #6 from mhzawadi/dev. [Matthew Horwood]
 
   Simple icons
@@ -59,6 +213,7 @@ New
 
 Fix
 ~~~
+-  fix composer. [Matthew Horwood]
 -  fix the bug. [Matthew Horwood]
 -  fix new bookmarks. [Matthew Horwood]
 -  fix docker urls. [Matthew Horwood]
