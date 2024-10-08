@@ -25,7 +25,7 @@ function git-tag() {
       gitchangelog > CHANGELOG.md
       git add .
       git commit -m "doc: change log for tag $1"
-      git puch
+      git push
       git tag $1
       git push origin --tag
     fi
