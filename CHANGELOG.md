@@ -2,15 +2,46 @@ Changelog
 =========
 
 
-(unreleased)
-------------
+v0.0.13 (2024-10-08)
+--------------------
 
 Documentation
 ~~~~~~~~~~~~~
+-  make a tag. [Matthew Horwood]
+
+Other
+~~~~~
+- Merge pull request #23 from mhzawadi/0.0.13. [Matthew Horwood]
+
+  H/make a tag
+- H/make a tag. [Matthew Horwood]
+
+  bug: fix up work flow
+- Manual run. [Matthew Horwood]
+- Fix workflow. [Matthew Horwood]
+- Merge pull request #22 from mhzawadi/0.0.12. [Matthew Horwood]
+
+  0.0.12
+- H/Update app version. [Matthew Horwood]
+
+
+v0.0.11 (2024-10-08)
+--------------------
+
+Documentation
+~~~~~~~~~~~~~
+-  change log. [Matthew Horwood]
 -  change log for tag v0.0.10. [Matthew Horwood]
 
 Other
 ~~~~~
+- Merge pull request #21 from mhzawadi/0.0.11. [Matthew Horwood]
+
+  H/Update
+- H/Update. [Matthew Horwood]
+
+  chor: composer upgrade
+  bug: rename workflow
 - Merge pull request #20 from
   mhzawadi/dependabot/github_actions/actions/checkout-4. [Matthew
   Horwood]
