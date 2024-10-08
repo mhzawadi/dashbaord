@@ -1,6 +1,7 @@
 name: "Tag post merge"
 
 on:
+  workflow_dispatch:
   pull_request:
     types:
       - closed
