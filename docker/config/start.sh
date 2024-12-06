@@ -5,7 +5,7 @@ ln -s /dev/stdout /var/log/nginx/access.log
 
 if [ "$TZ" != "" ]
 then
-  sed -i "s!Europe/London!$TZ!" /etc/php82/php.ini
+  sed -i "s!Europe/London!$TZ!" /etc/php84/php.ini
 fi
 
 php-fpm82 -R
