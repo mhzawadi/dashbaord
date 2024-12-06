@@ -8,6 +8,6 @@ then
   sed -i "s!Europe/London!$TZ!" /etc/php84/php.ini
 fi
 
-php-fpm82 -R
+php-fpm84 -R
 
 exec "$@"
