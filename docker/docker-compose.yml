@@ -2,7 +2,7 @@ version: '2'
 
 services:
   Dashboard:
-    image: mhzawadi/dashbaord:dev
+    image: mhzawadi/dashbaord:0.0.12
     ports:
       - "8080:8080"
     container_name: dashboard
