@@ -29,14 +29,23 @@ class bookmark extends json {
   }
 
   public function set_sorting($sorting){
-    if($sorting == 'createdAt'){
-      $this->sort_by_date();
-    }elseif($sorting == 'name'){
-      $this->sort_by_name();
-    }elseif($sorting == 'orderId'){
-      $this->sort_by_orderID();
+    foreach($this->bookmarks_list['categorys'] as $key => $category){
+      $this->bookmarks_list['categorys'][$key]['bookmarks'] = $this->sort_categorys($category['bookmarks']);
     }
+    $sorted = $this->bookmarks_list['categorys'];
+    usort($sorted, function($a, $b) { //Sort the array using a user defined function
+        return $a[$this->sorting] > $b[$this->sorting] ? 1 : -1; //Compare the scores
+    });
+    $this->bookmarks_list['categorys'] = $sorted;
     $this->save_to_file('../../user_data/bookmarks.json', $this->bookmarks_list);
+  }
+
+  private function sort_categorys($category){
+    $sorted = $category;
+    usort($sorted, function($a, $b) { //Sort the array using a user defined function
+        return $a[$this->sorting] > $b[$this->sorting] ? 1 : -1; //Compare the scores
+    });
+    return $sorted;
   }
 
   public function get_bookmark($categoryID){
@@ -121,8 +130,9 @@ class bookmark extends json {
   }
 
   public function insert_category($args){
-    if(!isset($args['orderId'])){
-      $args['orderId'] = $this->last_category++;
+    $last_category = count($this->bookmarks_list['categorys']);
+    if(!isset($args['orderId']) || $args['orderId'] === 'none'){
+      $args['orderId'] = $last_category++;
     }
     if(!isset($args['createdAt'])){
       $args['createdAt'] = date('Y-m-d H:i:s');
@@ -195,39 +205,5 @@ class bookmark extends json {
         'updatedAt' => $flame_db['updatedAt']
       ));
     }
-  }
-
-  protected function sort_by_name(){
-    $sorted = array();
-    foreach($this->bookmarks_list['categorys'] as $key => $app){
-      $sorted[$app['name']] = $key;
-    }
-    ksort($sorted);
-    foreach ($sorted as $value) {
-      $sorted_apps[] = $this->bookmarks_list['categorys'][$value];
-    }
-    $this->bookmarks_list['categorys'] = $sorted_apps;
-  }
-  protected function sort_by_orderID(){
-    $sorted = array();
-    foreach($this->bookmarks_list['categorys'] as $key => $app){
-      $sorted[$app['orderId']] = $key;
-    }
-    ksort($sorted);
-    foreach ($sorted as $value) {
-      $sorted_apps[] = $this->bookmarks_list['categorys'][$value];
-    }
-    $this->bookmarks_list['categorys'] = $sorted_apps;
-  }
-  protected function sort_by_date(){
-    $sorted = array();
-    foreach($this->bookmarks_list['categorys'] as $key => $app){
-      $sorted[$app['createdAt']] = $key;
-    }
-    ksort($sorted);
-    foreach ($sorted as $value) {
-      $sorted_apps[] = $this->bookmarks_list['categorys'][$value];
-    }
-    $this->bookmarks_list['categorys'] = $sorted_apps;
   }
 }

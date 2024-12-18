@@ -22,13 +22,11 @@ class application extends json {
     return $this->app_list['apps'];
   }
   public function set_sorting($sorting){
-    if($sorting == 'createdAt'){
-      $this->sort_by_date();
-    }elseif($sorting == 'name'){
-      $this->sort_by_name();
-    }elseif($sorting == 'orderId'){
-      $this->sort_by_orderID();
-    }
+    $sorted = $this->app_list['apps'];
+    usort($sorted, function($a, $b, ) { //Sort the array using a user defined function
+        return $a[$this->sorting] > $b[$this->sorting] ? 1 : -1; //Compare the scores
+    });
+    $this->app_list['apps'] = $sorted;
     $this->save_to_file('../../user_data/apps.json', $this->app_list);
   }
 
@@ -164,39 +162,5 @@ class application extends json {
   protected function remove_http($string){
     $replace = array('http://', 'https://', 'http-', 'https-');
     return str_replace($replace, '', $string);
-  }
-
-  protected function sort_by_name(){
-    $sorted = array();
-    foreach($this->app_list['apps'] as $key => $app){
-      $sorted[$app['name']] = $key;
-    }
-    ksort($sorted);
-    foreach ($sorted as $value) {
-      $sorted_apps[] = $this->app_list['apps'][$value];
-    }
-    $this->app_list['apps'] = $sorted_apps;
-  }
-  protected function sort_by_orderID(){
-    $sorted = array();
-    foreach($this->app_list['apps'] as $key => $app){
-      $sorted[$app['orderId']] = $key;
-    }
-    ksort($sorted);
-    foreach ($sorted as $value) {
-      $sorted_apps[] = $this->app_list['apps'][$value];
-    }
-    $this->app_list['apps'] = $sorted_apps;
-  }
-  protected function sort_by_date(){
-    $sorted = array();
-    foreach($this->app_list['apps'] as $key => $app){
-      $sorted[$app['createdAt']] = $key;
-    }
-    ksort($sorted);
-    foreach ($sorted as $value) {
-      $sorted_apps[] = $this->app_list['apps'][$value];
-    }
-    $this->app_list['apps'] = $sorted_apps;
   }
 }

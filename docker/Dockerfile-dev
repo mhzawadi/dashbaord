@@ -1,17 +1,17 @@
-FROM alpine:3.20
+FROM alpine:3.21
 MAINTAINER Matthew Horwood <matt@horwood.biz>
 
 # Install required deb packages
 RUN apk update && apk upgrade && \
-    apk add nginx php82-fpm php82-pdo_mysql php82-sockets php82-gd php82-ldap \
-    php82-gettext php82-pcntl php82-mysqlnd php82-session php82-gmp php82-json \
-    php82-mbstring php82-iconv php82-ctype php82-curl php82-pear php82-simplexml \
-    php82-dom php82-xmlwriter php82-tokenizer php82 php82-phar php82-sqlite3 curl git \
+    apk add nginx php84-fpm php84-pdo_mysql php84-sockets php84-gd php84-ldap \
+    php84-gettext php84-pcntl php84-mysqlnd php84-session php84-gmp php84-json \
+    php84-mbstring php84-iconv php84-ctype php84-curl php84-pear php84-simplexml \
+    php84-dom php84-xmlwriter php84-tokenizer php84 php84-phar php84-sqlite3 curl git \
     && mkdir -p /var/www/html/ \
     && mkdir -p /run/nginx \
     && rm -f /var/cache/apk/*; \
     [ -f /usr/bin/php ] && rm -f /usr/bin/php; \
-    ln -s /usr/bin/php82 /usr/bin/php; \
+    ln -s /usr/bin/php84 /usr/bin/php; \
     php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
     php composer-setup.php && \
     php -r "unlink('composer-setup.php');" && \
@@ -19,8 +19,8 @@ RUN apk update && apk upgrade && \
 
 COPY docker/config /config
 
-RUN cp /config/php.ini /etc/php82/php.ini && \
-    cp /config/php_fpm_site.conf /etc/php82/php-fpm.d/www.conf && \
+RUN cp /config/php.ini /etc/php84/php.ini && \
+    cp /config/php_fpm_site.conf /etc/php84/php-fpm.d/www.conf && \
     cp /config/nginx_site.conf /etc/nginx/http.d/default.conf;
 
 WORKDIR /var/www/html
