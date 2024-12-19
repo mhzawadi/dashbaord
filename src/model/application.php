@@ -80,7 +80,7 @@ class application extends json {
 
   public function delete_application($applicationID){
     $this->app_list['apps'][$applicationID]['name'] = '00DELETEME00';
-    $this->sort_by_name();
+    $this->set_sorting('name');
     array_shift($this->app_list['apps']);
     $this->save_to_file('../../user_data/apps.json', $this->app_list);
   }
