@@ -11,9 +11,6 @@ class docker {
   private $swarm;
 
   public function __construct($socket = '/var/run/docker.sock', $host = 'localhost'){
-    if(!file_exists($socket){
-      exit;
-    }
     $this->connection = curl_init();
     $this->SOCKET = $socket;
     $this->HOST = $host;
