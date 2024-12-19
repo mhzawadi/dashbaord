@@ -123,9 +123,6 @@ class DashboardController{
           exit;
         }
         if(isset($urls['type']) && $urls['type'] !== 'none'){
-          if(isset($args['description']) && $urls['type'] != 'delete'){
-            $args['description'] = $args['url'];
-          }
           if(isset($_FILES['icon_file'])){
             if($this->store_image()){
                $args['icon'] = $this->uploadOk;
@@ -142,8 +139,8 @@ class DashboardController{
           }elseif(isset($args['application_id']) && isset($urls['type']) && $urls['type'] == 'delete'){
             $this->application->delete_application($args['application_id']);
           }
-          // header('Location: /applications');
-          // exit;
+          header('Location: /applications');
+          exit;
         }
         $applications = $this->application_view->build_app_table($this->application->get_list());
         include (__DIR__ . '/../view/edit_apps.php');
