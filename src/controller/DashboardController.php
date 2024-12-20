@@ -34,8 +34,10 @@ class DashboardController{
     $this->bookmark = new bookmark($this->setting_obj['useOrdering']);
     $this->bookmark_view = new bookmark_view($this->bookmark);
     $this->category_view = new category_view($this->bookmark);
-    $this->docker = new docker();
-    $this->application->store_docker($this->docker->get_data());
+    if($this->setting_obj['dockerApps'] === '1'){
+      $this->docker = new docker();
+      $this->application->store_docker($this->docker->get_data());
+    }
     if(file_exists('../../user_data/db.sqlite')){
       $this->flame = new flame();
       $this->flame->import_apps($this->application);
