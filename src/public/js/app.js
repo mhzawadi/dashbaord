@@ -26,5 +26,5 @@ function delete_application(id){
 }
 
 function app_sort(){
-  window.location.assign("/applications/sort")
+  window.location.assign("/applications/order")
 }

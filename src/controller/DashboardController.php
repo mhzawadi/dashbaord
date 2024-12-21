@@ -140,7 +140,7 @@ class DashboardController{
             $this->application->update_application($args['application_id'], $args);
           }elseif(isset($args['application_id']) && isset($urls['type']) && $urls['type'] == 'delete'){
             $this->application->delete_application($args['application_id']);
-          }elseif((isset($args['application_id']) && $args['application_id'] == 'none') && isset($urls['type']) && $urls['type'] == 'sort'){
+          }elseif((isset($args['application_id']) && $args['application_id'] == 'none') && isset($urls['type']) && $urls['type'] == 'order'){
             $this->application->set_sorting($this->setting_obj['useOrdering']);
           }
           header('Location: /applications');

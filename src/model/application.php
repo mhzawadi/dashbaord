@@ -21,6 +21,7 @@ class application extends json {
   public function get_list(){
     return $this->app_list['apps'];
   }
+
   public function set_sorting($sorting){
     $this->sorting = $sorting;
     $sorted = $this->app_list['apps'];
