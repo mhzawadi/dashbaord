@@ -83,7 +83,7 @@ class docker {
             $container_list[$d]['enable'] = $label;
           }
           if(!isset($container_list[$d]['description'])){
-            $container_list[$d]['description'] = 'Docker Node'
+            $container_list[$d]['description'] = 'Docker Node';
           }
         }
         $d++;
@@ -141,7 +141,7 @@ class docker {
             $container_list[$d]['enable'] = $label;
           }
           if(!isset($container_list[$d]['description'])){
-            $container_list[$d]['description'] = 'Docker Swarm'
+            $container_list[$d]['description'] = 'Docker Swarm';
           }
         }
         $d++;
