@@ -24,3 +24,7 @@ function delete_application(id){
   document.getElementById("del_applicationID").value = id;
   document.getElementById("frm_app_delete").submit();
 }
+
+function app_sort(){
+  window.location.assign("/applications/sort")
+}

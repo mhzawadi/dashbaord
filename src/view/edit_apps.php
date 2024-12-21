@@ -56,9 +56,7 @@ require_once('header.php');
     </div>
     <div class="ActionButton_ActionButtonName__32SDW">Add</div>
   </div>
-</div>
-<div class="Apps_ActionsContainer__1Nn5v">
-  <div class="ActionButton_ActionButton__3Ckgw" tabindex="0" onclick="window.location.assign("/applications/sort")">
+  <div class="ActionButton_ActionButton__3Ckgw" tabindex="0" onclick="app_sort()">
     <div class="ActionButton_ActionButtonIcon__oPDrT">
       <span class="iconify" data-icon="mdi:plus-box" data-width="18"></span>
     </div>
