@@ -24,7 +24,7 @@ class application extends json {
   public function set_sorting($sorting){
     $this->sorting = $sorting;
     $sorted = $this->app_list['apps'];
-    usort($sorted, function($a, $b, ) { //Sort the array using a user defined function
+    usort($sorted, function($a, $b ) { //Sort the array using a user defined function
         return $a[$this->sorting] > $b[$this->sorting] ? 1 : -1; //Compare the scores
     });
     $this->app_list['apps'] = $sorted;
