@@ -82,6 +82,9 @@ class docker {
           if( $key === 'traefik.enable' ){
             $container_list[$d]['enable'] = $label;
           }
+          if(!isset($container_list[$d]['description'])){
+            $container_list[$d]['description'] = 'Docker Node'
+          }
         }
         $d++;
       }else{
@@ -136,6 +139,9 @@ class docker {
           }
           if( $key === 'traefik.enable' ){
             $container_list[$d]['enable'] = $label;
+          }
+          if(!isset($container_list[$d]['description'])){
+            $container_list[$d]['description'] = 'Docker Swarm'
           }
         }
         $d++;
