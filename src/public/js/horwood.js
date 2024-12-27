@@ -1,6 +1,7 @@
 window.onblur= function() {window.onfocus= function () {location.reload(true)}};
 
 function openModal(elementID, form_elementID = false, form_hidden = false) {
+  window.onblur='';
   const list = document.getElementById(elementID).classList;
   list.add("Modal_ModalOpen__xRwYI");
   list.remove("Modal_ModalClose__3Cav6");
@@ -11,6 +12,7 @@ function openModal(elementID, form_elementID = false, form_hidden = false) {
   });
 }
 function CloseModal(elementID, form_elementID = false, form_hidden = false) {
+  window.onblur= function() {window.onfocus= function () {location.reload(true)}};
   const list = document.getElementById(elementID).classList;
   list.add("Modal_ModalClose__3Cav6");
   list.remove("Modal_ModalOpen__xRwYI");
