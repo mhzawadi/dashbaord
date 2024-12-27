@@ -1,31 +1,31 @@
-window.onblur= function() {window.onfocus= function () {location.reload(true)}};
+window.onblur = function () { window.onfocus = function () { location.reload(true); }; };
 
 function openModal(elementID, form_elementID = false, form_hidden = false) {
-  window.onblur='';
+  window.onblur = '';
   const list = document.getElementById(elementID).classList;
-  list.add("Modal_ModalOpen__xRwYI");
-  list.remove("Modal_ModalClose__3Cav6");
-  document.addEventListener("keyup", (e) => {
-    if (e.key === "Escape") {
+  list.add('Modal_ModalOpen__xRwYI');
+  list.remove('Modal_ModalClose__3Cav6');
+  document.addEventListener('keyup', (e) => {
+    if (e.key === 'Escape') {
       CloseModal(elementID, form_elementID, form_hidden);
     }
   });
 }
 function CloseModal(elementID, form_elementID = false, form_hidden = false) {
-  window.onblur= function() {window.onfocus= function () {location.reload(true)}};
+  window.onblur = function () { window.onfocus = function () { location.reload(true); }; };
   const list = document.getElementById(elementID).classList;
-  list.add("Modal_ModalClose__3Cav6");
-  list.remove("Modal_ModalOpen__xRwYI");
-  if(form_elementID !== false && form_hidden !== false){
-    document.getElementById( form_elementID ).reset();
-    document.getElementById( form_hidden ).value = "none";
+  list.add('Modal_ModalClose__3Cav6');
+  list.remove('Modal_ModalOpen__xRwYI');
+  if (form_elementID !== false && form_hidden !== false) {
+    document.getElementById(form_elementID).reset();
+    document.getElementById(form_hidden).value = 'none';
   }
 }
 
-function show_file_upload(form_elementID, icon_mdi, icon_file){
+function show_file_upload(form_elementID, icon_mdi, icon_file) {
   document.getElementById(icon_mdi).style = 'display: none';
   document.getElementById(icon_file).style = '';
-  document.getElementById( form_elementID ).enctype = 'multipart/form-data';
+  document.getElementById(form_elementID).enctype = 'multipart/form-data';
 }
 
 function sendData(data, url) {
@@ -54,12 +54,6 @@ function sendData(data, url) {
 
   // Add the required HTTP header for form data POST requests
   XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-  // XHR.onload = () => {
-  //   if (XHR.readyState === XHR.DONE && XHR.status === 200) {
-  //     console.log(XHR.response, XHR.responseXML);
-  //   }
-  // };
 
   // Finally, send our data.
   XHR.send(urlEncodedData);
