@@ -14,8 +14,8 @@
         <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180x180.png"/>
         <meta name="viewport" content="width=device-width,initial-scale=1"/>
         <meta name="description" content="Dashboard - self-hosted startpage for your server"/>
-        <link rel="stylesheet" href="/css/main.css"/>
-        <link rel="stylesheet" href="/css/custom.css"/>
+        <link rel="stylesheet" href="/css/main.min.css"/>
+        <link rel="stylesheet" href="/css/custom.min.css"/>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <title><?php echo $this->setting_obj['customTitle'];?></title>
     </head>
