@@ -21,9 +21,11 @@ class application extends json {
   public function get_list(){
     return $this->app_list['apps'];
   }
+
   public function set_sorting($sorting){
+    $this->sorting = $sorting;
     $sorted = $this->app_list['apps'];
-    usort($sorted, function($a, $b, ) { //Sort the array using a user defined function
+    usort($sorted, function($a, $b ) { //Sort the array using a user defined function
         return $a[$this->sorting] > $b[$this->sorting] ? 1 : -1; //Compare the scores
     });
     $this->app_list['apps'] = $sorted;
@@ -79,9 +81,11 @@ class application extends json {
   }
 
   public function delete_application($applicationID){
+    $sorting = $this->sorting;
     $this->app_list['apps'][$applicationID]['name'] = '00DELETEME00';
-    $this->sort_by_name();
+    $this->set_sorting('name');
     array_shift($this->app_list['apps']);
+    $this->set_sorting($sorting);
     $this->save_to_file('../../user_data/apps.json', $this->app_list);
   }
   public function order_application($applications_json){

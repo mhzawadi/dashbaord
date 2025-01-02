@@ -1,2 +1,4 @@
 user_data/*
-.venv
+/.venv/
+/.git/
+/.github/

@@ -77,7 +77,7 @@ class application_view {
       }
       $app['icon'] = str_replace('mdi:', '', $app['icon']);
       $app_list .= '<tr>'."\n";
-      $app_list .= '  <td style="width: 350px;">'.$app['name'].'</td>'."\n";
+      $app_list .= '  <td style="width: 350px;">'.$app['name'].'<br/>'.$app['description'].'</td>'."\n";
       $app_list .= '  <td style="width: 200px;">'.$this->remove_http($app['url']).'</td>'."\n";
       $app_list .= '  <td style="width: 200px;">'.$app['icon'].'</td>'."\n";
       if($app['isPublic'] == 0){

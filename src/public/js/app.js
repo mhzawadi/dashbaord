@@ -5,13 +5,13 @@ function edit_app(id, name, url, cat_public, icon, description, orderId, submit 
   document.getElementById("app_url").value = url;
   document.getElementById("app_icon").value = icon;
   document.getElementById("app_description").value = description;
-  $select = document.getElementById('isPublic');
+  const $select = document.getElementById("isPublic");
   $select.value = cat_public;
-  document.getElementById('btn_app').textContent = 'Update Application';
+  document.getElementById("btn_app").textContent = "Update Application";
   if( submit === true ){
     document.getElementById("frm_app").submit();
   }else{
-    openModal('application_modal');
+    openModal("application_modal");
   }
 
 }
@@ -23,4 +23,8 @@ function app_order(new_order, id, name, url, cat_public, icon, description, old_
 function delete_application(id){
   document.getElementById("del_applicationID").value = id;
   document.getElementById("frm_app_delete").submit();
+}
+
+function app_sort(){
+  window.location.assign("/applications/order");
 }

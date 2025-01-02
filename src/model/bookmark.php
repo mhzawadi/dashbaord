@@ -29,6 +29,7 @@ class bookmark extends json {
   }
 
   public function set_sorting($sorting){
+    $this->sorting = $sorting;
     foreach($this->bookmarks_list['categorys'] as $key => $category){
       $this->bookmarks_list['categorys'][$key]['bookmarks'] = $this->sort_categorys($category['bookmarks']);
     }

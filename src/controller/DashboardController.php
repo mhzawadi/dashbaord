@@ -34,8 +34,10 @@ class DashboardController{
     $this->bookmark = new bookmark($this->setting_obj['useOrdering']);
     $this->bookmark_view = new bookmark_view($this->bookmark);
     $this->category_view = new category_view($this->bookmark);
-    $this->docker = new docker();
-    $this->application->store_docker($this->docker->get_data());
+    if($this->setting_obj['dockerApps'] === '1'){
+      $this->docker = new docker();
+      $this->application->store_docker($this->docker->get_data());
+    }
     if(file_exists('../../user_data/db.sqlite')){
       $this->flame = new flame();
       $this->flame->import_apps($this->application);
@@ -123,9 +125,6 @@ class DashboardController{
           exit;
         }
         if(isset($urls['type']) && $urls['type'] !== 'none'){
-          if(isset($args['description']) && $urls['type'] != 'delete'){
-            $args['description'] = $args['url'];
-          }
           if(isset($_FILES['icon_file'])){
             if($this->store_image()){
                $args['icon'] = $this->uploadOk;
@@ -141,9 +140,11 @@ class DashboardController{
             $this->application->update_application($args['application_id'], $args);
           }elseif(isset($args['application_id']) && isset($urls['type']) && $urls['type'] == 'delete'){
             $this->application->delete_application($args['application_id']);
+          }elseif((isset($args['application_id']) && $args['application_id'] == 'none') && isset($urls['type']) && $urls['type'] == 'order'){
+            $this->application->set_sorting($this->setting_obj['useOrdering']);
           }
-          // header('Location: /applications');
-          // exit;
+          header('Location: /applications');
+          exit;
         }
         $applications = $this->application_view->build_app_table($this->application->get_list());
         include (__DIR__ . '/../view/edit_apps.php');
