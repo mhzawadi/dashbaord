@@ -16,7 +16,7 @@
         <meta name="description" content="Dashboard - self-hosted startpage for your server"/>
         <link rel="stylesheet" href="/css/main.min.css"/>
         <link rel="stylesheet" href="/css/custom.min.css"/>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="preload" as="style">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <title><?php echo $this->setting_obj['customTitle'];?></title>
     </head>
     <body style="--color-primary:<?php echo $this->theme[0];?>; --color-accent:<?php echo $this->theme[1];?>; --color-background:<?php echo $this->theme[2];?>;">
