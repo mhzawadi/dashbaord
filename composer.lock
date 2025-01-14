@@ -780,16 +780,16 @@
         },
         {
             "name": "simple-icons/simple-icons",
-            "version": "13.13.0",
+            "version": "14.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/simple-icons/simple-icons.git",
-                "reference": "2287e3cc611be59d127bf56daaa8ec25b7b1f14d"
+                "reference": "9db31a4c69eddc3261d84eb0659ca4052db6377c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/simple-icons/simple-icons/zipball/2287e3cc611be59d127bf56daaa8ec25b7b1f14d",
-                "reference": "2287e3cc611be59d127bf56daaa8ec25b7b1f14d",
+                "url": "https://api.github.com/repos/simple-icons/simple-icons/zipball/9db31a4c69eddc3261d84eb0659ca4052db6377c",
+                "reference": "9db31a4c69eddc3261d84eb0659ca4052db6377c",
                 "shasum": ""
             },
             "type": "library",
@@ -804,8 +804,11 @@
                 "svg"
             ],
             "support": {
+                "chat": "https://discord.gg/vUXFa7t5xJ",
                 "docs": "https://github.com/simple-icons/simple-icons#php-usage-",
+                "forum": "https://github.com/simple-icons/simple-icons/discussions",
                 "issues": "https://github.com/simple-icons/simple-icons/issues",
+                "security": "https://github.com/simple-icons/simple-icons/security/policy",
                 "source": "https://github.com/simple-icons/simple-icons"
             },
             "funding": [
@@ -814,7 +817,7 @@
                     "type": "opencollective"
                 }
             ],
-            "time": "2024-10-06T00:41:11+00:00"
+            "time": "2025-01-12T01:22:30+00:00"
         },
         {
             "name": "stevenmaguire/oauth2-keycloak",
