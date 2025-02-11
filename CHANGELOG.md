@@ -3,11 +3,17 @@
 
 ## (unreleased)
 
+### New
+
+*  build change log workflow bug: fetch all commits. [Matthew Horwood]
+
 ### Fix
 
 *  use gitchangelog direct doc: update the change log. [Matthew Horwood]
 
 ### Documentation
+
+*  make it markdown for GH. [Matthew Horwood]
 
 *  better change log. [Matthew Horwood]
 
