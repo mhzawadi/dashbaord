@@ -25,6 +25,7 @@ require_once('header.php');
                 <img class="horwoodimg" src="/icons/logo.png" alt="Logo">
                 <h2>This is the Horwood Dashboard, writen in PHP.</h2>
                 <p>you can find it on <a href="https://github.com/mhzawadi/dashbaord">github "mhzawadi/dashbaord"</a></p>
+                <p>Version <?php echo $this->version; ?>, <a href="https://github.com/mhzawadi/dashbaord/blob/master/CHANGELOG.md" target="_blank" rel="noreferrer">Change Log</a></p>
               </div>
             </div>
             <section>

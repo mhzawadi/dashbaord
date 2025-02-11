@@ -417,27 +417,18 @@ a {
     cursor: pointer
 }
 
-@media (min-width: 430px) {
+@media (max-width: 699px) {
     .ModalForm_ModalForm__KUznX {
         width:90%
     }
-}
-
-@media (min-width: 800px) {
-    .ModalForm_ModalForm__KUznX {
-        width:70%
+    .horwoodimg {
+      width: 100%;
     }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 700px) {
     .ModalForm_ModalForm__KUznX {
-        width:60%
-    }
-}
-
-@media (min-width: 1400px) {
-    .ModalForm_ModalForm__KUznX {
-        width:40%
+        width: 612px;
     }
 }
 
