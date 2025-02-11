@@ -1,18 +1,12 @@
-name: "Tag post merge"
+name: "Update Change Log"
 
 on:
   workflow_dispatch:
-  pull_request:
-    types:
-      - closed
-    branches:
-      - "main"
 
 jobs:
-  changelog:
-    name: Update change log
+  build:
+    name: Rebuild Change Log
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
     steps:
       - name: checkout code
         uses: actions/checkout@v4
@@ -32,14 +26,3 @@ jobs:
           git add CHANGELOG.md
           git commit -m "doc: update CHANGELOG.md" || exit 0
           git push
-
-      - name: Create tag
-        uses: actions/github-script@v7
-        with:
-          script: |
-            github.rest.git.createRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: "refs/tags/v${{ github.head_ref }}",
-              sha: context.sha
-            })
