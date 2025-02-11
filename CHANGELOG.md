@@ -2,6 +2,129 @@ Changelog
 =========
 
 
+v0.0.15 (2025-02-11)
+--------------------
+- Bug fix (#27) [Matthew Horwood]
+
+  * bug fix
+
+  bug: use set_sort
+
+  * remove check
+
+  * bug: fix app sorting after delete
+  bug: fix sorting in both app and bookmarks
+  chor: rediect after app edit or delete
+  chor: add app description
+
+  * try and track both swarm and single node docker
+
+  * add a description
+
+  * add a button
+
+  * fix the bug, but also lint
+
+  * fix lint
+
+  * set the button right
+
+  * general tidy
+
+  * fix editing things
+
+  * lint fix
+
+  * minify
+
+  * speed up google style
+
+  * rollback change
+
+  * update simple-icons
+
+  * update compose
+
+  * version bump
+- Merge pull request #31 from mhzawadi/dependabot/composer/simple-
+  icons/simple-icons-14.4.0. [Matthew Horwood]
+
+  build(deps): bump simple-icons/simple-icons from 14.2.0 to 14.4.0
+- Build(deps): bump simple-icons/simple-icons from 14.2.0 to 14.4.0.
+  [dependabot[bot]]
+
+  Bumps [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons) from 14.2.0 to 14.4.0.
+  - [Release notes](https://github.com/simple-icons/simple-icons/releases)
+  - [Commits](https://github.com/simple-icons/simple-icons/compare/14.2.0...14.4.0)
+
+  ---
+  updated-dependencies:
+  - dependency-name: simple-icons/simple-icons
+    dependency-type: direct:production
+    update-type: version-update:semver-minor
+  ...
+- Merge pull request #29 from mhzawadi/dependabot/composer/simple-
+  icons/simple-icons-14.2.0. [Matthew Horwood]
+
+  build(deps): bump simple-icons/simple-icons from 13.13.0 to 14.2.0
+- Build(deps): bump simple-icons/simple-icons from 13.13.0 to 14.2.0.
+  [dependabot[bot]]
+
+  Bumps [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons) from 13.13.0 to 14.2.0.
+  - [Release notes](https://github.com/simple-icons/simple-icons/releases)
+  - [Commits](https://github.com/simple-icons/simple-icons/compare/13.13.0...14.2.0)
+
+  ---
+  updated-dependencies:
+  - dependency-name: simple-icons/simple-icons
+    dependency-type: direct:production
+    update-type: version-update:semver-major
+  ...
+- Merge pull request #28 from
+  mhzawadi/dependabot/composer/phpunit/phpunit-11.5.3. [Matthew Horwood]
+
+  build(deps-dev): bump phpunit/phpunit from 9.5.28 to 11.5.3
+- Build(deps-dev): bump phpunit/phpunit from 9.5.28 to 11.5.3.
+  [dependabot[bot]]
+
+  Bumps [phpunit/phpunit](https://github.com/sebastianbergmann/phpunit) from 9.5.28 to 11.5.3.
+  - [Release notes](https://github.com/sebastianbergmann/phpunit/releases)
+  - [Changelog](https://github.com/sebastianbergmann/phpunit/blob/11.5.3/ChangeLog-11.5.md)
+  - [Commits](https://github.com/sebastianbergmann/phpunit/compare/9.5.28...11.5.3)
+
+  ---
+  updated-dependencies:
+  - dependency-name: phpunit/phpunit
+    dependency-type: direct:development
+    update-type: version-update:semver-major
+  ...
+
+
+v0.0.14 (2024-12-18)
+--------------------
+
+Fix
+~~~
+-  update fpm. [Matthew Horwood]
+-  use alpine 3.21. [Matthew Horwood]
+
+Documentation
+~~~~~~~~~~~~~
+-  change log for tag v0.0.13. [Matthew Horwood]
+
+Other
+~~~~~
+- Merge pull request #25 from mhzawadi/0.0.14. [Matthew Horwood]
+
+  Move to PHP 8.4 on Alpine 3.21
+- This is all the good work. [Matthew Horwood]
+- Move to PHP 8.4 on Alpine 3.21. [Matthew Horwood]
+
+  feat: php84
+  feat: alipne3.21
+  chor: what version are we
+
+
 v0.0.13 (2024-10-08)
 --------------------
 
