@@ -4,6 +4,13 @@ Changelog
 
 (unreleased)
 ------------
+
+Fix
+~~~
+-  use gitchangelog direct doc: update the change log. [Matthew Horwood]
+
+Other
+~~~~~
 - Update CHANGELOG.md. [github-actions]
 
 
