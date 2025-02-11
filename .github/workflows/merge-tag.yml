@@ -10,7 +10,7 @@ on:
 
 jobs:
   changelog:
-    name: Release
+    name: Update change log
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true
     steps:
@@ -33,7 +33,7 @@ jobs:
           git push
 
   tagit:
-    name: Release
+    name: Tag the release
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true
     steps:
