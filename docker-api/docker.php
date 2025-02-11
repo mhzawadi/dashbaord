@@ -22,37 +22,40 @@ class docker {
     curl_setopt($ch, CURLOPT_RETURNTRANSFER , true);
     curl_setopt($ch, CURLOPT_URL, "http://$this->HOST/info");
     $host_info = json_decode(curl_exec($ch), true);
-    if($host_info['Swarm']['LocalNodeState'] == 'active'){
-      $this->swarm = 'services';
-    }else{
-      $this->swarm = 'containers/json?{\"status\":[\"running\"]}';
-    }
+    curl_close($ch);
+    $this->swarm = $host_info['Swarm']['LocalNodeState'];
   }
+
   public function get_containers(){
+
+    if($this->swarm === 'active'){
+      $containers = $this->docker_swarm();
+    }
+    $containers = $this->docker_node($containers);
+
+    return $containers;
+  }
+
+  private function docker_node($node_containers){
     set_time_limit(0);
     $ch = $this->connection;
     curl_setopt($ch, CURLOPT_UNIX_SOCKET_PATH, $this->SOCKET);
     curl_setopt($ch, CURLOPT_BUFFERSIZE, 256);
     curl_setopt($ch, CURLOPT_TIMEOUT, 1000000);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER , true);
-    curl_setopt($ch, CURLOPT_URL, "http://$this->HOST/$this->swarm");
+    curl_setopt($ch, CURLOPT_URL, "http://$this->HOST/containers/json?{\"status\":[\"running\"]}");
     $containers = json_decode(curl_exec($ch), true);
     curl_close($ch);
-    if($this->swarm === 'services'){
-      return $this->docker_swarm($containers);
-    }else{
-      return $this->docker_node($containers);
-    }
-  }
 
-  private function docker_node($containers){
     $count = count($containers);
-    $container_list = array();
-    $d = 0;
+    $container_list = json_decode($node_containers, true);
+    $start = count($container_list);
+    $d = $start;
     for($c = 0; $c < $count; $c++){
       if( (array_key_exists('dashboard.ignore', $containers[$c]['Labels']) === false) ||
           ( array_key_exists('traefik.enable', $containers[$c]['Labels']) &&
-            $containers[$c]['Labels']['traefik.enable'] === false)
+            $containers[$c]['Labels']['traefik.enable'] === false) ||
+          (array_key_exists('com.docker.stack.namespace', $containers[$c]['Labels']) === false)
         ){
         $container_list[$d]['name'] = str_replace('/', '', $containers[$c]['Names'][0]);
         foreach($containers[$c]['Labels'] as $key => $label){
@@ -79,6 +82,9 @@ class docker {
           if( $key === 'traefik.enable' ){
             $container_list[$d]['enable'] = $label;
           }
+          if(!isset($container_list[$d]['description'])){
+            $container_list[$d]['description'] = 'Docker Node';
+          }
         }
         $d++;
       }else{
@@ -90,7 +96,17 @@ class docker {
     return json_encode($container_list);
   }
 
-  private function docker_swarm($containers){
+  private function docker_swarm(){
+    set_time_limit(0);
+    $ch = $this->connection;
+    curl_setopt($ch, CURLOPT_UNIX_SOCKET_PATH, $this->SOCKET);
+    curl_setopt($ch, CURLOPT_BUFFERSIZE, 256);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 1000000);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER , true);
+    curl_setopt($ch, CURLOPT_URL, "http://$this->HOST/services");
+    $containers = json_decode(curl_exec($ch), true);
+    curl_close($ch);
+
     $count = count($containers);
     $container_list = array();
     $d = 0;
@@ -123,6 +139,9 @@ class docker {
           }
           if( $key === 'traefik.enable' ){
             $container_list[$d]['enable'] = $label;
+          }
+          if(!isset($container_list[$d]['description'])){
+            $container_list[$d]['description'] = 'Docker Swarm';
           }
         }
         $d++;
