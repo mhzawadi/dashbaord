@@ -9,6 +9,17 @@ Fix
 ~~~
 -  use gitchangelog direct doc: update the change log. [Matthew Horwood]
 
+
+Documentation
+~~~~~~~~~~~~~
+-  udate CHANGELOG.md. [Matthew Horwood]
+
+
+Changes
+~~~~~~~
+-  fix up commit message. [Matthew Horwood]
+
+
 Other
 ~~~~~
 - Update CHANGELOG.md. [github-actions]
@@ -20,7 +31,9 @@ v0.0.17 (2025-02-11)
 Fix
 ~~~
 -  rename. [Matthew Horwood]
+
 -  make full change log. [Matthew Horwood]
+
 
 Other
 ~~~~~
@@ -39,7 +52,6 @@ v0.0.16 (2025-02-11)
   chor: use a var for version
 
   * update change log
-
 
 v0.0.15 (2025-02-11)
 --------------------
@@ -85,12 +97,10 @@ v0.0.15 (2025-02-11)
   * update compose
 
   * version bump
-- Merge pull request #31 from mhzawadi/dependabot/composer/simple-
-  icons/simple-icons-14.4.0. [Matthew Horwood]
+- Merge pull request #31 from mhzawadi/dependabot/composer/simple-icons/simple-icons-14.4.0. [Matthew Horwood]
 
   build(deps): bump simple-icons/simple-icons from 14.2.0 to 14.4.0
-- Build(deps): bump simple-icons/simple-icons from 14.2.0 to 14.4.0.
-  [dependabot[bot]]
+- Build(deps): bump simple-icons/simple-icons from 14.2.0 to 14.4.0. [dependabot[bot]]
 
   Bumps [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons) from 14.2.0 to 14.4.0.
   - [Release notes](https://github.com/simple-icons/simple-icons/releases)
@@ -102,12 +112,10 @@ v0.0.15 (2025-02-11)
     dependency-type: direct:production
     update-type: version-update:semver-minor
   ...
-- Merge pull request #29 from mhzawadi/dependabot/composer/simple-
-  icons/simple-icons-14.2.0. [Matthew Horwood]
+- Merge pull request #29 from mhzawadi/dependabot/composer/simple-icons/simple-icons-14.2.0. [Matthew Horwood]
 
   build(deps): bump simple-icons/simple-icons from 13.13.0 to 14.2.0
-- Build(deps): bump simple-icons/simple-icons from 13.13.0 to 14.2.0.
-  [dependabot[bot]]
+- Build(deps): bump simple-icons/simple-icons from 13.13.0 to 14.2.0. [dependabot[bot]]
 
   Bumps [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons) from 13.13.0 to 14.2.0.
   - [Release notes](https://github.com/simple-icons/simple-icons/releases)
@@ -119,12 +127,10 @@ v0.0.15 (2025-02-11)
     dependency-type: direct:production
     update-type: version-update:semver-major
   ...
-- Merge pull request #28 from
-  mhzawadi/dependabot/composer/phpunit/phpunit-11.5.3. [Matthew Horwood]
+- Merge pull request #28 from mhzawadi/dependabot/composer/phpunit/phpunit-11.5.3. [Matthew Horwood]
 
   build(deps-dev): bump phpunit/phpunit from 9.5.28 to 11.5.3
-- Build(deps-dev): bump phpunit/phpunit from 9.5.28 to 11.5.3.
-  [dependabot[bot]]
+- Build(deps-dev): bump phpunit/phpunit from 9.5.28 to 11.5.3. [dependabot[bot]]
 
   Bumps [phpunit/phpunit](https://github.com/sebastianbergmann/phpunit) from 9.5.28 to 11.5.3.
   - [Release notes](https://github.com/sebastianbergmann/phpunit/releases)
@@ -138,18 +144,20 @@ v0.0.15 (2025-02-11)
     update-type: version-update:semver-major
   ...
 
-
 v0.0.14 (2024-12-18)
 --------------------
 
 Fix
 ~~~
 -  update fpm. [Matthew Horwood]
+
 -  use alpine 3.21. [Matthew Horwood]
+
 
 Documentation
 ~~~~~~~~~~~~~
 -  change log for tag v0.0.13. [Matthew Horwood]
+
 
 Other
 ~~~~~
@@ -157,12 +165,12 @@ Other
 
   Move to PHP 8.4 on Alpine 3.21
 - This is all the good work. [Matthew Horwood]
+
 - Move to PHP 8.4 on Alpine 3.21. [Matthew Horwood]
 
   feat: php84
   feat: alipne3.21
   chor: what version are we
-
 
 v0.0.13 (2024-10-08)
 --------------------
@@ -170,6 +178,7 @@ v0.0.13 (2024-10-08)
 Documentation
 ~~~~~~~~~~~~~
 -  make a tag. [Matthew Horwood]
+
 
 Other
 ~~~~~
@@ -180,7 +189,9 @@ Other
 
   bug: fix up work flow
 - Manual run. [Matthew Horwood]
+
 - Fix workflow. [Matthew Horwood]
+
 - Merge pull request #22 from mhzawadi/0.0.12. [Matthew Horwood]
 
   0.0.12
@@ -193,7 +204,9 @@ v0.0.11 (2024-10-08)
 Documentation
 ~~~~~~~~~~~~~
 -  change log. [Matthew Horwood]
+
 -  change log for tag v0.0.10. [Matthew Horwood]
+
 
 Other
 ~~~~~
@@ -204,9 +217,7 @@ Other
 
   chor: composer upgrade
   bug: rename workflow
-- Merge pull request #20 from
-  mhzawadi/dependabot/github_actions/actions/checkout-4. [Matthew
-  Horwood]
+- Merge pull request #20 from mhzawadi/dependabot/github_actions/actions/checkout-4. [Matthew Horwood]
 
   build(deps): bump actions/checkout from 3 to 4
 - Build(deps): bump actions/checkout from 3 to 4. [dependabot[bot]]
@@ -222,9 +233,7 @@ Other
     dependency-type: direct:production
     update-type: version-update:semver-major
   ...
-- Merge pull request #19 from
-  mhzawadi/dependabot/github_actions/actions/github-script-7. [Matthew
-  Horwood]
+- Merge pull request #19 from mhzawadi/dependabot/github_actions/actions/github-script-7. [Matthew Horwood]
 
   build(deps): bump actions/github-script from 5 to 7
 - Build(deps): bump actions/github-script from 5 to 7. [dependabot[bot]]
@@ -239,13 +248,10 @@ Other
     dependency-type: direct:production
     update-type: version-update:semver-major
   ...
-- Merge pull request #18 from
-  mhzawadi/dependabot/github_actions/docker/build-push-action-6.
-  [Matthew Horwood]
+- Merge pull request #18 from mhzawadi/dependabot/github_actions/docker/build-push-action-6. [Matthew Horwood]
 
   build(deps): bump docker/build-push-action from 3 to 6
-- Build(deps): bump docker/build-push-action from 3 to 6.
-  [dependabot[bot]]
+- Build(deps): bump docker/build-push-action from 3 to 6. [dependabot[bot]]
 
   Bumps [docker/build-push-action](https://github.com/docker/build-push-action) from 3 to 6.
   - [Release notes](https://github.com/docker/build-push-action/releases)
@@ -257,13 +263,10 @@ Other
     dependency-type: direct:production
     update-type: version-update:semver-major
   ...
-- Merge pull request #17 from
-  mhzawadi/dependabot/github_actions/docker/setup-qemu-action-3.
-  [Matthew Horwood]
+- Merge pull request #17 from mhzawadi/dependabot/github_actions/docker/setup-qemu-action-3. [Matthew Horwood]
 
   build(deps): bump docker/setup-qemu-action from 2 to 3
-- Build(deps): bump docker/setup-qemu-action from 2 to 3.
-  [dependabot[bot]]
+- Build(deps): bump docker/setup-qemu-action from 2 to 3. [dependabot[bot]]
 
   Bumps [docker/setup-qemu-action](https://github.com/docker/setup-qemu-action) from 2 to 3.
   - [Release notes](https://github.com/docker/setup-qemu-action/releases)
@@ -275,13 +278,10 @@ Other
     dependency-type: direct:production
     update-type: version-update:semver-major
   ...
-- Merge pull request #16 from
-  mhzawadi/dependabot/github_actions/docker/setup-buildx-action-3.
-  [Matthew Horwood]
+- Merge pull request #16 from mhzawadi/dependabot/github_actions/docker/setup-buildx-action-3. [Matthew Horwood]
 
   build(deps): bump docker/setup-buildx-action from 2 to 3
-- Build(deps): bump docker/setup-buildx-action from 2 to 3.
-  [dependabot[bot]]
+- Build(deps): bump docker/setup-buildx-action from 2 to 3. [dependabot[bot]]
 
   Bumps [docker/setup-buildx-action](https://github.com/docker/setup-buildx-action) from 2 to 3.
   - [Release notes](https://github.com/docker/setup-buildx-action/releases)
@@ -294,24 +294,29 @@ Other
     update-type: version-update:semver-major
   ...
 
-
 v0.0.10 (2024-07-01)
 --------------------
 
 New
 ~~~
 -  reload page on page focus chor: alpine 3.20. [Matthew Horwood]
+
 -  dependabot config chor: fix test version build. [Matthew Horwood]
+
 
 Fix
 ~~~
 -  fix PHP version. [Matthew Horwood]
+
 -  minor UI fix. [Matthew Horwood]
+
 -  UI fixes. [Matthew Horwood]
+
 
 Changes
 ~~~~~~~
 -  dependacy dumps bug: install and use php82. [Matthew Horwood]
+
 
 Other
 ~~~~~
@@ -319,12 +324,16 @@ Other
 
   0.0.10
 - Merge branch 'main' into 0.0.10. [Matthew Horwood]
+
 - Update to alpine 3.20. [Matthew Horwood]
+
 - Fix the build. [Matthew Horwood]
+
 - Split test and dev. [Matthew Horwood]
+
 - Build dev images. [Matthew Horwood]
-- V0.0.10 feat: Escape modals chor: import testing script. [Matthew
-  Horwood]
+
+- V0.0.10 feat: Escape modals chor: import testing script. [Matthew Horwood]
 
 
 v0.0.9 (2023-12-11)
@@ -333,11 +342,11 @@ v0.0.9 (2023-12-11)
 
   Alpine 3.19 & PHP 8.2
 - Merge branch 'main' into dev. [Matthew Horwood]
+
 - Alpine 3.19 & PHP 8.2. [Matthew Horwood]
 
   feat: update OS to 3.19
   feat: update PHP to 8.2
-
 
 v0.0.8 (2023-12-10)
 -------------------
@@ -366,9 +375,11 @@ Documentation
 ~~~~~~~~~~~~~
 -  change log for tag v0.0.7. [Matthew Horwood]
 
+
 Changes
 ~~~~~~~
 -  fix autorun alias. [Matthew Horwood]
+
 -  change log builder. [Matthew Horwood]
 
 
@@ -378,6 +389,7 @@ v0.0.6 (2023-09-03)
 
   Dev
 - Fix up issues. [Matthew Horwood]
+
 - Add simple icons to apps. [Matthew Horwood]
 
 
@@ -392,9 +404,13 @@ v0.0.4 (2023-09-02)
 
   Simple icons
 - Merge branch 'main' into dev. [Matthew Horwood]
+
 - Build dev image. [Matthew Horwood]
+
 - Just get it. [Matthew Horwood]
+
 - Update composer hash. [Matthew Horwood]
+
 - Add simple icons. [Matthew Horwood]
 
 
@@ -403,37 +419,56 @@ v0.0.3 (2023-07-31)
 
 New
 ~~~
--  bump alpine to 3.17 chor: logo resize bug: fix workflows. [Matthew
-  Horwood]
--  move all config to user_data feat: move uploads to user_data feat:
-  export user_data in docker. [Matthew Horwood]
+-  bump alpine to 3.17 chor: logo resize bug: fix workflows. [Matthew Horwood]
+
+-  move all config to user_data feat: move uploads to user_data feat: export user_data in docker. [Matthew Horwood]
+
 -  use a cookie to track login. [Matthew Horwood]
--  custom ordering of apps feat: custom ordering of categories chor:
-  tidy up code. [Matthew Horwood]
+
+-  custom ordering of apps feat: custom ordering of categories chor: tidy up code. [Matthew Horwood]
+
 
 Fix
 ~~~
 -  fix composer. [Matthew Horwood]
+
 -  fix the bug. [Matthew Horwood]
+
 -  fix new bookmarks. [Matthew Horwood]
+
 -  fix docker urls. [Matthew Horwood]
+
 -  fix order IDs bug: fix getting container hosts. [Matthew Horwood]
+
 -  fix build. [Matthew Horwood]
+
 -  fix path this time. [Matthew Horwood]
+
 -  add file location to workflow. [Matthew Horwood]
+
 -  fix workflows. [Matthew Horwood]
+
 -  fix up storing settings. [Matthew Horwood]
+
 -  set the owner. [Matthew Horwood]
+
 -  fix upload location bug: fix display of uploads. [Matthew Horwood]
+
 -  fix storing apps without http. [Matthew Horwood]
+
 -  only set mdi if not an image. [Matthew Horwood]
+
 -  missed the `$` [Matthew Horwood]
+
 
 Changes
 ~~~~~~~
 -  update github actions. [Matthew Horwood]
+
 -  fix date format. [Matthew Horwood]
+
 -  taged. [Matthew Horwood]
+
 
 Other
 ~~~~~
@@ -444,14 +479,16 @@ Other
 
   chor: bump to latest
 - Create FUNDING.yml. [Matthew Horwood]
+
 - - Cross-site Scripting (XSS) - Sensitive Cookie. [Matthew Horwood]
-- V0.0.3 - update chnage log - bump oauth2-keycloak - fix dev image.
-  [Matthew Horwood]
-- Merge pull request #1 from mhzawadi/snyk-
-  fix-9687b5635c458fc85d511c5df3535f74. [Matthew Horwood]
+
+- V0.0.3 - update chnage log - bump oauth2-keycloak - fix dev image. [Matthew Horwood]
+
+- Merge pull request #1 from mhzawadi/snyk-fix-9687b5635c458fc85d511c5df3535f74. [Matthew Horwood]
 
   [Snyk] Security upgrade alpine from 3.16 to 3.17
 - Fix: docker/Dockerfile-dev to reduce vulnerabilities. [snyk-bot]
+
 - 247/oauth. [Matthew Horwood]
 
   bug: rediect back to index
@@ -472,24 +509,27 @@ Other
   feat: dynamic admin menu
   feat: oauth login
 
-
 v0.0.2 (2023-01-09)
 -------------------
 
 New
 ~~~
--  upload images feat: use uploaded images bug: fix up mdi or image.
-  [Matthew Horwood]
+-  upload images feat: use uploaded images bug: fix up mdi or image. [Matthew Horwood]
+
 
 Fix
 ~~~
 -  remove mdi from views. [Matthew Horwood]
+
 -  fix getting PW from docker secret. [Matthew Horwood]
+
 
 Changes
 ~~~~~~~
 -  ignore custom uploads. [Matthew Horwood]
+
 -  add autorun script chor: add change log. [Matthew Horwood]
+
 -  fix docker urls. [Matthew Horwood]
 
 
@@ -499,53 +539,86 @@ v0.0.1 (2023-01-08)
 New
 ~~~
 -  create config files. [Matthew Horwood]
+
 -  import docker workflows chor: some minor tidy up. [Matthew Horwood]
+
 -  import flame DB chor: empty apps and bookmarks. [Matthew Horwood]
--  login precces chor: refactor routing chor: fix up things. [Matthew
-  Horwood]
--  move settings to json files feat: add logo chor: add logo to settings
-  pages. [Matthew Horwood]
--  new and edit categories feat: new bookmark chor: move code to class.
-  [Matthew Horwood]
+
+-  login precces chor: refactor routing chor: fix up things. [Matthew Horwood]
+
+-  move settings to json files feat: add logo chor: add logo to settings pages. [Matthew Horwood]
+
+-  new and edit categories feat: new bookmark chor: move code to class. [Matthew Horwood]
+
 
 Fix
 ~~~
 -  fix themes. [Matthew Horwood]
+
 -  fix flame import. [Matthew Horwood]
+
 -  fix workflow. [Matthew Horwood]
+
 -  fix docker import bug: add http to docker import. [Matthew Horwood]
+
 -  spelling. [Matthew Horwood]
+
 -  main branch. [Matthew Horwood]
+
 -  fix traefik disable or no url. [Matthew Horwood]
+
 -  wrong health check port. [Matthew Horwood]
+
 -  fix build file. [Matthew Horwood]
+
 
 Changes
 ~~~~~~~
 -  view tidy. [Matthew Horwood]
+
 -  tidy up bug: fix namespacing. [Matthew Horwood]
+
 -  dont upload custom json. [Matthew Horwood]
+
 -  fix login flow. [Matthew Horwood]
+
 
 Other
 ~~~~~
 - Ignore json config. [Matthew Horwood]
+
 - Delete custom json. [Matthew Horwood]
+
 - Make it work like a read boy. [Matthew Horwood]
+
 - I hate yaml formating. [Matthew Horwood]
+
 - Update the stack when image built. [Matthew Horwood]
+
 - Finish migrate to json. [Matthew Horwood]
+
 - Migrate to json. [Matthew Horwood]
+
 - Changes that need more work. [Matthew Horwood]
+
 - Tidy up files. [Matthew Horwood]
+
 - Fix ignore. [Matthew Horwood]
+
 - Use traefik.enable to limit list. [Matthew Horwood]
+
 - Make swarm work. [Matthew Horwood]
+
 - Quert docker for containers. [Matthew Horwood]
+
 - Fix up docker api. [Matthew Horwood]
+
 - More settings stuff and start of docker. [Matthew Horwood]
+
 - All the settings, only some save. [Matthew Horwood]
+
 - All the hard work to get this working. [Matthew Horwood]
+
 - Start of build. [Matthew Horwood]
 
   chor: start of edit pages
@@ -561,5 +634,4 @@ Other
 - Start of the project. [Matthew Horwood]
 
   feat: start of project
-
 

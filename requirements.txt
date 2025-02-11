@@ -1,3 +1,4 @@
 conventional-commit
 gitchangelog
 pre-commit
+pystache
