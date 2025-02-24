@@ -725,16 +725,16 @@
         },
         {
             "name": "simple-icons/simple-icons",
-            "version": "14.6.0",
+            "version": "14.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/simple-icons/simple-icons.git",
-                "reference": "1e7761703fd08acd0966d065ace84595de34e263"
+                "reference": "981bed82383b5d326e92f2687b7961623298281a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/simple-icons/simple-icons/zipball/1e7761703fd08acd0966d065ace84595de34e263",
-                "reference": "1e7761703fd08acd0966d065ace84595de34e263",
+                "url": "https://api.github.com/repos/simple-icons/simple-icons/zipball/981bed82383b5d326e92f2687b7961623298281a",
+                "reference": "981bed82383b5d326e92f2687b7961623298281a",
                 "shasum": ""
             },
             "type": "library",
@@ -762,7 +762,7 @@
                     "type": "opencollective"
                 }
             ],
-            "time": "2025-02-09T00:49:33+00:00"
+            "time": "2025-02-23T03:44:36+00:00"
         },
         {
             "name": "stevenmaguire/oauth2-keycloak",
@@ -2585,10 +2585,10 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": {},
-    "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }
