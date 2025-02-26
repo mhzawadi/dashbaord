@@ -97,6 +97,9 @@ class application extends json {
   }
 
   public function store_docker($docker_apps){
+    if (is_null($docker_apps)){
+      return;
+    }
     foreach ($docker_apps as $dkey => $dvalue) {
       $store = true;
       if(isset($dvalue['enable']) && $dvalue['enable'] === false){
