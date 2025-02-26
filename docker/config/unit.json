@@ -25,7 +25,8 @@
   "applications": {
     "dashboard": {
       "type": "php",
-      "root": "/var/www/html/src/public/"
+      "root": "/var/www/html/src/public/",
+      "script": "index.php"
     }
   },
   "access_log": {
