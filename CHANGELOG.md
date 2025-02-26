@@ -13,6 +13,8 @@
 
 ### Documentation
 
+*  update CHANGELOG.md. [github-actions]
+
 *  make it markdown for GH. [Matthew Horwood]
 
 *  better change log. [Matthew Horwood]
@@ -24,6 +26,19 @@
 *  fix up commit message. [Matthew Horwood]
 
 ### Other
+
+* Nginx Unit (#39) [Matthew Horwood]
+
+  * Nginx Unit
+
+  feat: move to nginx unit
+  chor: fix up docker files to match
+  bug: dont try and get docker lists if its empty
+
+  * bug: use a script to handle requests
+  bug: update version
+
+* Update composer lock. [Matthew Horwood]
 
 * Update CHANGELOG.md. [github-actions]
 
