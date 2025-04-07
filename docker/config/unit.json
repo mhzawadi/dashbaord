@@ -21,7 +21,7 @@
       },
 
       "action": {
-        "share": "/var/www/html/src/user_data/uploads$uri"
+        "share": "/var/www/html/user_data/uploads$uri"
       }
     },
     {
