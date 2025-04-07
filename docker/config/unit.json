@@ -8,20 +8,23 @@
   "routes": [
     {
       "match": {
-        "uri": "~\\.(css|gif|html?|ico|jpg|js(on)?|png|svg|ttf|woff2?)$"
-      },
-
-      "action": {
-        "share": "/var/www/html/src/public$uri"
-      }
-    },
-    {
-      "match": {
-        "uri": "/uploads/"
+        "uri": "/uploads/*"
       },
 
       "action": {
         "share": "/var/www/html/user_data$uri"
+      }
+    },
+    {
+      "match": {
+        "uri": [
+          "~\\.(css|gif|html?|ico|jpg|js(on)?|png|svg|ttf|woff2?)$",
+          "!*/uploads/*"
+         ]
+      },
+
+      "action": {
+        "share": "/var/www/html/src/public$uri"
       }
     },
     {
