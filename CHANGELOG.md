@@ -7,7 +7,52 @@
 
 *  update CHANGELOG.md. [github-actions]
 
+*  update CHANGELOG.md. [github-actions]
+
+*  update CHANGELOG.md. [github-actions]
+
+*  update CHANGELOG.md. [github-actions]
+
 ### Other
+
+* Build(deps): bump simple-icons/simple-icons from 14.11.1 to 14.12.0 (#44) [dependabot[bot]]
+
+  Bumps [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons) from 14.11.1 to 14.12.0.
+  - [Release notes](https://github.com/simple-icons/simple-icons/releases)
+  - [Commits](https://github.com/simple-icons/simple-icons/compare/14.11.1...14.12.0)
+
+  ---
+  updated-dependencies:
+  - dependency-name: simple-icons/simple-icons
+    dependency-type: direct:production
+    update-type: version-update:semver-minor
+  ...
+
+* Build(deps): bump simple-icons/simple-icons from 14.11.0 to 14.11.1 (#43) [dependabot[bot]]
+
+  Bumps [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons) from 14.11.0 to 14.11.1.
+  - [Release notes](https://github.com/simple-icons/simple-icons/releases)
+  - [Commits](https://github.com/simple-icons/simple-icons/compare/14.11.0...14.11.1)
+
+  ---
+  updated-dependencies:
+  - dependency-name: simple-icons/simple-icons
+    dependency-type: direct:production
+    update-type: version-update:semver-patch
+  ...
+
+* Build(deps): bump simple-icons/simple-icons from 14.10.0 to 14.11.0 (#42) [dependabot[bot]]
+
+  Bumps [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons) from 14.10.0 to 14.11.0.
+  - [Release notes](https://github.com/simple-icons/simple-icons/releases)
+  - [Commits](https://github.com/simple-icons/simple-icons/compare/14.10.0...14.11.0)
+
+  ---
+  updated-dependencies:
+  - dependency-name: simple-icons/simple-icons
+    dependency-type: direct:production
+    update-type: version-update:semver-minor
+  ...
 
 * Build(deps): bump simple-icons/simple-icons from 14.8.0 to 14.10.0 (#41) [dependabot[bot]]
 
