@@ -25,22 +25,22 @@ function category_delete(category){
 }
 
 function new_bookmark(option, elementID){
-  $select = document.querySelector("#bk_categoryId");
+  let select = document.querySelector("#bk_categoryId");
   $select.value = option;
   openModal(elementID);
 }
 
 // This is to edit bookmarks
 function edit_bookmark(id, name, url, cat_option, cat_public, icon, orderId, submit = false){
-  $select = document.getElementById("bk_categoryId");
+  let select = document.getElementById("bk_categoryId");
   $select.value = cat_option;
   document.getElementById("bookmarkID").value = id;
   document.getElementById("bk_name").value = name;
   document.getElementById("bk_url").value = url;
   document.getElementById("bk_icon").value = icon;
   document.getElementById("bookmarkOrder").value = orderId;
-  const $select = document.getElementById("bk_isPublic");
-  $select.value = cat_public;
+  let isPublic = document.getElementById("bk_isPublic");
+  isPublic.value = cat_public;
   document.getElementById("btn_bk").textContent = "Update Application";
   if( submit === true ){
     document.getElementById("frm_bookmark").submit();
