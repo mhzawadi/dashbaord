@@ -16,6 +16,15 @@
       }
     },
     {
+      "match": {
+        "uri": "/uploads/"
+      },
+
+      "action": {
+        "share": "/var/www/html/src/user_data/uploads$uri"
+      }
+    },
+    {
       "action": {
         "pass": "applications/dashboard"
       }
