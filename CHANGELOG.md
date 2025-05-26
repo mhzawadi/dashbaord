@@ -13,7 +13,59 @@
 
 *  update CHANGELOG.md. [github-actions]
 
+*  update CHANGELOG.md. [github-actions]
+
+*  update CHANGELOG.md. [github-actions]
+
+*  update CHANGELOG.md. [github-actions]
+
 ### Other
+
+* Build(deps): bump simple-icons/simple-icons from 14.13.0 to 14.15.0 (#50) [dependabot[bot]]
+
+  Bumps [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons) from 14.13.0 to 14.15.0.
+  - [Release notes](https://github.com/simple-icons/simple-icons/releases)
+  - [Commits](https://github.com/simple-icons/simple-icons/compare/14.13.0...14.15.0)
+
+  ---
+  updated-dependencies:
+  - dependency-name: simple-icons/simple-icons
+    dependency-version: 14.15.0
+    dependency-type: direct:production
+    update-type: version-update:semver-minor
+  ...
+
+* Build(deps): bump simple-icons/simple-icons from 14.12.3 to 14.13.0 (#48) [dependabot[bot]]
+
+  Bumps [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons) from 14.12.3 to 14.13.0.
+  - [Release notes](https://github.com/simple-icons/simple-icons/releases)
+  - [Commits](https://github.com/simple-icons/simple-icons/compare/14.12.3...14.13.0)
+
+  ---
+  updated-dependencies:
+  - dependency-name: simple-icons/simple-icons
+    dependency-version: 14.13.0
+    dependency-type: direct:production
+    update-type: version-update:semver-minor
+  ...
+
+* Build(deps): bump simple-icons/simple-icons from 14.12.0 to 14.12.3 (#47) [dependabot[bot]]
+
+  Bumps [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons) from 14.12.0 to 14.12.3.
+  - [Release notes](https://github.com/simple-icons/simple-icons/releases)
+  - [Commits](https://github.com/simple-icons/simple-icons/compare/14.12.0...14.12.3)
+
+  ---
+  updated-dependencies:
+  - dependency-name: simple-icons/simple-icons
+    dependency-version: 14.12.3
+    dependency-type: direct:production
+    update-type: version-update:semver-patch
+  ...
+
+* More js fix. [Matthew Horwood]
+
+* Merge branch 'main' of github.com:mhzawadi/dashbaord. [Matthew Horwood]
 
 * Build(deps): bump simple-icons/simple-icons from 14.11.1 to 14.12.0 (#44) [dependabot[bot]]
 
@@ -53,6 +105,8 @@
     dependency-type: direct:production
     update-type: version-update:semver-minor
   ...
+
+* Fix JS. [Matthew Horwood]
 
 * Build(deps): bump simple-icons/simple-icons from 14.8.0 to 14.10.0 (#41) [dependabot[bot]]
 
