@@ -23,7 +23,19 @@
 
 *  update CHANGELOG.md. [github-actions]
 
+*  update CHANGELOG.md. [github-actions]
+
 ### Other
+
+* Build(deps): bump simple-icons/simple-icons from 15.3.0 to 15.5.0 (#56) [dependabot[bot]]
+
+  ---
+  updated-dependencies:
+  - dependency-name: simple-icons/simple-icons
+    dependency-version: 15.5.0
+    dependency-type: direct:production
+    update-type: version-update:semver-minor
+  ...
 
 * Build(deps): bump simple-icons/simple-icons from 15.0.0 to 15.3.0 (#54) [dependabot[bot]]
 
