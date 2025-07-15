@@ -15,7 +15,7 @@
         "simple-icons/simple-icons": ">=14"
     },
     "require-dev": {
-        "phpunit/phpunit": "11.5.*"
+        "phpunit/phpunit": "12.2.*"
     },
     "autoload": {
         "psr-4": {
