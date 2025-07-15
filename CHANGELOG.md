@@ -25,7 +25,24 @@
 
 *  update CHANGELOG.md. [github-actions]
 
+*  update CHANGELOG.md. [github-actions]
+
 ### Other
+
+* Build(deps-dev): bump phpunit/phpunit from 11.5.10 to 12.2.7 (#57) [dependabot[bot]]
+
+  Bumps [phpunit/phpunit](https://github.com/sebastianbergmann/phpunit) from 11.5.10 to 12.2.7.
+  - [Release notes](https://github.com/sebastianbergmann/phpunit/releases)
+  - [Changelog](https://github.com/sebastianbergmann/phpunit/blob/12.2.7/ChangeLog-12.2.md)
+  - [Commits](https://github.com/sebastianbergmann/phpunit/compare/11.5.10...12.2.7)
+
+  ---
+  updated-dependencies:
+  - dependency-name: phpunit/phpunit
+    dependency-version: 12.2.7
+    dependency-type: direct:development
+    update-type: version-update:semver-major
+  ...
 
 * Build(deps): bump simple-icons/simple-icons from 15.3.0 to 15.5.0 (#56) [dependabot[bot]]
 
