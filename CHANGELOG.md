@@ -29,7 +29,22 @@
 
 *  update CHANGELOG.md. [github-actions]
 
+*  update CHANGELOG.md. [github-actions]
+
 ### Other
+
+* 0.0.19 (#59) [Matthew Horwood]
+
+  * fix the js, remove $
+
+  * bug: fix custom icons
+
+  * bug: wrong path
+
+  * bug: i dont understans how any of this works
+
+  * bug: fix unit paths
+  chor: dont uplaod the docker build
 
 * Build(deps): bump simple-icons/simple-icons from 15.5.0 to 15.6.0 (#58) [dependabot[bot]]
 
