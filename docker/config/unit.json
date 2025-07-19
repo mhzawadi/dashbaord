@@ -8,7 +8,19 @@
   "routes": [
     {
       "match": {
-        "uri": "~\\.(css|gif|html?|ico|jpg|js(on)?|png|svg|ttf|woff2?)$"
+        "uri": "/uploads/*"
+      },
+
+      "action": {
+        "share": "/var/www/html/user_data$uri"
+      }
+    },
+    {
+      "match": {
+        "uri": [
+          "~\\.(css|gif|html?|ico|jpg|js(on)?|png|svg|ttf|woff2?)$",
+          "!*/uploads/*"
+         ]
       },
 
       "action": {

@@ -5,8 +5,8 @@ function edit_app(id, name, url, cat_public, icon, description, orderId, submit 
   document.getElementById("app_url").value = url;
   document.getElementById("app_icon").value = icon;
   document.getElementById("app_description").value = description;
-  const $select = document.getElementById("isPublic");
-  $select.value = cat_public;
+  const select = document.getElementById("isPublic");
+  select.value = cat_public;
   document.getElementById("btn_app").textContent = "Update Application";
   if( submit === true ){
     document.getElementById("frm_app").submit();
