@@ -3,6 +3,37 @@
 
 ## (unreleased)
 
+### Fix
+
+*  fix workflows. [Matthew Horwood]
+
+### Documentation
+
+*  update CHANGELOG.md. [github-actions]
+
+### Changes
+
+*  update workflow to tag and build. [Matthew Horwood]
+
+### Other
+
+* Build(deps): bump simple-icons/simple-icons from 15.6.0 to 15.7.0 (#60) [dependabot[bot]]
+
+  Bumps [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons) from 15.6.0 to 15.7.0.
+  - [Release notes](https://github.com/simple-icons/simple-icons/releases)
+  - [Commits](https://github.com/simple-icons/simple-icons/compare/15.6.0...15.7.0)
+
+  ---
+  updated-dependencies:
+  - dependency-name: simple-icons/simple-icons
+    dependency-version: 15.7.0
+    dependency-type: direct:production
+    update-type: version-update:semver-minor
+  ...
+
+
+## v0.0.19 (2025-07-19)
+
 ### Documentation
 
 *  update CHANGELOG.md. [github-actions]
