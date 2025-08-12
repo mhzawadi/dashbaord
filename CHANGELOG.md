@@ -11,11 +11,30 @@
 
 *  update CHANGELOG.md. [github-actions]
 
+*  update CHANGELOG.md. [github-actions]
+
 ### Changes
 
 *  update workflow to tag and build. [Matthew Horwood]
 
 ### Other
+
+* Build(deps): bump actions/checkout from 4 to 5 (#61) [dependabot[bot]]
+
+  Bumps [actions/checkout](https://github.com/actions/checkout) from 4 to 5.
+  - [Release notes](https://github.com/actions/checkout/releases)
+  - [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+  - [Commits](https://github.com/actions/checkout/compare/v4...v5)
+
+  ---
+  updated-dependencies:
+  - dependency-name: actions/checkout
+    dependency-version: '5'
+    dependency-type: direct:production
+    update-type: version-update:semver-major
+  ...
+
+* Fix tag and build. [Matthew Horwood]
 
 * Build(deps): bump simple-icons/simple-icons from 15.6.0 to 15.7.0 (#60) [dependabot[bot]]
 
