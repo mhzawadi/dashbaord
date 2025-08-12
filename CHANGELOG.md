@@ -13,11 +13,28 @@
 
 *  update CHANGELOG.md. [github-actions]
 
+*  update CHANGELOG.md. [github-actions]
+
 ### Changes
 
 *  update workflow to tag and build. [Matthew Horwood]
 
 ### Other
+
+* Build(deps-dev): bump phpunit/phpunit from 12.2.7 to 12.3.3 (#62) [dependabot[bot]]
+
+  Bumps [phpunit/phpunit](https://github.com/sebastianbergmann/phpunit) from 12.2.7 to 12.3.3.
+  - [Release notes](https://github.com/sebastianbergmann/phpunit/releases)
+  - [Changelog](https://github.com/sebastianbergmann/phpunit/blob/12.3.3/ChangeLog-12.3.md)
+  - [Commits](https://github.com/sebastianbergmann/phpunit/compare/12.2.7...12.3.3)
+
+  ---
+  updated-dependencies:
+  - dependency-name: phpunit/phpunit
+    dependency-version: 12.3.3
+    dependency-type: direct:development
+    update-type: version-update:semver-minor
+  ...
 
 * Build(deps): bump actions/checkout from 4 to 5 (#61) [dependabot[bot]]
 
