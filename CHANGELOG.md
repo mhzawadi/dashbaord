@@ -3,7 +3,28 @@
 
 ## (unreleased)
 
+### Other
+
+* Build(deps): bump simple-icons/simple-icons from 15.10.0 to 15.12.0 (#66) [dependabot[bot]]
+
+  Bumps [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons) from 15.10.0 to 15.12.0.
+  - [Release notes](https://github.com/simple-icons/simple-icons/releases)
+  - [Commits](https://github.com/simple-icons/simple-icons/compare/15.10.0...15.12.0)
+
+  ---
+  updated-dependencies:
+  - dependency-name: simple-icons/simple-icons
+    dependency-version: 15.12.0
+    dependency-type: direct:production
+    update-type: version-update:semver-minor
+  ...
+
+
+## v0.0.20 (2025-08-12)
+
 ### Fix
+
+*  thats not shell. [Matthew Horwood]
 
 *  fix workflows. [Matthew Horwood]
 
@@ -17,7 +38,11 @@
 
 *  update CHANGELOG.md. [github-actions]
 
+*  update CHANGELOG.md. [github-actions]
+
 ### Changes
+
+*  what version. [Matthew Horwood]
 
 *  update workflow to tag and build. [Matthew Horwood]
 
