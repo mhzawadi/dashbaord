@@ -3,7 +3,26 @@
 
 ## (unreleased)
 
+### Documentation
+
+*  update CHANGELOG.md. [github-actions]
+
 ### Other
+
+* Build(deps-dev): bump phpunit/phpunit from 12.3.3 to 12.3.6 (#67) [dependabot[bot]]
+
+  Bumps [phpunit/phpunit](https://github.com/sebastianbergmann/phpunit) from 12.3.3 to 12.3.6.
+  - [Release notes](https://github.com/sebastianbergmann/phpunit/releases)
+  - [Changelog](https://github.com/sebastianbergmann/phpunit/blob/12.3.6/ChangeLog-12.3.md)
+  - [Commits](https://github.com/sebastianbergmann/phpunit/compare/12.3.3...12.3.6)
+
+  ---
+  updated-dependencies:
+  - dependency-name: phpunit/phpunit
+    dependency-version: 12.3.6
+    dependency-type: direct:development
+    update-type: version-update:semver-patch
+  ...
 
 * Build(deps): bump simple-icons/simple-icons from 15.10.0 to 15.12.0 (#66) [dependabot[bot]]
 
