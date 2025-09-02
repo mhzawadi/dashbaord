@@ -12,7 +12,7 @@ jobs:
   changelog:
     name: Update change log
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
+    if: ( github.event.pull_request.merged == true && ${{ github.actor != 'dependabot[bot]' }} )
     steps:
       - name: checkout code
         uses: actions/checkout@v5
