@@ -7,7 +7,25 @@
 
 *  update CHANGELOG.md. [github-actions]
 
+*  update CHANGELOG.md. [github-actions]
+
 ### Other
+
+* Build(deps): bump simple-icons/simple-icons from 15.12.0 to 15.13.0 (#68) [dependabot[bot]]
+
+  Bumps [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons) from 15.12.0 to 15.13.0.
+  - [Release notes](https://github.com/simple-icons/simple-icons/releases)
+  - [Commits](https://github.com/simple-icons/simple-icons/compare/15.12.0...15.13.0)
+
+  ---
+  updated-dependencies:
+  - dependency-name: simple-icons/simple-icons
+    dependency-version: 15.13.0
+    dependency-type: direct:production
+    update-type: version-update:semver-minor
+  ...
+
+* Exculde dependabot. [Matthew Horwood]
 
 * Build(deps-dev): bump phpunit/phpunit from 12.3.3 to 12.3.6 (#67) [dependabot[bot]]
 
