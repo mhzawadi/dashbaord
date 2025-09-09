@@ -13,7 +13,52 @@
 
 *  update CHANGELOG.md. [github-actions]
 
+*  update CHANGELOG.md. [github-actions]
+
 ### Other
+
+* Build(deps-dev): bump phpunit/phpunit from 12.3.7 to 12.3.8 (#73) [dependabot[bot]]
+
+  Bumps [phpunit/phpunit](https://github.com/sebastianbergmann/phpunit) from 12.3.7 to 12.3.8.
+  - [Release notes](https://github.com/sebastianbergmann/phpunit/releases)
+  - [Changelog](https://github.com/sebastianbergmann/phpunit/blob/12.3.8/ChangeLog-12.3.md)
+  - [Commits](https://github.com/sebastianbergmann/phpunit/compare/12.3.7...12.3.8)
+
+  ---
+  updated-dependencies:
+  - dependency-name: phpunit/phpunit
+    dependency-version: 12.3.8
+    dependency-type: direct:development
+    update-type: version-update:semver-patch
+  ...
+
+* Build(deps): bump simple-icons/simple-icons from 15.13.0 to 15.14.0 (#72) [dependabot[bot]]
+
+  Bumps [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons) from 15.13.0 to 15.14.0.
+  - [Release notes](https://github.com/simple-icons/simple-icons/releases)
+  - [Commits](https://github.com/simple-icons/simple-icons/compare/15.13.0...15.14.0)
+
+  ---
+  updated-dependencies:
+  - dependency-name: simple-icons/simple-icons
+    dependency-version: 15.14.0
+    dependency-type: direct:production
+    update-type: version-update:semver-minor
+  ...
+
+* Build(deps): bump actions/github-script from 7 to 8 (#71) [dependabot[bot]]
+
+  Bumps [actions/github-script](https://github.com/actions/github-script) from 7 to 8.
+  - [Release notes](https://github.com/actions/github-script/releases)
+  - [Commits](https://github.com/actions/github-script/compare/v7...v8)
+
+  ---
+  updated-dependencies:
+  - dependency-name: actions/github-script
+    dependency-version: '8'
+    dependency-type: direct:production
+    update-type: version-update:semver-major
+  ...
 
 * Build(deps): bump actions/setup-python from 5 to 6 (#70) [dependabot[bot]]
 
