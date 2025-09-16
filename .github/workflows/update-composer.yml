@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'composer.lock'
+  workflow_dispatch:
 
 jobs:
   build:
