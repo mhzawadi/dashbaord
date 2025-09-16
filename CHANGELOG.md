@@ -15,7 +15,38 @@
 
 *  update CHANGELOG.md. [github-actions]
 
+*  update CHANGELOG.md. [github-actions]
+
 ### Other
+
+* Build(deps-dev): bump phpunit/phpunit from 12.3.8 to 12.3.11 (#75) [dependabot[bot]]
+
+  Bumps [phpunit/phpunit](https://github.com/sebastianbergmann/phpunit) from 12.3.8 to 12.3.11.
+  - [Release notes](https://github.com/sebastianbergmann/phpunit/releases)
+  - [Changelog](https://github.com/sebastianbergmann/phpunit/blob/12.3.11/ChangeLog-12.3.md)
+  - [Commits](https://github.com/sebastianbergmann/phpunit/compare/12.3.8...12.3.11)
+
+  ---
+  updated-dependencies:
+  - dependency-name: phpunit/phpunit
+    dependency-version: 12.3.11
+    dependency-type: direct:development
+    update-type: version-update:semver-patch
+  ...
+
+* Build(deps): bump simple-icons/simple-icons from 15.14.0 to 15.15.0 (#74) [dependabot[bot]]
+
+  Bumps [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons) from 15.14.0 to 15.15.0.
+  - [Release notes](https://github.com/simple-icons/simple-icons/releases)
+  - [Commits](https://github.com/simple-icons/simple-icons/compare/15.14.0...15.15.0)
+
+  ---
+  updated-dependencies:
+  - dependency-name: simple-icons/simple-icons
+    dependency-version: 15.15.0
+    dependency-type: direct:production
+    update-type: version-update:semver-minor
+  ...
 
 * Build(deps-dev): bump phpunit/phpunit from 12.3.7 to 12.3.8 (#73) [dependabot[bot]]
 
