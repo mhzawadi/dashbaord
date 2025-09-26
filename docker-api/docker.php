@@ -15,14 +15,13 @@ class docker {
     $this->SOCKET = $socket;
     $this->HOST = $host;
     set_time_limit(0);
-    $ch = $this->connection;
-    curl_setopt($ch, CURLOPT_UNIX_SOCKET_PATH, $this->SOCKET);
-    curl_setopt($ch, CURLOPT_BUFFERSIZE, 256);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 1000000);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER , true);
-    curl_setopt($ch, CURLOPT_URL, "http://$this->HOST/info");
-    $host_info = json_decode(curl_exec($ch), true);
-    curl_close($ch);
+    curl_setopt($this->connection, CURLOPT_UNIX_SOCKET_PATH, '/var/run/docker.sock');
+    curl_setopt($this->connection, CURLOPT_BUFFERSIZE, 256);
+    curl_setopt($this->connection, CURLOPT_TIMEOUT, 1000000);
+    curl_setopt($this->connection, CURLOPT_RETURNTRANSFER , true);
+    curl_setopt($this->connection, CURLOPT_URL, "http://$this->HOST/info");
+    $host_info = json_decode(curl_exec($this->connection), true);
+    curl_close($this->connection);
     $this->swarm = $host_info['Swarm']['LocalNodeState'];
   }
 
@@ -30,25 +29,31 @@ class docker {
 
     if($this->swarm === 'active'){
       $containers = $this->docker_swarm();
+      $containers = $this->docker_node($containers);
+    }else{
+      $containers = $this->docker_node();
     }
-    $containers = $this->docker_node($containers);
 
     return $containers;
   }
 
-  private function docker_node($node_containers){
+  private function docker_node($node_containers = false){
     set_time_limit(0);
-    $ch = $this->connection;
-    curl_setopt($ch, CURLOPT_UNIX_SOCKET_PATH, $this->SOCKET);
-    curl_setopt($ch, CURLOPT_BUFFERSIZE, 256);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 1000000);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER , true);
-    curl_setopt($ch, CURLOPT_URL, "http://$this->HOST/containers/json?{\"status\":[\"running\"]}");
-    $containers = json_decode(curl_exec($ch), true);
-    curl_close($ch);
+    $this->connection = $this->connection;
+    curl_setopt($this->connection, CURLOPT_UNIX_SOCKET_PATH, $this->SOCKET);
+    curl_setopt($this->connection, CURLOPT_BUFFERSIZE, 256);
+    curl_setopt($this->connection, CURLOPT_TIMEOUT, 1000000);
+    curl_setopt($this->connection, CURLOPT_RETURNTRANSFER , true);
+    curl_setopt($this->connection, CURLOPT_URL, "http://$this->HOST/containers/json?{\"status\":[\"running\"]}");
+    $containers = json_decode(curl_exec($this->connection), true);
+    curl_close($this->connection);
 
     $count = count($containers);
-    $container_list = json_decode($node_containers, true);
+    if($node_containers !== false){
+      $container_list = json_decode($node_containers, true);
+    }else{
+      $container_list = array();
+    }
     $start = count($container_list);
     $d = $start;
     for($c = 0; $c < $count; $c++){
@@ -98,14 +103,14 @@ class docker {
 
   private function docker_swarm(){
     set_time_limit(0);
-    $ch = $this->connection;
-    curl_setopt($ch, CURLOPT_UNIX_SOCKET_PATH, $this->SOCKET);
-    curl_setopt($ch, CURLOPT_BUFFERSIZE, 256);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 1000000);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER , true);
-    curl_setopt($ch, CURLOPT_URL, "http://$this->HOST/services");
-    $containers = json_decode(curl_exec($ch), true);
-    curl_close($ch);
+    $this->connection = $this->connection;
+    curl_setopt($this->connection, CURLOPT_UNIX_SOCKET_PATH, $this->SOCKET);
+    curl_setopt($this->connection, CURLOPT_BUFFERSIZE, 256);
+    curl_setopt($this->connection, CURLOPT_TIMEOUT, 1000000);
+    curl_setopt($this->connection, CURLOPT_RETURNTRANSFER , true);
+    curl_setopt($this->connection, CURLOPT_URL, "http://$this->HOST/services");
+    $containers = json_decode(curl_exec($this->connection), true);
+    curl_close($this->connection);
 
     $count = count($containers);
     $container_list = array();

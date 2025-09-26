@@ -3,3 +3,4 @@ user_data/*
 /.git/
 /.github/
 /docker
+!/docker/config
