@@ -17,7 +17,7 @@ RUN apk update && apk upgrade && \
     php -r "unlink('composer-setup.php');" && \
     mv composer.phar /usr/local/bin/composer; \
     /usr/sbin/addgroup -g 995 -S docker; \
-    /usr/sbin/addgroup nobody docker;
+    /usr/sbin/addgroup unit docker;
 
 COPY docker/config /config
 
