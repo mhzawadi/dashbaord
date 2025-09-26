@@ -3,6 +3,25 @@
 
 ## (unreleased)
 
+### Fix
+
+*  use unit not docker. [Matthew Horwood]
+
+*  fix build. [Matthew Horwood]
+
+*  use full path. [Matthew Horwood]
+
+*  add docker group. [Matthew Horwood]
+
+*  set version chor: dont run version workflow. [Matthew Horwood]
+
+### Documentation
+
+*  update CHANGELOG.md. [github-actions]
+
+
+## v0.0.21 (2025-09-26)
+
 ### New
 
 *  add manual run. [Matthew Horwood]
