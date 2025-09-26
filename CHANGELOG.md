@@ -3,7 +3,25 @@
 
 ## (unreleased)
 
+### New
+
+*  add manual run. [Matthew Horwood]
+
+*  add workflow to update composer lock file. [Matthew Horwood]
+
+### Fix
+
+*  step name. [Matthew Horwood]
+
+*  fix the add. [Matthew Horwood]
+
+*  push the change. [Matthew Horwood]
+
 ### Documentation
+
+*  update composer lock file. [github-actions]
+
+*  update CHANGELOG.md. [github-actions]
 
 *  update CHANGELOG.md. [github-actions]
 
@@ -18,6 +36,16 @@
 *  update CHANGELOG.md. [github-actions]
 
 ### Other
+
+* 0.0.21 (#78) [Matthew Horwood]
+
+  * v0.0.21
+
+  feat: bump alpint to 3.22
+  bug: add in missing docker into unit
+  bug: fix docker scanning
+
+  * chor: composer update
 
 * Build(deps-dev): bump phpunit/phpunit from 12.3.8 to 12.3.11 (#75) [dependabot[bot]]
 
