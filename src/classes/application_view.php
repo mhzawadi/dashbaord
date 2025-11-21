@@ -62,11 +62,11 @@ class application_view {
     $app_list .= '<table id="table" class="Table_Table__pinST table">'."\n";
     $app_list .= '<thead>'."\n";
     $app_list .= '<tr>'."\n";
-    $app_list .= '<th>Name</th>'."\n";
-    $app_list .= '<th>URL</th>'."\n";
-    $app_list .= '<th>Icon</th>'."\n";
-    $app_list .= '<th>Visibility</th>'."\n";
-    $app_list .= '<th>Order</th>'."\n";
+    $app_list .= '<th style="width: 300px;">Name</th>'."\n";
+    $app_list .= '<th style="width: 300px;">URL</th>'."\n";
+    $app_list .= '<th style="width: 200px;">Icon</th>'."\n";
+    $app_list .= '<th style="width: 90px;">Visibility</th>'."\n";
+    $app_list .= '<th style="width: 75px;">Order</th>'."\n";
     $app_list .= '<th>Actions</th>'."\n";
     $app_list .= '</tr>'."\n";
     $app_list .= '</thead>'."\n";
@@ -77,15 +77,15 @@ class application_view {
       }
       $app['icon'] = str_replace('mdi:', '', $app['icon']);
       $app_list .= '<tr>'."\n";
-      $app_list .= '  <td style="width: 350px;">'.$app['name'].'<br/>'.$app['description'].'</td>'."\n";
-      $app_list .= '  <td style="width: 200px;">'.$this->remove_http($app['url']).'</td>'."\n";
-      $app_list .= '  <td style="width: 200px;">'.$app['icon'].'</td>'."\n";
+      $app_list .= '  <td>'.$app['name'].'<br/>'.$app['description'].'</td>'."\n";
+      $app_list .= '  <td>'.$this->set_http($app['url']).'</td>'."\n";
+      $app_list .= '  <td>'.$app['icon'].'</td>'."\n";
       if($app['isPublic'] == 0){
-        $app_list .= '  <td style="width: 200px;">Hidden</td>'."\n";
+        $app_list .= '  <td>Hidden</td>'."\n";
       }else{
-        $app_list .= '  <td style="width: 200px;">Visible</td>'."\n";
+        $app_list .= '  <td>Visible</td>'."\n";
       }
-      $app_list .= '  <td style="width: 50px;"><input type="number" min="1" max="200" name="order" value="'.$app['orderId'].'" onchange="app_order(this.value, \''.$this->set_js($key, $app).'\')"></td>'."\n";
+      $app_list .= '  <td><input type="number" min="1" max="200" name="order" value="'.$app['orderId'].'" onchange="app_order(this.value, \''.$this->set_js($key, $app).'\')"></td>'."\n";
       $app_list .= '  <td class="TableActions_TableActions__2_v2I">'."\n";
       $app_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="delete_application('.$key.')">'."\n";
       $app_list .= '        <span class="iconify" data-icon="mdi:delete" data-width="18"></span>'."\n";

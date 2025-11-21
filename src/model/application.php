@@ -119,6 +119,9 @@ class application extends json {
         }else{
           $icon = 'mdi:docker';
         }
+        if ( $dvalue['https'] === true ){
+          $dvalue['url'] = 'https://'.$dvalue['url'];
+        }
         $this->insert_application(array(
           'name' => $dvalue['name'],
           'url' => $dvalue['url'],
