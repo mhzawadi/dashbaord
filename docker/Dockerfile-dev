@@ -2,12 +2,12 @@ FROM alpine:3.22
 LABEL org.opencontainers.image.authors="matt@horwood.biz"
 
 # Install required deb packages
-RUN apk update && apk upgrade && \
-    apk add gnupg sudo nginx php84-fpm php84-pdo_mysql php84-sockets php84-gd \
-    php84-ldap \
-    php84-gettext php84-pcntl php84-mysqlnd php84-session php84-gmp php84-json \
-    php84-mbstring php84-iconv php84-ctype php84-curl php84-pear php84-simplexml \
-    php84-dom php84-xmlwriter php84-tokenizer php84 php84-phar php84-sqlite3 curl git \
+# RUN apk update && apk upgrade && \
+    apk add gnupg sudo nginx php84-fpm php84-pdo_mysql php84-sockets \
+    php84-gd php84-ldap php84-gettext php84-pcntl php84-mysqlnd \
+    php84-session php84-gmp php84-json php84-mbstring php84-iconv \
+    php84-ctype php84-curl php84-pear php84-simplexml php84-dom \
+    php84-xmlwriter php84-tokenizer php84 php84-phar php84-sqlite3 curl git \
     && mkdir -p /var/www/html/ \
     && mkdir -p /run/nginx \
     && rm -f /var/cache/apk/*; \
@@ -17,7 +17,7 @@ RUN apk update && apk upgrade && \
     php composer-setup.php && \
     php -r "unlink('composer-setup.php');" && \
     mv composer.phar /usr/local/bin/composer; \
-    /usr/sbin/addgroup -g 995 -S docker;
+    echo 'nobody ALL=(root) /var/run/docker.sock' > /etc/sudoers.d/10-php;
 
 COPY docker/config /config
 
