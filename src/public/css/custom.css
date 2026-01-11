@@ -1,10 +1,10 @@
 .BookmarkCard_Bookmarks__YhsfD {
-font-size: large;
+  font-size: large;
 }
 
 pre{
-color: var(--color-primary);
-font-weight: 700;
+  color: var(--color-primary);
+  font-weight: 700;
 }
 
 /****  magic trick  *****/
