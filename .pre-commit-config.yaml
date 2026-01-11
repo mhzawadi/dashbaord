@@ -1,0 +1,5 @@
+repos:
+  - repo: https://github.com/mhzawadi/docker-minify
+    rev: v0.0.1
+    hooks:
+      - id: minify-css-js
