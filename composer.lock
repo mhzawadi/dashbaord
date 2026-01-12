@@ -725,16 +725,16 @@
         },
         {
             "name": "simple-icons/simple-icons",
-            "version": "16.4.0",
+            "version": "16.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/simple-icons/simple-icons.git",
-                "reference": "2f509ad1ba6164993cbce71bf310be6e9f07ded5"
+                "reference": "c8e22a0491f3e406aa0ca5657aad87be819a0cb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/simple-icons/simple-icons/zipball/2f509ad1ba6164993cbce71bf310be6e9f07ded5",
-                "reference": "2f509ad1ba6164993cbce71bf310be6e9f07ded5",
+                "url": "https://api.github.com/repos/simple-icons/simple-icons/zipball/c8e22a0491f3e406aa0ca5657aad87be819a0cb3",
+                "reference": "c8e22a0491f3e406aa0ca5657aad87be819a0cb3",
                 "shasum": ""
             },
             "type": "library",
@@ -762,7 +762,7 @@
                     "type": "opencollective"
                 }
             ],
-            "time": "2026-01-04T01:06:31+00:00"
+            "time": "2026-01-11T01:36:25+00:00"
         },
         {
             "name": "stevenmaguire/oauth2-keycloak",
