@@ -3,7 +3,7 @@ LABEL org.opencontainers.image.authors="matt@horwood.biz"
 
 # Install required deb packages
 RUN apk update && apk upgrade && \
-    apk add gnupg unit-php84 php84-pdo_mysql php84-sockets php84-gd php84-ldap \
+    apk add gnupg nginx php84-fpm php84-pdo_mysql php84-sockets php84-gd php84-ldap \
     php84-gettext php84-pcntl php84-mysqlnd php84-session php84-gmp php84-json \
     php84-mbstring php84-iconv php84-ctype php84-curl php84-pear php84-simplexml \
     php84-dom php84-xmlwriter php84-tokenizer php84 php84-phar php84-sqlite3 curl git \
@@ -15,18 +15,19 @@ RUN apk update && apk upgrade && \
     php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
     php composer-setup.php && \
     php -r "unlink('composer-setup.php');" && \
-    mv composer.phar /usr/local/bin/composer; \
-    /usr/sbin/addgroup -g 995 -S docker; \
-    /usr/sbin/addgroup unit docker;
+    mv composer.phar /usr/local/bin/composer;
 
 COPY docker/config /config
 
 WORKDIR /var/www/html
 COPY . .
-RUN cp /config/php.ini /etc/php84/php.ini \
-  && composer install \
+RUN composer install \
   && mkdir -p /var/www/html/user_data \
-  && chown nobody:nobody * -R
+  && chmod +x /config/start.sh; \
+  cp /config/php.ini /etc/php84/php.ini && \
+  cp /config/php_fpm_site.conf /etc/php84/php-fpm.d/www.conf; \
+  cp /config/nginx_site.conf /etc/nginx/http.d/default.conf; \
+  chown nobody:nginx /var/www/html/* -R;
 
 VOLUME /var/www/html/user_data
 EXPOSE 8080
