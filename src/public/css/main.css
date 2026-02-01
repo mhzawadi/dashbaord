@@ -36,6 +36,8 @@ body {
     --color-background: #242b33;
     --color-primary: #effbff;
     --color-accent: #6ee2ff;
+    --color-app-button: #0055BF;
+    --color-bookmark-button: #006b22;
     --spacing-ui: 10px;
     background-color: var(--color-background);
     transition: background-color .3s;
@@ -512,7 +514,7 @@ a {
 .Home_SettingsButton__Qvn8C {
     width: 35px;
     height: 35px;
-    background-color: var(--color-accent);
+    background-color: var(--color-primary);
     border-radius: 50%;
     position: fixed;
     bottom: var(--spacing-ui);
@@ -567,7 +569,7 @@ a {
 }
 
 .AppCard_AppCard__1V2_0 {
-    width: 100%;
+    width: 95%;
     display: -webkit-flex;
     display: flex;
     -webkit-align-items: center;
@@ -608,7 +610,7 @@ a {
     }
 
     .AppCard_AppCard__1V2_0:hover {
-        background-color: rgba(0,0,0,.2)
+        background-color: rgba(0,0,0,.2);
     }
 }
 
@@ -617,7 +619,7 @@ a {
     height: 90%;
     margin-top: 2px;
     margin-left: 2px;
-    object-fit: contain
+    object-fit: contain;
 }
 
 .BookmarkGrid_BookmarkGrid__26LlR {
@@ -678,7 +680,7 @@ a {
 
 .BookmarkCard_BookmarkCard__1GmHc a:hover {
     text-decoration: underline;
-    padding-left: 10px
+    background-color: rgba(0,0,0,.2);
 }
 
 .BookmarkCard_BookmarkIcon__2c2C5 {

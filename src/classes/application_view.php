@@ -35,7 +35,7 @@ class application_view {
       if( ($app['isPublic'] == 1 && $logged_in === false) ||
           ($logged_in === true)
       ){
-        $app_list .= '<a href="'.$this->set_http($app['url']).'" target="_blank" rel="noreferrer" class="AppCard_AppCard__1V2_0">'."\n";
+        $app_list .= '<a href="'.$this->set_http($app['url']).'" target="_blank" rel="noreferrer" class="AppCard_AppCard__1V2_0 app-card-link">'."\n";
         $app_list .= '  <div class="AppCard_AppCardIcon__8ZZTq">';
         if(strpos($app['icon'], 'mdi:') === false && strpos($app['icon'], 'si:') === false){
           $app_list .= '    <img src="/uploads/'.$app['icon'].'" alt="'.$app['description'].'" class="BookmarkCard_CustomIcon__2I7Wo">'."\n";
