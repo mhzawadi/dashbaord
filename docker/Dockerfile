@@ -1,12 +1,13 @@
-FROM alpine:3.22
+FROM alpine:3.23
 LABEL org.opencontainers.image.authors="matt@horwood.biz"
 
 # Install required deb packages
 RUN apk update && apk upgrade && \
-    apk add gnupg nginx php84-fpm php84-pdo_mysql php84-sockets php84-gd php84-ldap \
-    php84-gettext php84-pcntl php84-mysqlnd php84-session php84-gmp php84-json \
-    php84-mbstring php84-iconv php84-ctype php84-curl php84-pear php84-simplexml \
-    php84-dom php84-xmlwriter php84-tokenizer php84 php84-phar php84-sqlite3 curl git \
+    apk add gnupg nginx php84-fpm php84-pdo_mysql php84-sockets \
+    php84-gd php84-ldap php84-gettext php84-pcntl php84-mysqlnd \
+    php84-session php84-gmp php84-json php84-mbstring php84-iconv \
+    php84-ctype php84-curl php84-pear php84-simplexml php84-dom \
+    php84-xmlwriter php84-tokenizer php84 php84-phar php84-sqlite3 curl git \
     && mkdir -p /var/www/html/ \
     && mkdir -p /run/nginx \
     && rm -f /var/cache/apk/*; \
@@ -18,21 +19,19 @@ RUN apk update && apk upgrade && \
     mv composer.phar /usr/local/bin/composer;
 
 COPY docker/config /config
+RUN cp /config/php.ini /etc/php84/php.ini && \
+    cp /config/php-fpm.conf /etc/php84/php-fpm.conf && \
+    cp /config/php_fpm_site.conf /etc/php84/php-fpm.d/www.conf && \
+    cp /config/nginx_site.conf /etc/nginx/http.d/default.conf;
 
 WORKDIR /var/www/html
 COPY . .
-RUN composer install \
-  && mkdir -p /var/www/html/user_data \
-  && chmod +x /config/start.sh; \
-  cp /config/php.ini /etc/php84/php.ini && \
-  cp /config/php_fpm_site.conf /etc/php84/php-fpm.d/www.conf; \
-  cp /config/nginx_site.conf /etc/nginx/http.d/default.conf; \
-  chown nobody:nginx /var/www/html/* -R;
 
-VOLUME /var/www/html/user_data
+RUN composer install;
+
 EXPOSE 8080
 ENTRYPOINT ["/config/start.sh"]
-CMD ["unitd", "--no-daemon", "--control", "unix:/var/run/control.unit.sock"]
+CMD ["nginx", "-g", "daemon off;"]
 
 ## Health Check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s \

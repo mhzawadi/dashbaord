@@ -11,3 +11,14 @@ pre{
 svg path{
   fill: currentcolor;
 }
+
+.brick::before {
+    content: "";
+    position: absolute;
+    left: 1.6em;
+    right: 8px;
+    height: 8px;
+    width: 73%;
+    background-image: radial-gradient(circle, var(--theme-text-primary) 40%, transparent 50%);
+    background-size: 16px 16px;
+}
