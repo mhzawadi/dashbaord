@@ -16,7 +16,6 @@ svg path{
 .app-card-link, .link-item a { /* Adjust selector based on your specific class */
     position: relative;
     background-color: var(--color-app-button); /* Classic Lego Red - change as desired */
-    color: white;
     padding: 20px 15px 10px 15px;
     border-radius: 4px;
     text-decoration: none;
@@ -27,7 +26,6 @@ svg path{
 .bk-card-link, .link-item a { /* Adjust selector based on your specific class */
     position: relative;
     background-color: var(--color-bookmark-button); /* Classic Lego Red - change as desired */
-    color: white;
     padding: 20px 15px 10px 15px;
     border-radius: 4px;
     text-decoration: none;
@@ -37,8 +35,21 @@ svg path{
     margin-bottom: 20px;
 }
 
+.bk-title-link, .link-item a { /* Adjust selector based on your specific class */
+    position: relative;
+    background-color: var(--lego-yellow); /* Classic Lego Red - change as desired */
+    color: white;
+    padding: 10px 15px 10px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    box-shadow: 5px 5px 0 #000; /* Bottom shadow for depth */
+    transition: transform 0.1s;
+    width: 95%;
+    margin-bottom: 20px;
+}
+
 /* Creating the two studs (tops) */
-.app-card-link::before, .bk-card-link::before {
+.app-card-link::before, .bk-card-link::before, .bk-title-link::before {
     content: '';
     position: absolute;
     top: -8px; /* Pulls them above the link */

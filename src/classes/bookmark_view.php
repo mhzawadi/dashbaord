@@ -32,7 +32,7 @@ class bookmark_view {
         if($link === true){
           $category_list .= '  <h3 class="BookmarkCard_BookmarkHeader__112bh"><a href="/bookmarks/'.$key.'">'.$category['name'].'</a></h3>'."\n";
         }else{
-          $category_list .= '  <h3>'.$category['name'].'</h3>'."\n";
+          $category_list .= '  <h3 class="bk-title-link">'.$category['name'].'</h3>'."\n";
         }
         $category_list .= '  <div class="BookmarkCard_Bookmarks__YhsfD">'."\n";
         foreach($category['bookmarks'] as $key => $bookmark){
