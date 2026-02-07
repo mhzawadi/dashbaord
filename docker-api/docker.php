@@ -22,7 +22,7 @@ class docker {
     curl_setopt($this->connection, CURLOPT_URL, "http://$this->HOST/info");
     $host_info = json_decode(curl_exec($this->connection), true);
     curl_close($this->connection);
-    $this->swarm = $host_info['Swarm']['LocalNodeState'];
+    $this->swarm  = $host_info['Swarm'];
   }
 
   public function get_containers(){
@@ -87,6 +87,9 @@ class docker {
           if( $key === 'traefik.enable' ){
             $container_list[$d]['enable'] = $label;
           }
+          if( $key === 'traefik.https' ){
+            $container_list[$d]['https'] = $label;
+          }
           if(!isset($container_list[$d]['description'])){
             $container_list[$d]['description'] = 'Docker Node';
           }
@@ -144,6 +147,9 @@ class docker {
           }
           if( $key === 'traefik.enable' ){
             $container_list[$d]['enable'] = $label;
+          }
+          if( $key === 'traefik.https' ){
+            $container_list[$d]['https'] = $label;
           }
           if(!isset($container_list[$d]['description'])){
             $container_list[$d]['description'] = 'Docker Swarm';

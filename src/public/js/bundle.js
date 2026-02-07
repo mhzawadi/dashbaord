@@ -148,11 +148,13 @@ function sendData(data, url) {
   // Finally, send our data.
   XHR.send(urlEncodedData);
 }
-function set_root(colour1, colour2, colour3){
+function set_root(colour1, colour2, colour3, colour4, colour5){
   document.body.style.setProperty("--color-primary", colour2);
   document.body.style.setProperty("--color-accent", colour3);
   document.body.style.setProperty("--color-background", colour1);
-  sendData({ defaultTheme: colour2 + ";" + colour3 + ";" + colour1}, "/settings/defaultTheme/edit");
+  document.body.style.setProperty("--color-app-button", colour4);
+  document.body.style.setProperty("--color-bookmark-button", colour5);
+  sendData({ defaultTheme: colour2 + ";" + colour3 + ";" + colour1 + ";" + colour4 + ";" + colour5}, "/settings/defaultTheme/edit");
 }
 
 function edit_theme(id, name, background, primary, accent){

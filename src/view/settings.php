@@ -12,13 +12,17 @@ require_once('header.php');
       <?php foreach($themes['themes'] as $key => $theme){
         if($theme['isCustom'] === false){
           $custom_key = $key?>
-      <div class="ThemePreview_ThemePreview__2akEy" onclick="set_root(<?php echo '\''.$theme['colors']['background'].'\',\''.$theme['colors']['primary'].'\',\''.$theme['colors']['accent'].'\'';?>)">
+      <div class="ThemePreview_ThemePreview__2akEy" onclick="set_root(<?php echo '\''.$theme['colors']['background'].'\',\''.$theme['colors']['primary'].'\',\''.$theme['colors']['accent'].'\',\''.$theme['colors']['app_button'].'\',\''.$theme['colors']['bookmark_button'].'\'';?>)">
         <div class="ThemePreview_ColorsPreview__1zsZS">
           <div class="ThemePreview_ColorPreview__34jck" style="background-color: <?php echo $theme['colors']['background'];?>;">
           </div>
           <div class="ThemePreview_ColorPreview__34jck" style="background-color: <?php echo $theme['colors']['primary'];?>;">
           </div>
           <div class="ThemePreview_ColorPreview__34jck" style="background-color: <?php echo $theme['colors']['accent'];?>;">
+          </div>
+          <div class="ThemePreview_ColorPreview__34jck" style="background-color: <?php echo $theme['colors']['app_button'];?>;">
+          </div>
+          <div class="ThemePreview_ColorPreview__34jck" style="background-color: <?php echo $theme['colors']['bookmark_button'];?>;">
           </div>
         </div>
         <p><?php echo $theme['name'];?></p>
@@ -66,6 +70,10 @@ require_once('header.php');
             <div class="ThemePreview_ColorPreview__34jck" style="background-color: <?php echo $theme['colors']['primary'];?>;">
             </div>
             <div class="ThemePreview_ColorPreview__34jck" style="background-color: <?php echo $theme['colors']['accent'];?>;">
+            </div>
+            <div class="ThemePreview_ColorPreview__34jck" style="background-color: <?php echo $theme['colors']['app_button'];?>;">
+            </div>
+            <div class="ThemePreview_ColorPreview__34jck" style="background-color: <?php echo $theme['colors']['bookmark_button'];?>;">
             </div>
           </div>
           <?php if($this->logged_in === true) {?>

@@ -32,12 +32,12 @@ class bookmark_view {
         if($link === true){
           $category_list .= '  <h3 class="BookmarkCard_BookmarkHeader__112bh"><a href="/bookmarks/'.$key.'">'.$category['name'].'</a></h3>'."\n";
         }else{
-          $category_list .= '  <h3>'.$category['name'].'</h3>'."\n";
+          $category_list .= '  <h3 class="bk-title-link">'.$category['name'].'</h3>'."\n";
         }
         $category_list .= '  <div class="BookmarkCard_Bookmarks__YhsfD">'."\n";
         foreach($category['bookmarks'] as $key => $bookmark){
           if( ($bookmark['isPublic'] == 1 ) || ($logged_in === true) ){
-            $category_list .= '    <a href="'.$bookmark['url'].'" target="_blank" rel="noreferrer">'."\n";
+            $category_list .= '    <a href="'.$bookmark['url'].'" target="_blank" rel="noreferrer" class="bk-card-link">'."\n";
             $category_list .= '      <div class="BookmarkCard_BookmarkIcon__2c2C5">'."\n";
             if(strpos($bookmark['icon'], 'mdi:') === false && strpos($bookmark['icon'], 'si:') === false){
               $category_list .= '        <img src="/uploads/'.$bookmark['icon'].'" alt="'.$bookmark['name'].'" class="BookmarkCard_CustomIcon__2I7Wo">'."\n";

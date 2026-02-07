@@ -31,10 +31,10 @@ require_once('header.php');
             <section>
             <?php if($this->logged_in === true) {?>
             <a href="/applications">
-              <h2 class="SectionHeadline_SectionHeadline__2gmr_"><span class="iconify" data-icon="mdi:pencil" data-width="20"></span> Applications</h2>
+              <h2 class="SectionHeadline_SectionHeadline__2gmr_ brick"><span class="iconify" data-icon="mdi:pencil" data-width="20"></span> Applications</h2>
             </a>
           <?php }else{ ?>
-            <h2 class="SectionHeadline_SectionHeadline__2gmr_">Applications</h2>
+            <h2 class="SectionHeadline_SectionHeadline__2gmr_ brick">Applications</h2>
           <?php } ?>
             <div class="AppGrid_AppGrid__33iLW"><?php echo $applications;?></div>
             <div class="Home_HomeSpace__2q0OU"></div>

@@ -32,10 +32,28 @@
     box-sizing: border-box
 }
 
+:root {
+  --lego-green: #00852B;
+  --lego-dark-green: #006b22;
+  --lego-yellow: #F2CD37;
+  --lego-red: #C91A09;
+  --lego-blue: #0055BF;
+  --lego-white: #FFFFFF;
+  --horwood-green: #73bc45;
+  --horwood-green2: #367627;
+  --horwood-yellow: #f8e146;
+  --horwood-dark-blue: #2c3e50;
+  --horwood-light-gray: #f9f9f9;
+  --horwood-black: #000000;
+  --horwood-gray-border: #4d4d4d;
+}
+
 body {
     --color-background: #242b33;
     --color-primary: #effbff;
     --color-accent: #6ee2ff;
+    --color-app-button: #0055BF;
+    --color-bookmark-button: #006b22;
     --spacing-ui: 10px;
     background-color: var(--color-background);
     transition: background-color .3s;
@@ -512,7 +530,7 @@ a {
 .Home_SettingsButton__Qvn8C {
     width: 35px;
     height: 35px;
-    background-color: var(--color-accent);
+    background-color: var(--color-primary);
     border-radius: 50%;
     position: fixed;
     bottom: var(--spacing-ui);
@@ -567,7 +585,7 @@ a {
 }
 
 .AppCard_AppCard__1V2_0 {
-    width: 100%;
+    width: 95%;
     display: -webkit-flex;
     display: flex;
     -webkit-align-items: center;
@@ -608,7 +626,7 @@ a {
     }
 
     .AppCard_AppCard__1V2_0:hover {
-        background-color: rgba(0,0,0,.2)
+        background-color: rgba(0,0,0,.2);
     }
 }
 
@@ -617,7 +635,7 @@ a {
     height: 90%;
     margin-top: 2px;
     margin-left: 2px;
-    object-fit: contain
+    object-fit: contain;
 }
 
 .BookmarkGrid_BookmarkGrid__26LlR {
@@ -648,8 +666,8 @@ a {
 }
 
 .BookmarkCard_BookmarkCard__1GmHc h3 {
-    color: var(--color-accent);
-    margin-bottom: 10px;
+    color: rgba(0,0,0,.5);
+    margin-bottom: 20px;
     font-size: 16px;
     font-weight: 400;
     text-transform: uppercase
@@ -678,7 +696,7 @@ a {
 
 .BookmarkCard_BookmarkCard__1GmHc a:hover {
     text-decoration: underline;
-    padding-left: 10px
+    background-color: rgba(0,0,0,.2);
 }
 
 .BookmarkCard_BookmarkIcon__2c2C5 {

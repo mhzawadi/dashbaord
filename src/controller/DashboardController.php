@@ -19,7 +19,7 @@ class DashboardController{
   protected $session;
   protected $logged_in;
   protected $uploadOk;
-  public $version = '0.0.18';
+  public $version = '0.0.22';
 
   public function __construct($user_agent){
     if(!is_dir('../../user_data/uploads')){

@@ -22,6 +22,6 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <title><?php echo $this->setting_obj['customTitle'];?></title>
     </head>
-    <body style="--color-primary:<?php echo $this->theme[0];?>; --color-accent:<?php echo $this->theme[1];?>; --color-background:<?php echo $this->theme[2];?>;">
+    <body style="--color-primary:<?php echo $this->theme[0];?>; --color-accent:<?php echo $this->theme[1];?>; --color-background:<?php echo $this->theme[2];?>; --color-app-button:<?php echo $this->theme[3];?>; --color-bookmark-button:<?php echo $this->theme[4];?>;">
         <div id="root" onclick="">
           <div class="Layout_Container__2Hv3J">

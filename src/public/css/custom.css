@@ -11,3 +11,58 @@ pre{
 svg path{
   fill: currentcolor;
 }
+
+/* Container for the link to make it look like a Lego brick */
+.app-card-link, .link-item a { /* Adjust selector based on your specific class */
+    position: relative;
+    background-color: var(--color-app-button); /* Classic Lego Red - change as desired */
+    padding: 20px 15px 10px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    box-shadow: 5px 5px 0 #000; /* Bottom shadow for depth */
+    transition: transform 0.1s;
+}
+
+.bk-card-link, .link-item a { /* Adjust selector based on your specific class */
+    position: relative;
+    background-color: var(--color-bookmark-button); /* Classic Lego Red - change as desired */
+    padding: 20px 15px 10px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    box-shadow: 5px 5px 0 #000; /* Bottom shadow for depth */
+    transition: transform 0.1s;
+    width: 95%;
+    margin-bottom: 20px;
+}
+
+.bk-title-link, .link-item a { /* Adjust selector based on your specific class */
+    position: relative;
+    background-color: var(--lego-yellow); /* Classic Lego Red - change as desired */
+    color: white;
+    padding: 10px 15px 10px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    box-shadow: 5px 5px 0 #000; /* Bottom shadow for depth */
+    transition: transform 0.1s;
+    width: 95%;
+    margin-bottom: 20px;
+}
+
+/* Creating the two studs (tops) */
+.app-card-link::before, .bk-card-link::before, .bk-title-link::before {
+    content: '';
+    position: absolute;
+    top: -8px; /* Pulls them above the link */
+    width: 90%;
+    height: 8px;
+    background-image: radial-gradient(circle,#000 40%,transparent 50%);
+    background-size: 16px 16px;
+    border-radius: 5px 5px 0 0;
+}
+
+/* "Press" effect when clicking */
+.app-card-link:active, .app-card-link:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #006b22;
+    background-color: #F2CD37;
+}
