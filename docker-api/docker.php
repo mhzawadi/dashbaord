@@ -22,7 +22,6 @@ class docker {
     curl_setopt($this->connection, CURLOPT_URL, "http://$this->HOST/info");
     $host_info = json_decode(curl_exec($this->connection), true);
     curl_close($this->connection);
-    print_r($host_info);
     $this->swarm  = $host_info['Swarm'];
   }
 
