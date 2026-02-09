@@ -36,6 +36,11 @@ require_once('header.php');
           <option value="0"<?php if($this->setting_obj['kubernetesApps'] == 0){?> selected=""<?php }?>>False</option>
         </select>
       </div>
+      <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">Docker agent</h2>
+      <div class="InputGroup_InputGroup__1Nm_2">
+        <label for="dockerAgent">Agent Key</label>
+        <input type="text" id="dockerAgentKey" name="dockerAgentKey" placeholder="926af0017fc26c061ceef92c5237f0b8" value="<?php echo $this->setting_obj['dockerAgentKey'];?>">
+      </div>
       <button class="Button_Button__1hnZa">Save changes</button>
     </form>
   </section>
