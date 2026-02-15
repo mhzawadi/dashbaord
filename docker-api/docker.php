@@ -22,7 +22,7 @@ class docker {
     curl_setopt($this->connection, CURLOPT_URL, "http://$this->HOST/info");
     $host_info = json_decode(curl_exec($this->connection), true);
     curl_close($this->connection);
-    $this->swarm  = $host_info['Swarm'];
+    $this->swarm  = $host_info['Swarm']['LocalNodeState'];
   }
 
   public function get_containers(){

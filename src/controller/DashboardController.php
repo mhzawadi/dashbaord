@@ -19,9 +19,10 @@ class DashboardController{
   protected $session;
   protected $logged_in;
   protected $uploadOk;
-  public $version = '0.0.22';
+  public $version;
 
   public function __construct($user_agent){
+    $this->version = file_get_contents('../../VERSION');
     if(!is_dir('../../user_data/uploads')){
       mkdir('../../user_data/uploads', 0775, true);
       copy('../../data/dashboard.png', '../../user_data/uploads/dashboard.png');

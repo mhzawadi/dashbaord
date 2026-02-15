@@ -90,6 +90,7 @@ class settings extends json{
           $this->settings['dockerApps']       = $new_settings['dockerApps'];
           $this->settings['unpinStoppedApps'] = $new_settings['unpinStoppedApps'];
           $this->settings['kubernetesApps']   = $new_settings['kubernetesApps'];
+          $this->settings['dockerAgentKey']   = $new_settings['dockerAgentKey'];
           $this->save_to_file('../../user_data/settings.json', $this->settings);
           break;
         case 'css':
