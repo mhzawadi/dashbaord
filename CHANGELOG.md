@@ -1,9 +1,58 @@
 # Changelog
 
 
-## (unreleased)
+## v0.0.24 (2026-02-15)
+
+### Other
+
+* 0.0.24 (#108) [Matthew Horwood]
+
+  * build(deps-dev): bump phpunit/phpunit from 12.5.7 to 12.5.8 (#107)
+
+  Bumps [phpunit/phpunit](https://github.com/sebastianbergmann/phpunit) from 12.5.7 to 12.5.8.
+  - [Release notes](https://github.com/sebastianbergmann/phpunit/releases)
+  - [Changelog](https://github.com/sebastianbergmann/phpunit/blob/12.5.8/ChangeLog-12.5.md)
+  - [Commits](https://github.com/sebastianbergmann/phpunit/compare/12.5.7...12.5.8)
+
+  ---
+  updated-dependencies:
+  - dependency-name: phpunit/phpunit
+    dependency-version: 12.5.8
+    dependency-type: direct:development
+    update-type: version-update:semver-patch
+  ...
+
+  Signed-off-by: dependabot[bot] <support@github.com>
+  Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+
+  * doc: update composer lock file
+
+  * bug: fix swarm check
+
+  * chor: style
+
+  * feat: start of docker agent config
+
+  * feat: save dockerAgentKey to disk
+
+  * feat: version bump
+
+  * chor: delete workflow
+  chor: composer update script
+  chor: composer update
+
+  ---------
+
+
+## v0.0.22 (2026-02-07)
+
+### New
+
+*  allows sending precompressed files. [Matthew Horwood]
 
 ### Fix
+
+*  drop update chnagelog. [Matthew Horwood]
 
 *  use unit not docker. [Matthew Horwood]
 
@@ -17,7 +66,293 @@
 
 ### Documentation
 
+*  update composer lock file. [github-actions]
+
 *  update CHANGELOG.md. [github-actions]
+
+*  update CHANGELOG.md. [github-actions]
+
+### Other
+
+* 548/Docker HTTPS flag (#90) [Matthew Horwood]
+
+  * 548/Docker HTTPS flag
+
+  feat: docker flag for https
+  feat: start sudo config
+  chor: revert unit, its dead
+
+  * add in sudo config
+
+  * feat: minfiy css and js on commit
+  chor: add pre-commit tools
+  chor: minify code
+
+  * feat: pre-load assets
+  chor: tidy code
+
+  * chor: update minify files
+
+  * feat: handle precompressed files
+  bug: move files to right name
+  bug: fix dev image
+  bug: fix composer lock
+
+  * feat: add in minify tool
+
+  * feat: move to nginx and php fpm
+
+  * bug: allow php as root
+  feat: allow docker socket
+  chor: tidy up old files
+
+  * feat: new colour things
+  chor: fix setting colours
+  feat: block theme
+
+  * chor: new pre-commit
+
+  * doc: update composer lock file
+
+  * bug: fix version
+
+  * chor: more css work
+
+  * chor: dependancy update
+
+  * bug: remove debug
+
+  ---------
+
+* Build(deps): bump simple-icons/simple-icons from 16.4.0 to 16.6.1 (#104) [dependabot[bot]]
+
+  Bumps [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons) from 16.4.0 to 16.6.1.
+  - [Release notes](https://github.com/simple-icons/simple-icons/releases)
+  - [Commits](https://github.com/simple-icons/simple-icons/compare/16.4.0...16.6.1)
+
+  ---
+  updated-dependencies:
+  - dependency-name: simple-icons/simple-icons
+    dependency-version: 16.6.1
+    dependency-type: direct:production
+    update-type: version-update:semver-minor
+  ...
+
+* Build(deps-dev): bump phpunit/phpunit from 12.5.4 to 12.5.7 (#105) [dependabot[bot]]
+
+  Bumps [phpunit/phpunit](https://github.com/sebastianbergmann/phpunit) from 12.5.4 to 12.5.7.
+  - [Release notes](https://github.com/sebastianbergmann/phpunit/releases)
+  - [Changelog](https://github.com/sebastianbergmann/phpunit/blob/12.5.7/ChangeLog-12.5.md)
+  - [Commits](https://github.com/sebastianbergmann/phpunit/compare/12.5.4...12.5.7)
+
+  ---
+  updated-dependencies:
+  - dependency-name: phpunit/phpunit
+    dependency-version: 12.5.7
+    dependency-type: direct:development
+    update-type: version-update:semver-patch
+  ...
+
+* Merge branch 'main' of github.com:mhzawadi/dashbaord. [Matthew Horwood]
+
+* Build(deps): bump simple-icons/simple-icons from 16.3.0 to 16.4.0 (#99) [dependabot[bot]]
+
+  Bumps [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons) from 16.3.0 to 16.4.0.
+  - [Release notes](https://github.com/simple-icons/simple-icons/releases)
+  - [Commits](https://github.com/simple-icons/simple-icons/compare/16.3.0...16.4.0)
+
+  ---
+  updated-dependencies:
+  - dependency-name: simple-icons/simple-icons
+    dependency-version: 16.4.0
+    dependency-type: direct:production
+    update-type: version-update:semver-minor
+  ...
+
+* 0.0.23 (#100) [Matthew Horwood]
+
+  * feat: minfiy css and js on commit
+  chor: add pre-commit tools
+  chor: minify code
+
+  * feat: pre-load assets
+  chor: tidy code
+
+  * chor: update minify files
+
+* Build(deps): bump simple-icons/simple-icons from 16.2.0 to 16.3.0 (#98) [dependabot[bot]]
+
+  Bumps [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons) from 16.2.0 to 16.3.0.
+  - [Release notes](https://github.com/simple-icons/simple-icons/releases)
+  - [Commits](https://github.com/simple-icons/simple-icons/compare/16.2.0...16.3.0)
+
+  ---
+  updated-dependencies:
+  - dependency-name: simple-icons/simple-icons
+    dependency-version: 16.3.0
+    dependency-type: direct:production
+    update-type: version-update:semver-minor
+  ...
+
+* Build(deps): bump simple-icons/simple-icons from 15.22.0 to 16.2.0 (#96) [dependabot[bot]]
+
+  Bumps [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons) from 15.22.0 to 16.2.0.
+  - [Release notes](https://github.com/simple-icons/simple-icons/releases)
+  - [Commits](https://github.com/simple-icons/simple-icons/compare/15.22.0...16.2.0)
+
+  ---
+  updated-dependencies:
+  - dependency-name: simple-icons/simple-icons
+    dependency-version: 16.2.0
+    dependency-type: direct:production
+    update-type: version-update:semver-major
+  ...
+
+* Build(deps-dev): bump phpunit/phpunit from 12.4.4 to 12.5.4 (#97) [dependabot[bot]]
+
+  Bumps [phpunit/phpunit](https://github.com/sebastianbergmann/phpunit) from 12.4.4 to 12.5.4.
+  - [Release notes](https://github.com/sebastianbergmann/phpunit/releases)
+  - [Changelog](https://github.com/sebastianbergmann/phpunit/blob/12.5.4/ChangeLog-12.5.md)
+  - [Commits](https://github.com/sebastianbergmann/phpunit/compare/12.4.4...12.5.4)
+
+  ---
+  updated-dependencies:
+  - dependency-name: phpunit/phpunit
+    dependency-version: 12.5.4
+    dependency-type: direct:development
+    update-type: version-update:semver-minor
+  ...
+
+* Build(deps): bump actions/checkout from 5 to 6 (#91) [dependabot[bot]]
+
+  Bumps [actions/checkout](https://github.com/actions/checkout) from 5 to 6.
+  - [Release notes](https://github.com/actions/checkout/releases)
+  - [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+  - [Commits](https://github.com/actions/checkout/compare/v5...v6)
+
+  ---
+  updated-dependencies:
+  - dependency-name: actions/checkout
+    dependency-version: '6'
+    dependency-type: direct:production
+    update-type: version-update:semver-major
+  ...
+
+* Build(deps): bump simple-icons/simple-icons from 15.20.0 to 15.22.0 (#92) [dependabot[bot]]
+
+  Bumps [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons) from 15.20.0 to 15.22.0.
+  - [Release notes](https://github.com/simple-icons/simple-icons/releases)
+  - [Commits](https://github.com/simple-icons/simple-icons/compare/15.20.0...15.22.0)
+
+  ---
+  updated-dependencies:
+  - dependency-name: simple-icons/simple-icons
+    dependency-version: 15.22.0
+    dependency-type: direct:production
+    update-type: version-update:semver-minor
+  ...
+
+* Build(deps-dev): bump phpunit/phpunit from 12.4.2 to 12.4.4 (#93) [dependabot[bot]]
+
+  Bumps [phpunit/phpunit](https://github.com/sebastianbergmann/phpunit) from 12.4.2 to 12.4.4.
+  - [Release notes](https://github.com/sebastianbergmann/phpunit/releases)
+  - [Changelog](https://github.com/sebastianbergmann/phpunit/blob/12.4.4/ChangeLog-12.4.md)
+  - [Commits](https://github.com/sebastianbergmann/phpunit/compare/12.4.2...12.4.4)
+
+  ---
+  updated-dependencies:
+  - dependency-name: phpunit/phpunit
+    dependency-version: 12.4.4
+    dependency-type: direct:development
+    update-type: version-update:semver-patch
+  ...
+
+* Build(deps): bump simple-icons/simple-icons from 15.19.0 to 15.20.0 (#87) [dependabot[bot]]
+
+  Bumps [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons) from 15.19.0 to 15.20.0.
+  - [Release notes](https://github.com/simple-icons/simple-icons/releases)
+  - [Commits](https://github.com/simple-icons/simple-icons/compare/15.19.0...15.20.0)
+
+  ---
+  updated-dependencies:
+  - dependency-name: simple-icons/simple-icons
+    dependency-version: 15.20.0
+    dependency-type: direct:production
+    update-type: version-update:semver-minor
+  ...
+
+* Build(deps-dev): bump phpunit/phpunit from 12.4.0 to 12.4.2 (#86) [dependabot[bot]]
+
+  Bumps [phpunit/phpunit](https://github.com/sebastianbergmann/phpunit) from 12.4.0 to 12.4.2.
+  - [Release notes](https://github.com/sebastianbergmann/phpunit/releases)
+  - [Changelog](https://github.com/sebastianbergmann/phpunit/blob/12.4.2/ChangeLog-12.4.md)
+  - [Commits](https://github.com/sebastianbergmann/phpunit/compare/12.4.0...12.4.2)
+
+  ---
+  updated-dependencies:
+  - dependency-name: phpunit/phpunit
+    dependency-version: 12.4.2
+    dependency-type: direct:development
+    update-type: version-update:semver-patch
+  ...
+
+* Build(deps): bump simple-icons/simple-icons from 15.16.1 to 15.19.0 (#85) [dependabot[bot]]
+
+  Bumps [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons) from 15.16.1 to 15.19.0.
+  - [Release notes](https://github.com/simple-icons/simple-icons/releases)
+  - [Commits](https://github.com/simple-icons/simple-icons/compare/15.16.1...15.19.0)
+
+  ---
+  updated-dependencies:
+  - dependency-name: simple-icons/simple-icons
+    dependency-version: 15.19.0
+    dependency-type: direct:production
+    update-type: version-update:semver-minor
+  ...
+
+* Build(deps): bump simple-icons/simple-icons from 15.16.0 to 15.16.1 (#81) [dependabot[bot]]
+
+  Bumps [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons) from 15.16.0 to 15.16.1.
+  - [Release notes](https://github.com/simple-icons/simple-icons/releases)
+  - [Commits](https://github.com/simple-icons/simple-icons/compare/15.16.0...15.16.1)
+
+  ---
+  updated-dependencies:
+  - dependency-name: simple-icons/simple-icons
+    dependency-version: 15.16.1
+    dependency-type: direct:production
+    update-type: version-update:semver-patch
+  ...
+
+* Build(deps-dev): bump phpunit/phpunit from 12.3.15 to 12.4.0 (#80) [dependabot[bot]]
+
+  Bumps [phpunit/phpunit](https://github.com/sebastianbergmann/phpunit) from 12.3.15 to 12.4.0.
+  - [Release notes](https://github.com/sebastianbergmann/phpunit/releases)
+  - [Changelog](https://github.com/sebastianbergmann/phpunit/blob/12.4.0/ChangeLog-12.4.md)
+  - [Commits](https://github.com/sebastianbergmann/phpunit/compare/12.3.15...12.4.0)
+
+  ---
+  updated-dependencies:
+  - dependency-name: phpunit/phpunit
+    dependency-version: 12.4.0
+    dependency-type: direct:development
+    update-type: version-update:semver-minor
+  ...
+
+* Build(deps-dev): bump phpunit/phpunit from 12.3.14 to 12.3.15 (#79) [dependabot[bot]]
+
+  Bumps [phpunit/phpunit](https://github.com/sebastianbergmann/phpunit) from 12.3.14 to 12.3.15.
+  - [Release notes](https://github.com/sebastianbergmann/phpunit/releases)
+  - [Changelog](https://github.com/sebastianbergmann/phpunit/blob/12.3.15/ChangeLog-12.3.md)
+  - [Commits](https://github.com/sebastianbergmann/phpunit/compare/12.3.14...12.3.15)
+
+  ---
+  updated-dependencies:
+  - dependency-name: phpunit/phpunit
+    dependency-version: 12.3.15
+    dependency-type: direct:development
+    update-type: version-update:semver-patch
+  ...
 
 
 ## v0.0.21 (2025-09-26)
@@ -1205,5 +1540,3 @@
 * Start of the project. [Matthew Horwood]
 
   feat: start of project
-
-
