@@ -725,16 +725,16 @@
         },
         {
             "name": "simple-icons/simple-icons",
-            "version": "16.7.0",
+            "version": "16.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/simple-icons/simple-icons.git",
-                "reference": "45604f840246ee251a84402683a523a6d29c82fa"
+                "reference": "94dd84f919a4862f2351d17d51c72011ea50559e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/simple-icons/simple-icons/zipball/45604f840246ee251a84402683a523a6d29c82fa",
-                "reference": "45604f840246ee251a84402683a523a6d29c82fa",
+                "url": "https://api.github.com/repos/simple-icons/simple-icons/zipball/94dd84f919a4862f2351d17d51c72011ea50559e",
+                "reference": "94dd84f919a4862f2351d17d51c72011ea50559e",
                 "shasum": ""
             },
             "type": "library",
@@ -762,7 +762,7 @@
                     "type": "opencollective"
                 }
             ],
-            "time": "2026-02-01T02:26:31+00:00"
+            "time": "2026-02-15T01:54:21+00:00"
         },
         {
             "name": "stevenmaguire/oauth2-keycloak",
@@ -1514,16 +1514,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "13.0.0",
+            "version": "13.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "e045b31f855d4511a2091aa707a2bb0bb5456632"
+                "reference": "87f0ca577a7056016741af70e7a7de9246c52e67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e045b31f855d4511a2091aa707a2bb0bb5456632",
-                "reference": "e045b31f855d4511a2091aa707a2bb0bb5456632",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/87f0ca577a7056016741af70e7a7de9246c52e67",
+                "reference": "87f0ca577a7056016741af70e7a7de9246c52e67",
                 "shasum": ""
             },
             "require": {
@@ -1537,7 +1537,7 @@
                 "phar-io/manifest": "^2.0.4",
                 "phar-io/version": "^3.2.1",
                 "php": ">=8.4.1",
-                "phpunit/php-code-coverage": "^13.0.0",
+                "phpunit/php-code-coverage": "^13.0.1",
                 "phpunit/php-file-iterator": "^7.0.0",
                 "phpunit/php-invoker": "^7.0.0",
                 "phpunit/php-text-template": "^6.0.0",
@@ -1592,7 +1592,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/13.0.0"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/13.0.2"
             },
             "funding": [
                 {
@@ -1616,7 +1616,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-02-06T04:57:13+00:00"
+            "time": "2026-02-10T12:33:24+00:00"
         },
         {
             "name": "sebastian/cli-parser",
