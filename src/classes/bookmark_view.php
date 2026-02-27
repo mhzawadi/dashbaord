@@ -30,7 +30,7 @@ class bookmark_view {
       if( ($category['isPublic'] == 1 ) || ($logged_in === true) ){
         $category_list .= '<div class="BookmarkCard_BookmarkCard__1GmHc">'."\n";
         if($link === true){
-          $category_list .= '  <h3 class="BookmarkCard_BookmarkHeader__112bh"><a href="/bookmarks/'.$key.'">'.$category['name'].'</a></h3>'."\n";
+          $category_list .= '  <h3 class="bk-title-link"><a href="/bookmarks/'.$key.'">'.$category['name'].'</a></h3>'."\n";
         }else{
           $category_list .= '  <h3 class="bk-title-link">'.$category['name'].'</h3>'."\n";
         }
