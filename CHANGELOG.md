@@ -1,6 +1,31 @@
 # Changelog
 
 
+## (unreleased)
+
+### Documentation
+
+*  update change log. [Matthew Horwood]
+
+### Changes
+
+*  update bookmark edit (#113) [Matthew Horwood]
+
+  * chor: update bookmark edit
+
+  * bug: fix pre-commit
+  bug: ankor format
+
+  * bug: sort the link colour
+  bug: fix test script
+
+  * feat: version
+
+  * bug: fix test script
+
+*  update composer. [Matthew Horwood]
+
+
 ## v0.0.24 (2026-02-15)
 
 ### Other
