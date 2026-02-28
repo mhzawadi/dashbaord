@@ -672,9 +672,6 @@ a {
     font-weight: 400;
     text-transform: uppercase
 }
-.BookmarkCard_BookmarkCard__1GmHc h3 a {
-  color: var(--color-accent);
-}
 
 .BookmarkCard_BookmarkHeader__112bh:hover {
     cursor: pointer
