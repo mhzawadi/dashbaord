@@ -66,9 +66,12 @@ class application extends json {
     if(!isset($args['updatedAt'])){
       $args['updatedAt'] = date('Y-m-d H:i:s');
     }
+    if(!isset($args['app_proto'])){
+      $args['app_proto'] = 'http';
+    }
     $data = array(
       'name'=>$args['name'],
-      'url'=>$this->store_http($args['app_proto'].'://'.$args['url']),
+      'url'=>$this->store_http($args['app_proto'].'://'.$this->remove_http($args['url'])),
       'icon'=>$args['icon'],
       'description'=>$args['description'],
       'isPublic'=>$args['isPublic'],
@@ -120,7 +123,7 @@ class application extends json {
           $icon = 'mdi:docker';
         }
         if ( $dvalue['https'] === true ){
-          $dvalue['url'] = 'https://'.$dvalue['url'];
+          $dvalue['url'] = $dvalue['url'];
         }
         $this->insert_application(array(
           'name' => $dvalue['name'],
@@ -128,6 +131,7 @@ class application extends json {
           'icon' => $icon,
           'description' => $dvalue['description'],
           'isPublic' => 1,
+          'app_proto' => $dvalue['https'],
         ));
       }
     }
@@ -154,7 +158,8 @@ class application extends json {
         'isPublic' => $flame_db['isPublic'],
         'orderId' => $flame_db['orderId'],
         'createdAt' => $flame_db['createdAt'],
-        'updatedAt' => $flame_db['updatedAt']
+        'updatedAt' => $flame_db['updatedAt'],
+        'app_proto' => 'http',
       ));
     }
   }
