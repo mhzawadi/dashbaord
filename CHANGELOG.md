@@ -3,7 +3,38 @@
 
 ## (unreleased)
 
+### New
+
+*  select http chor: fix docker api chor: css layout. [Matthew Horwood]
+
+### Fix
+
+*  make sure we have a proto. [Matthew Horwood]
+
+*  test on string. [Matthew Horwood]
+
+*  custom label. [Matthew Horwood]
+
+*  fix docker import. [Matthew Horwood]
+
+*  fix setting and getting http. [Matthew Horwood]
+
+*  fix update app without http. [Matthew Horwood]
+
 ### Documentation
+
+*  words about custom labels. [Matthew Horwood]
+
+### Changes
+
+*  remove margin reset. [Matthew Horwood]
+
+
+## v0.0.25 (2026-02-28)
+
+### Documentation
+
+*  changelog. [Matthew Horwood]
 
 *  update change log. [Matthew Horwood]
 
