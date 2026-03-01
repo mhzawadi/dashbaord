@@ -7,20 +7,16 @@ class application_view {
     $replace = array('http-', 'https-');
     return str_replace($replace, '', $string);
   }
-  protected function set_http($string, $edit = false){
+  protected function set_http($string){
     $replace = array('http-', 'https-');
-    if($edit === true){
-      $with = '';
-    }else{
-      $with = array('http://', 'https://');
-    }
+    $with = array('http://', 'https://');
     return str_replace($replace, $with, $string);
   }
 
   protected function set_js($app_id, $app, $array_id = null, $value = null){
     $js_object[0] = $app_id;
     $js_object[1] = $app['name'];
-    $js_object[2] = $this->set_http($app['url'], true);
+    $js_object[2] = $this->remove_http($app['url']);
     $js_object[3] = $app['isPublic'];
     $js_object[4] = $app['icon'];
     $js_object[5] = $app['description'];

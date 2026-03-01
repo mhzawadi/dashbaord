@@ -42,7 +42,7 @@ class application extends json {
       $sorting = true;
     }
     $this->app_list['apps'][$applicationID]['name'] = $args['name'];
-    $this->app_list['apps'][$applicationID]['url'] = $this->store_http($args['url']);
+    $this->app_list['apps'][$applicationID]['url'] = $this->store_http($args['app_proto'].'://'.$this->remove_http($args['url']));
     $this->app_list['apps'][$applicationID]['icon'] = $args['icon'];
     $this->app_list['apps'][$applicationID]['description'] = $args['description'];
     $this->app_list['apps'][$applicationID]['isPublic'] = $args['isPublic'];
@@ -68,7 +68,7 @@ class application extends json {
     }
     $data = array(
       'name'=>$args['name'],
-      'url'=>$this->store_http($args['url']),
+      'url'=>$this->store_http($args['app_proto'].'://'.$args['url']),
       'icon'=>$args['icon'],
       'description'=>$args['description'],
       'isPublic'=>$args['isPublic'],
