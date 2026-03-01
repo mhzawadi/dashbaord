@@ -1,33 +1,33 @@
 # Changelog
 
 
-## (unreleased)
+## v0.0.26 (2026-03-01)
 
-### New
+### Other
 
-*  select http chor: fix docker api chor: css layout. [Matthew Horwood]
+* 0.0.26 (#114) [Matthew Horwood]
 
-### Fix
+  * feat: select http
+  chor: fix docker api
+  chor: css layout
 
-*  make sure we have a proto. [Matthew Horwood]
+  * bug: fix update app without http
 
-*  test on string. [Matthew Horwood]
+  * bug: fix setting and getting http
 
-*  custom label. [Matthew Horwood]
+  * bug: fix docker import
 
-*  fix docker import. [Matthew Horwood]
+  * bug: custom label
 
-*  fix setting and getting http. [Matthew Horwood]
+  * bug: test on string
 
-*  fix update app without http. [Matthew Horwood]
+  * bug: make sure we have a proto
 
-### Documentation
+  * chor: remove margin reset
 
-*  words about custom labels. [Matthew Horwood]
+  * doc: words about custom labels
 
-### Changes
-
-*  remove margin reset. [Matthew Horwood]
+  * doc: changelog
 
 
 ## v0.0.25 (2026-02-28)
