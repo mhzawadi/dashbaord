@@ -707,11 +707,6 @@ a {
 .BookmarkCard_BookmarkCard__1GmHc a:hover {
   text-decoration: underline;
   background-color: rgba(0,0,0,.2);
-  margin-bottom: 0px;
-}
-
-.BookmarkCard_BookmarkCard__1GmHc a:hover ~ .bk-card-link, .link-item a{
-  margin-bottom: 0px;
 }
 
 .BookmarkCard_BookmarkIcon__2c2C5 {
