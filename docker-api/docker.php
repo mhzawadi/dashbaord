@@ -87,7 +87,7 @@ class docker {
           if( $key === 'traefik.enable' ){
             $container_list[$d]['enable'] = $label;
           }
-          if( $key === 'traefik.https' ){
+          if( $key === 'dashboard.https' ){
             $container_list[$d]['https'] = $label;
           }
           if(!isset($container_list[$d]['description'])){
@@ -151,7 +151,7 @@ class docker {
           if( $key === 'traefik.enable' ){
             $container_list[$d]['enable'] = $label;
           }
-          if( $key === 'traefik.https' ){
+          if( $key === 'dashboard.https' ){
             $container_list[$d]['https'] = $label;
           }
           if(!isset($container_list[$d]['description'])){
