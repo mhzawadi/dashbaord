@@ -41,6 +41,10 @@ class application extends json {
     if($args['orderId'] != $this->app_list['apps'][$applicationID]['orderId']){
       $sorting = true;
     }
+    if (!isset($args['app_proto'])){
+      $args['app_proto'] = 'http';
+    }
+
     $this->app_list['apps'][$applicationID]['name'] = $args['name'];
     $this->app_list['apps'][$applicationID]['url'] = $this->store_http($args['app_proto'].'://'.$this->remove_http($args['url']));
     $this->app_list['apps'][$applicationID]['icon'] = $args['icon'];
