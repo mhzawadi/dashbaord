@@ -66,9 +66,6 @@ class application extends json {
     if(!isset($args['updatedAt'])){
       $args['updatedAt'] = date('Y-m-d H:i:s');
     }
-    if(!isset($args['app_proto'])){
-      $args['app_proto'] = 'http';
-    }
     $data = array(
       'name'=>$args['name'],
       'url'=>$this->store_http($args['app_proto'].'://'.$this->remove_http($args['url'])),
@@ -125,6 +122,11 @@ class application extends json {
         if ( $dvalue['https'] === true ){
           $dvalue['url'] = $dvalue['url'];
         }
+        if($dvalue['https'] === true){
+          $dvalue['https'] = 'https';
+        }else{
+          $dvalue['https'] = 'http';
+        }
         $this->insert_application(array(
           'name' => $dvalue['name'],
           'url' => $dvalue['url'],
@@ -175,7 +177,7 @@ class application extends json {
   }
 
   protected function remove_http($string){
-    $replace = array('http://', 'https://', 'http-', 'https-');
+    $replace = array('http://', 'https://', 'http-', 'https-', '://');
     return str_replace($replace, '', $string);
   }
 }
