@@ -122,7 +122,7 @@ class application extends json {
         if ( $dvalue['https'] === true ){
           $dvalue['url'] = $dvalue['url'];
         }
-        if($dvalue['https'] === true){
+        if($dvalue['https'] === 'true'){
           $dvalue['https'] = 'https';
         }else{
           $dvalue['https'] = 'http';
