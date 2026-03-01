@@ -87,11 +87,14 @@ class docker {
           if( $key === 'traefik.enable' ){
             $container_list[$d]['enable'] = $label;
           }
-          if( $key === 'traefik.https' ){
+          if( $key === 'dashboard.https' ){
             $container_list[$d]['https'] = $label;
           }
           if(!isset($container_list[$d]['description'])){
-            $container_list[$d]['description'] = 'Docker Node';
+            $container_list[$d]['description'] = '';
+          }
+          if(!isset($container_list[$d]['https'])){
+            $container_list[$d]['https'] = false;
           }
         }
         $d++;
@@ -148,11 +151,14 @@ class docker {
           if( $key === 'traefik.enable' ){
             $container_list[$d]['enable'] = $label;
           }
-          if( $key === 'traefik.https' ){
+          if( $key === 'dashboard.https' ){
             $container_list[$d]['https'] = $label;
           }
           if(!isset($container_list[$d]['description'])){
-            $container_list[$d]['description'] = 'Docker Swarm';
+            $container_list[$d]['description'] = '';
+          }
+          if(!isset($container_list[$d]['https'])){
+            $container_list[$d]['https'] = false;
           }
         }
         $d++;

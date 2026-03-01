@@ -16,11 +16,13 @@ class application_view {
   protected function set_js($app_id, $app, $array_id = null, $value = null){
     $js_object[0] = $app_id;
     $js_object[1] = $app['name'];
-    $js_object[2] = $this->set_http($app['url']);
+    $js_object[2] = $this->remove_http($app['url']);
     $js_object[3] = $app['isPublic'];
     $js_object[4] = $app['icon'];
     $js_object[5] = $app['description'];
     $js_object[6] = $app['orderId'];
+    $parts = explode('-', $app['url']);
+    $js_object[7] = $parts[0];
 
     if(isset($array_id) !== null){
       $js_object[$array_id] = $value;
@@ -48,7 +50,11 @@ class application_view {
         $app_list .= '  </div>'."\n";
         $app_list .= '  <div class="AppCard_AppCardDetails__tbAhY">'."\n";
         $app_list .= '    <h5>'.$app['name'].'</h5>'."\n";
-        $app_list .= '    <span>'.substr($this->remove_http($app['url']), 0, 40).'</span>'."\n";
+        if( $app['description'] !== ''){
+          $app_list .= '    <span>'.substr($this->remove_http($app['description']), 0, 40).'</span>'."\n";
+        }else{
+          $app_list .= '    <span>'.substr($this->remove_http($app['url']), 0, 40).'</span>'."\n";
+        }
         $app_list .= '  </div>'."\n";
         $app_list .= '</a>'."\n";
       }

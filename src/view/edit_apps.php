@@ -18,7 +18,11 @@ require_once('header.php');
       </div>
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="app_url">App URL</label>
-        <input type="text" name="url" id="app_url" placeholder="bookstack.example.com" required="" value="">
+        <select id="app_proto" name="app_proto" class="select_short">
+          <option value="http">http</option>
+          <option value="https">https</option>
+        </select>
+        <input class="input_short" type="text" name="url" id="app_url" placeholder="bookstack.example.com" required="" value="">
       </div>
       <div class="InputGroup_InputGroup__1Nm_2">
         <label for="app_description">App description</label>

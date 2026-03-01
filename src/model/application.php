@@ -41,8 +41,12 @@ class application extends json {
     if($args['orderId'] != $this->app_list['apps'][$applicationID]['orderId']){
       $sorting = true;
     }
+    if (!isset($args['app_proto'])){
+      $args['app_proto'] = 'http';
+    }
+
     $this->app_list['apps'][$applicationID]['name'] = $args['name'];
-    $this->app_list['apps'][$applicationID]['url'] = $this->store_http($args['url']);
+    $this->app_list['apps'][$applicationID]['url'] = $this->store_http($args['app_proto'].'://'.$this->remove_http($args['url']));
     $this->app_list['apps'][$applicationID]['icon'] = $args['icon'];
     $this->app_list['apps'][$applicationID]['description'] = $args['description'];
     $this->app_list['apps'][$applicationID]['isPublic'] = $args['isPublic'];
@@ -68,7 +72,7 @@ class application extends json {
     }
     $data = array(
       'name'=>$args['name'],
-      'url'=>$this->store_http($args['url']),
+      'url'=>$this->store_http($args['app_proto'].'://'.$this->remove_http($args['url'])),
       'icon'=>$args['icon'],
       'description'=>$args['description'],
       'isPublic'=>$args['isPublic'],
@@ -120,7 +124,12 @@ class application extends json {
           $icon = 'mdi:docker';
         }
         if ( $dvalue['https'] === true ){
-          $dvalue['url'] = 'https://'.$dvalue['url'];
+          $dvalue['url'] = $dvalue['url'];
+        }
+        if($dvalue['https'] === 'true'){
+          $dvalue['https'] = 'https';
+        }else{
+          $dvalue['https'] = 'http';
         }
         $this->insert_application(array(
           'name' => $dvalue['name'],
@@ -128,6 +137,7 @@ class application extends json {
           'icon' => $icon,
           'description' => $dvalue['description'],
           'isPublic' => 1,
+          'app_proto' => $dvalue['https'],
         ));
       }
     }
@@ -154,7 +164,8 @@ class application extends json {
         'isPublic' => $flame_db['isPublic'],
         'orderId' => $flame_db['orderId'],
         'createdAt' => $flame_db['createdAt'],
-        'updatedAt' => $flame_db['updatedAt']
+        'updatedAt' => $flame_db['updatedAt'],
+        'app_proto' => 'http',
       ));
     }
   }
@@ -170,7 +181,7 @@ class application extends json {
   }
 
   protected function remove_http($string){
-    $replace = array('http://', 'https://', 'http-', 'https-');
+    $replace = array('http://', 'https://', 'http-', 'https-', '://');
     return str_replace($replace, '', $string);
   }
 }

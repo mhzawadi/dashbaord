@@ -393,6 +393,15 @@ a {
   color: var(--color-background)
 }
 
+.InputGroup_InputGroup__1Nm_2 input.input_short {
+  width: 85%;
+  float: right;
+}
+
+.InputGroup_InputGroup__1Nm_2 select.select_short {
+  width: 15%;
+}
+
 .InputGroup_InputGroup__1Nm_2 span {
   font-size: 12px;
   color: var(--color-primary)
