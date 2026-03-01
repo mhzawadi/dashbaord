@@ -393,6 +393,15 @@ a {
   color: var(--color-background)
 }
 
+.InputGroup_InputGroup__1Nm_2 input.input_short {
+  width: 85%;
+  float: right;
+}
+
+.InputGroup_InputGroup__1Nm_2 select.select_short {
+  width: 15%;
+}
+
 .InputGroup_InputGroup__1Nm_2 span {
   font-size: 12px;
   color: var(--color-primary)
@@ -698,6 +707,11 @@ a {
 .BookmarkCard_BookmarkCard__1GmHc a:hover {
   text-decoration: underline;
   background-color: rgba(0,0,0,.2);
+  margin-bottom: 0px;
+}
+
+.BookmarkCard_BookmarkCard__1GmHc a:hover ~ .bk-card-link, .link-item a{
+  margin-bottom: 0px;
 }
 
 .BookmarkCard_BookmarkIcon__2c2C5 {

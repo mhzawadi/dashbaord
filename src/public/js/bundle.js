@@ -1,10 +1,11 @@
-function edit_app(id, name, url, cat_public, icon, description, orderId, submit = false){
+function edit_app(id, name, url, cat_public, icon, description, orderId, proto, submit = false){
   document.getElementById("applicationID").value = id;
   document.getElementById("applicationOrder").value = orderId;
   document.getElementById("app_name").value = name;
   document.getElementById("app_url").value = url;
   document.getElementById("app_icon").value = icon;
   document.getElementById("app_description").value = description;
+  document.getElementById("app_proto").value = proto;
   const select = document.getElementById("isPublic");
   select.value = cat_public;
   document.getElementById("btn_app").textContent = "Update Application";

@@ -91,7 +91,10 @@ class docker {
             $container_list[$d]['https'] = $label;
           }
           if(!isset($container_list[$d]['description'])){
-            $container_list[$d]['description'] = 'Docker Node';
+            $container_list[$d]['description'] = '';
+          }
+          if(!isset($container_list[$d]['https'])){
+            $container_list[$d]['https'] = false;
           }
         }
         $d++;
@@ -152,7 +155,10 @@ class docker {
             $container_list[$d]['https'] = $label;
           }
           if(!isset($container_list[$d]['description'])){
-            $container_list[$d]['description'] = 'Docker Swarm';
+            $container_list[$d]['description'] = '';
+          }
+          if(!isset($container_list[$d]['https'])){
+            $container_list[$d]['https'] = false;
           }
         }
         $d++;
