@@ -667,16 +667,16 @@
         },
         {
             "name": "riverside/php-orm",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/riverside/php-orm.git",
-                "reference": "59793e07f67d21d935e67f7a95e25d8441b91412"
+                "reference": "dd1c3cb9d5a058fe4e9b49a635d4143661a015de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/riverside/php-orm/zipball/59793e07f67d21d935e67f7a95e25d8441b91412",
-                "reference": "59793e07f67d21d935e67f7a95e25d8441b91412",
+                "url": "https://api.github.com/repos/riverside/php-orm/zipball/dd1c3cb9d5a058fe4e9b49a635d4143661a015de",
+                "reference": "dd1c3cb9d5a058fe4e9b49a635d4143661a015de",
                 "shasum": ""
             },
             "require": {
@@ -684,7 +684,7 @@
                 "php": ">=7.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "8"
+                "phpunit/phpunit": "8.5.52"
             },
             "type": "library",
             "autoload": {
@@ -715,7 +715,7 @@
             ],
             "support": {
                 "issues": "https://github.com/riverside/php-orm/issues",
-                "source": "https://github.com/riverside/php-orm/tree/v2.0.0"
+                "source": "https://github.com/riverside/php-orm/tree/v2.0.1"
             },
             "funding": [
                 {
@@ -723,7 +723,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2024-09-14T17:01:32+00:00"
+            "time": "2026-04-24T13:12:30+00:00"
         },
         {
             "name": "simple-icons/simple-icons",
