@@ -11,8 +11,8 @@
     ],
     "require" : {
         "riverside/php-orm" : "*",
-        "stevenmaguire/oauth2-keycloak": ">=5",
-        "firebase/php-jwt": "7.0.5 as 6.11.1",
+        "stevenmaguire/oauth2-keycloak": ">=6",
+        "firebase/php-jwt": "7.1.*",
         "simple-icons/simple-icons": ">=16"
     },
     "require-dev": {
