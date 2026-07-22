@@ -20,3 +20,9 @@ this uses both password or oauth.
 - update the `VERSION` file with the new version number
 - make all your changes and create a PR in Github
 - Once the PR is merged a new tagged image version will be generated and uploaded to the Docker hub
+
+## Updating PHP composer lock
+
+- make sure you have docker running
+- use `./docker/test.sh composer` from the root of the repo
+- add to a new branch, see above process
