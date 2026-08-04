@@ -1,6 +1,175 @@
 # Changelog
 
 
+## v0.0.28 (2026-08-04)
+
+### Other
+
+* 0.0.28 (#154) [Matthew Horwood]
+
+  * v0.0.28
+
+  doc: how to make changes
+
+  * doc: updating composer lock
+
+  * build(deps): bump actions/setup-python from 6 to 7 (#152)
+
+  Bumps [actions/setup-python](https://github.com/actions/setup-python) from 6 to 7.
+  - [Release notes](https://github.com/actions/setup-python/releases)
+  - [Commits](https://github.com/actions/setup-python/compare/v6...v7)
+
+  ---
+  updated-dependencies:
+  - dependency-name: actions/setup-python
+    dependency-version: '7'
+    dependency-type: direct:production
+    update-type: version-update:semver-major
+  ...
+
+* Build(deps): bump actions/setup-python from 6 to 7 (#157) [dependabot[bot]]
+
+  Bumps [actions/setup-python](https://github.com/actions/setup-python) from 6 to 7.
+  - [Release notes](https://github.com/actions/setup-python/releases)
+  - [Commits](https://github.com/actions/setup-python/compare/v6...v7)
+
+  ---
+  updated-dependencies:
+  - dependency-name: actions/setup-python
+    dependency-version: '7'
+    dependency-type: direct:production
+    update-type: version-update:semver-major
+  ...
+
+
+## v0.0.27 (2026-07-22)
+
+### Fix
+
+*  fix version. [Matthew Horwood]
+
+### Documentation
+
+*  changelog. [Matthew Horwood]
+
+### Changes
+
+*  update lock file. [Matthew Horwood]
+
+*  update lock file. [Matthew Horwood]
+
+*  update composer lock. [Matthew Horwood]
+
+### Other
+
+* Package updates. [Matthew Horwood]
+
+* Package updates. [Matthew Horwood]
+
+* Package updates. [Matthew Horwood]
+
+  - stevenmaguire/oauth2-keycloak to v6
+  - firebase/php-jwt to v7.1
+
+* Build(deps): bump actions/checkout from 6 to 7 (#147) [dependabot[bot]]
+
+  Bumps [actions/checkout](https://github.com/actions/checkout) from 6 to 7.
+  - [Release notes](https://github.com/actions/checkout/releases)
+  - [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+  - [Commits](https://github.com/actions/checkout/compare/v6...v7)
+
+  ---
+  updated-dependencies:
+  - dependency-name: actions/checkout
+    dependency-version: '7'
+    dependency-type: direct:production
+    update-type: version-update:semver-major
+  ...
+
+* Package update. [Matthew Horwood]
+
+* Package update. [Matthew Horwood]
+
+* Package updates. [Matthew Horwood]
+
+* Package updates. [Matthew Horwood]
+
+* Update dev tools. [Matthew Horwood]
+
+* Build(deps): bump firebase/php-jwt from 7.0.2 to 7.0.5 (#127) [dependabot[bot]]
+
+  Bumps [firebase/php-jwt](https://github.com/googleapis/php-jwt) from 7.0.2 to 7.0.5.
+  - [Release notes](https://github.com/googleapis/php-jwt/releases)
+  - [Changelog](https://github.com/googleapis/php-jwt/blob/main/CHANGELOG.md)
+  - [Commits](https://github.com/googleapis/php-jwt/compare/v7.0.2...v7.0.5)
+
+  ---
+  updated-dependencies:
+  - dependency-name: firebase/php-jwt
+    dependency-version: 7.0.5
+    dependency-type: direct:production
+    update-type: version-update:semver-patch
+  ...
+
+* Build(deps): bump simple-icons/simple-icons from 16.9.0 to 16.13.0 (#122) [dependabot[bot]]
+
+  Bumps [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons) from 16.9.0 to 16.13.0.
+  - [Release notes](https://github.com/simple-icons/simple-icons/releases)
+  - [Commits](https://github.com/simple-icons/simple-icons/compare/16.9.0...16.13.0)
+
+  ---
+  updated-dependencies:
+  - dependency-name: simple-icons/simple-icons
+    dependency-version: 16.13.0
+    dependency-type: direct:production
+    update-type: version-update:semver-minor
+  ...
+
+* Update FUNDING.yml. [Matthew Horwood]
+
+* Build(deps): bump docker/build-push-action from 6 to 7 (#118) [dependabot[bot]]
+
+  Bumps [docker/build-push-action](https://github.com/docker/build-push-action) from 6 to 7.
+  - [Release notes](https://github.com/docker/build-push-action/releases)
+  - [Commits](https://github.com/docker/build-push-action/compare/v6...v7)
+
+  ---
+  updated-dependencies:
+  - dependency-name: docker/build-push-action
+    dependency-version: '7'
+    dependency-type: direct:production
+    update-type: version-update:semver-major
+  ...
+
+* Build(deps): bump docker/setup-buildx-action from 3 to 4 (#119) [dependabot[bot]]
+
+  Bumps [docker/setup-buildx-action](https://github.com/docker/setup-buildx-action) from 3 to 4.
+  - [Release notes](https://github.com/docker/setup-buildx-action/releases)
+  - [Commits](https://github.com/docker/setup-buildx-action/compare/v3...v4)
+
+  ---
+  updated-dependencies:
+  - dependency-name: docker/setup-buildx-action
+    dependency-version: '4'
+    dependency-type: direct:production
+    update-type: version-update:semver-major
+  ...
+
+* Build(deps): bump docker/setup-qemu-action from 3 to 4 (#120) [dependabot[bot]]
+
+  Bumps [docker/setup-qemu-action](https://github.com/docker/setup-qemu-action) from 3 to 4.
+  - [Release notes](https://github.com/docker/setup-qemu-action/releases)
+  - [Commits](https://github.com/docker/setup-qemu-action/compare/v3...v4)
+
+  ---
+  updated-dependencies:
+  - dependency-name: docker/setup-qemu-action
+    dependency-version: '4'
+    dependency-type: direct:production
+    update-type: version-update:semver-major
+  ...
+
+
 ## v0.0.26 (2026-03-01)
 
 ### Other
@@ -1596,3 +1765,5 @@
 * Start of the project. [Matthew Horwood]
 
   feat: start of project
+
+
