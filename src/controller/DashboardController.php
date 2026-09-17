@@ -36,10 +36,10 @@ class DashboardController{
     $this->bookmark = new bookmark($this->setting_obj['useOrdering']);
     $this->bookmark_view = new bookmark_view($this->bookmark);
     $this->category_view = new category_view($this->bookmark);
-    if($this->setting_obj['dockerApps'] === '1'){
-      $this->docker = new docker();
-      $this->application->store_docker($this->docker->get_data());
-    }
+    // if($this->setting_obj['dockerApps'] === '1'){
+    //   $this->docker = new docker();
+    //   $this->application->store_docker($this->docker->get_data());
+    // }
     if(file_exists('../../user_data/db.sqlite')){
       $this->flame = new flame();
       $this->flame->import_apps($this->application);
@@ -172,8 +172,12 @@ class DashboardController{
           }elseif(isset($args['categoryId']) && isset($args['bookmarkID'])){
             $this->bookmark->update_bookmark($args['bookmarkID'], $args['categoryId'], $args);
           }
+          header('Location: /bookmarks/'.$args['categoryId']);
+          exit;
         }elseif($urls['type'] == 'delete' && isset($args['categoryId']) && isset($args['bookmarkID'])){
           $this->bookmark->delete_bookmark($args['categoryId'], $args['bookmarkID']);
+          header('Location: /bookmarks/'.$args['categoryId']);
+          exit;
         }
         if($urls['id'] != 'none'){
           $finish_edits = true;
@@ -210,8 +214,6 @@ class DashboardController{
       case 'settings':
         if(isset($urls['type']) && $urls['type'] !== 'none'){
           $this->setting_obj = $this->settings->save_settings($urls['sub_page'], $urls['type'], $args);
-          $this->application->set_sorting($this->setting_obj['useOrdering']);
-          $this->bookmark->set_sorting($this->setting_obj['useOrdering']);
         }
         switch($urls['sub_page']){
           case 'general':
