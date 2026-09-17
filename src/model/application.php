@@ -60,6 +60,10 @@ class application extends sqlite {
     );
     $this->save_to_file($sql, $data);
   }
+
+  /*
+   *
+   */
   public function insert_application($args){
     $last = count($this->app_list['apps']);
     if(!isset($args['orderId']) || $args['orderId'] == 'none'){

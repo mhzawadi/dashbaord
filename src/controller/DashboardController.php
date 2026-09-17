@@ -4,11 +4,11 @@ use MHorwood\Dashboard\model\application;
 use MHorwood\Dashboard\model\bookmark;
 use MHorwood\Dashboard\model\settings;
 use MHorwood\Dashboard\model\login;
-use MHorwood\Dashboard\model\flame;
 use MHorwood\Dashboard\classes\application_view;
 use MHorwood\Dashboard\classes\bookmark_view;
 use MHorwood\Dashboard\classes\category_view;
 use MHorwood\Dashboard\classes\docker;
+use MHorwood\Dashboard\model\migrate;
 
 class DashboardController{
 
@@ -36,19 +36,14 @@ class DashboardController{
     $this->bookmark = new bookmark($this->setting_obj['useOrdering']);
     $this->bookmark_view = new bookmark_view($this->bookmark);
     $this->category_view = new category_view($this->bookmark);
-    // if($this->setting_obj['dockerApps'] === '1'){
-    //   $this->docker = new docker();
-    //   $this->application->store_docker($this->docker->get_data());
-    // }
-    if(file_exists('../../user_data/db.sqlite')){
-      $this->flame = new flame();
-      $this->flame->import_apps($this->application);
-      $this->flame->import_categories($this->bookmark);
-      $this->flame->import_bookmarks($this->bookmark);
+    if($this->setting_obj['dockerApps'] === '1'){
+      $this->docker = new docker();
+      $this->application->store_docker($this->docker->get_data());
     }
     $session = new login();
     $this->session = new login();
     $this->logged_in = $this->session->isUserAuthenticated();
+    $migrate = new migrate($this->setting_obj['useOrdering']);
   }
 
   /**

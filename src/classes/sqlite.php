@@ -6,53 +6,57 @@ class sqlite {
 
   protected $pdo;
   public function __construct(){
+    if(file_exists('../../user_data/database.sqlite') === false){
+      $create = true;
+    }else{
+      $create = false;
+    }
     $db = '../../user_data/database.sqlite';
     $dsn = "sqlite:$db";
     try {
       $this->pdo = new \PDO($dsn);
+      if($create === true){
+        error_log("Building new database", 0);
+        $statements = [
+          'CREATE TABLE "applications" (
+          "id"	INTEGER NOT NULL UNIQUE,
+          "name"	TEXT NOT NULL,
+          "url"	TEXT,
+          "icon"	TEXT,
+          "description"	TEXT,
+          "isPublic"	INTEGER,
+          "createdAt"	TEXT NOT NULL,
+          "updatedAt"	TEXT NOT NULL,
+          "orderId"	INTEGER,
+          PRIMARY KEY("id" AUTOINCREMENT)
+        )',
+        'CREATE TABLE "bookmarks" (
+          "id"	INTEGER NOT NULL UNIQUE,
+          "categoryId"	INTEGER NOT NULL,
+          "name"	TEXT NOT NULL,
+          "url"	TEXT,
+          "icon"	TEXT,
+          "isPublic"	INTEGER NOT NULL,
+          "createdAt"	TEXT NOT NULL,
+          "updatedAt"	TEXT NOT NULL,
+          "orderId"	INTEGER NOT NULL,
+          PRIMARY KEY("id" AUTOINCREMENT)
+        )',
+        'CREATE TABLE "categorys" (
+          "id"	INTEGER NOT NULL UNIQUE,
+          "name"	TEXT NOT NULL,
+          "isPublic"	INTEGER,
+          "createdAt"	TEXT NOT NULL,
+          "updatedAt"	TEXT NOT NULL,
+          "orderId"	INTEGER,
+          PRIMARY KEY("id" AUTOINCREMENT)
+        )'];
+        foreach($statements as $statement){
+          $this->pdo->exec($statement);
+        }
+      }
     } catch (\PDOException $e) {
       echo $e->getMessage();
-    }
-
-    if(file_exists('../../user_data/database.sqlite') === false){
-      echo 'Building new database';
-      $statements = [
-        'CREATE TABLE "applications" (
-      	"id"	INTEGER NOT NULL UNIQUE,
-      	"name"	TEXT NOT NULL,
-      	"url"	TEXT,
-      	"icon"	TEXT,
-      	"description"	TEXT,
-      	"isPublic"	INTEGER,
-      	"createdAt"	TEXT NOT NULL,
-      	"updatedAt"	TEXT NOT NULL,
-      	"orderId"	INTEGER,
-      	PRIMARY KEY("id" AUTOINCREMENT)
-      )',
-      'CREATE TABLE "bookmarks" (
-      	"id"	INTEGER NOT NULL UNIQUE,
-      	"categoryId"	INTEGER NOT NULL,
-      	"name"	TEXT NOT NULL,
-      	"url"	TEXT,
-      	"icon"	TEXT,
-      	"isPublic"	INTEGER NOT NULL,
-      	"createdAt"	TEXT NOT NULL,
-      	"updatedAt"	TEXT NOT NULL,
-      	"orderId"	INTEGER NOT NULL,
-      	PRIMARY KEY("id" AUTOINCREMENT)
-      )',
-      'CREATE TABLE "categorys" (
-      	"id"	INTEGER NOT NULL UNIQUE,
-      	"name"	TEXT NOT NULL,
-      	"isPublic"	INTEGER,
-      	"createdAt"	TEXT NOT NULL,
-      	"updatedAt"	TEXT NOT NULL,
-      	"orderId"	INTEGER,
-      	PRIMARY KEY("id" AUTOINCREMENT)
-      )'];
-      foreach($statements as $statement){
-        $this->pdo->exec($statement);
-      }
     }
   }
   /*

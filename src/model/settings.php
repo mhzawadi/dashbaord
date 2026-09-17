@@ -1,6 +1,7 @@
 <?php
 namespace MHorwood\Dashboard\model;
 use MHorwood\Dashboard\classes\json;
+use MHorwood\Dashboard\classes\sqlite;
 
 class settings extends json{
   protected $settings;
@@ -8,6 +9,7 @@ class settings extends json{
   protected $themes_custom;
 
   public function __construct(){
+    $sql = new sqlite();
     if(file_exists('../../user_data/settings.json') === false){
       $this->settings = $this->load_from_file('../../data/settings.json');
       $this->save_to_file('../../user_data/settings.json', $this->settings);
