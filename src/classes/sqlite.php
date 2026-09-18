@@ -80,7 +80,7 @@ class sqlite {
     try {
       $stmt = $this->pdo->prepare($sql);
       $stmt->execute($array);
-      return true;
+      return $this->pdo->lastInsertId();
     } catch (\Exception $e) {
       echo 'that didnt work';
       print_pre($e);
