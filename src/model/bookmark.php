@@ -11,6 +11,36 @@ class bookmark extends sqlite {
   public function __construct($sorting){
     parent::__construct();
     $this->sorting = $sorting;
+    $this->build_list($sorting);
+  }
+
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @sorting type var Description
+   * @return return type
+   */
+  private function last_bookmark($bookmarks_list, $categoryId){
+    foreach($this->bookmarks_list['categorys'] as $key => $category){
+      if($categoryId == $category['id']){
+        $last = count($bookmarks_list['categorys'][$key]['bookmarks']);
+      }
+    }
+    return $last++;
+  }
+
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @sorting type var Description
+   * @return return type
+   */
+  protected function build_list($sorting)
+  {
     $bookmark_sql = 'SELECT b.id,b.name,b.url,b.icon,b.isPublic,b.createdAt,b.updatedAt,b.orderId
             from bookmarks as b
             left join categorys as c on b.categoryId = c.id
@@ -25,17 +55,37 @@ class bookmark extends sqlite {
     $this->last_category = count($this->bookmarks_list['categorys']);
   }
 
-  private function last_bookmark($bookmarks_list, $categoryId){
-    foreach($this->bookmarks_list['categorys'] as $key => $category){
-      if($categoryId == $category['id']){
-        $last = count($bookmarks_list['categorys'][$key]['bookmarks']);
-      }
-    }
-    return $last++;
+  public function get_list($sorting){
+    $this->build_list($sorting);
+    return $this->bookmarks_list['categorys'];
   }
 
-  public function get_list(){
-    return $this->bookmarks_list['categorys'];
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
+  public function get_category($category_name) {
+    $sql = 'SELECT * FROM categorys WHERE name = :category_name';
+    $rows = $this->query($sql, array($category_name));
+    return $rows;
+  }
+
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
+  public function get_bookamrk($bookmark_name) {
+    $sql = 'SELECT * FROM bookmarks WHERE name = :bookmark_name';
+    $rows = $this->query($sql, array($bookmark_name));
+    return $rows;
   }
 
   public function set_sorting($sorting){

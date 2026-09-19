@@ -26,10 +26,18 @@ class migrate extends json{
     if( file_exists('../../user_data/bookmarks.json') ){
       $f_bookmarks = $this->load_from_file('../../user_data/bookmarks.json');
       foreach($f_bookmarks['categorys'] as $c_key => $category){
-        $categoryId = $c_bookmark->insert_category($category);
+        $search_category = $c_bookmark->get_category($category['name']);
+        if(count($search_category) < 1){
+          $categoryId = $c_bookmark->insert_category($category);
+          $search_category = $c_bookmark->get_category($category['name']);
+        }
+        $categoryId = $search_category[0]['id'];
         foreach($f_bookmarks['categorys'][$c_key]['bookmarks'] as $key => $bookmark){
+          $search_bookmark = $c_bookmark->get_bookamrk($bookmark['name']);
           $bookmark['categoryId'] = $categoryId;
-          $c_bookmark->insert_bookmark($categoryId, $bookmark);
+          if(count($search_bookmark) < 1){
+            $c_bookmark->insert_bookmark($categoryId, $bookmark);
+          }
         }
       }
       rename('../../user_data/bookmarks.json', '../../user_data/bookmarks.json.old');

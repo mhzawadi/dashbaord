@@ -22,6 +22,10 @@ class DashboardController{
   public $version;
 
   public function __construct($user_agent){
+    if( (strpos($user_agent, 'curl') !== false) ){
+      echo 'Your a curl';
+      exit;
+    }
     $this->version = file_get_contents('../../VERSION');
     if(!is_dir('../../user_data/uploads')){
       mkdir('../../user_data/uploads', 0775, true);
@@ -203,7 +207,7 @@ class DashboardController{
           exit;
         }
         $finish_edits = true;
-        $bookmarks = $this->category_view->build_category_table($this->bookmark->get_list());
+        $bookmarks = $this->category_view->build_category_table($this->bookmark->get_list($this->setting_obj['useOrdering']));
         include (__DIR__ . '/../view/edit_bookmarks.php');
         break;
       case 'settings':
