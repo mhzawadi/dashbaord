@@ -1,31 +1,91 @@
 <?php
 namespace MHorwood\Dashboard\model;
-use MHorwood\Dashboard\classes\json;
+use MHorwood\Dashboard\classes\sqlite;
 
-class bookmark extends json {
+class bookmark extends sqlite {
   protected $bookmarks_list;
   protected $category_options;
   protected $sorting;
   protected $last_category;
 
   public function __construct($sorting){
+    parent::__construct();
     $this->sorting = $sorting;
-    if(file_exists('../../user_data/bookmarks.json') === false){
-      $this->bookmarks_list = $this->load_from_file('../../data/bookmarks.json');
-      $this->save_to_file('../../user_data/bookmarks.json', $this->bookmarks_list);
-    }else{
-      $this->bookmarks_list = $this->load_from_file('../../user_data/bookmarks.json');
+    $this->build_list($sorting);
+  }
+
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @sorting type var Description
+   * @return return type
+   */
+  private function last_bookmark($bookmarks_list, $categoryId){
+    foreach($this->bookmarks_list['categorys'] as $key => $category){
+      if($categoryId == $category['id']){
+        $last = count($bookmarks_list['categorys'][$key]['bookmarks']);
+      }
+    }
+    return $last++;
+  }
+
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @sorting type var Description
+   * @return return type
+   */
+  protected function build_list($sorting)
+  {
+    $bookmark_sql = 'SELECT b.id,b.name,b.url,b.icon,b.isPublic,b.createdAt,b.updatedAt,b.orderId
+            from bookmarks as b
+            left join categorys as c on b.categoryId = c.id
+            where b.categoryId = :categoryId
+            order by b.'.$sorting;
+
+    $this->bookmarks_list = $this->load_from_file('categorys', 'categorys', $sorting);
+    foreach($this->bookmarks_list['categorys'] as $key => $category){
+      $rows = $this->query($bookmark_sql, array($this->bookmarks_list['categorys'][$key]['id']));
+      $this->bookmarks_list['categorys'][$key]['bookmarks'] = $rows;
     }
     $this->last_category = count($this->bookmarks_list['categorys']);
   }
 
-  private function last_bookmark($bookmarks_list, $categoryId){
-    $last = count($bookmarks_list['categorys'][$categoryId]['bookmarks']);
-    return $last++;
+  public function get_list($sorting){
+    $this->build_list($sorting);
+    return $this->bookmarks_list['categorys'];
   }
 
-  public function get_list(){
-    return $this->bookmarks_list['categorys'];
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
+  public function get_category($category_name) {
+    $sql = 'SELECT * FROM categorys WHERE name = :category_name';
+    $rows = $this->query($sql, array($category_name));
+    return $rows;
+  }
+
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
+  public function get_bookamrk($bookmark_name) {
+    $sql = 'SELECT * FROM bookmarks WHERE name = :bookmark_name';
+    $rows = $this->query($sql, array($bookmark_name));
+    return $rows;
   }
 
   public function set_sorting($sorting){
@@ -50,37 +110,47 @@ class bookmark extends json {
   }
 
   public function get_bookmark($categoryID){
-    return $this->bookmarks_list['categorys'][$categoryID];
+    foreach($this->bookmarks_list['categorys'] as $key => $category){
+      if($categoryID == $category['id']){
+        $return = $this->bookmarks_list['categorys'][$key];
+      }
+    }
+    return $return;
   }
 
   public function get_category_options($categoryID = null){
-    $this->build_category_options($categoryID);
-    return $this->category_options;
-  }
-
-  protected function build_category_options($categoryID){
     foreach($this->bookmarks_list['categorys'] as $key => $category){
       if($categoryID == $key){
-        $this->category_options .= '<option value="'.$key.'" selected>'.$category['name'].'</option>';
+        $this->category_options .= '<option value="'.$category['id'].'" selected>'.$category['name'].'</option>';
       }else{
-        $this->category_options .= '<option value="'.$key.'">'.$category['name'].'</option>';
+        $this->category_options .= '<option value="'.$category['id'].'">'.$category['name'].'</option>';
       }
-
     }
+    return $this->category_options;
   }
 
   public function update_bookmark($bookmarkID, $categoryId, $args){
     if(!isset($args['orderId'])){
       $args['orderId'] = $this->last_bookmark($this->bookmarks_list, $categoryId);
     }
-    $this->bookmarks_list['categorys'][$categoryId]['bookmarks'][$bookmarkID]['name'] = $args['name'];
-    $this->bookmarks_list['categorys'][$categoryId]['bookmarks'][$bookmarkID]['url'] = $args['url'];
-    $this->bookmarks_list['categorys'][$categoryId]['bookmarks'][$bookmarkID]['icon'] = $args['icon'];
-    $this->bookmarks_list['categorys'][$categoryId]['bookmarks'][$bookmarkID]['categoryId'] = $args['categoryId'];
-    $this->bookmarks_list['categorys'][$categoryId]['bookmarks'][$bookmarkID]['isPublic'] = $args['isPublic'];
-    $this->bookmarks_list['categorys'][$categoryId]['bookmarks'][$bookmarkID]['updatedAt'] = date('Y-m-d H:i:s');
-    $this->bookmarks_list['categorys'][$categoryId]['bookmarks'][$bookmarkID]['orderId'] = $args['orderId'];
-    $this->save_to_file('../../user_data/bookmarks.json', $this->bookmarks_list);
+    $sql = 'UPDATE bookmarks SET
+        categoryId = :categoryId,
+        name = :name,
+        url = :url,
+        icon = :icon,
+        isPublic = :isPublic,
+        updatedAt = :updatedAt,
+        orderId = :orderId
+      WHERE id = :bookmarkID';
+    $data['bookmarkID'] = $bookmarkID;
+    $data['name'] = $args['name'];
+    $data['url'] = $args['url'];
+    $data['icon'] = $args['icon'];
+    $data['categoryId'] = $args['categoryId'];
+    $data['isPublic'] = $args['isPublic'];
+    $data['updatedAt'] = date('Y-m-d H:i:s');
+    $data['orderId'] = $args['orderId'];
+    $this->save_to_file($sql, $data);
   }
   public function insert_bookmark($categoryId, $args){
     if(!isset($args['orderId']) || $args['orderId'] == 'none'){
@@ -92,6 +162,9 @@ class bookmark extends json {
     if(!isset($args['updatedAt'])){
       $args['updatedAt'] = date('Y-m-d H:i:s');
     }
+    $sql = 'INSERT INTO bookmarks
+      (name,url,icon,isPublic,createdAt,updatedAt,orderId,categoryId)
+      VALUES(:name,:url,:icon,:isPublic,:createdAt,:updatedAt,:orderId,:categoryId)';
     $data = array(
       'name'=>$args['name'],
       'url'=>$args['url'],
@@ -102,13 +175,13 @@ class bookmark extends json {
       'updatedAt'=>$args['updatedAt'],
       'orderId' => $args['orderId']
     );
-    $this->bookmarks_list['categorys'][$categoryId]['bookmarks'][] = $data;
-    $this->save_to_file('../../user_data/bookmarks.json', $this->bookmarks_list);
+    $this->save_to_file($sql, $data);
   }
 
   public function delete_bookmark($categoryId, $bookmarkID){
-    unset($this->bookmarks_list['categorys'][$categoryId]['bookmarks'][$bookmarkID]);
-    $this->save_to_file('../../user_data/bookmarks.json', $this->bookmarks_list);
+    $sql = 'DELETE FROM bookmarks WHERE id = :id';
+    $data['id'] = $bookmarkID;
+    $this->save_to_file($sql, $data);
   }
 
   public function update_category($categoryId, $args){
@@ -116,18 +189,20 @@ class bookmark extends json {
     if(!isset($args['orderId'])){
       $args['orderId'] = $this->last_category++;
     }
-    if($args['orderId'] != $this->bookmarks_list['categorys'][$categoryId]['orderId']){
-      $sorting = true;
-    }
-    $this->bookmarks_list['categorys'][$categoryId]['name'] = $args['name'];
-    $this->bookmarks_list['categorys'][$categoryId]['isPublic'] = $args['isPublic'];
-    $this->bookmarks_list['categorys'][$categoryId]['orderId'] = $args['orderId'];
-    $this->bookmarks_list['categorys'][$categoryId]['updatedAt'] = date('Y-m-d H:i:s');
-    if($sorting === true){
-      $this->set_sorting($this->sorting);
-    }else{
-      $this->save_to_file('../../user_data/bookmarks.json', $this->bookmarks_list);
-    }
+    $sql = 'UPDATE categorys
+      SET
+        name = :name,
+        isPublic = :isPublic,
+        updatedAt = :updatedAt,
+        orderId = :orderId
+      WHERE
+        id = :categoryId';
+    $data['name'] = $args['name'];
+    $data['isPublic'] = $args['isPublic'];
+    $data['orderId'] = $args['orderId'];
+    $data['updatedAt'] = date('Y-m-d H:i:s');
+    $data['categoryId'] = $categoryId;
+    $this->save_to_file($sql, $data);
   }
 
   public function insert_category($args){
@@ -141,70 +216,23 @@ class bookmark extends json {
     if(!isset($args['updatedAt'])){
       $args['updatedAt'] = date('Y-m-d H:i:s');
     }
+    $sql = 'INSERT INTO categorys
+      (name,isPublic,createdAt,updatedAt,orderId)
+      VALUES(:name,:isPublic,:createdAt,:updatedAt,:orderId)';
     $data = array(
       'name'=>$args['name'],
       'isPublic'=>$args['isPublic'],
       'createdAt'=>$args['createdAt'],
       'updatedAt'=>$args['updatedAt'],
-      'orderId'=>$args['orderId'],
-      "bookmarks"=>array()
+      'orderId'=>$args['orderId']
     );
     $this->bookmarks_list['categorys'][] = $data;
-    $this->save_to_file('../../user_data/bookmarks.json', $this->bookmarks_list);
+    $this->save_to_file($sql, $data);
   }
 
   public function delete_category($categoryId){
-    unset($this->bookmarks_list['categorys'][$categoryId]);
-    $this->save_to_file('../../user_data/bookmarks.json', $this->bookmarks_list);
-  }
-
-  public function flame_import_category($flame_db){
-    $store = false;
-    foreach($this->bookmarks_list['categorys'] as $key => $category){
-      if( ($category['name'] == $flame_db['name']) ){
-        $store = true;
-      }
-    }
-    if($store === false){
-      $this->insert_category(array(
-        'name' => $flame_db['name'],
-        'isPublic' => 1,
-        'orderId' => $flame_db['orderId'],
-        'createdAt' => $flame_db['createdAt'],
-        'updatedAt' => $flame_db['updatedAt']
-      ));
-    }
-  }
-  public function flame_import_bookmarks($flame_db){
-    $store = false;
-    foreach($this->bookmarks_list['categorys'] as $key => $category){
-      if($category['name'] == $flame_db['cname']){
-        $categoryID = $key;
-      }
-      foreach($category['bookmarks'] as $bkey => $bookmark){
-        if( ($bookmark['name'] == $flame_db['name']) && ($bookmark['url'] == $flame_db['url']) ){
-          $store = true;
-        }
-      }
-    }
-    if($store === false){
-      if( (strpos($flame_db['icon'], '.jpg') === false) &&
-          (strpos($flame_db['icon'], '.jpeg') === false) &&
-          (strpos($flame_db['icon'], '.png') === false) &&
-          (strpos($flame_db['icon'], '.svg') === false) &&
-          (strpos($flame_db['icon'], '.ico') === false) ){
-        $flame_db['icon'] = 'mdi:'.$flame_db['icon'];
-      }
-      $this->insert_bookmark($categoryID, array(
-        'name'=>$flame_db['name'],
-        'url'=>$flame_db['url'],
-        'icon'=>$flame_db['icon'],
-        'categoryId'=>$categoryID,
-        'isPublic'=>$flame_db['isPublic'],
-        'orderId'=>$flame_db['orderId'],
-        'createdAt' => $flame_db['createdAt'],
-        'updatedAt' => $flame_db['updatedAt']
-      ));
-    }
+    $sql = 'DELETE FROM categorys WHERE id = :id';
+    $data['id'] = $categoryId;
+    $this->save_to_file($sql, $data);
   }
 }

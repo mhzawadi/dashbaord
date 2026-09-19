@@ -91,22 +91,22 @@ class application_view {
       }else{
         $app_list .= '  <td>Visible</td>'."\n";
       }
-      $app_list .= '  <td><input type="number" min="1" max="200" name="order" value="'.$app['orderId'].'" onchange="app_order(this.value, \''.$this->set_js($key, $app).'\')"></td>'."\n";
+      $app_list .= '  <td><input type="number" min="1" max="200" name="order" value="'.$app['orderId'].'" onchange="app_order(this.value, \''.$this->set_js($app['id'], $app).'\')"></td>'."\n";
       $app_list .= '  <td class="TableActions_TableActions__2_v2I">'."\n";
-      $app_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="delete_application('.$key.')">'."\n";
+      $app_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="delete_application('.$app['id'].')">'."\n";
       $app_list .= '        <span class="iconify" data-icon="mdi:delete" data-width="18"></span>'."\n";
       $app_list .= '      </div>'."\n";
-      $app_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="edit_app(\''.$this->set_js($key, $app).'\')">'."\n";
+      $app_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="edit_app(\''.$this->set_js($app['id'], $app).'\')">'."\n";
       $app_list .= '        <span class="iconify" data-icon="mdi:pencil" data-width="18"></span>'."\n";
       $app_list .= '      </div>'."\n";
       $app_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0">'."\n";
       $app_list .= '        <span class="iconify" data-icon="mdi:pin-off" data-width="18"></span>'."\n";
       $app_list .= '      </div>'."\n";
       if( ($app['isPublic'] == 0 ) ){
-        $app_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="edit_app(\''.$this->set_js($key, $app, 3, 1).'\', true)">'."\n";
+        $app_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="edit_app(\''.$this->set_js($app['id'], $app, 3, 1).'\', true)">'."\n";
         $app_list .= '        <span class="iconify" data-icon="mdi:eye-off" data-width="18"></span>'."\n";
       }else{
-        $app_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="edit_app(\''.$this->set_js($key, $app, 3, 0).'\', true)">'."\n";
+        $app_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="edit_app(\''.$this->set_js($app['id'], $app, 3, 0).'\', true)">'."\n";
         $app_list .= '        <span class="iconify" data-icon="mdi:eye" data-width="18"></span>'."\n";
       }
       $app_list .= '      </div>'."\n";

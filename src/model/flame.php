@@ -40,4 +40,80 @@ class flame {
       $bks->flame_import_bookmarks($row);
     }
   }
+  public function flame_import($flame_db){
+    $store = true;
+    foreach($this->app_list['apps'] as $key => $app){
+      if( ($app['name'] == $flame_db['name']) && ($this->remove_http($app['url']) == $this->remove_http($flame_db['url'])) ){
+        $store = false;
+      }
+    }
+    if($store === true){
+      if(isset($flame_db['icon'])){
+        $icon = $flame_db['icon'];
+      }else{
+        $icon = 'mdi:fire';
+      }
+      $this->insert_application(array(
+        'name' => $flame_db['name'],
+        'url' => $flame_db['url'],
+        'icon' => $icon,
+        'description' => $flame_db['name'],
+        'isPublic' => $flame_db['isPublic'],
+        'orderId' => $flame_db['orderId'],
+        'createdAt' => $flame_db['createdAt'],
+        'updatedAt' => $flame_db['updatedAt'],
+        'app_proto' => 'http',
+      ));
+    }
+  }
+  public function flame_import_category($flame_db){
+    $store = false;
+    foreach($this->bookmarks_list['categorys'] as $key => $category){
+      if( ($category['name'] == $flame_db['name']) ){
+        $store = true;
+      }
+    }
+    if($store === false){
+      $this->insert_category(array(
+        'name' => $flame_db['name'],
+        'isPublic' => 1,
+        'orderId' => $flame_db['orderId'],
+        'createdAt' => $flame_db['createdAt'],
+        'updatedAt' => $flame_db['updatedAt']
+      ));
+    }
+  }
+  public function flame_import_bookmarks($flame_db){
+    $store = false;
+    foreach($this->bookmarks_list['categorys'] as $key => $category){
+      if($category['name'] == $flame_db['cname']){
+        $categoryID = $key;
+      }
+      foreach($category['bookmarks'] as $bkey => $bookmark){
+        if( ($bookmark['name'] == $flame_db['name']) && ($bookmark['url'] == $flame_db['url']) ){
+          $store = true;
+        }
+      }
+    }
+    if($store === false){
+      if( (strpos($flame_db['icon'], '.jpg') === false) &&
+          (strpos($flame_db['icon'], '.jpeg') === false) &&
+          (strpos($flame_db['icon'], '.png') === false) &&
+          (strpos($flame_db['icon'], '.svg') === false) &&
+          (strpos($flame_db['icon'], '.ico') === false) ){
+        $flame_db['icon'] = 'mdi:'.$flame_db['icon'];
+      }
+      $this->insert_bookmark($categoryID, array(
+        'name'=>$flame_db['name'],
+        'url'=>$flame_db['url'],
+        'icon'=>$flame_db['icon'],
+        'categoryId'=>$categoryID,
+        'isPublic'=>$flame_db['isPublic'],
+        'orderId'=>$flame_db['orderId'],
+        'createdAt' => $flame_db['createdAt'],
+        'updatedAt' => $flame_db['updatedAt']
+      ));
+    }
+  }
 }
+

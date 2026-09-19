@@ -83,6 +83,7 @@ require_once('header.php');
 <?php }?>
 </p>
 <div class="Bookmarks_ActionsContainer__1XPAS">
+  <?php if($finish_edits === false){?>
   <div class="ActionButton_ActionButton__3Ckgw" tabindex="0" onclick="openModal('category_modal')">
     <div class="ActionButton_ActionButtonIcon__oPDrT">
       <span class="iconify" data-icon="mdi:plus-box" data-width="18"></span>
@@ -95,14 +96,16 @@ require_once('header.php');
     </div>
     <div class="ActionButton_ActionButtonName__32SDW">Edit Categories</div>
   </div>
-  <?php if($urls['id'] >= 0){?>
+  <?php }?>
+  <?php if($finish_edits === true){?>
+    <?php if($args['URL'][0] === 'bookmarks'){?>
     <div class="ActionButton_ActionButton__3Ckgw" tabindex="0" onclick="new_bookmark(<?php echo $urls['id'] ?>, 'bookmark_modal')">
       <div class="ActionButton_ActionButtonIcon__oPDrT">
         <span class="iconify" data-icon="mdi:pencil" data-width="18"></span>
       </div>
       <div class="ActionButton_ActionButtonName__32SDW">Add Bookmark</div>
     </div>
-  <?php } if($finish_edits === true){?>
+    <?php }?>
     <div class="ActionButton_ActionButton__3Ckgw" tabindex="0">
       <div class="ActionButton_ActionButtonIcon__oPDrT">
         <span class="iconify" data-icon="mdi:stop-circle-outline" data-width="18"></span>

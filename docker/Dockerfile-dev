@@ -6,7 +6,7 @@ RUN apk update && apk upgrade && \
     apk add gnupg nginx php84-fpm php84-pdo_mysql php84-sockets \
     php84-gd php84-ldap php84-gettext php84-pcntl php84-mysqlnd \
     php84-session php84-gmp php84-json php84-mbstring php84-iconv \
-    php84-ctype php84-curl php84-pear php84-simplexml php84-dom \
+    php84-ctype php84-curl php84-pear php84-simplexml php84-dom php84-pdo_sqlite \
     php84-xmlwriter php84-tokenizer php84 php84-phar php84-sqlite3 curl git \
     && mkdir -p /var/www/html/ \
     && mkdir -p /run/nginx \

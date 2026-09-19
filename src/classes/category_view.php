@@ -61,7 +61,7 @@ class category_view {
     $category_list .= '    </thead>'."\n";
     $category_list .= '  <tbody>'."\n";
     foreach($categories as $key => $category){
-      $js_object = '\''.$key.'\',\''.$category['name'].'\', '.$category['isPublic'].', \''.$category['orderId'].'\'';
+      $js_object = '\''.$category['id'].'\',\''.$category['name'].'\', '.$category['isPublic'].', \''.$category['orderId'].'\'';
       $category_list .= '  <tr data-rbd-draggable-context-id="1" data-rbd-draggable-id="46" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-22" data-rbd-drag-handle-draggable-id="46" data-rbd-drag-handle-context-id="1" draggable="false">'."\n";
       $category_list .= '    <td style="width: 200px;">'.$category['name'].'</td>'."\n";
       if($category['isPublic'] == 0){
@@ -69,22 +69,22 @@ class category_view {
       }else{
         $category_list .= '    <td style="width: 200px;">Visible</td>'."\n";
       }
-      $category_list .= '    <td style="width: 200px;"><input type="number" data-appId="'.$key.'" name="order" value="'.$category['orderId'].'" onchange="category_order(this.value, \''.$this->set_js($key, $category).'\')"></td>'."\n";
+      $category_list .= '    <td style="width: 200px;"><input type="number" data-appId="'.$category['id'].'" name="order" value="'.$category['orderId'].'" onchange="category_order(this.value, \''.$this->set_js($category['id'], $category).'\')"></td>'."\n";
       $category_list .= '    <td class="TableActions_TableActions__2_v2I">'."\n";
-      $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="category_delete('.$key.')">'."\n";
+      $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="category_delete('.$category['id'].')">'."\n";
       $category_list .= '        <span class="iconify" data-icon="mdi:delete" data-width="18"></span>'."\n";
       $category_list .= '      </div>'."\n";
-      $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="category_edit(\''.$this->set_js($key, $category).'\')">'."\n";
+      $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="category_edit(\''.$this->set_js($category['id'], $category).'\')">'."\n";
       $category_list .= '        <span class="iconify" data-icon="mdi:pencil" data-width="18"></span>'."\n";
       $category_list .= '      </div>'."\n";
       $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0">'."\n";
       $category_list .= '        <span class="iconify" data-icon="mdi:pin-off" data-width="18"></span>'."\n";
       $category_list .= '      </div>'."\n";
       if( ($category['isPublic'] == 0 ) ){
-        $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="category_edit(\''.$this->set_js($key, $category, 3, 1).'\', true)">'."\n";
+        $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="category_edit(\''.$this->set_js($category['id'], $category, 3, 1).'\', true)">'."\n";
         $category_list .= '        <span class="iconify" data-icon="mdi:eye-off" data-width="18"></span>'."\n";
       }else{
-        $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="category_edit(\''.$this->set_js($key, $category, 3, 1).'\', true)">'."\n";
+        $category_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="category_edit(\''.$this->set_js($category['id'], $category, 3, 1).'\', true)">'."\n";
         $category_list .= '        <span class="iconify" data-icon="mdi:eye" data-width="18"></span>'."\n";
       }
       $category_list .= '      </div>'."\n";

@@ -4,11 +4,11 @@ use MHorwood\Dashboard\model\application;
 use MHorwood\Dashboard\model\bookmark;
 use MHorwood\Dashboard\model\settings;
 use MHorwood\Dashboard\model\login;
-use MHorwood\Dashboard\model\flame;
 use MHorwood\Dashboard\classes\application_view;
 use MHorwood\Dashboard\classes\bookmark_view;
 use MHorwood\Dashboard\classes\category_view;
 use MHorwood\Dashboard\classes\docker;
+use MHorwood\Dashboard\model\migrate;
 
 class DashboardController{
 
@@ -22,6 +22,10 @@ class DashboardController{
   public $version;
 
   public function __construct($user_agent){
+    if( (strpos($user_agent, 'curl') !== false) ){
+      echo 'Your a curl';
+      exit;
+    }
     $this->version = file_get_contents('../../VERSION');
     if(!is_dir('../../user_data/uploads')){
       mkdir('../../user_data/uploads', 0775, true);
@@ -40,15 +44,10 @@ class DashboardController{
       $this->docker = new docker();
       $this->application->store_docker($this->docker->get_data());
     }
-    if(file_exists('../../user_data/db.sqlite')){
-      $this->flame = new flame();
-      $this->flame->import_apps($this->application);
-      $this->flame->import_categories($this->bookmark);
-      $this->flame->import_bookmarks($this->bookmark);
-    }
     $session = new login();
     $this->session = new login();
     $this->logged_in = $this->session->isUserAuthenticated();
+    $migrate = new migrate($this->setting_obj['useOrdering']);
   }
 
   /**
@@ -172,8 +171,12 @@ class DashboardController{
           }elseif(isset($args['categoryId']) && isset($args['bookmarkID'])){
             $this->bookmark->update_bookmark($args['bookmarkID'], $args['categoryId'], $args);
           }
+          header('Location: /bookmarks/'.$args['categoryId']);
+          exit;
         }elseif($urls['type'] == 'delete' && isset($args['categoryId']) && isset($args['bookmarkID'])){
           $this->bookmark->delete_bookmark($args['categoryId'], $args['bookmarkID']);
+          header('Location: /bookmarks/'.$args['categoryId']);
+          exit;
         }
         if($urls['id'] != 'none'){
           $finish_edits = true;
@@ -204,14 +207,12 @@ class DashboardController{
           exit;
         }
         $finish_edits = true;
-        $bookmarks = $this->category_view->build_category_table($this->bookmark->get_list());
+        $bookmarks = $this->category_view->build_category_table($this->bookmark->get_list($this->setting_obj['useOrdering']));
         include (__DIR__ . '/../view/edit_bookmarks.php');
         break;
       case 'settings':
         if(isset($urls['type']) && $urls['type'] !== 'none'){
           $this->setting_obj = $this->settings->save_settings($urls['sub_page'], $urls['type'], $args);
-          $this->application->set_sorting($this->setting_obj['useOrdering']);
-          $this->bookmark->set_sorting($this->setting_obj['useOrdering']);
         }
         switch($urls['sub_page']){
           case 'general':
