@@ -40,6 +40,7 @@ class DashboardController{
     $this->bookmark = new bookmark($this->setting_obj['useOrdering']);
     $this->bookmark_view = new bookmark_view($this->bookmark);
     $this->category_view = new category_view($this->bookmark);
+    $migrate = new migrate($this->setting_obj['useOrdering']);
     if($this->setting_obj['dockerApps'] === '1'){
       $this->docker = new docker();
       $this->application->store_docker($this->docker->get_data());
@@ -47,7 +48,6 @@ class DashboardController{
     $session = new login();
     $this->session = new login();
     $this->logged_in = $this->session->isUserAuthenticated();
-    $migrate = new migrate($this->setting_obj['useOrdering']);
   }
 
   /**
