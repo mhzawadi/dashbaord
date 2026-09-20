@@ -4,7 +4,7 @@ if [ $# -gt 1 ]
 then
   docker scout quickview fs://.
   docker scout cves fs://.
-  docker run --rm -t -v "${PWD}":/workdir overtrue/phplint:latest ./ --exclude=vendor --no-configuration --no-cache && \
+  docker run --rm -t -v "${PWD}":/data cytopia/phplint:latest -i './vendor/*' '*.php' && \
   docker compose -f docker/docker-compose.yml up
 elif [ "$1" == "composer" ]
 then

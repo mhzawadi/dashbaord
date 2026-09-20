@@ -30,7 +30,7 @@ class bookmark_view {
       if( ($category['isPublic'] == 1 ) || ($logged_in === true) ){
         $category_list .= '<div class="BookmarkCard_BookmarkCard__1GmHc">'."\n";
         if($link === true){
-          $category_list .= '  <h3 class="bk-title-link"><a href="/bookmarks/'.$key.'">'.$category['name'].'</a></h3>'."\n";
+          $category_list .= '  <h3 class="bk-title-link"><a href="/bookmarks/'.$category['id'].'">'.$category['name'].'</a></h3>'."\n";
         }else{
           $category_list .= '  <h3 class="bk-title-link">'.$category['name'].'</h3>'."\n";
         }
@@ -99,7 +99,7 @@ class bookmark_view {
     $bookmark_list .= '    </thead>'."\n";
     $bookmark_list .= '  <tbody>'."\n";
     foreach($bookmarks['bookmarks'] as $key => $bookmark){
-      $bookmark['categoryId'] = $category;
+      $bookmark['categoryId'] = $bookmarks['id'];
       $js_object = '';
       $bookmark['icon'] = str_replace('mdi:', '', $bookmark['icon']);
       $bookmark_list .= '  <tr data-rbd-draggable-context-id="1" data-rbd-draggable-id="46" tabindex="0" role="button" aria-describedby="rbd-hidden-text-1-hidden-text-22" data-rbd-drag-handle-draggable-id="46" data-rbd-drag-handle-context-id="1" draggable="false">'."\n";
@@ -112,22 +112,22 @@ class bookmark_view {
         $bookmark_list .= '    <td style="width: 200px;">Visible</td>'."\n";
       }
       $bookmark_list .= '    <td style="width: 100px;">'.$bookmarks['name'].'</td>'."\n";
-      $bookmark_list .= '    <td style="width: 100px;"><input type="number" min="1" max="200" name="order" value="'.$bookmark['orderId'].'" onchange="bookmark_order(this.value, \''.$this->set_js($key, $bookmark).'\')"></td>'."\n";
+      $bookmark_list .= '    <td style="width: 100px;"><input type="number" min="1" max="200" name="order" value="'.$bookmark['orderId'].'" onchange="bookmark_order(this.value, \''.$this->set_js($bookmark['id'], $bookmark).'\')"></td>'."\n";
       $bookmark_list .= '    <td class="TableActions_TableActions__2_v2I">'."\n";
-      $bookmark_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="delete_bookmark('.$category.', '.$key.')">'."\n";
+      $bookmark_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="delete_bookmark('.$bookmarks['id'].', '.$bookmark['id'].')">'."\n";
       $bookmark_list .= '        <span class="iconify" data-icon="mdi:delete" data-width="18"></span>'."\n";
       $bookmark_list .= '      </div>'."\n";
-      $bookmark_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="edit_bookmark(\''.$this->set_js($key, $bookmark).'\')">'."\n";
+      $bookmark_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="edit_bookmark(\''.$this->set_js($bookmark['id'], $bookmark).'\')">'."\n";
       $bookmark_list .= '        <span class="iconify" data-icon="mdi:pencil" data-width="18"></span>'."\n";
       $bookmark_list .= '      </div>'."\n";
       $bookmark_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0">'."\n";
       $bookmark_list .= '        <span class="iconify" data-icon="mdi:pin-off" data-width="18"></span>'."\n";
       $bookmark_list .= '      </div>'."\n";
       if( ($bookmark['isPublic'] == 0 ) ){
-        $bookmark_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="edit_bookmark(\''.$this->set_js($key, $bookmark, 4, 1).'\',true)">'."\n";
+        $bookmark_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="edit_bookmark(\''.$this->set_js($bookmark['id'], $bookmark, 4, 1).'\',true)">'."\n";
         $bookmark_list .= '        <span class="iconify" data-icon="mdi:eye-off" data-width="18"></span>'."\n";
       } else {
-        $bookmark_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="edit_bookmark(\''.$this->set_js($key, $bookmark, 4, 0).'\',true)">'."\n";
+        $bookmark_list .= '      <div class="TableActions_TableAction__tc3XZ" tabindex="0" onclick="edit_bookmark(\''.$this->set_js($bookmark['id'], $bookmark, 4, 0).'\',true)">'."\n";
         $bookmark_list .= '        <span class="iconify" data-icon="mdi:eye" data-width="18"></span>'."\n";
       }
       $bookmark_list .= '      </div>'."\n";

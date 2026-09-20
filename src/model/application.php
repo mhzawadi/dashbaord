@@ -1,21 +1,16 @@
 <?php
 namespace MHorwood\Dashboard\model;
-use MHorwood\Dashboard\classes\json;
+use MHorwood\Dashboard\classes\sqlite;
 
-class application extends json {
+class application extends sqlite {
 
   protected $app_list;
   protected $sorting;
 
   public function __construct($sorting){
+    parent::__construct();
     $this->sorting = $sorting;
-    if(file_exists('../../user_data/apps.json') === false){
-      $this->app_list = $this->load_from_file('../../data/apps.json');
-      $this->save_to_file('../../user_data/apps.json', $this->app_list);
-    }else{
-      $this->app_list = $this->load_from_file('../../user_data/apps.json');
-    }
-    // $this->sort();
+    $this->app_list = $this->load_from_file('applications', 'apps', $sorting);
   }
 
   public function get_list(){
@@ -33,32 +28,42 @@ class application extends json {
   }
 
   public function update_application($applicationID, $args){
-    $sorting = false;
     $last = count($this->app_list['apps']);
     if(!isset($args['orderId']) || $args['orderId'] == 'none'){
       $args['orderId'] = $last++;
-    }
-    if($args['orderId'] != $this->app_list['apps'][$applicationID]['orderId']){
-      $sorting = true;
     }
     if (!isset($args['app_proto'])){
       $args['app_proto'] = 'http';
     }
 
-    $this->app_list['apps'][$applicationID]['name'] = $args['name'];
-    $this->app_list['apps'][$applicationID]['url'] = $this->store_http($args['app_proto'].'://'.$this->remove_http($args['url']));
-    $this->app_list['apps'][$applicationID]['icon'] = $args['icon'];
-    $this->app_list['apps'][$applicationID]['description'] = $args['description'];
-    $this->app_list['apps'][$applicationID]['isPublic'] = $args['isPublic'];
-    $this->app_list['apps'][$applicationID]['updatedAt'] = date('Y-m-d H:i:s');
-    $this->app_list['apps'][$applicationID]['orderId'] = $args['orderId'];
-    if($sorting === true){
-      // need to walk the tree and reorder, this will drop duplicate numbers
-      $this->set_sorting($this->sorting);
-    }else{
-      $this->save_to_file('../../user_data/apps.json', $this->app_list);
-    }
+    $sql = 'UPDATE applications
+      SET
+        name = :name,
+        url = :url,
+        icon = :icon,
+        description = :description,
+        isPublic = :isPublic,
+        updatedAt = :updatedAt,
+        orderId = :orderId
+      WHERE
+        id = :appid';
+
+    $data = array(
+      'name' => $args['name'],
+      'url' => $this->store_http($args['app_proto'].'://'.$this->remove_http($args['url'])),
+      'icon' => $args['icon'],
+      'description' => $args['description'],
+      'isPublic' => $args['isPublic'],
+      'updatedAt' => date('Y-m-d H:i:s'),
+      'orderId' => $args['orderId'],
+      'appid' => $applicationID
+    );
+    $this->save_to_file($sql, $data);
   }
+
+  /*
+   *
+   */
   public function insert_application($args){
     $last = count($this->app_list['apps']);
     if(!isset($args['orderId']) || $args['orderId'] == 'none'){
@@ -71,28 +76,28 @@ class application extends json {
       $args['updatedAt'] = date('Y-m-d H:i:s');
     }
     $data = array(
-      'name'=>$args['name'],
-      'url'=>$this->store_http($args['app_proto'].'://'.$this->remove_http($args['url'])),
-      'icon'=>$args['icon'],
-      'description'=>$args['description'],
-      'isPublic'=>$args['isPublic'],
-      'createdAt'=>$args['createdAt'],
-      'updatedAt'=>$args['updatedAt'],
-      'orderId'=>$args['orderId']
+      ':name'=>$args['name'],
+      ':url'=>$this->store_http($args['app_proto'].'://'.$this->remove_http($args['url'])),
+      ':icon'=>$args['icon'],
+      ':description'=>$args['description'],
+      ':isPublic'=>$args['isPublic'],
+      ':createdAt'=>$args['createdAt'],
+      ':updatedAt'=>$args['updatedAt'],
+      ':orderId'=>$args['orderId']
     );
-    $this->app_list['apps'][] = $data;
-    $this->save_to_file('../../user_data/apps.json', $this->app_list);
+    $sql = 'INSERT INTO applications
+      (name,url,icon,description,isPublic,createdAt,updatedAt,orderId)
+      VALUES(:name,:url,:icon,:description,:isPublic,:createdAt,:updatedAt,:orderId)';
+    $this->save_to_file($sql, $data);
   }
 
   public function delete_application($applicationID){
-    $sorting = $this->sorting;
-    $this->app_list['apps'][$applicationID]['name'] = '00DELETEME00';
-    $this->set_sorting('name');
-    array_shift($this->app_list['apps']);
-    $this->set_sorting($sorting);
-    $this->save_to_file('../../user_data/apps.json', $this->app_list);
+    $sql = 'DELETE FROM applications WHERE id = :id';
+    $data['id'] = $applicationID;
+    $this->save_to_file($sql, $data);
   }
   public function order_application($applications_json){
+    $sql = 'UPDATE applications set orderId = ';
     $applications = json_decode($applications_json, true);
     foreach ($applications as $key => $value) {
       $this->app_list['apps'][$value['appId']]['orderId'] = $value['orderId'];
@@ -140,33 +145,6 @@ class application extends json {
           'app_proto' => $dvalue['https'],
         ));
       }
-    }
-  }
-
-  public function flame_import($flame_db){
-    $store = true;
-    foreach($this->app_list['apps'] as $key => $app){
-      if( ($app['name'] == $flame_db['name']) && ($this->remove_http($app['url']) == $this->remove_http($flame_db['url'])) ){
-        $store = false;
-      }
-    }
-    if($store === true){
-      if(isset($flame_db['icon'])){
-        $icon = $flame_db['icon'];
-      }else{
-        $icon = 'mdi:fire';
-      }
-      $this->insert_application(array(
-        'name' => $flame_db['name'],
-        'url' => $flame_db['url'],
-        'icon' => $icon,
-        'description' => $flame_db['name'],
-        'isPublic' => $flame_db['isPublic'],
-        'orderId' => $flame_db['orderId'],
-        'createdAt' => $flame_db['createdAt'],
-        'updatedAt' => $flame_db['updatedAt'],
-        'app_proto' => 'http',
-      ));
     }
   }
 
