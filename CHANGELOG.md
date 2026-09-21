@@ -1,6 +1,48 @@
 # Changelog
 
 
+## v0.1.0 (2026-09-21)
+
+### Fix
+
+*  fix version. [Matthew Horwood]
+
+### Documentation
+
+*  update CHANGELOG.md. [github-actions]
+
+### Other
+
+* DASHB-3 / SQLITE migration (#161) [Matthew Horwood]
+
+  * DASHB-3 / SQLITE migration
+
+  feat: update app code to use SQLite
+  feat: update bookmarks and categorys to use SQLite
+
+  * bug: lint not working
+
+  * feat: start migrate tool
+  chor: drop flame import
+  bug: fix building DB
+
+  * feat: import bookmarks
+  feat: re-wrire flame import
+  chor: fix up import
+
+  * chor: tidy up logs from php
+  chor: catch curl user
+  chor: remove sqlite from settings class
+  bug: fix bookmark import
+
+  * bug: migrate before docker
+
+* Build(deps): 13-09-2026. [Matthew Horwood]
+
+  - Updates simple-icons/simple-icons from 16.28.0 to 16.29.0
+  - Updates phpunit/phpunit from 13.2.6 to 13.3.2
+
+
 ## v0.0.28 (2026-08-04)
 
 ### Other
