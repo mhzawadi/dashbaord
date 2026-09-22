@@ -17,18 +17,26 @@ then
   echo -e "The current version is $(cat VERSION)"
 fi
 
+git_branch=$(git rev-parse --abbrev-ref HEAD)
+file_ver=$(cat VERSION)
+if [ "$git_branch" != "$file_ver" ]
+then
+  echo "What are you doing"
+  echo "$git_branch is not $file_ver"
+fi
+
 function git-tag() {
-    if [ $# -lt 1 ]
-    then
-      echo "<tag>"
-      echo "v1.2.3"
-    else
-      sed -i '' "s/version v[0-9]*\.[0-9]*\.[0-9]*/version $1/" src/view/settings_app.php
-      gitchangelog >| CHANGELOG.md
-      git add .
-      git commit -m "doc: change log for tag $1"
-      git push
-      git tag $1
-      git push origin --tag
-    fi
+  if [ $# -lt 1 ]
+  then
+    echo "<tag>"
+    echo "v1.2.3"
+  else
+    sed -i '' "s/version v[0-9]*\.[0-9]*\.[0-9]*/version $1/" src/view/settings_app.php
+    gitchangelog >| CHANGELOG.md
+    git add .
+    git commit -m "doc: change log for tag $1"
+    git push
+    git tag $1
+    git push origin --tag
+  fi
 }

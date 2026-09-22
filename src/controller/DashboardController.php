@@ -22,10 +22,6 @@ class DashboardController{
   public $version;
 
   public function __construct($user_agent){
-    if( (strpos($user_agent, 'curl') !== false) ){
-      echo 'Your a curl';
-      exit;
-    }
     $this->version = file_get_contents('../../VERSION');
     if(!is_dir('../../user_data/uploads')){
       mkdir('../../user_data/uploads', 0775, true);
@@ -40,7 +36,12 @@ class DashboardController{
     $this->bookmark = new bookmark($this->setting_obj['useOrdering']);
     $this->bookmark_view = new bookmark_view($this->bookmark);
     $this->category_view = new category_view($this->bookmark);
-    $migrate = new migrate($this->setting_obj['useOrdering']);
+    if( file_exists('../../user_data/apps.json') || file_exists('../../user_data/bookmarks.json') ){
+      $migrate = new migrate($this->setting_obj['useOrdering']);
+    }
+    // if( file_exists('../../user_data/db.sqlite') ){
+    //   //$flame = new flame($this->setting_obj['useOrdering']);
+    // }
     if($this->setting_obj['dockerApps'] === '1'){
       $this->docker = new docker();
       $this->application->store_docker($this->docker->get_data());
@@ -114,9 +115,12 @@ class DashboardController{
   /**
   * Routing from index page
   **/
-  public function routing($args){
+  public function routing($user_agent,$args){
     $urls = $this->pre_routing($args['URL']);
     switch ($urls['page']) {
+      case 'healthcheck':
+        echo 'This is working';
+        exit;
       case 'oauth':
         $this->session->oauth($this->setting_obj['oauth']);
         break;
@@ -273,10 +277,16 @@ class DashboardController{
         }
         break;
       default:
-      $applications = $this->application_view->build_app_grid($this->application->get_list(), $this->logged_in);
-      $bookmarks = $this->bookmark_view->build_list($this->setting_obj['useOrdering'], false, $this->logged_in);
-      include (__DIR__ . '/../view/main_view.php');
-        break;
+        if( (strpos($user_agent, 'curl') !== false) ){
+          echo '# '.$this->setting_obj['customTitle']."\n";
+          $this->application_view->build_curl($this->application->get_list(), $this->logged_in);
+          $this->bookmark_view->build_curl($this->setting_obj['useOrdering'], false, $this->logged_in);
+          exit;
+        }
+        $applications = $this->application_view->build_app_grid($this->application->get_list(), $this->logged_in);
+        $bookmarks = $this->bookmark_view->build_list($this->setting_obj['useOrdering'], false, $this->logged_in);
+        include (__DIR__ . '/../view/main_view.php');
+          break;
       }
   }
 
