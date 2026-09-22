@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.1.1 (2026-09-22)
+
+### Documentation
+
+*  update CHANGELOG.md. [github-actions]
+
+### Other
+
+* DASHB-1 / 0.1.1 (#163) [Matthew Horwood]
+
+  chor: update composer
+  feat: display markdown for curl user agents
+  feat: docker health check route
+  chor: check for json files to migrate
+
+
 ## v0.1.0 (2026-09-21)
 
 ### Fix
