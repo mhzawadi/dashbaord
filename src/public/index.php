@@ -23,4 +23,4 @@ if($REQUEST_URI[0] === ''){
 // print_pre($_COOKIE);
 // print_pre($_SERVER);
 $DashboardController = new DashboardController($_SERVER['HTTP_USER_AGENT']);
-$DashboardController->routing($args);
+$DashboardController->routing($_SERVER['HTTP_USER_AGENT'], $args);

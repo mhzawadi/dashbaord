@@ -22,6 +22,28 @@ class bookmark_view {
     return implode("','",$js_object);
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
+  public function build_curl($useOrdering, $link = false, $logged_in) {
+    $bookmarks = $this->bookmark->get_list($useOrdering);
+    foreach($bookmarks as $key => $category){
+      if( ($category['isPublic'] == 1 ) || ($logged_in === true) ){
+        echo '## '.$category['name']."\n";
+        foreach($category['bookmarks'] as $key => $bookmark){
+          if( ($bookmark['isPublic'] == 1 ) || ($logged_in === true) ){
+            echo '- ['.$bookmark['name'].']('.$bookmark['url'].')'."\n";
+          }
+        }
+      }
+    }
+  }
+
   public function build_list($useOrdering, $link = false, $logged_in){
     $bookmarks = $this->bookmark->get_list($useOrdering);
     $category_list = '';

@@ -31,6 +31,30 @@ class application_view {
     return implode("','",$js_object);
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
+  public function build_curl($applications,$logged_in) {
+    foreach($applications as $key => $app){
+      if( ($app['isPublic'] == 1 && $logged_in === false) ||
+          ($logged_in === true)
+      ){
+        if( $app['description'] !== ''){
+          $description = substr($this->remove_http($app['description']), 0, 40);
+        } else {
+          $description = substr($this->remove_http($app['url']), 0, 40);
+        }
+        echo '- ['.$description.']('.$this->set_http($app['url']).')'."\n";
+      }
+    }
+    echo '---'."\n";
+  }
+
   public function build_app_grid($applications, $logged_in){
     $app_list = '';
     foreach($applications as $key => $app){
