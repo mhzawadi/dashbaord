@@ -2,6 +2,8 @@ name: "Update Change Log"
 
 on:
   workflow_dispatch:
+  release:
+    types: [published]
 
 jobs:
   build:
