@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.1.2 (2026-09-27)
+
+### Documentation
+
+*  update CHANGELOG.md. [github-actions]
+
+### Other
+
+* DASHB-5 / import flame DB (#164) [Matthew Horwood]
+
+  * DASHB-5 / import flame DB
+
+  feat: rewrite flame import code
+  chor: fix up bookmarks
+
+  * bug: reload all bookmark data from db
+  bug: set mdi icons
+  bug: fix catagory IDs
+
+
 ## v0.1.1 (2026-09-22)
 
 ### Documentation
