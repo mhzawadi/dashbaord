@@ -13,7 +13,8 @@
         "riverside/php-orm" : "*",
         "stevenmaguire/oauth2-keycloak": ">=6",
         "firebase/php-jwt": "7.1.*",
-        "simple-icons/simple-icons": ">=16"
+        "simple-icons/simple-icons": ">=16",
+        "phpdocumentor/shim": "^3.10"
     },
     "require-dev": {
         "phpunit/phpunit": "13.*"
@@ -21,6 +22,11 @@
     "autoload": {
         "psr-4": {
             "MHorwood\\Dashboard\\": "src"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "phpdocumentor/shim": true
         }
     }
 }

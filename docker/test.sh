@@ -12,6 +12,10 @@ then
   docker build -t mhzawadi/dashbaord:dev -f ./docker/Dockerfile-dev . && \
   docker run --rm -it -v '/Users/matt/git/dashbaord:/var/www/html' mhzawadi/dashbaord:dev /usr/local/bin/composer update
   docker compose -f docker/docker-compose.yml up -d
+  vendor/bin/phpdoc run -d . -t docs/api
+elif [ "$1" == "docs" ]
+then
+  docker run --rm -it -v '/Users/matt/git/dashbaord:/var/www/html' mhzawadi/dashbaord:dev vendor/bin/phpdoc run -d . -t docs/api
 elif [ "$1" == "up" ]
 then
   docker compose -f docker/docker-compose.yml down;

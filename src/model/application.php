@@ -4,8 +4,8 @@ use MHorwood\Dashboard\classes\sqlite;
 
 class application extends sqlite {
 
-  protected $app_list;
-  protected $sorting;
+  protected object $app_list;
+  protected string $sorting;
 
   public function __construct($sorting){
     parent::__construct();
