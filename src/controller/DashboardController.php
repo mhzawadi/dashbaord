@@ -9,6 +9,7 @@ use MHorwood\Dashboard\classes\bookmark_view;
 use MHorwood\Dashboard\classes\category_view;
 use MHorwood\Dashboard\classes\docker;
 use MHorwood\Dashboard\model\migrate;
+use MHorwood\Dashboard\model\flame;
 
 class DashboardController{
 
@@ -39,9 +40,9 @@ class DashboardController{
     if( file_exists('../../user_data/apps.json') || file_exists('../../user_data/bookmarks.json') ){
       $migrate = new migrate($this->setting_obj['useOrdering']);
     }
-    // if( file_exists('../../user_data/db.sqlite') ){
-    //   //$flame = new flame($this->setting_obj['useOrdering']);
-    // }
+    if( file_exists('../../user_data/db.sqlite') ){
+      $flame = new flame($this->setting_obj['useOrdering']);
+    }
     if($this->setting_obj['dockerApps'] === '1'){
       $this->docker = new docker();
       $this->application->store_docker($this->docker->get_data());

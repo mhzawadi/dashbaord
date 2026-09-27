@@ -26,6 +26,8 @@ class bookmark extends sqlite {
     foreach($this->bookmarks_list['categorys'] as $key => $category){
       if($categoryId == $category['id']){
         $last = count($bookmarks_list['categorys'][$key]['bookmarks']);
+      }else{
+        $last = 0;
       }
     }
     return $last++;
