@@ -34,6 +34,9 @@ class flame {
         }else{
           $row['app_proto'] = 'https';
         }
+        if(strpos($row['icon'], '.png') === false || strpos($app['icon'], '.jpg') === false){
+          $row['icon'] = 'mdi:'.$row['icon'];
+        }
         $this->c_application->insert_application($row);
       }
     }
@@ -45,18 +48,17 @@ class flame {
   }
 
   protected function import_categories(){
-
-    $results = $this->db->query('SELECT name,isPublic,createdAt,updatedAt,orderId FROM categories');
+    $results = $this->db->query('SELECT id,name,isPublic,createdAt,updatedAt,orderId FROM categories');
     while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
       if(count($this->c_bookmark->get_category($row['name'])) == 0){
         $this->c_bookmark->insert_category($row);
       }
       $search_category = $this->c_bookmark->get_category($row['name']);
-      $this->import_bookmarks($search_category[0]['id']);
+      $this->import_bookmarks($row['id'], $search_category[0]['id']);
     }
   }
 
-  protected function import_bookmarks($categoryId){
+  protected function import_bookmarks($row_id, $categoryId){
     $results = $this->db->query('select
       name,
       icon,
@@ -67,10 +69,13 @@ class flame {
       createdAt,
       updatedAt
     from bookmarks
-    WHERE categoryId = '.$categoryId);
+    WHERE categoryId = '.$row_id);
     while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
       $search_bookmark = $this->c_bookmark->get_bookamrk($row['name']);
       if(count($search_bookmark) < 1){
+        if(strpos($row['icon'], '.png') === false || strpos($row['icon'], '.jpg') === false){
+          $row['icon'] = 'mdi:'.$row['icon'];
+        }
         $row['categoryId'] = $categoryId;
         $this->c_bookmark->insert_bookmark($categoryId, $row);
       }

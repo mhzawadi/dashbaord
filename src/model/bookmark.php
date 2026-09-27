@@ -228,8 +228,8 @@ class bookmark extends sqlite {
       'updatedAt'=>$args['updatedAt'],
       'orderId'=>$args['orderId']
     );
-    $this->bookmarks_list['categorys'][] = $data;
     $this->save_to_file($sql, $data);
+    $this->build_list($this->sorting);
   }
 
   public function delete_category($categoryId){
