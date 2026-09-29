@@ -31,6 +31,8 @@ class docker {
   }
 
   /**
+   * return the docker data
+   *
    * @return mixed[] all the running containers
    */
   public function get_data(){

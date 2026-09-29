@@ -5,7 +5,9 @@ use MHorwood\Dashboard\classes\bookmark_view;
 use MHorwood\Dashboard\Model\bookmark;
 
 class category_view {
+
   protected $bookmark;
+
   public function __construct($bookmarks){
     $this->bookmark = $bookmarks;
   }
@@ -30,6 +32,7 @@ class category_view {
     }
     return $category_options;
   }
+
   public function build_category_list($categorys, $link = false){
     $this->bookmark_view = new bookmark_view;
     $category_list = '';
@@ -47,6 +50,7 @@ class category_view {
     $category_list .= '</div>'."\n";
     return $category_list;
   }
+
   public function build_category_table($categories){
     $category_list = '';
     $category_list .= '<div class="Table_TableContainer__UrXXd">'."\n";
