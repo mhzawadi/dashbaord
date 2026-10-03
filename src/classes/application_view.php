@@ -82,7 +82,8 @@ class application_view {
    *
    * Undocumented function long description
    *
-   * @param type var Description
+   * @param array $applications the applicastion array
+   * @param bool $logged_in is the request logged in
    * @return string the HTML to display
    */
   public function build_app_grid($applications, $logged_in){

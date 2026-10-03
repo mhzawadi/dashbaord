@@ -5,24 +5,27 @@ namespace MHorwood\Dashboard\classes;
 class bookmark_view {
 
   /**
-   * undocumented function summary
+   * Construct function
    *
-   * Undocumented function long description
+   * init the class
    *
-   * @param type var Description
-   * @return return type
+   * @param array $bookmarks The bookmarks list
+   * @return void
    */
   public function __construct($bookmarks){
     $this->bookmark = $bookmarks;
   }
 
   /**
-   * undocumented function summary
+   * Build javascript for client side updates
    *
-   * Undocumented function long description
+   * use javascript to make updates to a bookmark, this will set the client side javascript
    *
-   * @param type var Description
-   * @return return type
+   * @param int $bookmark_id The id of the bookmark to edit
+   * @param array $bookmark The array if the bookmark object
+   * @param int $array_id the ID of the item in the array
+   * @param int $value the value of the array item
+   * @return staring the javascript to run
    */
   protected function set_js($bookmark_id, $bookmark, $array_id = null, $value = null){
     $js_object[0] = $bookmark_id;
@@ -39,14 +42,16 @@ class bookmark_view {
   }
 
   /**
-   * undocumented function summary
+   * Show markdown to curl
    *
-   * Undocumented function long description
+   * When the site is curled, dont show HTML
+   * show markdown so that you can click links
    *
-   * @param type var Description
-   * @return return type
+   * @param string $useOrdering set the order of the returned bookarks
+   * @param bool $logged_in is the request logged in
+   * @return void
    */
-  public function build_curl($useOrdering, $link = false, $logged_in) {
+  public function build_curl($useOrdering, $logged_in) {
     $bookmarks = $this->bookmark->get_list($useOrdering);
     foreach($bookmarks as $key => $category){
       if( ($category['isPublic'] == 1 ) || ($logged_in === true) ){
@@ -61,11 +66,13 @@ class bookmark_view {
   }
 
   /**
-   * undocumented function summary
+   * Build bookmark main list
    *
    * Undocumented function long description
    *
-   * @param type var Description
+   * @param type $useOrdering set the order of the returned bookarks
+   * @param type $link Should the category be a link
+   * @param type $logged_in is the request logged in
    * @return return type
    */
   public function build_list($useOrdering, $link = false, $logged_in){
@@ -106,12 +113,7 @@ class bookmark_view {
   }
 
   /**
-   * undocumented function summary
-   *
-   * Undocumented function long description
-   *
-   * @param type var Description
-   * @return return type
+   * Maybe unused
    */
   public function build_bookmark_list($bookmarks_object){
     $bookmarks = $bookmarks_object->select('id, name, url, icon')->get();
@@ -135,12 +137,12 @@ class bookmark_view {
   }
 
   /**
-   * undocumented function summary
+   * Build bookmark table for the editor
    *
    * Undocumented function long description
    *
-   * @param type var Description
-   * @return return type
+   * @param int $category the ID of the category
+   * @return string The HTML to show in the editor
    */
   public function build_bookmark_table($category){
     $bookmarks = $this->bookmark->get_bookmark($category);

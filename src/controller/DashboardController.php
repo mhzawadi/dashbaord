@@ -289,7 +289,7 @@ class DashboardController{
         if( (strpos($user_agent, 'curl') !== false) ){
           echo '# '.$this->setting_obj['customTitle']."\n";
           $this->application_view->build_curl($this->application->get_list(), $this->logged_in);
-          $this->bookmark_view->build_curl($this->setting_obj['useOrdering'], false, $this->logged_in);
+          $this->bookmark_view->build_curl($this->setting_obj['useOrdering'], $this->logged_in);
           exit;
         }
         $applications = $this->application_view->build_app_grid($this->application->get_list(), $this->logged_in);
