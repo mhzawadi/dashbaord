@@ -12,7 +12,7 @@
     "require" : {
         "riverside/php-orm" : "*",
         "stevenmaguire/oauth2-keycloak": ">=6",
-        "firebase/php-jwt": "7.1.*",
+        "firebase/php-jwt": "7.2.*",
         "simple-icons/simple-icons": ">=16",
         "phpdocumentor/shim": "^3.10"
     },
