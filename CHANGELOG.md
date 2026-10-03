@@ -1,6 +1,49 @@
 # Changelog
 
 
+## v0.1.3 (2026-10-03)
+
+### New
+
+*  update change log from tags. [Matthew Horwood]
+
+### Documentation
+
+*  update CHANGELOG.md. [github-actions]
+
+### Other
+
+* DASHB-6 / Documentation (#165) [Matthew Horwood]
+
+  * DASHB-6 / Documentation
+
+  feat: add dcos tool
+  docs: use phpDocumentor
+  docs: start to add doc blocks
+
+  * bug: fix version
+  chor: update composer
+  doc: rebuild
+
+  * doc: more doc blocks
+  feat: nginx route for docs
+
+  * chor: add doc block to all runctions
+
+  * docs: application class
+
+  * docs: docuemnt bookmark view
+
+  * chor: remove unused code
+  docs: docuemnt category view
+
+  * docs: controller
+
+  * DASHB-6
+
+  docs: update
+
+
 ## v0.1.2 (2026-09-27)
 
 ### Documentation
