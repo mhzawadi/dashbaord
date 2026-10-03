@@ -90,6 +90,14 @@ class bookmark extends sqlite {
     return $rows;
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function set_sorting($sorting){
     $this->sorting = $sorting;
     foreach($this->bookmarks_list['categorys'] as $key => $category){
@@ -103,6 +111,14 @@ class bookmark extends sqlite {
     $this->save_to_file('../../user_data/bookmarks.json', $this->bookmarks_list);
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   private function sort_categorys($category){
     $sorted = $category;
     usort($sorted, function($a, $b) { //Sort the array using a user defined function
@@ -111,6 +127,14 @@ class bookmark extends sqlite {
     return $sorted;
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function get_bookmark($categoryID){
     foreach($this->bookmarks_list['categorys'] as $key => $category){
       if($categoryID == $category['id']){
@@ -120,6 +144,14 @@ class bookmark extends sqlite {
     return $return;
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function get_category_options($categoryID = null){
     foreach($this->bookmarks_list['categorys'] as $key => $category){
       if($categoryID == $key){
@@ -131,6 +163,14 @@ class bookmark extends sqlite {
     return $this->category_options;
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function update_bookmark($bookmarkID, $categoryId, $args){
     if(!isset($args['orderId'])){
       $args['orderId'] = $this->last_bookmark($this->bookmarks_list, $categoryId);
@@ -154,6 +194,15 @@ class bookmark extends sqlite {
     $data['orderId'] = $args['orderId'];
     $this->save_to_file($sql, $data);
   }
+
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function insert_bookmark($categoryId, $args){
     if(!isset($args['orderId']) || $args['orderId'] == 'none'){
       $args['orderId'] = $this->last_bookmark($this->bookmarks_list, $categoryId);
@@ -180,12 +229,28 @@ class bookmark extends sqlite {
     $this->save_to_file($sql, $data);
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function delete_bookmark($categoryId, $bookmarkID){
     $sql = 'DELETE FROM bookmarks WHERE id = :id';
     $data['id'] = $bookmarkID;
     $this->save_to_file($sql, $data);
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function update_category($categoryId, $args){
     $sorting = false;
     if(!isset($args['orderId'])){
@@ -207,6 +272,14 @@ class bookmark extends sqlite {
     $this->save_to_file($sql, $data);
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function insert_category($args){
     $last_category = count($this->bookmarks_list['categorys']);
     if(!isset($args['orderId']) || $args['orderId'] === 'none'){
@@ -232,6 +305,14 @@ class bookmark extends sqlite {
     $this->build_list($this->sorting);
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function delete_category($categoryId){
     $sql = 'DELETE FROM categorys WHERE id = :id';
     $data['id'] = $categoryId;

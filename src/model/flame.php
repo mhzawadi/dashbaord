@@ -9,6 +9,14 @@ class flame {
   protected $c_application;
   protected $c_bookmark;
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function __construct($sorting){
     $this->db = new \SQLite3('../../user_data/db.sqlite');
     $this->c_application = new application($sorting);
@@ -18,6 +26,14 @@ class flame {
     rename('../../user_data/db.sqlite', '../../user_data/db.sqlite.old');
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   protected function import_apps(){
     $apps = $this->c_application->get_list();
     $results = $this->db->query('SELECT name,url,icon,description,isPublic,createdAt,updatedAt,orderId FROM apps');
@@ -42,11 +58,27 @@ class flame {
     }
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   protected function remove_http($string){
     $replace = array('http://', 'https://', 'http-', 'https-', '://');
     return str_replace($replace, '', $string);
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   protected function import_categories(){
     $results = $this->db->query('SELECT id,name,isPublic,createdAt,updatedAt,orderId FROM categories');
     while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
@@ -58,6 +90,14 @@ class flame {
     }
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   protected function import_bookmarks($row_id, $categoryId){
     $results = $this->db->query('select
       name,

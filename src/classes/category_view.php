@@ -8,10 +8,26 @@ class category_view {
 
   protected $bookmark;
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function __construct($bookmarks){
     $this->bookmark = $bookmarks;
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   protected function set_js($category_id, $category, $array_id = null, $value = null){
     $js_object[0] = $category_id;
     $js_object[1] = $category['name'];
@@ -23,6 +39,14 @@ class category_view {
     return implode("','",$js_object);
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function build_category_option(){
     $categorys = $this->bookmark->get_list();
     print_pre($categorys);
@@ -33,6 +57,14 @@ class category_view {
     return $category_options;
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function build_category_list($categorys, $link = false){
     $this->bookmark_view = new bookmark_view;
     $category_list = '';
@@ -51,6 +83,14 @@ class category_view {
     return $category_list;
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function build_category_table($categories){
     $category_list = '';
     $category_list .= '<div class="Table_TableContainer__UrXXd">'."\n";

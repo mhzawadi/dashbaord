@@ -75,6 +75,14 @@ class application_view {
     echo '---'."\n";
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function build_app_grid($applications, $logged_in){
     $app_list = '';
     foreach($applications as $key => $app){
@@ -106,6 +114,14 @@ class application_view {
     return $app_list;
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function build_app_table($applications){
     $app_list = '';
     $app_list .= '<div class="Table_TableContainer__UrXXd">'."\n";

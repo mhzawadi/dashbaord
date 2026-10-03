@@ -22,6 +22,14 @@ class DashboardController{
   protected $uploadOk;
   public $version;
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function __construct($user_agent){
     $this->version = file_get_contents('../../VERSION');
     if(!is_dir('../../user_data/uploads')){
@@ -291,6 +299,14 @@ class DashboardController{
       }
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   protected function is_mdi_si($icon){
     if( (strpos($icon, '.jpg') === false) &&
         (strpos($icon, '.jpeg') === false) &&
@@ -304,6 +320,14 @@ class DashboardController{
     }
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   protected function store_image(){
     $target_dir = __DIR__ . '/../../user_data/uploads/';
     $target_file = $target_dir . basename($_FILES["icon_file"]["name"]);

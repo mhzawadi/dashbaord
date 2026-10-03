@@ -4,10 +4,26 @@ namespace MHorwood\Dashboard\classes;
 
 class bookmark_view {
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function __construct($bookmarks){
     $this->bookmark = $bookmarks;
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   protected function set_js($bookmark_id, $bookmark, $array_id = null, $value = null){
     $js_object[0] = $bookmark_id;
     $js_object[1] = $bookmark['name'];
@@ -44,6 +60,14 @@ class bookmark_view {
     }
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function build_list($useOrdering, $link = false, $logged_in){
     $bookmarks = $this->bookmark->get_list($useOrdering);
     $category_list = '';
@@ -81,8 +105,14 @@ class bookmark_view {
     return $category_list;
   }
 
-
-
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function build_bookmark_list($bookmarks_object){
     $bookmarks = $bookmarks_object->select('id, name, url, icon')->get();
     $bookmark_list = '';
@@ -103,6 +133,15 @@ class bookmark_view {
     $bookmark_list .= '  </div>'."\n";
     return $bookmark_list;
   }
+
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function build_bookmark_table($category){
     $bookmarks = $this->bookmark->get_bookmark($category);
     $bookmark_list = '';
