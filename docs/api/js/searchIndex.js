@@ -58,32 +58,32 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\classes\\application_view\u003A\u003Aremove_http\u0028\u0029",
             "name": "remove_http",
-            "summary": "",
+            "summary": "Remove\u0020the\u0020protocol\u0020from\u0020a\u0020string",
             "url": "classes/MHorwood-Dashboard-classes-application-view.html#method_remove_http"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\classes\\application_view\u003A\u003Aset_http\u0028\u0029",
             "name": "set_http",
-            "summary": "",
+            "summary": "Convert\u0020the\u0020protocol\u0020from\u0020the\u0020database\u0020to\u0020a\u0020URL",
             "url": "classes/MHorwood-Dashboard-classes-application-view.html#method_set_http"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\classes\\application_view\u003A\u003Aset_js\u0028\u0029",
             "name": "set_js",
-            "summary": "",
+            "summary": "Remove\u0020the\u0020protocol\u0020from\u0020a\u0020string",
             "url": "classes/MHorwood-Dashboard-classes-application-view.html#method_set_js"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\classes\\application_view\u003A\u003Abuild_curl\u0028\u0029",
             "name": "build_curl",
-            "summary": "undocumented\u0020function\u0020summary",
+            "summary": "Show\u0020markdown\u0020whe\u0020curl\u0020is\u0020used",
             "url": "classes/MHorwood-Dashboard-classes-application-view.html#method_build_curl"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\classes\\application_view\u003A\u003Abuild_app_grid\u0028\u0029",
             "name": "build_app_grid",
-            "summary": "",
+            "summary": "build\u0020the\u0020mian\u0020view\u0020grid",
             "url": "classes/MHorwood-Dashboard-classes-application-view.html#method_build_app_grid"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\classes\\application_view\u003A\u003Abuild_app_table\u0028\u0029",
             "name": "build_app_table",
-            "summary": "",
+            "summary": "Build\u0020the\u0020editor\u0020table",
             "url": "classes/MHorwood-Dashboard-classes-application-view.html#method_build_app_table"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\classes\\bookmark_view",
@@ -93,32 +93,32 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\classes\\bookmark_view\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Construct\u0020function",
             "url": "classes/MHorwood-Dashboard-classes-bookmark-view.html#method___construct"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\classes\\bookmark_view\u003A\u003Aset_js\u0028\u0029",
             "name": "set_js",
-            "summary": "",
+            "summary": "Build\u0020javascript\u0020for\u0020client\u0020side\u0020updates",
             "url": "classes/MHorwood-Dashboard-classes-bookmark-view.html#method_set_js"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\classes\\bookmark_view\u003A\u003Abuild_curl\u0028\u0029",
             "name": "build_curl",
-            "summary": "undocumented\u0020function\u0020summary",
+            "summary": "Show\u0020markdown\u0020to\u0020curl",
             "url": "classes/MHorwood-Dashboard-classes-bookmark-view.html#method_build_curl"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\classes\\bookmark_view\u003A\u003Abuild_list\u0028\u0029",
             "name": "build_list",
-            "summary": "",
+            "summary": "Build\u0020bookmark\u0020main\u0020list",
             "url": "classes/MHorwood-Dashboard-classes-bookmark-view.html#method_build_list"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\classes\\bookmark_view\u003A\u003Abuild_bookmark_list\u0028\u0029",
             "name": "build_bookmark_list",
-            "summary": "",
+            "summary": "Maybe\u0020unused",
             "url": "classes/MHorwood-Dashboard-classes-bookmark-view.html#method_build_bookmark_list"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\classes\\bookmark_view\u003A\u003Abuild_bookmark_table\u0028\u0029",
             "name": "build_bookmark_table",
-            "summary": "",
+            "summary": "Build\u0020bookmark\u0020table\u0020for\u0020the\u0020editor",
             "url": "classes/MHorwood-Dashboard-classes-bookmark-view.html#method_build_bookmark_table"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\classes\\category_view",
@@ -128,27 +128,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\classes\\category_view\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-classes-category-view.html#method___construct"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\classes\\category_view\u003A\u003Aset_js\u0028\u0029",
             "name": "set_js",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-classes-category-view.html#method_set_js"
-        },                {
-            "fqsen": "\\MHorwood\\Dashboard\\classes\\category_view\u003A\u003Abuild_category_option\u0028\u0029",
-            "name": "build_category_option",
-            "summary": "",
-            "url": "classes/MHorwood-Dashboard-classes-category-view.html#method_build_category_option"
-        },                {
-            "fqsen": "\\MHorwood\\Dashboard\\classes\\category_view\u003A\u003Abuild_category_list\u0028\u0029",
-            "name": "build_category_list",
-            "summary": "",
-            "url": "classes/MHorwood-Dashboard-classes-category-view.html#method_build_category_list"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\classes\\category_view\u003A\u003Abuild_category_table\u0028\u0029",
             "name": "build_category_table",
-            "summary": "",
+            "summary": "Build\u0020the\u0020category\u0020table",
             "url": "classes/MHorwood-Dashboard-classes-category-view.html#method_build_category_table"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\classes\\category_view\u003A\u003A\u0024bookmark",
@@ -168,7 +158,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\classes\\docker\u003A\u003Aget_data\u0028\u0029",
             "name": "get_data",
-            "summary": "",
+            "summary": "return\u0020the\u0020docker\u0020data",
             "url": "classes/MHorwood-Dashboard-classes-docker.html#method_get_data"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\classes\\docker\u003A\u003A\u0024data",
@@ -183,7 +173,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\print_pre\u0028\u0029",
             "name": "print_pre",
-            "summary": "",
+            "summary": "Print\u0020out\u0020print_r\u0020in\u0020pre\u0020HTML\u0020tags",
             "url": "namespaces/default.html#function_print_pre"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\classes\\json",
@@ -243,7 +233,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\controller\\DashboardController\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Construct\u0020function",
             "url": "classes/MHorwood-Dashboard-controller-DashboardController.html#method___construct"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\controller\\DashboardController\u003A\u003Apre_routing\u0028\u0029",
@@ -258,12 +248,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\controller\\DashboardController\u003A\u003Ais_mdi_si\u0028\u0029",
             "name": "is_mdi_si",
-            "summary": "",
+            "summary": "Set\u0020icon\u0020type",
             "url": "classes/MHorwood-Dashboard-controller-DashboardController.html#method_is_mdi_si"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\controller\\DashboardController\u003A\u003Astore_image\u0028\u0029",
             "name": "store_image",
-            "summary": "",
+            "summary": "Store\u0020an\u0020uploaded\u0020image",
             "url": "classes/MHorwood-Dashboard-controller-DashboardController.html#method_store_image"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\controller\\DashboardController\u003A\u003A\u0024html",
@@ -308,52 +298,52 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\application\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Construct\u0020function\nused\u0020to\u0020build\u0020the\u0020object\u0020and\u0020connect\u0020to\u0020the\u0020database",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-application.html#method___construct"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\application\u003A\u003Aget_list\u0028\u0029",
             "name": "get_list",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-application.html#method_get_list"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\application\u003A\u003Aset_sorting\u0028\u0029",
             "name": "set_sorting",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-application.html#method_set_sorting"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\application\u003A\u003Aupdate_application\u0028\u0029",
             "name": "update_application",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-application.html#method_update_application"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\application\u003A\u003Ainsert_application\u0028\u0029",
             "name": "insert_application",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-application.html#method_insert_application"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\application\u003A\u003Adelete_application\u0028\u0029",
             "name": "delete_application",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-application.html#method_delete_application"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\application\u003A\u003Aorder_application\u0028\u0029",
             "name": "order_application",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-application.html#method_order_application"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\application\u003A\u003Astore_docker\u0028\u0029",
             "name": "store_docker",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-application.html#method_store_docker"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\application\u003A\u003Astore_http\u0028\u0029",
             "name": "store_http",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-application.html#method_store_http"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\application\u003A\u003Aremove_http\u0028\u0029",
             "name": "remove_http",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-application.html#method_remove_http"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\application\u003A\u003A\u0024app_list",
@@ -403,52 +393,52 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\bookmark\u003A\u003Aset_sorting\u0028\u0029",
             "name": "set_sorting",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-bookmark.html#method_set_sorting"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\bookmark\u003A\u003Asort_categorys\u0028\u0029",
             "name": "sort_categorys",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-bookmark.html#method_sort_categorys"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\bookmark\u003A\u003Aget_bookmark\u0028\u0029",
             "name": "get_bookmark",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-bookmark.html#method_get_bookmark"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\bookmark\u003A\u003Aget_category_options\u0028\u0029",
             "name": "get_category_options",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-bookmark.html#method_get_category_options"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\bookmark\u003A\u003Aupdate_bookmark\u0028\u0029",
             "name": "update_bookmark",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-bookmark.html#method_update_bookmark"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\bookmark\u003A\u003Ainsert_bookmark\u0028\u0029",
             "name": "insert_bookmark",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-bookmark.html#method_insert_bookmark"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\bookmark\u003A\u003Adelete_bookmark\u0028\u0029",
             "name": "delete_bookmark",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-bookmark.html#method_delete_bookmark"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\bookmark\u003A\u003Aupdate_category\u0028\u0029",
             "name": "update_category",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-bookmark.html#method_update_category"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\bookmark\u003A\u003Ainsert_category\u0028\u0029",
             "name": "insert_category",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-bookmark.html#method_insert_category"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\bookmark\u003A\u003Adelete_category\u0028\u0029",
             "name": "delete_category",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-bookmark.html#method_delete_category"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\bookmark\u003A\u003A\u0024bookmarks_list",
@@ -478,12 +468,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\category\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-category.html#method___construct"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\category\u003A\u003Aget_list\u0028\u0029",
             "name": "get_list",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-category.html#method_get_list"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\category\u003A\u003A\u0024category_list",
@@ -543,17 +533,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\login\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-login.html#method___construct"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\login\u003A\u003AcheckLogin\u0028\u0029",
             "name": "checkLogin",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-login.html#method_checkLogin"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\login\u003A\u003AisUserAuthenticated\u0028\u0029",
             "name": "isUserAuthenticated",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-login.html#method_isUserAuthenticated"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\login\u003A\u003Areset_inactivity_time\u0028\u0029",
@@ -563,37 +553,37 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\login\u003A\u003Aset_path\u0028\u0029",
             "name": "set_path",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-login.html#method_set_path"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\login\u003A\u003Aget_logout\u0028\u0029",
             "name": "get_logout",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-login.html#method_get_logout"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\login\u003A\u003Acookie_hash\u0028\u0029",
             "name": "cookie_hash",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-login.html#method_cookie_hash"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\login\u003A\u003Acookie_logout\u0028\u0029",
             "name": "cookie_logout",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-login.html#method_cookie_logout"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\login\u003A\u003Acookie_duration\u0028\u0029",
             "name": "cookie_duration",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-login.html#method_cookie_duration"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\login\u003A\u003Aoauth\u0028\u0029",
             "name": "oauth",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-login.html#method_oauth"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\login\u003A\u003Aset_http\u0028\u0029",
             "name": "set_http",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-login.html#method_set_http"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\login\u003A\u003A\u0024env_password",
@@ -628,12 +618,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\migrate\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-migrate.html#method___construct"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\migrate\u003A\u003Aset_http\u0028\u0029",
             "name": "set_http",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-migrate.html#method_set_http"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\settings",
@@ -643,52 +633,52 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\settings\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-settings.html#method___construct"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\settings\u003A\u003Aget_settings\u0028\u0029",
             "name": "get_settings",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-settings.html#method_get_settings"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\settings\u003A\u003Aget_oauth\u0028\u0029",
             "name": "get_oauth",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-settings.html#method_get_oauth"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\settings\u003A\u003Aload_css\u0028\u0029",
             "name": "load_css",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-settings.html#method_load_css"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\settings\u003A\u003Aget_themes\u0028\u0029",
             "name": "get_themes",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-settings.html#method_get_themes"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\settings\u003A\u003Asave_settings\u0028\u0029",
             "name": "save_settings",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-settings.html#method_save_settings"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\settings\u003A\u003Agreeting\u0028\u0029",
             "name": "greeting",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-settings.html#method_greeting"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\settings\u003A\u003Aremove_http\u0028\u0029",
             "name": "remove_http",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-settings.html#method_remove_http"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\settings\u003A\u003Astore_http\u0028\u0029",
             "name": "store_http",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-settings.html#method_store_http"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\settings\u003A\u003Aset_http\u0028\u0029",
             "name": "set_http",
-            "summary": "",
+            "summary": "undocumented\u0020function\u0020summary",
             "url": "classes/MHorwood-Dashboard-model-settings.html#method_set_http"
         },                {
             "fqsen": "\\MHorwood\\Dashboard\\model\\settings\u003A\u003A\u0024settings",
