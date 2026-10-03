@@ -23,12 +23,12 @@ class DashboardController{
   public $version;
 
   /**
-   * undocumented function summary
+   * Construct function
    *
-   * Undocumented function long description
+   * populate the object with all the required data
    *
-   * @param type var Description
-   * @return return type
+   * @param string $user_agent The user agent from the browser
+   * @return void
    */
   public function __construct($user_agent){
     $this->version = file_get_contents('../../VERSION');
@@ -62,6 +62,9 @@ class DashboardController{
 
   /**
    * get URL and work out what we have
+   *
+   * @param array $urls The url as an array
+   * @return array Array with what page has been called
    **/
   private function pre_routing($urls){
     $url = array(
@@ -123,6 +126,10 @@ class DashboardController{
 
   /**
   * Routing from index page
+  *
+  * @param string $user_agent The user agent from the browser
+  * @param array $args an array of get and post arguments
+  * @return void
   **/
   public function routing($user_agent,$args){
     $urls = $this->pre_routing($args['URL']);
@@ -300,12 +307,12 @@ class DashboardController{
   }
 
   /**
-   * undocumented function summary
+   * Set icon type
    *
-   * Undocumented function long description
+   * is the icon material design icons (mdi) or simple icons (si)
    *
-   * @param type var Description
-   * @return return type
+   * @param string $icon The icon name
+   * @return string prefix the returned icon
    */
   protected function is_mdi_si($icon){
     if( (strpos($icon, '.jpg') === false) &&
@@ -321,12 +328,11 @@ class DashboardController{
   }
 
   /**
-   * undocumented function summary
+   * Store an uploaded image
    *
-   * Undocumented function long description
+   * use the $_FILE super var to store an image
    *
-   * @param type var Description
-   * @return return type
+   * @return bool if the image was uploaded
    */
   protected function store_image(){
     $target_dir = __DIR__ . '/../../user_data/uploads/';
