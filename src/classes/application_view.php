@@ -52,12 +52,14 @@ class application_view {
   }
 
   /**
-   * undocumented function summary
+   * Show markdown whe curl is used
    *
-   * Undocumented function long description
+   * When the site is curled, dont show HTML
+   * show markdown so that you can click links
    *
-   * @param type var Description
-   * @return return type
+   * @param array $applications the applicastion array
+   * @param bool $logged_in is the request logged in
+   * @return void
    */
   public function build_curl($applications,$logged_in) {
     foreach($applications as $key => $app){
@@ -76,12 +78,12 @@ class application_view {
   }
 
   /**
-   * undocumented function summary
+   * build the mian view grid
    *
    * Undocumented function long description
    *
    * @param type var Description
-   * @return return type
+   * @return string the HTML to display
    */
   public function build_app_grid($applications, $logged_in){
     $app_list = '';
@@ -115,12 +117,12 @@ class application_view {
   }
 
   /**
-   * undocumented function summary
+   * Build the editor table
    *
-   * Undocumented function long description
+   * Build the tabke in the editor
    *
-   * @param type var Description
-   * @return return type
+   * @param array $applications The application array
+   * @return string the HTML to display
    */
   public function build_app_table($applications){
     $app_list = '';
