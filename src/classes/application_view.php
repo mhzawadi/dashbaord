@@ -3,16 +3,36 @@
 namespace MHorwood\Dashboard\classes;
 
 class application_view {
+
+  /**
+   * Remove the protocol from a string
+   * @param string $string the sting to change
+   * @return string the edited string
+   */
   protected function remove_http($string){
     $replace = array('http-', 'https-');
     return str_replace($replace, '', $string);
   }
+
+  /**
+   * Convert the protocol from the database to a URL
+   * @param string $string the sting to change
+   * @return string the edited string
+   */
   protected function set_http($string){
     $replace = array('http-', 'https-');
     $with = array('http://', 'https://');
     return str_replace($replace, $with, $string);
   }
 
+  /**
+   * Remove the protocol from a string
+   * @param int $app_id the id of the app
+   * @param array $app an array with all the app data
+   * @param int $array_id the in in the array
+   * @param string $value not sure I need this
+   * @return array an array to pass to javascript
+   */
   protected function set_js($app_id, $app, $array_id = null, $value = null){
     $js_object[0] = $app_id;
     $js_object[1] = $app['name'];
@@ -32,12 +52,14 @@ class application_view {
   }
 
   /**
-   * undocumented function summary
+   * Show markdown whe curl is used
    *
-   * Undocumented function long description
+   * When the site is curled, dont show HTML
+   * show markdown so that you can click links
    *
-   * @param type var Description
-   * @return return type
+   * @param array $applications the applicastion array
+   * @param bool $logged_in is the request logged in
+   * @return void
    */
   public function build_curl($applications,$logged_in) {
     foreach($applications as $key => $app){
@@ -55,6 +77,15 @@ class application_view {
     echo '---'."\n";
   }
 
+  /**
+   * build the mian view grid
+   *
+   * Undocumented function long description
+   *
+   * @param array $applications the applicastion array
+   * @param bool $logged_in is the request logged in
+   * @return string the HTML to display
+   */
   public function build_app_grid($applications, $logged_in){
     $app_list = '';
     foreach($applications as $key => $app){
@@ -86,6 +117,14 @@ class application_view {
     return $app_list;
   }
 
+  /**
+   * Build the editor table
+   *
+   * Build the tabke in the editor
+   *
+   * @param array $applications The application array
+   * @return string the HTML to display
+   */
   public function build_app_table($applications){
     $app_list = '';
     $app_list .= '<div class="Table_TableContainer__UrXXd">'."\n";

@@ -5,11 +5,29 @@ use MHorwood\Dashboard\classes\bookmark_view;
 use MHorwood\Dashboard\Model\bookmark;
 
 class category_view {
+
   protected $bookmark;
+
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function __construct($bookmarks){
     $this->bookmark = $bookmarks;
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   protected function set_js($category_id, $category, $array_id = null, $value = null){
     $js_object[0] = $category_id;
     $js_object[1] = $category['name'];
@@ -21,32 +39,14 @@ class category_view {
     return implode("','",$js_object);
   }
 
-  public function build_category_option(){
-    $categorys = $this->bookmark->get_list();
-    print_pre($categorys);
-    $category_options = '';
-    foreach($categorys as $key => $category){
-      $category_options .= '<option value="'.$category['id'].'">'.$category['name'].'</option>';
-    }
-    return $category_options;
-  }
-  public function build_category_list($categorys, $link = false){
-    $this->bookmark_view = new bookmark_view;
-    $category_list = '';
-    $category_list .= '<div class="BookmarkGrid_BookmarkGrid__26LlR">';
-    foreach($categorys as $key => $category){
-      $category_list .= '<div class="BookmarkCard_BookmarkCard__1GmHc">'."\n";
-      if($link === true){
-        $category_list .= '  <h3 class="BookmarkCard_BookmarkHeader__112bh"><a href="/bookmarks/'.$category['id'].'">'.$category['name'].'</a></h3>'."\n";
-      }else{
-        $category_list .= '  <h3 class="BookmarkCard_BookmarkHeader__112bh">'.$category['name'].'</h3>'."\n";
-      }
-      $category_list .= $this->bookmark_view->build_bookmark_list(bookmark::factory()->where('categoryId', '=', $category['id']));
-      $category_list .= '</div>'."\n";
-    }
-    $category_list .= '</div>'."\n";
-    return $category_list;
-  }
+  /**
+   * Build the category table
+   *
+   * Build the category table for the editor
+   *
+   * @param array $categories The categorys array
+   * @return strinf The HTML for the editor
+   */
   public function build_category_table($categories){
     $category_list = '';
     $category_list .= '<div class="Table_TableContainer__UrXXd">'."\n";

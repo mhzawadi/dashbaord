@@ -9,6 +9,14 @@ class login {
   protected $path;
   protected $token;
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function __construct(){
     $this->env_password = getenv('PASSWORD');
     $this->env_password_file = getenv('PASSWORD_FILE');
@@ -23,6 +31,14 @@ class login {
     $this->token = crypt($this->env_password, '$5$rounds=5000$'.$_SERVER['SERVER_NAME'].'$');
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function checkLogin($password, $duration = 'P14D') {
 
     # set failed flag to update authFailed table
@@ -44,7 +60,12 @@ class login {
 
 
     /**
-     * print errors
+     * undocumented function summary
+     *
+     * Undocumented function long description
+     *
+     * @param type var Description
+     * @return return type
      */
     if ($authSuccess === false) {
         return '<div style="color: red; text-align: center;font-size: 20px;">'.$authText.'</div>';
@@ -73,63 +94,123 @@ class login {
     return true;
   }
 
-    public function isUserAuthenticated() {
-      // - is `login_time` set
-      // - is `time` more then logout_time (logout and redirect to `settings/app`
-      if(isset($_COOKIE['token']) && hash_equals($this->cookie_hash($_COOKIE['token']), $this->token) ) {
-        if( $_SERVER['REQUEST_URI'] != '/settings/token' && empty($_SESSION['login_time']) ){
-          header("Location: /settings/token");
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
+  public function isUserAuthenticated() {
+    // - is `login_time` set
+    // - is `time` more then logout_time (logout and redirect to `settings/app`
+    if(isset($_COOKIE['token']) && hash_equals($this->cookie_hash($_COOKIE['token']), $this->token) ) {
+      if( $_SERVER['REQUEST_URI'] != '/settings/token' && empty($_SESSION['login_time']) ){
+        header("Location: /settings/token");
+        exit;
+      }else{
+        return true;
+      }
+    }elseif (empty($_SESSION['login_time'])) {
+      return false;
+    } else {
+      if ( time() > $_SESSION['logout_time'] ) {
+        if($_SERVER['REQUEST_URI'] != '/settings/app'){
+          # redirect
+          header("Location: /settings/app");
           exit;
         }else{
-          return true;
+          return false;
         }
-      }elseif (empty($_SESSION['login_time'])) {
-        return false;
-      } else {
-        if ( time() > $_SESSION['logout_time'] ) {
-          if($_SERVER['REQUEST_URI'] != '/settings/app'){
-            # redirect
-            header("Location: /settings/app");
-            exit;
-          }else{
-            return false;
-          }
-        }
-        $this->reset_inactivity_time();
       }
-
-      /* close session */
-      session_write_close();
-      return true;
+      $this->reset_inactivity_time();
     }
 
-    /**
-    * reset inactivity time
-    */
-    protected function reset_inactivity_time() {
-      $_SESSION['lastactive'] = time();
-    }
+    /* close session */
+    session_write_close();
+    return true;
+  }
 
+  /**
+  * reset inactivity time
+  * @return void
+  */
+  protected function reset_inactivity_time() {
+    $_SESSION['lastactive'] = time();
+  }
+
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function set_path($urls){
     $this->path = join('/', $urls);
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function get_logout(){
     return date('l jS \of F Y H:i:s A', $_SESSION['logout_time']);
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   protected function cookie_hash($token){
     $parts = explode(';', $token);
     return $parts[0];
   }
+
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   protected function cookie_logout($token){
     $parts = explode(';', $token);
     return $parts[1];
   }
+
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   protected function cookie_duration($token){
     $parts = explode(';', $token);
     return $parts[2];
   }
+
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function oauth($settings, $duration = 'P14D'){
     $provider = new \League\OAuth2\Client\Provider\GenericProvider([
       'clientId'                => $settings['oauth_client_id'],    // The client ID assigned to you by the provider
@@ -183,6 +264,15 @@ class login {
         exit;
     }
   }
+
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   protected function set_http($string){
     $replace = array('http-', 'https-');
     $with = array('http://', 'https://');

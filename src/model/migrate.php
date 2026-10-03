@@ -6,6 +6,14 @@ use MHorwood\Dashboard\model\bookmark;
 
 class migrate extends json{
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function __construct($sorting){
     $c_application = new application($sorting);
     $c_bookmark = new bookmark($sorting);
@@ -43,6 +51,15 @@ class migrate extends json{
       rename('../../user_data/bookmarks.json', '../../user_data/bookmarks.json.old');
     }
   }
+
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   protected function set_http($string){
     $replace = array('http-', 'https-');
     $with = array('http://', 'https://');

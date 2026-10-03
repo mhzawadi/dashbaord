@@ -4,19 +4,43 @@ use MHorwood\Dashboard\classes\sqlite;
 
 class application extends sqlite {
 
-  protected $app_list;
-  protected $sorting;
+  protected array $app_list;
+  protected string $sorting;
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function __construct($sorting){
     parent::__construct();
     $this->sorting = $sorting;
     $this->app_list = $this->load_from_file('applications', 'apps', $sorting);
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function get_list(){
     return $this->app_list['apps'];
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function set_sorting($sorting){
     $this->sorting = $sorting;
     $sorted = $this->app_list['apps'];
@@ -27,6 +51,14 @@ class application extends sqlite {
     $this->save_to_file('../../user_data/apps.json', $this->app_list);
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function update_application($applicationID, $args){
     $last = count($this->app_list['apps']);
     if(!isset($args['orderId']) || $args['orderId'] == 'none'){
@@ -61,8 +93,13 @@ class application extends sqlite {
     $this->save_to_file($sql, $data);
   }
 
-  /*
+  /**
+   * undocumented function summary
    *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
    */
   public function insert_application($args){
     $last = count($this->app_list['apps']);
@@ -91,11 +128,28 @@ class application extends sqlite {
     $this->save_to_file($sql, $data);
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function delete_application($applicationID){
     $sql = 'DELETE FROM applications WHERE id = :id';
     $data['id'] = $applicationID;
     $this->save_to_file($sql, $data);
   }
+
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function order_application($applications_json){
     $sql = 'UPDATE applications set orderId = ';
     $applications = json_decode($applications_json, true);
@@ -105,6 +159,14 @@ class application extends sqlite {
     $this->save_to_file('../../user_data/apps.json', $this->app_list);
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function store_docker($docker_apps){
     if (is_null($docker_apps)){
       return;
@@ -148,6 +210,14 @@ class application extends sqlite {
     }
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   protected function store_http($string){
     $replace = array('http://', 'https://');
     $with = array('http-', 'https-');
@@ -158,6 +228,14 @@ class application extends sqlite {
     }
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   protected function remove_http($string){
     $replace = array('http://', 'https://', 'http-', 'https-', '://');
     return str_replace($replace, '', $string);

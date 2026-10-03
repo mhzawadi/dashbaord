@@ -22,6 +22,14 @@ class DashboardController{
   protected $uploadOk;
   public $version;
 
+  /**
+   * Construct function
+   *
+   * populate the object with all the required data
+   *
+   * @param string $user_agent The user agent from the browser
+   * @return void
+   */
   public function __construct($user_agent){
     $this->version = file_get_contents('../../VERSION');
     if(!is_dir('../../user_data/uploads')){
@@ -54,6 +62,9 @@ class DashboardController{
 
   /**
    * get URL and work out what we have
+   *
+   * @param array $urls The url as an array
+   * @return array Array with what page has been called
    **/
   private function pre_routing($urls){
     $url = array(
@@ -115,6 +126,10 @@ class DashboardController{
 
   /**
   * Routing from index page
+  *
+  * @param string $user_agent The user agent from the browser
+  * @param array $args an array of get and post arguments
+  * @return void
   **/
   public function routing($user_agent,$args){
     $urls = $this->pre_routing($args['URL']);
@@ -281,7 +296,7 @@ class DashboardController{
         if( (strpos($user_agent, 'curl') !== false) ){
           echo '# '.$this->setting_obj['customTitle']."\n";
           $this->application_view->build_curl($this->application->get_list(), $this->logged_in);
-          $this->bookmark_view->build_curl($this->setting_obj['useOrdering'], false, $this->logged_in);
+          $this->bookmark_view->build_curl($this->setting_obj['useOrdering'], $this->logged_in);
           exit;
         }
         $applications = $this->application_view->build_app_grid($this->application->get_list(), $this->logged_in);
@@ -291,6 +306,14 @@ class DashboardController{
       }
   }
 
+  /**
+   * Set icon type
+   *
+   * is the icon material design icons (mdi) or simple icons (si)
+   *
+   * @param string $icon The icon name
+   * @return string prefix the returned icon
+   */
   protected function is_mdi_si($icon){
     if( (strpos($icon, '.jpg') === false) &&
         (strpos($icon, '.jpeg') === false) &&
@@ -304,6 +327,13 @@ class DashboardController{
     }
   }
 
+  /**
+   * Store an uploaded image
+   *
+   * use the $_FILE super var to store an image
+   *
+   * @return bool if the image was uploaded
+   */
   protected function store_image(){
     $target_dir = __DIR__ . '/../../user_data/uploads/';
     $target_file = $target_dir . basename($_FILES["icon_file"]["name"]);

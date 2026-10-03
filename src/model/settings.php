@@ -7,6 +7,14 @@ class settings extends json{
   protected $themes;
   protected $themes_custom;
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function __construct(){
     if(file_exists('../../user_data/settings.json') === false){
       $this->settings = $this->load_from_file('../../data/settings.json');
@@ -28,13 +36,38 @@ class settings extends json{
     }
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function get_settings(){
     return $this->settings;
   }
+
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function get_oauth(){
     return $this->set_http($this->settings['oauth']);
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function load_css(){
     $filename = "css/custom.css";
     $handle = fopen($filename, "r");
@@ -43,10 +76,26 @@ class settings extends json{
     return $css;
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function get_themes(){
     return array_merge_recursive($this->themes, $this->themes_custom);
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function save_settings($page, $type, $new_settings){
     if(isset($type) && $type == 'edit'){
       switch($page){
@@ -137,6 +186,14 @@ class settings extends json{
     }
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   public function greeting(){
     $settings = $this->get_settings();
     $greetings = explode(';', $settings['greetingsSchema']);
@@ -149,10 +206,27 @@ class settings extends json{
     return $msg;
   }
 
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   protected function remove_http($string){
     $replace = array('http://', 'https://', 'http-', 'https-');
     return str_replace($replace, '', $string);
   }
+
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   protected function store_http($string){
     $replace = array('http://', 'https://');
     $with = array('http-', 'https-');
@@ -162,6 +236,15 @@ class settings extends json{
       return str_replace($replace, $with, $string);
     }
   }
+
+  /**
+   * undocumented function summary
+   *
+   * Undocumented function long description
+   *
+   * @param type var Description
+   * @return return type
+   */
   protected function set_http($string){
     $replace = array('http-', 'https-');
     $with = array('http://', 'https://');
