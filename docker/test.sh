@@ -6,14 +6,14 @@ then
   docker scout cves fs://.
   docker run --rm -t -v "${PWD}":/data cytopia/phplint:latest -i './vendor/*' '*.php' && \
   docker compose -f docker/docker-compose.yml up
-elif [ "$1" == "composer" ]
+elif [ "$1" = "composer" ]
 then
   docker run --rm -it -v '/Users/matt/git/dashbaord:/var/www/html' mhzawadi/dashbaord:dev /usr/local/bin/composer update
   docker compose -f docker/docker-compose.yml up -d
-elif [ "$1" == "docs" ]
+elif [ "$1" = "docs" ]
 then
   docker run --rm -it -v '/Users/matt/git/dashbaord:/var/www/html' mhzawadi/dashbaord:dev vendor/bin/phpdoc run -d . -t docs/api
-elif [ "$1" == "up" ]
+elif [ "$1" = "up" ]
 then
   docker compose -f docker/docker-compose.yml down;
   docker image rm mhzawadi/dashbaord:dev;
