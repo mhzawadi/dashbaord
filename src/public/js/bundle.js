@@ -1,4 +1,5 @@
-function edit_app(id, name, url, cat_public, icon, description, orderId, proto, submit = false){
+// Display edit app modal
+function edit_app(id, name, url, cat_public, icon, description, orderId, proto, submit = 0){
   document.getElementById("applicationID").value = id;
   document.getElementById("applicationOrder").value = orderId;
   document.getElementById("app_name").value = name;
@@ -9,7 +10,7 @@ function edit_app(id, name, url, cat_public, icon, description, orderId, proto, 
   const select = document.getElementById("isPublic");
   select.value = cat_public;
   document.getElementById("btn_app").textContent = "Update Application";
-  if( submit === true ){
+  if( submit === 1 ){
     document.getElementById("frm_app").submit();
   }else{
     openModal("application_modal");
@@ -17,8 +18,9 @@ function edit_app(id, name, url, cat_public, icon, description, orderId, proto, 
 
 }
 
-function app_order(new_order, id, name, url, cat_public, icon, description, old_order){
-  edit_app(id, name, url, cat_public, icon, description, new_order, true);
+// Update app order
+function app_order(new_order, id, name, url, cat_public, icon, description, old_order, proto, app ){
+  edit_app(id, name, url, cat_public, icon, description, new_order, proto, 1);
 }
 
 function delete_application(id){
