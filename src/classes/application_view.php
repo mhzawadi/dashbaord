@@ -120,7 +120,7 @@ class application_view {
   /**
    * Build the editor table
    *
-   * Build the tabke in the editor
+   * Build the table in the editor
    *
    * @param array $applications The application array
    * @return string the HTML to display
