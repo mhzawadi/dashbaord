@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
     <head>
-      <link rel="preload" href="/css/main.min.css.80b2b27546c7c914c3c4d43eaad448f1e4cf921a9c8bca25947c778e9162f820" as="style">
-      <link rel="preload" href="/css/custom.min.css.96f2fe0e5223cb82abc68fdbdc1b74271df35d8841c035168a9dd48e0dd206f7" as="style">
-      <link rel="preload" href="/js/bundle.min.js.a9c4fbd08fd67d0379ae7ab1602703915bd963920ebbc958ae048052a1353db5" as="style">
+      <link rel="preload" href="/css/main.min.80b2b27546c7c914c3c4d43eaad448f1e4cf921a9c8bca25947c778e9162f820.css" as="style">
+      <link rel="preload" href="/css/custom.min.96f2fe0e5223cb82abc68fdbdc1b74271df35d8841c035168a9dd48e0dd206f7.css" as="style">
+      <link rel="preload" href="/js/bundle.min.a9c4fbd08fd67d0379ae7ab1602703915bd963920ebbc958ae048052a1353db5.js" as="style">
       <meta charset="utf-8"/>
       <link rel="icon" href="/icons/favicon.ico"/>
       <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png"/>
@@ -17,8 +17,8 @@
       <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180x180.png"/>
       <meta name="viewport" content="width=device-width,initial-scale=1"/>
       <meta name="description" content="Dashboard - self-hosted startpage for your server"/>
-      <link rel="stylesheet" href="/css/main.min.css.80b2b27546c7c914c3c4d43eaad448f1e4cf921a9c8bca25947c778e9162f820"/>
-      <link rel="stylesheet" href="/css/custom.min.css.96f2fe0e5223cb82abc68fdbdc1b74271df35d8841c035168a9dd48e0dd206f7"/>
+      <link rel="stylesheet" href="/css/main.min.80b2b27546c7c914c3c4d43eaad448f1e4cf921a9c8bca25947c778e9162f820.css.80b2b27546c7c914c3c4d43eaad448f1e4cf921a9c8bca25947c778e9162f820"/>
+      <link rel="stylesheet" href="/css/custom.min.96f2fe0e5223cb82abc68fdbdc1b74271df35d8841c035168a9dd48e0dd206f7.css.96f2fe0e5223cb82abc68fdbdc1b74271df35d8841c035168a9dd48e0dd206f7"/>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <title><?php echo $this->setting_obj['customTitle'];?></title>
     </head>
