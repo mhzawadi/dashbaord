@@ -3,7 +3,7 @@
     <head>
       <link rel="preload" href="/css/main.min.80b2b27546c7c914c3c4d43eaad448f1e4cf921a9c8bca25947c778e9162f820.css" as="style">
       <link rel="preload" href="/css/custom.min.96f2fe0e5223cb82abc68fdbdc1b74271df35d8841c035168a9dd48e0dd206f7.css" as="style">
-      <link rel="preload" href="/js/bundle.min.a9c4fbd08fd67d0379ae7ab1602703915bd963920ebbc958ae048052a1353db5.js" as="style">
+      <link rel="preload" href="/js/bundle.min.a9c4fbd08fd67d0379ae7ab1602703915bd963920ebbc958ae048052a1353db5.js" as="script">
       <meta charset="utf-8"/>
       <link rel="icon" href="/icons/favicon.ico"/>
       <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png"/>
