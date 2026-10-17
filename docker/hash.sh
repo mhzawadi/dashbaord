@@ -12,6 +12,10 @@ do
   then
     sed -I '' "s/${name}/${name}.${SHASUM}/" "./src/view/header.php"
   fi
+  if [ $(grep -q "${name}.${SHASUM}" "./src/view/footer.php";echo $?) -eq 1 ]
+  then
+    sed -I '' "s/${name}/${name}.${SHASUM}/" "./src/view/footer.php"
+  fi
 done
 
 find ./src -name "*.min.css" |
@@ -25,5 +29,9 @@ do
   if [ $(grep -q "${name}.${SHASUM}.css" "./src/view/header.php";echo $?) -eq 1 ]
   then
     sed -I '' "s/${name}/${name}.${SHASUM}/" "./src/view/header.php"
+  fi
+  if [ $(grep -q "${name}.${SHASUM}.css" "./src/view/footer.php";echo $?) -eq 1 ]
+  then
+    sed -I '' "s/${name}/${name}.${SHASUM}/" "./src/view/footer.php"
   fi
 done

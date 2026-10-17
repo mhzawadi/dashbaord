@@ -17,8 +17,8 @@
       <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180x180.png"/>
       <meta name="viewport" content="width=device-width,initial-scale=1"/>
       <meta name="description" content="Dashboard - self-hosted startpage for your server"/>
-      <link rel="stylesheet" href="/css/main.min.80b2b27546c7c914c3c4d43eaad448f1e4cf921a9c8bca25947c778e9162f820.css.80b2b27546c7c914c3c4d43eaad448f1e4cf921a9c8bca25947c778e9162f820"/>
-      <link rel="stylesheet" href="/css/custom.min.96f2fe0e5223cb82abc68fdbdc1b74271df35d8841c035168a9dd48e0dd206f7.css.96f2fe0e5223cb82abc68fdbdc1b74271df35d8841c035168a9dd48e0dd206f7"/>
+      <link rel="stylesheet" href="/css/main.min.80b2b27546c7c914c3c4d43eaad448f1e4cf921a9c8bca25947c778e9162f820.css"/>
+      <link rel="stylesheet" href="/css/custom.min.96f2fe0e5223cb82abc68fdbdc1b74271df35d8841c035168a9dd48e0dd206f7.css"/>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <title><?php echo $this->setting_obj['customTitle'];?></title>
     </head>
