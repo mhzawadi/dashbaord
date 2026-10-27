@@ -297,7 +297,7 @@ a {
   -webkit-justify-content: center;
   justify-content: center;
   -webkit-align-items: center;
-  align-items: center
+  align-items: center;
 }
 
 .Modal_ModalClose__3Cav6 {
@@ -313,48 +313,50 @@ a {
 .Layout_Container__2Hv3J {
   width: 100%;
   padding: 20px;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
 @media (min-width: 769px) {
   .Layout_Container__2Hv3J {
-    width:90%
+    width:90%;
+    padding: 20px;
+    margin: 0 auto;
   }
 }
 
 @media (min-width: 1201px) {
   .Layout_Container__2Hv3J {
-    padding:50px 50px
+    padding:50px 50px;
   }
 }
 
 .Home_SettingsButton__Qvn8C .iconify {
   color: var(--color-background);
-  width: 90%
+  width: 90%;
 }
 
 .ActionIcons_ActionIcons__l3_5q {
   display: -webkit-flex;
-  display: flex
+  display: flex;
 }
 
 .ActionIcons_ActionIcons__l3_5q svg {
-  width: 20px
+  width: 20px;
 }
 
 .ActionIcons_ActionIcons__l3_5q svg:hover {
-  cursor: pointer
+  cursor: pointer;
 }
 
 .Headline_HeadlineTitle__3WjW5 {
   color: var(--color-primary);
-  font-weight: 700
+  font-weight: 700;
 }
 
 .Headline_HeadlineSubtitle__Aon5D {
   color: var(--color-primary);
   margin-bottom: 20px;
-  font-weight: 400
+  font-weight: 400;
 }
 
 .SectionHeadline_SectionHeadline__2gmr_ {
@@ -362,7 +364,7 @@ a {
   color: var(--color-primary);
   font-weight: 900;
   font-size: 20px;
-  margin-bottom: 16px
+  margin-bottom: 16px;
 }
 
 .SettingsHeadline_SettingsHeadline__1VqV- {
@@ -372,7 +374,7 @@ a {
   font-size: 20px;
   font-weight: 500;
   border-bottom: 2px solid var(--color-accent);
-  display: inline-block
+  display: inline-block;
 }
 
 .InputGroup_InputGroup__1Nm_2 {
