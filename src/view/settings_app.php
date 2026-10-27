@@ -7,6 +7,8 @@ require_once('header.php');
 <div class="Settings_Settings__2WEZf">
   <?php require_once('settings_menu.php');?>
   <section>
+    <p id="demo" onclick="set_display()">Click me</p>
+    <hr class="AppDetails_separator__3gemR">
   <?php if($this->logged_in === true) {?>
     <h2 class="SettingsHeadline_SettingsHeadline__1VqV-">Authentication</h2>
     <div>
