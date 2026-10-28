@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
     <head>
-      <link rel="preload" href="/css/main.min.afa6763d4f33bf2188fa7dc5d4e3c95b65037442c0bcb47eb32b79f842a98bc7.css" as="style">
+      <link rel="preload" href="/css/main.min.css" as="style">
       <link rel="preload" href="/css/custom.min.css" as="style">
-      <link rel="preload" href="/js/bundle.min.56f531615b63c575fad6001430757e10682cecdc512d658deb3dc069514ac713.js" as="script">
+      <link rel="preload" href="/js/bundle.min.js" as="script">
       <meta charset="utf-8"/>
       <link rel="icon" href="/icons/favicon.ico"/>
       <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png"/>
@@ -17,8 +17,8 @@
       <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180x180.png"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <meta name="description" content="Dashboard - self-hosted startpage for your server"/>
-      <link rel="stylesheet" href="/css/main.min.afa6763d4f33bf2188fa7dc5d4e3c95b65037442c0bcb47eb32b79f842a98bc7.afa6763d4f33bf2188fa7dc5d4e3c95b65037442c0bcb47eb32b79f842a98bc7.afa6763d4f33bf2188fa7dc5d4e3c95b65037442c0bcb47eb32b79f842a98bc7.afa6763d4f33bf2188fa7dc5d4e3c95b65037442c0bcb47eb32b79f842a98bc7.afa6763d4f33bf2188fa7dc5d4e3c95b65037442c0bcb47eb32b79f842a98bc7.80b2b27546c7c914c3c4d43eaad448f1e4cf921a9c8bca25947c778e9162f820.css"/>
-      <link rel="stylesheet" href="/css/custom.min.96f2fe0e5223cb82abc68fdbdc1b74271df35d8841c035168a9dd48e0dd206f7.css"/>
+      <link rel="stylesheet" href="/css/main.min.css"/>
+      <link rel="stylesheet" href="/css/custom.min.css"/>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <title><?php echo $this->setting_obj['customTitle'];?></title>
     </head>

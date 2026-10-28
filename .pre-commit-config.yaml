@@ -10,9 +10,9 @@ repos:
       - id: end-of-file-fixer
       - id: trailing-whitespace
       - id: detect-private-key
-  - repo: local
-    hooks:
-      - id: hash_js
-        name: Hash JS files
-        entry: ./docker/hash.sh
-        language: unsupported_script
+  # - repo: local
+  #   hooks:
+  #     - id: hash_js
+  #       name: Hash JS files
+  #       entry: ./docker/hash.sh
+  #       language: unsupported_script
