@@ -31,7 +31,6 @@ svg path{
   text-decoration: none;
   box-shadow: 5px 5px 0 #000; /* Bottom shadow for depth */
   transition: transform 0.1s;
-  width: 95%;
   margin-bottom: 20px;
 }
 
@@ -44,7 +43,6 @@ svg path{
   text-decoration: none;
   box-shadow: 5px 5px 0 #000; /* Bottom shadow for depth */
   transition: transform 0.1s;
-  width: 95%;
   margin-bottom: 20px;
 }
 

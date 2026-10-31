@@ -14,5 +14,5 @@ repos:
   #   hooks:
   #     - id: hash_js
   #       name: Hash JS files
-  #       entry: ./docker/hash.sh
+  #       entry: ./docker/version.sh
   #       language: unsupported_script
