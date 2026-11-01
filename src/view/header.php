@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
     <head>
-      <link rel="preload" href="/css/main.min.css?v1.5" as="style">
-      <link rel="preload" href="/css/custom.min.css?v1.5" as="style">
-      <link rel="preload" href="/js/bundle.min.js?v1.5" as="script">
+      <link rel="preload" href="/css/main.min.css?v1.6" as="style">
+      <link rel="preload" href="/css/custom.min.css?v1.6" as="style">
+      <link rel="preload" href="/js/bundle.min.js?v1.6" as="script">
       <meta charset="utf-8"/>
       <link rel="icon" href="/icons/favicon.ico"/>
       <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png"/>
@@ -17,8 +17,8 @@
       <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180x180.png"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <meta name="description" content="Dashboard - self-hosted startpage for your server"/>
-      <link rel="stylesheet" href="/css/main.min.css?v1.5"/>
-      <link rel="stylesheet" href="/css/custom.min.css?v1.5"/>
+      <link rel="stylesheet" href="/css/main.min.css?v1.6"/>
+      <link rel="stylesheet" href="/css/custom.min.css?v1.6"/>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <title><?php echo $this->setting_obj['customTitle'];?></title>
     </head>

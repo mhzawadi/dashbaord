@@ -567,6 +567,7 @@ a {
   display: grid;
   grid-template-columns: repeat(auto-fill, 275px);
   gap: 20px 10px;
+  margin-bottom: 3em;
 }
 
 @media (max-width: 500px) {
