@@ -315,12 +315,6 @@ a {
   margin: 5px auto;
 }
 
-@media (max-width: 769px) {
-  .Layout_Container__2Hv3J {
-    width:90%;
-  }
-}
-
 @media (min-width: 1200px) {
   .Layout_Container__2Hv3J {
     width:92%;
@@ -571,29 +565,15 @@ a {
 
 .AppGrid_AppGrid__33iLW {
   display: grid;
-  grid-template-columns: repeat(1,1fr);
-  grid-column-gap: 20px;
+  grid-template-columns: repeat(auto-fill, 275px);
+  gap: 20px 10px;
 }
 
-@media (min-width: 430px) {
+@media (max-width: 500px) {
   .AppGrid_AppGrid__33iLW {
-    grid-template-columns:repeat(2,1fr);
-    grid-column-gap: 20px;
-  }
-}
-
-@media (min-width: 800px) {
-  .AppGrid_AppGrid__33iLW {
-    grid-template-columns:repeat(3,1fr);
-    grid-column-gap: 10px;
-  }
-}
-
-@media (min-width: 1250px) {
-  .AppGrid_AppGrid__33iLW {
-
-    grid-template-columns:repeat(4,1fr);
-    grid-column-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 99%);
+    gap: 20px 10px;
   }
 }
 
@@ -602,7 +582,6 @@ a {
   display: flex;
   -webkit-align-items: center;
   align-items: center;
-  margin-bottom: 20px;
 }
 
 .AppCard_AppCardIcon__8ZZTq {
@@ -620,6 +599,11 @@ a {
   font-weight: 500;
   color: var(--color-primary);
   margin-bottom: -4px;
+}
+@media (max-width: 500px) {
+  .AppCard_AppCardDetails__tbAhY h5 {
+    font-size: 1.5em;
+  }
 }
 
 .AppCard_AppCardDetails__tbAhY span {
@@ -652,33 +636,15 @@ a {
 
 .BookmarkGrid_BookmarkGrid__26LlR {
   display: grid;
-  grid-template-columns: repeat(1,1fr);
-  grid-column-gap: 10px;
+  grid-template-columns: repeat(auto-fill, 419px);
+  gap: 30px 10px;
 }
 
-@media (min-width: 430px) {
+@media (max-width: 500px) {
   .BookmarkGrid_BookmarkGrid__26LlR {
-    grid-template-columns:repeat(2,1fr);
-    grid-column-gap: 10px;
+    grid-template-columns:repeat(auto-fill, 99%);
+    gap: 30px 10px;
   }
-}
-
-@media (min-width: 670px) {
-  .BookmarkGrid_BookmarkGrid__26LlR {
-    grid-template-columns:repeat(3,1fr);
-    grid-column-gap: 10px;
-  }
-}
-
-@media (min-width: 1250px) {
-  .BookmarkGrid_BookmarkGrid__26LlR {
-    grid-template-columns:repeat(4,1fr);
-    grid-column-gap: 10px;
-  }
-}
-
-.BookmarkCard_BookmarkCard__1GmHc {
-  margin-bottom: 30px;
 }
 
 .BookmarkCard_BookmarkCard__1GmHc h3 {
@@ -1016,19 +982,6 @@ a {
   padding: 20px;
   margin: 0 auto;
 }
-
-/* .Container {
-  width: 60%;
-  margin: 0 auto;
-  padding: 20px;
-  padding-top: 20px;
-} */
-
-/* 320px — 480px: Mobile devices.
-481px — 768px: iPads, Tablets.
-769px — 1024px: Small screens, laptops.
-1025px — 1200px: Desktops, large screens.
-1201px and more — Extra large screens, TV. */
 
 @media (min-width: 769px) {
   .Container {
