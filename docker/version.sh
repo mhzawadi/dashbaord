@@ -6,15 +6,17 @@ for FILE in "$@"; do
   then
     echo "this file has changed ${FILE}"
     SHA=$(sha256sum --quiet ${FILE})
-    if [ $(grep -q "${SHA}" HASH;echo $?) -eq 1  ]
+    OLDSHA=$(grep "${FILE}" ./HASH | awk -F '=' '{print $2}')
+    if [ "$OLDSHA" != "$SHA" ]
     then
       echo "hash changed on file ${FILE}"
-      sed -I '' "s!^${FILE}.*!${FILE}=${SHA}!" HASH
+      sed -I '' "s/${OLDSHA}/${SHA}/" ./HASH
       RUN=1
     fi
   fi
 done
 
+echo "$RUN"
 if [ $RUN -eq 1 ]
 then
   VER=$(cat ./CSS_VER)
