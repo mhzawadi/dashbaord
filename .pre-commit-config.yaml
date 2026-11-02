@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/mhzawadi/docker-minify
-    rev: v0.0.8
+    rev: v0.0.9
     hooks:
       - id: minify-css-js
 
@@ -14,5 +14,5 @@ repos:
     hooks:
       - id: hash_js
         name: Hash JS files
-        entry: ./docker/hash.sh
+        entry: ./docker/version.sh
         language: unsupported_script
