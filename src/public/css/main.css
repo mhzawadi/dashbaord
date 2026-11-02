@@ -637,7 +637,7 @@ a {
 
 .BookmarkGrid_BookmarkGrid__26LlR {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 419px);
+  grid-template-columns: repeat(auto-fill, 275px);
   gap: 30px 10px;
 }
 
