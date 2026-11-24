@@ -2,6 +2,7 @@ name: build latest image
 
 on:
   workflow_dispatch:
+    types: [php_update]
   push:
     branches: main
 

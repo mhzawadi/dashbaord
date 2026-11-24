@@ -1,3 +1,11 @@
+function set_display(){
+  var w = window.innerWidth;
+  var h = window.innerHeight;
+
+  var x = document.getElementById("demo");
+  x.innerHTML = "Browser width: " + w + ", height: " + h + ".";
+}
+
 // Display edit app modal
 function edit_app(id, name, url, cat_public, icon, description, orderId, proto, submit = 0){
   document.getElementById("applicationID").value = id;
