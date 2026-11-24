@@ -1,6 +1,77 @@
 # Changelog
 
 
+## v0.1.6 (2026-11-24)
+
+### Other
+
+* 0.1.6 (#174) [Matthew Horwood]
+
+  * DASHB-10/Fix app width
+
+  chor: add code to get screen size
+  chor: use raw script
+  chor: fix ups
+  chor: drop hash
+  feat: fix site widths
+  bug: rename hash to version
+  chor: make version set css/js file versions
+  feat: use version flag to bust cache
+  chor: make version check only run if changes to css or JS
+  feat: use auto-fill to set the column count
+  chor: set both apps and bookmarks
+  bug: use HASH file to check for changes
+  bug: fix version to only run on hash change
+  chor: fix spacing
+  chor: make bookmarks as wide as apps
+  dependancy update
+  feat: run workflow from curl
+
+
+## v0.1.5 (2026-10-22)
+
+### Other
+
+* 0.1.5 (#173) [Matthew Horwood]
+
+  * DOCKE-2/Update PHP
+
+  feat: bump alpine
+
+  * DOCKE-2/Update PHP
+
+  chor: update jwt
+
+  * DOCKE-2/Update PHP
+
+  bug: update lock
+
+  * DOCKE-2/Update PHP
+
+  bug: update version
+
+
+## v0.1.4 (2026-10-17)
+
+### Documentation
+
+*  update CHANGELOG.md. [github-actions]
+
+### Other
+
+* DASHB-9/Fix app ordering (#170) [Matthew Horwood]
+
+  * DASHB-9/Fix app ordering
+
+  chor: dependacy updates
+  bug: fix app ordering
+  feat: cache dusting files
+  bug: fix hashed file name
+  bug: fix the footer
+  bug: wring type
+  chor: reenable hash
+
+
 ## v0.1.3 (2026-10-03)
 
 ### New
