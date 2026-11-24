@@ -3,7 +3,7 @@ name: build tagged image
 on:
   workflow_dispatch:
   repository_dispatch:
-    types: [php_update]
+    types: [php_update_version]
 
 jobs:
   build:
